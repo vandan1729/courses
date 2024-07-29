@@ -1,0 +1,85 @@
+.instructorCardDataContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.instructorCardDataContainer h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.instructorCardDataContainer span {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.instructorCardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}
+
+.instructorCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    margin: 10px;
+    max-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.instructorCardImg {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .instructorCardDataContainer {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .instructorCardDataContainer h3 {
+        font-size: 1.25rem;
+    }
+
+    .instructorCardDataContainer span {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .instructorCard {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructorCardDataContainer {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .instructorCardDataContainer h3 {
+        font-size: 1rem;
+    }
+
+    .instructorCardDataContainer span {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .instructorCard {
+        max-width: 100%;
+    }
+}

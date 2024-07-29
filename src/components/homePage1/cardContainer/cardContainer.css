@@ -1,0 +1,142 @@
+.studio-card {
+    padding: 20px 50px;
+}
+
+.studio-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.studio-card span {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    color: #666;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Card styling */
+.card {
+    width: 100%;
+    max-width: 320px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 23px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding-left: 5px;
+}
+
+.card-content h4 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.card-author {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-description {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card-rating {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #f39c12;
+}
+
+.card-price {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+@media (max-width: 768px) {
+    .studio-card {
+        padding: 20px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .studio-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .studio-card span {
+        font-size: 0.9rem;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .card-content h4 {
+        font-size: 0.9rem;
+    }
+
+    .card-author,
+    .card-description,
+    .card-rating,
+    .card-price {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .studio-card {
+        padding: 20px 15px;
+    }
+
+    .studio-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .studio-card span {
+        font-size: 0.8rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card-content h4 {
+        font-size: 0.8rem;
+    }
+
+    .card-author,
+    .card-description,
+    .card-rating,
+    .card-price {
+        font-size: 0.8rem;
+    }
+}
