@@ -1,8 +1,7 @@
 .subscribe-banner {
     display: flex;
-    flex-direction: column;
-    width: 50rem;
-    background-color: #007BFF;
+    /* flex-direction: column; */
+    width: 70rem;
     padding: 20px;
     margin: 5rem auto;
     border-radius: 10px;
@@ -10,6 +9,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    background-image: url('public/homePage1/subscribe/subscribe.png');
+   background-repeat: no-repeat;
+   background-position: top right;
+
 }
 
 .subscribe-text {

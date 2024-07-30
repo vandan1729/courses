@@ -1,11 +1,13 @@
 import { IoIosSearch } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import logo from '/public/logo.png'
 import "./navbar1.css";
 
 function Navbar1() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
+        <img src={logo} alt="Logo" />
         <span>My Course.io</span>
       </div>
       <div className="navbar-search">

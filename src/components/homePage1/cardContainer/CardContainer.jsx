@@ -10,17 +10,17 @@ function CardContainer({ header, heading, data }) {
       <div className="cards-container">
         {data?.map((item, index) => (
           <div className="card" key={index}>
-            <img src={item.cardImg} alt="Card Img" className="card-img" />
+            <img src={item?.cardImg} alt="Card Img" className="card-img" />
             <div className="card-content">
-              <h4>{item.cardContent}</h4>
+              <h4>{item?.cardContent}</h4>
               <p className="card-author">
-                <IoPersonOutline /> {item.cardAuthor}
+                <IoPersonOutline /> {item?.cardAuthor}
               </p>
-              <p className="card-description">{item.cardDescription}</p>
+              <p className="card-description">{item?.cardDescription}</p>
               <p className="card-rating">
-                {item.cardRating}
+                {item?.cardRating}
               </p>
-              <p className="card-price">{item.cardPrice}</p>
+              <p className="card-price">{item?.cardPrice}</p>
             </div>
           </div>
         ))}

@@ -1,11 +1,18 @@
 import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
-import './footer.css';
+import logo from '/public/logo.png'
+import './homeFooter.css';
 
-function Footer() {
+function HomeFooter() {
   return (
     <footer className="footer">
       <div className="footer-section">
+
+        <div className="footer-logo">
+        <img src={logo} alt="logo"/>
         <h2>MyCourse.io</h2>
+        </div>
+        
+        
       </div>
       <div className="footer-section">
         <h4>Courses</h4>
@@ -44,4 +51,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default HomeFooter;

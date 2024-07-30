@@ -14,6 +14,12 @@
     margin: 10px;
 }
 
+.footer-section img {
+    width: 45px;
+    margin-right: 5px;
+
+}
+
 .footer-section h2,
 .footer-section h4 {
     margin-bottom: 10px;
@@ -54,7 +60,10 @@
 .social-icons svg:hover {
     color: #3498db;
 }
-
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
 @media (max-width: 768px) {
     .footer {
         flex-direction: column;

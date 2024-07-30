@@ -5,9 +5,18 @@
     padding: 10px 20px;
 }
 
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
 .navbar-logo span {
+    margin-left: 4px;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.navbar-logo img {
+    width: 45px;
 }
 
 .navbar-search {
