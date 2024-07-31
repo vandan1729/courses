@@ -1,11 +1,11 @@
-import Navbar2 from "./navbar2/Navbar2";
-import KitaniStudioCard from "../homePage1/kitani_Studio/KitaniStudioCard";
-import TrendingCourse from "../homePage1/trendingCourse/TrendingCourse";
-import PopularInstructor from "../homePage1/popular_Instructor/PopularInstructor";
-import SubscribeCard from "../homePage1/subscribeCard/SubscribeCard";
-import Categories from "../homePage1/categories/Categories";
-import CourseData from "./course_Card_Data/CourseData";
-import HomeFooter from "../homePage1/footer/HomeFooter";
+import Navbar2 from "./Navbar2";
+import KitaniStudioCard from "/src/components/homePage1/KitaniStudioCard";
+import TrendingCourse from "/src/components/homePage1/TrendingCourse";
+import PopularInstructor from "/src/components/homePage1/PopularInstructor";
+import SubscribeCard from "/src/components/homePage1/SubscribeCard";
+import Categories from "/src/components/homePage1/Categories";
+import CourseData from "./CourseData";
+import HomeFooter from "/src/components/commanComponents/FooterComponent";
 
 function HomePage2() {
   return (

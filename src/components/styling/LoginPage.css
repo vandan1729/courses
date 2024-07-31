@@ -1,0 +1,133 @@
+/* loginPage.css */
+
+.mainDiv {
+    display: flex;
+    width: fit-content;
+    height: 100vh;
+    margin-left: 5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.loginPageImg {
+    width: 28%;
+}
+
+.loginPageImg img {
+    width: 100%;
+    /* height: auto; */
+}
+
+.loginPageLogo {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.loginPageLogo img {
+    width: 32px;
+    margin-right: 8px;
+    /* Space between logo and text */
+}
+
+.loginPageText {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.loginPageInputs {
+    padding: 25px;
+    width: fit-content;
+    background-color: #e5cfdc;
+}
+
+.loginPageTextInput {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 20px;
+}
+
+.loginPageTextInput input {
+    width: 20rem;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.loginPageLoginBtn {
+    width: 20rem;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.loginPageLoginBtn:hover {
+    background-color: #0056b3;
+}
+
+.loginPageBtnGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.loginPageBtnGroup button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.loginPageFbBtn {
+    background-color: #3b5998;
+    color: white;
+}
+
+.loginPageFbBtn:hover {
+    background-color: #2d4373;
+}
+
+.loginPageAppBtn {
+    background-color: #000000;
+    color: white;
+}
+
+.loginPageAppBtn:hover {
+    background-color: #333333;
+}
+
+.loginPageGoogleBtn {
+    background-color: #db4437;
+    color: white;
+}
+
+.loginPageGoogleBtn:hover {
+    background-color: #c1351d;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+span:last-of-type {
+    margin-top: 20px;
+    font-size: 16px;
+}

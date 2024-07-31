@@ -1,0 +1,102 @@
+.navbar2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F4D876;
+}
+
+.navbar2Logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar2Logo span {
+    margin-left: 4px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar2Logo img {
+    width: 45px;
+}
+
+.navbar2Search {
+    display: flex;
+    align-items: center;
+}
+
+.navbar2Search input {
+    height: 30px;
+    width: 400px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 15px 0 0 15px;
+    border-right: none;
+}
+
+.navbar2Search input:focus {
+    outline: none;
+}
+
+.navbar2SearchIcon {
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.navbar2Menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.navbar2CartIcon {
+    margin-top: 0.5rem;
+    font-size: 22px;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown2Toggle {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    margin-left: 5rem;
+    width: 8rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dropdown2Menu {
+    position: absolute;
+    width: fit-content;
+    top: 100%;
+    left: 35%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown2Item {
+    padding: 10px;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.dropdown2Item:hover {
+    background: #f0f0f0;
+}

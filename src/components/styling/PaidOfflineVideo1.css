@@ -1,0 +1,159 @@
+/* paidOfflineVideo1.css */
+
+.paidOfflineVideo {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.courseDetails {
+  width: 50%;
+}
+
+.courseDetails img {
+  max-width: 100%;
+  height: auto;
+}
+
+.dropdownSection {
+  display: flex;
+}
+
+.dropdownGroup {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownToggle {
+  margin-top: 5px;
+  width: 350px;
+  background-color: #f4f4f4;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdownMenu {
+  list-style: none;
+  width: 350px;
+  padding: 0;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  position: relative;
+  left: 19%;
+  top: 10%;
+}
+
+.dropdownItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: #e9ecef;
+}
+
+.courseInfo {
+  display: flex;
+  padding: 40px 150px;
+  gap: 20px;
+}
+
+.courseImage img {
+  width: 20rem;
+  margin-left: 10px;
+}
+
+.courseSummary {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.courseThumbnail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.courseCreator {
+  display: flex;
+  align-items: center;
+}
+
+.courseCreator img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.courseCreatorText {
+  flex: 1;
+}
+
+.courseCreatorText p:first-child {
+  font-size: 23px;
+  color: #3DCBB1;
+  font-weight: 600;
+}
+
+.courseStats {
+  font-size: 20px;
+}
+
+.courseStatsSpan {
+  margin: 10px;
+}
+
+.courseDescription h4,
+.courseReviews h4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.courseDescription {
+  margin-right: 50px;
+  text-align: justify;
+}
+
+.reviewItemContainer img {
+  padding-right: 10px;
+}
+
+.reviewItemContainer {
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.reviewContent {
+  font-size: 20px;
+}
+
+.reviewContent p:first-child {
+  color: #3DCBB1;
+  font-weight: 600;
+}
+
+.loadMoreReviews {
+  margin: auto;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loadMoreReviews:hover {
+  border: 1px solid #3DCBB1;
+  color: #3DCBB1;
+}

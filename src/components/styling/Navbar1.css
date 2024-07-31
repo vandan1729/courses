@@ -1,0 +1,87 @@
+/* navbar1.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbarLogo {
+    display: flex;
+    align-items: center;
+}
+
+.navbarLogo span {
+    margin-left: 4px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbarLogo img {
+    width: 45px;
+}
+
+.navbarSearch {
+    display: flex;
+    align-items: center;
+}
+
+.navbarSearch input {
+    height: 30px;
+    width: 400px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 15px 0 0 15px;
+    border-right: none;
+}
+
+.navbarSearch input:focus {
+    outline: none;
+}
+
+.navbarSearchIcon {
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+}
+
+.navbarMenu {
+    display: flex;
+    align-items: center;
+}
+
+.navbarItem {
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.navbarCartIcon {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+button {
+    padding: 5px 15px;
+    margin-left: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.navbarLoginBtn {
+    color: #000;
+}
+
+.navbarSignUpBtn {
+    background-color: #3DCBB1;
+    color: #FFFFFF;
+}

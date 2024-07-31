@@ -1,0 +1,26 @@
+.recommendationsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #FFEC8A;
+    height: 171px;
+    margin-top: 3rem;
+}
+
+.recommendationsDiv p {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.recommendationsDiv button {
+    margin-top: 1rem;
+    padding: 11px 20px;
+    background-color: #FFEC8A;
+    border: 1px solid black;
+}
+
+.recommendationsDiv button:hover {
+    background-color: #ebd256;
+    border: 1px solid black;
+}

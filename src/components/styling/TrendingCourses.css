@@ -1,0 +1,108 @@
+.trendingCoursesContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 20px;
+    margin-left: 10rem;
+}
+
+.trendingCoursesContainer h2 {
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.largeImgContainer {
+    flex: 1;
+    min-width: 300px;
+}
+
+.largeImg {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.courseCardsContainer {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.courseCard {
+    width: calc(40% - 20px);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.courseCardImg {
+    width: 100%;
+    height: auto;
+}
+
+.courseCardContent {
+    padding: 10px;
+}
+
+.courseCardContent h4 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.courseCardAuthor {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.courseCardDescription {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.courseCardRating {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #f39c12;
+}
+
+.courseCardPrice {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+@media (max-width: 768px) {
+    .trendingCoursesContent {
+        flex-direction: column;
+    }
+
+    .courseCard {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .courseCardContent h4,
+    .courseCardAuthor,
+    .courseCardDescription,
+    .courseCardRating,
+    .courseCardPrice {
+        font-size: 0.8rem;
+    }
+}
