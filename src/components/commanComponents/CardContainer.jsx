@@ -14,13 +14,12 @@ function CardContainer({ header, heading, data }) {
             <div className="cardContent">
               <h4>{item?.cardContent}</h4>
               <p className="cardAuthor">
-                <IoPersonOutline /> {item?.cardAuthor}
+                <IoPersonOutline />
+                <p>{item?.cardAuthor}</p>
               </p>
               <p className="cardDescription">{item?.cardDescription}</p>
-              <p className="cardRating">
-                {item?.cardRating}
-              </p>
-              <p className="cardPrice">{item?.cardPrice}</p>
+              <p className="cardRating">{item?.cardRating}</p>
+              <p className="cardNewPrice">{item?.cardNewPrice}<p className="cardOldPrice">{item?.cardOldPrice}</p></p>
             </div>
           </div>
         ))}

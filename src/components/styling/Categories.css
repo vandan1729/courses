@@ -1,15 +1,26 @@
 .categoriesText {
+    height: 37px;
     margin-top: 3rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 20px 50px;
 }
 
 .categoriesSpan {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 37px;
+    font-size: 14px;
     border: 2px solid #d4cdcd;
-    border-radius: 15px;
-    padding: 10px;
-    margin-right: 25px;
+    border-radius: 12px;
+    padding: 0px 25px;
+}
+
+.categoriesSpan:nth-child(1) {
+    border: 2px solid #3DCBB1;
+    color: #3DCBB1;
+    cursor: pointer;
 }
 
 .categoriesSpan:hover {

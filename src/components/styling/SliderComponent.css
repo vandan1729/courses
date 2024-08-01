@@ -1,8 +1,8 @@
 .slider {
     position: relative;
-    width: 80%;
-    height: 400px;
-    margin: auto;
+    /* width: 1203px; */
+    height: 424px;
+    margin: 20px 50px;
     margin-top: 1rem;
     overflow: hidden;
     border-radius: 18px;

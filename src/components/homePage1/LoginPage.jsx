@@ -1,5 +1,7 @@
 import profilePic from "/src/assets/homePage1/loginPage/loginPage.png";
 import logo from "/src/assets/logo.png";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlineLock } from "react-icons/md";
 import "/src/components/styling/LoginPage.css";
 
 function LoginPage() {
@@ -20,12 +22,12 @@ function LoginPage() {
           </span>
 
           <div className="loginPageTextInput">
-            <input type="text" placeholder="Email Address" />
-            <input type="text" placeholder="Password" />
+            <input type="text" placeholder="Email Address" /> <MdOutlineEmail className="emailicon"/>
+            <input type="text" placeholder="Password" /> <MdOutlineLock className="lockIcon"/>
             <button className="loginPageLoginBtn">Login</button>
           </div>
 
-          <span>or you can</span>
+          <span className="orYouCanSPan">or you can</span>
 
           <div className="loginPageBtnGroup">
             <button className="loginPageFbBtn">Continue with Facebook</button>
@@ -33,7 +35,7 @@ function LoginPage() {
             <button className="loginPageGoogleBtn">Continue with Google</button>
           </div>
 
-          <span>Need an Account?</span>
+          <span className="needAnAccountSpan">Need an Account ? <span className="signUpSpan">Sign Up</span></span>
         </div>
       </div>
     </>

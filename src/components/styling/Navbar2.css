@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #F4D876;
+    padding: 20px 70px;
+    box-shadow: 1px 2px rgb(239, 237, 237);
 }
 
 .navbar2Logo {
@@ -13,7 +13,7 @@
 
 .navbar2Logo span {
     margin-left: 4px;
-    font-size: 1.5rem;
+    font-size: 23px;
     font-weight: bold;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .navbar2Search input {
-    height: 30px;
+    height: 37px;
     width: 400px;
     padding: 5px 10px;
     font-size: 1rem;
@@ -41,8 +41,8 @@
 }
 
 .navbar2SearchIcon {
-    height: 30px;
-    font-size: 20px;
+    height: 37px;
+    font-size: 23px;
     padding: 5px;
     border: 1px solid #ccc;
     border-left: none;
@@ -55,12 +55,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 15px;
+}
+.navbar2CartEmojiIcon {
+    font-size: 25px;
 }
 
+.navbar2Item {
+    display: contents;
+    font-size: 18px;
+}
 .navbar2CartIcon {
+    height: 24px;
+    width: 24px;
     margin-top: 0.5rem;
-    font-size: 22px;
 }
 
 .dropdown2 {
@@ -69,8 +77,11 @@
 }
 
 .dropdown2Toggle {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    gap: 4px;
     margin-left: 5rem;
     width: 8rem;
     cursor: pointer;
@@ -79,11 +90,10 @@
 
 .dropdown2Menu {
     position: absolute;
-    width: fit-content;
+    width: 220px;
     top: 100%;
     left: 35%;
     background: #fff;
-    border: 1px solid #ddd;
     border-radius: 4px;
     list-style: none;
     margin: 0;
@@ -97,6 +107,3 @@
     margin: 1rem;
 }
 
-.dropdown2Item:hover {
-    background: #f0f0f0;
-}

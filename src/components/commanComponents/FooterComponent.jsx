@@ -5,6 +5,7 @@ import "/src/components/styling/FooterComponent.css";
 function FooterComponent() {
   return (
     <footer className="footer">
+      <div className="footerUpperSection">
       <div className="footerSection">
         <div className="footerLogo">
           <img src={logo} alt="logo" />
@@ -12,7 +13,6 @@ function FooterComponent() {
         </div>
       </div>
       <div className="footerSection">
-        <h4>Courses</h4>
         <ul>
           <li>Web Programming</li>
           <li>Mobile Programming</li>
@@ -21,7 +21,6 @@ function FooterComponent() {
         </ul>
       </div>
       <div className="footerSection">
-        <h4>Design</h4>
         <ul>
           <li>Adobe Illustrator</li>
           <li>Adobe Photoshop</li>
@@ -29,12 +28,12 @@ function FooterComponent() {
         </ul>
       </div>
       <div className="footerSection">
-        <h4>Other</h4>
         <ul>
           <li>Writing Course</li>
           <li>Photography</li>
           <li>Video Making</li>
         </ul>
+      </div>
       </div>
       <div className="footerBottom">
         <span>Copyright © MyCourse.io 2024. All Rights Reserved</span>

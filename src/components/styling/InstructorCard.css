@@ -1,10 +1,6 @@
 .instructorCardDataContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 20px 70px;
+    height: 478px;
 }
 
 .instructorCardDataContainer h3 {
@@ -22,26 +18,18 @@
 
 .instructorCardsContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    border-radius: 20px;
 }
 
 .instructorCard {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    margin: 10px;
-    max-width: 300px;
-    width: 100%;
+    width: 330px;
+    height: 400px;
     box-sizing: border-box;
 }
 
 .instructorCardImg {
     width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
 }
 
 @media (max-width: 768px) {

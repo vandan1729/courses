@@ -9,10 +9,11 @@ import profile2 from "/src/assets/homePage1/paidOfflineVideo/profile2.png";
 import profile3 from "/src/assets/homePage1/paidOfflineVideo/profile3.png";
 import profile4 from "/src/assets/homePage1/paidOfflineVideo/profile4.png";
 import { BsPeople } from "react-icons/bs";
-import { MdOutlineRateReview } from "react-icons/md";
+import { MdOutlineRateReview, MdSlowMotionVideo } from "react-icons/md";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "../styling/PaidOfflineVideo1.css";
-import Navbar1 from "./Navbar1";
 import FooterComponent from "../commanComponents/FooterComponent";
+import Navbar2 from "../homePage2/Navbar2";
 
 const dropDownCourseLi = [
   "Installing Vue JS",
@@ -58,41 +59,80 @@ function PaidOfflineVideo1() {
 
   return (
     <>
-      <Navbar1 />
+      <Navbar2 />
       <div className="paidOfflineVideo">
         <div className="courseDetails">
           <img src={img1} alt="Video" />
         </div>
-        <div className="dropdownSection">
-          <div className="dropdownGroup">
-            <button
-              onClick={() => toggleDropdown("chapter1")}
-              className="dropdownToggle"
-            >
-              Chapter 1: Course Overview{" "}
-              {openChapter === "chapter1" ? "⬇️" : "⬆️"}
-            </button>
-            <button
-              onClick={() => toggleDropdown("chapter2")}
-              className="dropdownToggle"
-            >
-              Chapter 2: Curriculum {openChapter === "chapter2" ? "⬇️" : "⬆️"}
-            </button>
-            {openChapter === "chapter2" && (
-              <ul className="dropdownMenu">
-                {dropDownCourseLi.map((item) => (
-                  <li key={item} className="dropdownItem">
+
+        <div className="dropdownGroup">
+          <div className="dropdownToggle">
+            <div className="dropdownToggleSpanDiv">
+              <span className="dropdownChapterNameSpan">
+                Chapter 1: Course Overview
+              </span>
+              <span className="dropdownVideoSpan">
+                1/12 Videos{" "}
+                <span className="dropdownTimeSpan">
+                  <span className="dropdownTimeSpanDot"></span>28m
+                </span>
+              </span>
+            </div>
+            {openChapter === "chapter1" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+          </div>
+
+          <div
+            onClick={() => toggleDropdown("chapter2")}
+            className="dropdownToggle"
+            aria-expanded={openChapter === "chapter2"}
+            aria-controls="dropdown-chapter2"
+          >
+            <div className="dropdownToggleSpanDiv">
+              <span className="dropdownChapterNameSpan">
+                Chapter 2: Curriculum
+              </span>
+              <span className="dropdownVideoSpan">
+                1/12 Videos{" "}
+                <span className="dropdownTimeSpan">
+                  <span className="dropdownTimeSpanDot"></span>28m
+                </span>
+              </span>
+            </div>
+            {openChapter === "chapter2" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+          </div>
+          {openChapter === "chapter2" && (
+            <ul id="dropdown-chapter2" className="dropdownMenu">
+              {dropDownCourseLi.map((item) => (
+                <li key={item} className="dropdownItem">
+                  <span className="dropdownItemSpan">
                     {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <button
-              onClick={() => toggleDropdown("chapter3")}
-              className="dropdownToggle"
-            >
-              Chapter 3: Components {openChapter === "chapter3" ? "⬇️" : "⬆️"}
-            </button>
+                    <span className="dropdownItemSpanIcon">
+                      <MdSlowMotionVideo />{" "}
+                      <span className="dropdownItemSpanText"> 10m</span>
+                    </span>
+                  </span>
+                  <div className="dropdownItemBtn">
+                    <button className="dropdownItemBtnCom">Completed</button>
+                    <button className="dropdownItemBtnPly">Playing</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div className="dropdownToggle">
+            <div className="dropdownToggleSpanDiv">
+              <span className="dropdownChapterNameSpan">
+                Chapter 3: Components
+              </span>
+              <span className="dropdownVideoSpan">
+                1/12 Videos{" "}
+                <span className="dropdownTimeSpan">
+                  <span className="dropdownTimeSpanDot"></span>28m
+                </span>
+              </span>
+            </div>
+            {openChapter === "chapter3" ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </div>
         </div>
       </div>
@@ -100,7 +140,6 @@ function PaidOfflineVideo1() {
       <div className="courseInfo">
         <div className="courseSummary">
           <h2>Vue JS Scratch Course</h2>
-
           <div className="courseThumbnail">
             <div className="courseCreator">
               <img src={img3} alt="Thumbnail" />
@@ -111,14 +150,19 @@ function PaidOfflineVideo1() {
             </div>
             <div className="courseStats">
               <span className="courseStatsSpan">
-                <BsPeople /> 2.3K
+                <p className="courseStatsP">
+                  <BsPeople className="courseStatsIcons" />
+                  2.3k
+                </p>
               </span>
               <span className="courseStatsSpan">
-                <MdOutlineRateReview /> 1.4K
+                <p className="courseStatsP">
+                  <MdOutlineRateReview className="courseStatsIcons" />
+                  1.4k
+                </p>
               </span>
             </div>
           </div>
-
           <div className="courseDescription">
             <h4>About Course</h4>
             <p>
@@ -136,7 +180,9 @@ function PaidOfflineVideo1() {
             <h4>Reviews</h4>
             {reviewData.map((person, index) => (
               <div key={index} className="reviewItemContainer">
-                <img src={person.profilePic} alt="Profile" />
+                <div className="reviewItemContainerImg">
+                  <img src={person.profilePic} alt="Profile" />
+                </div>
                 <div className="reviewContent">
                   <p>{person.pname}</p>
                   <p>{person.review}</p>

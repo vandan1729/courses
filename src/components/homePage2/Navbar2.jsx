@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
-import { IoCartOutline } from "react-icons/io5";
+import { MdShoppingCart } from "react-icons/md";
 import { FaRegBell } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import logo from "/src/assets/logo.png";
 
 import "../styling/Navbar2.css";
@@ -17,13 +18,11 @@ function Navbar2() {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedText, setSelectedText] = useState("Browse");
+  const [isArrowUp, setIsArrowUp] = useState(false);
 
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
-
-  const handleItemClick = (item) => {
-    setSelectedText(item);
-    setIsOpen(false);
+  const toggleDropdown = () => {
+    setIsOpen((prev) => !prev);
+    setIsArrowUp(!isArrowUp);
   };
 
   return (
@@ -33,16 +32,12 @@ function Navbar2() {
         <span>My Course.io</span>
         <div className="dropdown2">
           <button onClick={toggleDropdown} className="dropdown2Toggle">
-            {selectedText}
+            Browse {isArrowUp ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </button>
           {isOpen && (
             <ul className="dropdown2Menu">
               {browse.map((item) => (
-                <li
-                  key={item}
-                  className="dropdown2Item"
-                  onClick={() => handleItemClick(item)}
-                >
+                <li key={item} className="dropdown2Item">
                   {item}
                 </li>
               ))}
@@ -56,9 +51,9 @@ function Navbar2() {
       </div>
       <div className="navbar2Menu">
         <span className="navbar2Item">Become Instructor</span>
-        <IoCartOutline className="navbar2CartIcon" />
+        <MdShoppingCart className="navbar2CartIcon" />
         <FaRegBell className="navbar2CartIcon" />
-        <CgProfile className="navbar2CartIcon" />
+        <p className="navbar2CartEmojiIcon">😎</p>
       </div>
     </nav>
   );

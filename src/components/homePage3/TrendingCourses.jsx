@@ -21,7 +21,8 @@ function TrendingCourses() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img2,
@@ -35,7 +36,8 @@ function TrendingCourses() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img3,
@@ -49,7 +51,8 @@ function TrendingCourses() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img4,
@@ -63,7 +66,8 @@ function TrendingCourses() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
   ];
 

@@ -23,7 +23,8 @@ function TrendingCourse() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img2,
@@ -37,7 +38,8 @@ function TrendingCourse() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img3,
@@ -51,7 +53,8 @@ function TrendingCourse() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img4,
@@ -65,68 +68,73 @@ function TrendingCourse() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
-        cardImg: img5,
-        cardContent: "Adobe Illustrator Scretch Course",
-        cardAuthor: "Kitani Studio",
-        cardDescription:
-          "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-        cardRating: (
-          <>
-            <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-            (1.2k)
-          </>
-        ),
-        cardPrice: "$24.92",
-      },
-      {
-        cardImg: img6,
-        cardContent: "Bootcamp  Vue.js Web Framework",
-        cardAuthor: "Kitani Studio",
-        cardDescription:
-          "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-        cardRating: (
-          <>
-            <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-            (1.2k)
-          </>
-        ),
-        cardPrice: "$24.92",
-      },
-      {
-        cardImg: img7,
-        cardContent: "Design Fundamentals",
-        cardAuthor: "Kitani Studio",
-        cardDescription:
-          "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-        cardRating: (
-          <>
-            <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-            (1.2k)
-          </>
-        ),
-        cardPrice: "$24.92",
-      },
-      {
-        cardImg: img8,
-        cardContent: "Ionic - Build iOS, Android & Web...",
-        cardAuthor: "Kitani Studio",
-        cardDescription:
-          "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-        cardRating: (
-          <>
-            <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-            (1.2k)
-          </>
-        ),
-        cardPrice: "$24.92",
-      },
+      cardImg: img5,
+      cardContent: "Adobe Illustrator Scretch Course",
+      cardAuthor: "Kitani Studio",
+      cardDescription:
+        "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
+      cardRating: (
+        <>
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
+        </>
+      ),
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
+    },
+    {
+      cardImg: img6,
+      cardContent: "Bootcamp  Vue.js Web Framework",
+      cardAuthor: "Kitani Studio",
+      cardDescription:
+        "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
+      cardRating: (
+        <>
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
+        </>
+      ),
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
+    },
+    {
+      cardImg: img7,
+      cardContent: "Design Fundamentals",
+      cardAuthor: "Kitani Studio",
+      cardDescription:
+        "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
+      cardRating: (
+        <>
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
+        </>
+      ),
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
+    },
+    {
+      cardImg: img8,
+      cardContent: "Ionic - Build iOS, Android & Web...",
+      cardAuthor: "Kitani Studio",
+      cardDescription:
+        "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
+      cardRating: (
+        <>
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
+        </>
+      ),
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
+    },
   ];
   return (
     <>
-    <CardContainer
+      <CardContainer
         header="Trending Course"
         heading="We know the best things for You.  Top picks for You."
         data={trendingCourseData}

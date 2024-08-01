@@ -15,10 +15,12 @@ function KitaniStudioCard() {
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
         <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke /> (1.2k)
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img2,
@@ -28,10 +30,12 @@ function KitaniStudioCard() {
         "Learn how to make web application with Vue.js Framework.",
       cardRating: (
         <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke /> (1.2k)
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img3,
@@ -41,10 +45,12 @@ function KitaniStudioCard() {
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
         <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke /> (1.2k)
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img4,
@@ -54,10 +60,12 @@ function KitaniStudioCard() {
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
         <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke /> (1.2k)
+          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
+          (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
   ];
 

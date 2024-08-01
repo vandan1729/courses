@@ -20,7 +20,8 @@ function UpcomingWebinar() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img2,
@@ -34,7 +35,8 @@ function UpcomingWebinar() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img4,
@@ -48,7 +50,8 @@ function UpcomingWebinar() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
     {
       cardImg: img6,
@@ -62,7 +65,8 @@ function UpcomingWebinar() {
           (1.2k)
         </>
       ),
-      cardPrice: "$24.92",
+      cardNewPrice: "$24.92",
+      cardOldPrice: "$32.90",
     },
   ];
 
