@@ -1,0 +1,72 @@
+.myCoursetTopLayer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 70px 0px 70px;
+}
+
+.myCoursetTopLayerText1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.myCoursetTopLayerText2 {
+    font-size: 18px;
+    color: #767676;
+}
+
+.myCoursetTopLayerDropDown {
+    display: flex;
+    gap: 1rem;
+}
+
+.myCoursetTopLayerDropDownToggle {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #767676;
+    border-radius: 2px;
+    background-color: #fff;
+    width: 200px;
+    padding: 10px 28px;
+}
+
+.dropdownMenu1 {
+    position: absolute;
+    list-style-type: none;
+    top: 38.6rem;
+    width: 179px;
+    padding: 10px;
+    border: 1px solid #767676;
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    cursor: pointer;
+
+}
+
+.dropdownMenu2 {
+    position: absolute;
+    list-style-type: none;
+    top: 38.6rem;
+    left: 78.1rem;
+    width: 178px;
+    padding: 10px;
+    border: 1px solid #767676;
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    cursor: pointer;
+}
+
+
+.myCoursetTopLayerDropDownItems {
+    padding-left: 18px;
+}
+
+.dropdownMenu1:hover {
+    background-color: #cecaca;
+}
+.dropdownMenu2:hover {
+    background-color: #cecaca;
+}

@@ -2,8 +2,8 @@
     display: flex;
     gap: 15px;
     height: 184px;
-    margin: 80px 50px;
-    border-radius: 10px;
+    margin: 80px 70px;
+    border-radius: 25px;
     color: #fff;
     align-items: center;
     justify-content: center;
@@ -44,6 +44,11 @@
     border-right: none;
 }
 
+.emailInput:focus {
+    outline: none;
+}
+
+
 .subscribeSearchIcon {
     height: 41px;
     font-size: 20px;
@@ -72,24 +77,3 @@
     background-color: #218838;
 }
 
-@media (max-width: 768px) {
-    .subscribeBanner {
-        width: fit-content;
-    }
-
-    .subscribeText h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .subscribeText p {
-        font-size: 1.2rem;
-        margin-bottom: 0;
-    }
-
-    .emailInput {
-        height: 30px;
-        width: 250px;
-    }
-}

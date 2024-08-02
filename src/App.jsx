@@ -5,6 +5,9 @@ import HomePage3 from './components/homePage3/HomePage3'
 import './App.css'
 import PaidOfflineVideo1 from './components/homePage1/PaidOfflineVideo1'
 import LoginPage from './components/homePage1/LoginPage'
+import MyCoursePage from './components/homePage1/MyCoursePage'
+import PaidWebinarPage from './components/homePage1/PaidWebinarPage'
+
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
       <Route path='/homePage2' element={ <HomePage2/>}></Route>
       <Route path='/homePage3' element={ <HomePage3 />}></Route>
       <Route path='/loginPage' element={ <LoginPage />}></Route>
+      <Route path='/myCoursePage' element={ <MyCoursePage />}></Route>
+      <Route path='/paidWebinar' element={ <PaidWebinarPage />}></Route>
     </Routes>
     </BrowserRouter>
   )

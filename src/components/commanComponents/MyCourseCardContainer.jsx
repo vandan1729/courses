@@ -1,12 +1,9 @@
 import { IoPersonOutline } from "react-icons/io5";
-import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import "/src/components/styling/CardContainer.css";
 
-function CardContainer({ header, heading, data }) {
+function MyCourseCardContainer({ data }) {
   return (
     <div className="cardContainer">
-      <h3>{header}</h3>
-      <span>{heading}</span>
       <div className="cardData">
         {data?.map((item, index) => (
           <div className="card" key={index}>
@@ -17,9 +14,13 @@ function CardContainer({ header, heading, data }) {
                 <IoPersonOutline />
                 <p>{item.cardAuthor}</p>
               </p>
-              <p className="cardDescription">{item.cardDescription}</p>
-              <p className="cardRating">{item.cardRating}</p>
-              <p className="cardNewPrice">{item.cardNewPrice}<p className="cardOldPrice" key={index}>{item.cardOldPrice}</p></p>
+              {item.cardDescription === "Completed!" ? (
+                <p className="cardDescription" style={{ color: "#3DCBB1" }}>
+                  {item.cardDescription}
+                </p>
+              ) : (
+                <p className="cardDescription">{item.cardDescription}</p>
+              )}
             </div>
           </div>
         ))}
@@ -28,4 +29,4 @@ function CardContainer({ header, heading, data }) {
   );
 }
 
-export default CardContainer;
+export default MyCourseCardContainer;
