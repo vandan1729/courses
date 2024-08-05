@@ -21,6 +21,10 @@
     width: 45px;
 }
 
+.navbar2Logo img:hover,span:hover {
+    cursor: pointer;
+}
+
 .navbar2Search {
     display: flex;
     align-items: center;
@@ -69,6 +73,7 @@
     height: 24px;
     width: 24px;
     margin-top: 0.5rem;
+    cursor: pointer;
 }
 
 .dropdown2 {
@@ -107,3 +112,42 @@
     margin: 1rem;
 }
 
+.cartDropdownContainer {
+    position: relative;
+  }
+  
+  .cartDropdownMenu {
+    display: block;
+    width: 250px;
+    position: absolute;
+    top: 62px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    list-style: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .cartDropdownMenu p {
+    margin: 0;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .cartDropdownMenu p:hover {
+    background-color: #f0f0f0;
+  }
+
+  .navbar2CartEmojiIcon:hover {
+    cursor: pointer;
+  }
+
+  .cartDropdownMenuEmailId,.cartDropdownWhishlist,.cartDropdownAccountSetting {
+    border-bottom: 2px solid #EEEEEE;
+  }
+
+  .cartDropdownAccountLogout {
+    color: red;
+  }

@@ -68,22 +68,3 @@
 .heroSectionFilterInputs button:hover {
     background-color: #009C87;
 }
-
-@media (max-width: 768px) {
-    .heroSectionContent h2 {
-        font-size: 2rem;
-    }
-
-    .heroSectionContent p {
-        font-size: 1rem;
-    }
-
-    .heroSectionFilterInputs {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .heroSectionFilterInputs input {
-        width: 100%;
-    }
-}

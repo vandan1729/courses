@@ -20,7 +20,6 @@
 .cardData {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 10px;
 }
 
@@ -37,6 +36,10 @@
 .cardImg {
     width: 100%;
     height: auto;
+}
+
+.cardImg:hover {
+    cursor: pointer;
 }
 
 .cardContent {
@@ -87,77 +90,11 @@
     align-items: center;
     padding-left: 10px;
     font-size: 1.2rem;
-    text-decoration-line: line-through; 
+    text-decoration-line: line-through;
     color: #1B1B1B;
     font-weight: 100;
 }
 
-@media (max-width: 768px) {
-    .cardContainer {
-        padding: 20px 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .cardContainer h3 {
-        font-size: 1.25rem;
-    }
-
-    .cardContainer span {
-        font-size: 0.9rem;
-    }
-
-    .cardData {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .cardContent h4 {
-        font-size: 0.9rem;
-    }
-
-    .cardAuthor,
-    .cardDescription,
-    .cardRating,
-    .cardNewPrice {
-        font-size: 0.9rem;
-    }
+.noDataMessage {
+    text-align: center;
 }
-
-@media (max-width: 480px) {
-    .cardContainer {
-        padding: 20px 15px;
-    }
-
-    .cardContainer h3 {
-        font-size: 1.1rem;
-    }
-
-    .cardContainer span {
-        font-size: 0.8rem;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .cardContent h4 {
-        font-size: 0.8rem;
-    }
-
-    .cardAuthor,
-    .cardDescription,
-    .cardRating,
-    .cardNewPrice {
-        font-size: 0.8rem;
-    }
-}
-

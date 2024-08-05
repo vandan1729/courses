@@ -70,3 +70,43 @@
 .dropdownMenu2:hover {
     background-color: #cecaca;
 }
+
+.paginationControls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .paginationControlsNumber {
+    font-size: 15px;
+    text-align: center;
+    padding: 12px 18px;
+    margin: 0 8px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 2px solid #767676;
+
+  }
+  .paginationControlsBtn {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #767676;
+    background-color: #fff;
+    border: 2px solid #767676;
+    margin: 0 15px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 2px;
+  }
+
+
+
+  .paginationControls .active {
+    font-weight: bold;
+    border: 2px solid #3DCBB1;
+    color: #3DCBB1;
+
+  }
+  
+  

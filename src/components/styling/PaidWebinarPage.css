@@ -347,17 +347,24 @@
     font-size: 17px;
 }
 
-.paidWebinarChatArrow {
+.paidWebinarChatArrow1 {
+    transform: rotate(90deg);
     position: absolute;
     font-size: 28px;
     background-color: #F9F9F9;
     left: 88rem;
     top: 35rem;
+    transition: transform 0.3s ease-in-out;
 }
 
-.paidWebinarChatArrow:hover {
+
+.paidWebinarChatArrow1:hover {
     cursor: pointer;
+    transform: scale(1.3) rotate(90deg);
 }
+
+
+
 
 .paidWebinarChatLi {
     margin-top: 0.5rem;

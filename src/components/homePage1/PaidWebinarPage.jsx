@@ -13,7 +13,7 @@ import pro4 from "/src/assets/homePage1/paidOfflineVideo/profile4.png";
 
 import { BsPeople } from "react-icons/bs";
 import { MdOutlineRateReview } from "react-icons/md";
-import { CiLocationArrow1 } from "react-icons/ci";
+import { PiNavigationArrowFill } from "react-icons/pi";
 import "../styling/PaidWebinarPage.css";
 import { useState } from "react";
 
@@ -72,7 +72,7 @@ function PaidWebinarPage() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <CiLocationArrow1 className="paidWebinarChatArrow" onClick={handleLiveChatSubmit} on/>
+          <PiNavigationArrowFill className="paidWebinarChatArrow1" onClick={handleLiveChatSubmit} />
         </div>
       </div>
 

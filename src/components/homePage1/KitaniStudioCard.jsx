@@ -11,6 +11,7 @@ function KitaniStudioCard() {
       cardImg: img1,
       cardContent: "VUE JS SCRATCH COURSE",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Web Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -26,6 +27,7 @@ function KitaniStudioCard() {
       cardImg: img2,
       cardContent: "UI DESIGN FOR BEGINNERS",
       cardAuthor: "Kitani Studio",
+      cardCategory: "UI Design",
       cardDescription:
         "Learn how to make web application with Vue.js Framework.",
       cardRating: (
@@ -41,6 +43,7 @@ function KitaniStudioCard() {
       cardImg: img3,
       cardContent: "MOBILE DEV REACT NATIVE",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Mobile Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -56,6 +59,7 @@ function KitaniStudioCard() {
       cardImg: img4,
       cardContent: "WEBSITE DEV ZERO TO HERO",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Web Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (

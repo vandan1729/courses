@@ -1,6 +1,12 @@
+import { useState } from "react";
 import MyCourseCardContainer from "../commanComponents/MyCourseCardContainer";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 function MyCourseCardData() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
   const myCourseCardData = [
     {
       cardImg: "/src/assets/homePage1/myCourse/image1.png",
@@ -76,9 +82,56 @@ function MyCourseCardData() {
     },
   ];
 
+  // Function to get paginated data
+  const getPaginatedData = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return myCourseCardData.slice(startIndex, startIndex + itemsPerPage);
+  };
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calculate total pages
+  const totalPages = Math.ceil(myCourseCardData.length / itemsPerPage);
+
+  // Generate page numbers
+  const pageNumbers = Array.from(
+    { length: totalPages },
+    (_, index) => index + 1
+  );
+
   return (
     <>
-      <MyCourseCardContainer data={myCourseCardData}/>
+      <MyCourseCardContainer data={getPaginatedData()} />
+      <div className="paginationControls">
+        <button
+          onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+          disabled={currentPage === 1}
+          className="paginationControlsBtn"
+        >
+          <IoIosArrowBack />
+        </button>
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => handlePageChange(number)}
+            className={`${number === currentPage ? "active" : ""} paginationControlsNumber`} 
+          >
+            {number}
+          </button>
+        ))}
+        <button
+          onClick={() =>
+            handlePageChange(Math.min(totalPages, currentPage + 1))
+          }
+          disabled={currentPage === totalPages}
+          className="paginationControlsBtn"
+        >
+          <IoIosArrowForward />
+        </button>
+      </div>
     </>
   );
 }

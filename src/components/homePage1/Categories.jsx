@@ -1,21 +1,40 @@
-import "/src/components/styling/Categories.css"
+import { useContext, useState } from "react";
+import "/src/components/styling/Categories.css";
+import { CardContext } from "../profileContext/CardFilter";
 
 function Categories() {
-  return (
-    <>
-    <div  className='categoriesText'>
-        <span className='categoriesSpan'>All Recommendation</span>
-        <span className='categoriesSpan'>Adobe Illustrator</span>
-        <span className='categoriesSpan'>Adobe Photoshop</span>
-        <span className='categoriesSpan'>UI Design</span>
-        <span className='categoriesSpan'>Web Programming</span>
-        <span className='categoriesSpan'>Mobile Programming</span>
-        <span className='categoriesSpan'>Backend Development</span>
-        <span className='categoriesSpan'>Vue JS</span>
-    </div>
+  const { newCardData } = useContext(CardContext);
+  const [selectedCategory, setSelectedCategory] = useState("All Recommendation");
 
-    </>
-  )
+  const handleClick = (category) => {
+    setSelectedCategory(category);
+    newCardData(category);
+  };
+
+  const categories = [
+    "All Recommendation",
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "UI Design",
+    "Web Programming",
+    "Mobile Programming",
+    "Backend Development",
+    "Vue JS"
+  ];
+
+  return (
+    <div className='categoriesText'>
+      {categories.map((category, index) => (
+        <span
+          key={index}
+          className={`categoriesSpan ${selectedCategory === category ? 'selected' : ''}`}
+          onClick={() => handleClick(category)}
+        >
+          {category}
+        </span>
+      ))}
+    </div>
+  );
 }
 
-export default Categories
+export default Categories;

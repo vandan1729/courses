@@ -15,6 +15,7 @@ function TrendingCourse() {
       cardImg: img1,
       cardContent: "Adobe Illustrator Scretch Course",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Adobe Illustrator",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -30,6 +31,7 @@ function TrendingCourse() {
       cardImg: img2,
       cardContent: "Bootcamp  Vue.js Web Framework",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Web Programming",
       cardDescription:
         "Learn how to make web application with Vue.js Framework.",
       cardRating: (
@@ -45,6 +47,7 @@ function TrendingCourse() {
       cardImg: img3,
       cardContent: "Design Fundamentals",
       cardAuthor: "Kitani Studio",
+      cardCategory: "UI Design",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -60,6 +63,7 @@ function TrendingCourse() {
       cardImg: img4,
       cardContent: "Ionic - Build iOS, Android & Web...",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Mobile Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -75,6 +79,7 @@ function TrendingCourse() {
       cardImg: img5,
       cardContent: "Adobe Illustrator Scretch Course",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Adobe Illustrator",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -90,6 +95,7 @@ function TrendingCourse() {
       cardImg: img6,
       cardContent: "Bootcamp  Vue.js Web Framework",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Web Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -105,6 +111,7 @@ function TrendingCourse() {
       cardImg: img7,
       cardContent: "Design Fundamentals",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Adobe Photoshop",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
@@ -120,6 +127,7 @@ function TrendingCourse() {
       cardImg: img8,
       cardContent: "Ionic - Build iOS, Android & Web...",
       cardAuthor: "Kitani Studio",
+      cardCategory: "Mobile Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: (
