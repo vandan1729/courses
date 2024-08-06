@@ -364,14 +364,17 @@
 }
 
 
-
-
 .paidWebinarChatLi {
     margin-top: 0.5rem;
     list-style-type: none;
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.paidWebinarChatUl {
+    overflow:auto;
+    height: 350px;
 }
 
 .paidWebinarChatUl img {

@@ -25,6 +25,7 @@
 
 /* Card styling */
 .card {
+    position: relative;
     width: 100%;
     max-width: 320px;
     background-color: #fff;
@@ -33,7 +34,12 @@
     overflow: hidden;
 }
 
+.cardImgContainer {
+    position: relative;
+}
+
 .cardImg {
+    display: block;
     width: 100%;
     height: auto;
 }
@@ -97,4 +103,26 @@
 
 .noDataMessage {
     text-align: center;
+}
+
+.cardImgIconSpan {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px; 
+    left: 90%; 
+    cursor: pointer;
+    z-index: 10; 
+    background-color: rgb(211, 235, 235);
+}
+
+.exploreCoursesBtn{
+    width: fit-content;
+    margin: auto;
+    background-color: #3DCBB1;
+    color: #fff;
+    padding: 10px 20px;
 }

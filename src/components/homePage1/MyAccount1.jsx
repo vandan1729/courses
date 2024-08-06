@@ -2,7 +2,7 @@ import FooterComponent from '../commanComponents/FooterComponent';
 import Navbar2 from '../homePage2/Navbar2';
 import '../styling/MyAccount1.css';
 import { TbCameraPlus } from 'react-icons/tb';
-import { UserContext } from '../profileContext/UserContextProvider';
+import { UserContext } from '../contextProvider/UserContextProvider';
 import { useContext, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import "/src/components/styling/CardContainer.css";
-import { CardContext } from "../profileContext/CardFilter";
+import { CardContext } from "../contextProvider/CardFilter";
 
 function CardContainer({ header, heading, data }) {
   const { cardValue } = useContext(CardContext);

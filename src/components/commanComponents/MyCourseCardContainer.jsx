@@ -1,13 +1,32 @@
+import { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import "/src/components/styling/CardContainer.css";
 
-function MyCourseCardContainer({ data }) {
+function MyCourseCardContainer({ header, heading, data }) {
+  const [likedItems, setLikedItems] = useState({});
+
+  const handleLikeClick = (id) => {
+    setLikedItems((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
+
   return (
     <div className="cardContainer">
       <div className="cardData">
         {data?.map((item, index) => (
           <div className="card" key={index}>
-            <img src={item?.cardImg} alt="Card Img" className="cardImg" />
+            <div className="cardImgContainer">
+              <span
+                className="cardImgIconSpan"
+                onClick={() => handleLikeClick(item.id)}
+              >
+                {likedItems[item.id] ? <FaHeart color="red" /> : <FaRegHeart />}
+              </span>
+              <img src={item?.cardImg} alt="Card Img" className="cardImg" />
+            </div>
             <div className="cardContent">
               <h4>{item.cardContent}</h4>
               <p className="cardAuthor">

@@ -1,9 +1,9 @@
 .paidOfflineVideo {
-  height: 500px;
+  height: 550px;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  padding: 20px 70px;
+  padding: 20px 70px 0 70px;
   margin: 2.5rem 0;
 }
 
@@ -138,7 +138,7 @@
 
 .courseInfo {
   display: flex;
-  padding: 20px 70px;
+  padding: 0 70px;
   gap: 20px;
 }
 
