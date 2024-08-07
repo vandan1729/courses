@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import "../styling/CartMenu.css";
+import "../../styling/CartMenu.css";
 import { RxCross1 } from "react-icons/rx";
 
 const CartMenu = ({ isVisible, onClose }) => {

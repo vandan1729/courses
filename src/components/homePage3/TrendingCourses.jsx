@@ -5,7 +5,7 @@ import img2 from "/src/assets/homePage1/trendingCourse/image2.png";
 import img3 from "/src/assets/homePage1/trendingCourse/image3.png";
 import img4 from "/src/assets/homePage1/trendingCourse/image4.png";
 import imgLarge from "/src/assets/homePage3/trendingCourses/image.png";
-import "/src/components/styling/TrendingCourses.css";
+import "/src/styling/TrendingCourses.css";
 
 function TrendingCourses() {
   const trendingCourseData = [

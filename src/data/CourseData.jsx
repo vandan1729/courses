@@ -1,10 +1,8 @@
-import CardContainer from "/src/components/commanComponents/CardContainer.jsx";
 import img1 from "/src/assets/homePage2/completeCourseCard/image1.png";
 import img2 from "/src/assets/homePage2/completeCourseCard/image2.png";
 import img3 from "/src/assets/homePage2/completeCourseCard/image3.png";
 
-function CourseData() {
-  const completeCourseCardData = [
+export const CompleteCourseCardData = [
     {
       cardImg: img1,
       cardContent: "Java Programming Beginner",
@@ -24,15 +22,3 @@ function CourseData() {
       cardDescription: "3/8 Videos Completed",
     },
   ];
-  return (
-    <>
-      <CardContainer
-        header="Complete your Course"
-        heading="We know the best things for You.  Top picks for You."
-        data={completeCourseCardData}
-      />
-    </>
-  );
-}
-
-export default CourseData;

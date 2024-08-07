@@ -1,5 +1,4 @@
-import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
-import img1 from "../../assets/homePage1/trendingCourse/image1.png";
+import img1 from "../assets/homePage1/trendingCourse/image1.png";
 import img2 from "/src/assets/homePage1/trendingCourse/image2.png";
 import img3 from "/src/assets/homePage1/trendingCourse/image3.png";
 import img4 from "/src/assets/homePage1/trendingCourse/image4.png";
@@ -7,10 +6,8 @@ import img5 from "/src/assets/homePage1/trendingCourse/image5.png";
 import img6 from "/src/assets/homePage1/trendingCourse/image6.png";
 import img7 from "/src/assets/homePage1/trendingCourse/image7.png";
 import img8 from "/src/assets/homePage1/trendingCourse/image8.png";
-import CardContainer from "../commanComponents/CardContainer";
 
-function TrendingCourse() {
-  const trendingCourseData = [
+export const TrendingCourseData = [
     {
       cardImg: img1,
       cardContent: "Adobe Illustrator Scretch Course",
@@ -18,12 +15,7 @@ function TrendingCourse() {
       cardCategory: "Adobe Illustrator",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 3,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -34,12 +26,7 @@ function TrendingCourse() {
       cardCategory: "Web Programming",
       cardDescription:
         "Learn how to make web application with Vue.js Framework.",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 5,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -50,12 +37,7 @@ function TrendingCourse() {
       cardCategory: "UI Design",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 1,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -66,12 +48,7 @@ function TrendingCourse() {
       cardCategory: "Mobile Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 4,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -82,12 +59,7 @@ function TrendingCourse() {
       cardCategory: "Adobe Illustrator",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 3,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -98,12 +70,7 @@ function TrendingCourse() {
       cardCategory: "Web Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 2,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -114,12 +81,7 @@ function TrendingCourse() {
       cardCategory: "Adobe Photoshop",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 4,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -130,25 +92,8 @@ function TrendingCourse() {
       cardCategory: "Mobile Programming",
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-      cardRating: (
-        <>
-          <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaRegStarHalfStroke />{" "}
-          (1.2k)
-        </>
-      ),
+      cardRating: 5,
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
   ];
-  return (
-    <>
-      <CardContainer
-        header="Trending Course"
-        heading="We know the best things for You.  Top picks for You."
-        data={trendingCourseData}
-      />
-    </>
-  );
-}
-
-export default TrendingCourse;

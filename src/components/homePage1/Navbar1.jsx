@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IoIosSearch } from "react-icons/io";
 import { MdShoppingCart } from "react-icons/md";
 import logo from "/src/assets/logo.png";
-import "/src/components/styling/Navbar1.css";
+import "/src/styling/Navbar1.css";
 import { useNavigate } from 'react-router-dom';
 import CartMenu from './CartMenu'; 
 

@@ -4,7 +4,7 @@ import img2 from "/src/assets/homePage1/kitaniStudio/image2.png";
 import img3 from "/src/assets/homePage1/kitaniStudio/image3.png";
 import img4 from "/src/assets/homePage1/kitaniStudio/image4.png";
 import img5 from "/src/assets/homePage3/discountBanner/image.png";
-import CardContainer from "/src/components/commanComponents/CardContainer.jsx";
+import CardContainer from "../../commonComponents/CardContainer";
 import Categories3 from "./Categories3";
 
 function TopCourseData() {

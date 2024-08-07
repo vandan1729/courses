@@ -1,4 +1,4 @@
-import "/src/components/styling/InstructorCard.css";
+import "/src/styling/InstructorCard.css";
 
 function InstructorCard({ header, heading, data }) {
   return (

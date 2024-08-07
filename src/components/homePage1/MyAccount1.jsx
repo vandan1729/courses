@@ -1,10 +1,11 @@
-import FooterComponent from '../commanComponents/FooterComponent';
+import FooterComponent from '../../commonComponents/FooterComponent';
 import Navbar2 from '../homePage2/Navbar2';
-import '../styling/MyAccount1.css';
+import '../../styling/MyAccount1.css';
 import { TbCameraPlus } from 'react-icons/tb';
-import { UserContext } from '../contextProvider/UserContextProvider';
+import { UserContext } from '../../contextProvider/UserContextProvider';
 import { useContext, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import Layout from "../../layoutComponent/Layout"; 
 
 function MyAccount1() {
     const { userData, newUserData } = useContext(UserContext);
@@ -74,7 +75,7 @@ function MyAccount1() {
 
     return (
         <>
-            <Navbar2 />
+            <Layout>
 
             <div className='myAccountContainer'>
                 <h2>My Account</h2>
@@ -139,7 +140,7 @@ function MyAccount1() {
             </div>
 
             <ToastContainer />
-            <FooterComponent />
+            </Layout>
         </>
     );
 }

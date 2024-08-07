@@ -1,4 +1,4 @@
-import HomeFooter from '/src/components/commanComponents/FooterComponent.jsx'
+import HomeFooter from '../../commonComponents/FooterComponent'
 import HeroSection from './HeroSection'
 import TopCourseData from './TopCourseData'
 import TrendingCourses from './TrendingCourses'

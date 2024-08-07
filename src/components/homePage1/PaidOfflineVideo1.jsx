@@ -11,9 +11,10 @@ import profile4 from "/src/assets/homePage1/paidOfflineVideo/profile4.png";
 import { BsPeople } from "react-icons/bs";
 import { MdOutlineRateReview, MdSlowMotionVideo } from "react-icons/md";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import "../styling/PaidOfflineVideo1.css";
-import FooterComponent from "../commanComponents/FooterComponent";
+import "../../styling/PaidOfflineVideo1.css";
+import FooterComponent from "../../commonComponents/FooterComponent";
 import Navbar2 from "../homePage2/Navbar2";
+import Layout from "../../layoutComponent/Layout";
 
 const dropDownCourseLi = [
   "Installing Vue JS",
@@ -59,146 +60,159 @@ function PaidOfflineVideo1() {
 
   return (
     <>
-      <Navbar2 />
-      <div className="paidOfflineVideo">
-        <div className="courseDetails">
-          <img src={img1} alt="Video" />
-        </div>
-
-        <div className="dropdownGroup">
-          <div className="dropdownToggle">
-            <div className="dropdownToggleSpanDiv">
-              <span className="dropdownChapterNameSpan">
-                Chapter 1: Course Overview
-              </span>
-              <span className="dropdownVideoSpan">
-                1/12 Videos{" "}
-                <span className="dropdownTimeSpan">
-                  <span className="dropdownTimeSpanDot"></span>28m
-                </span>
-              </span>
-            </div>
-            {openChapter === "chapter1" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+      <Layout>
+        <div className="paidOfflineVideo">
+          <div className="courseDetails">
+            <img src={img1} alt="Video" />
           </div>
 
-          <div
-            onClick={() => toggleDropdown("chapter2")}
-            className="dropdownToggle"
-            aria-expanded={openChapter === "chapter2"}
-            aria-controls="dropdown-chapter2"
-          >
-            <div className="dropdownToggleSpanDiv">
-              <span className="dropdownChapterNameSpan">
-                Chapter 2: Curriculum
-              </span>
-              <span className="dropdownVideoSpan">
-                1/12 Videos{" "}
-                <span className="dropdownTimeSpan">
-                  <span className="dropdownTimeSpanDot"></span>28m
+          <div className="dropdownGroup">
+            <div className="dropdownToggle">
+              <div className="dropdownToggleSpanDiv">
+                <span className="dropdownChapterNameSpan">
+                  Chapter 1: Course Overview
                 </span>
-              </span>
-            </div>
-            {openChapter === "chapter2" ? <IoIosArrowUp /> : <IoIosArrowDown />}
-          </div>
-          {openChapter === "chapter2" && (
-            <ul id="dropdown-chapter2" className="dropdownMenu">
-              {dropDownCourseLi.map((item) => (
-                <li key={item} className="dropdownItem">
-                  <span className="dropdownItemSpan">
-                    {item}
-                    <span className="dropdownItemSpanIcon">
-                      <MdSlowMotionVideo />{" "}
-                      <span className="dropdownItemSpanText"> 10m</span>
-                    </span>
+                <span className="dropdownVideoSpan">
+                  1/12 Videos{" "}
+                  <span className="dropdownTimeSpan">
+                    <span className="dropdownTimeSpanDot"></span>28m
                   </span>
-                  <div className="dropdownItemBtn">
-                    <button className="dropdownItemBtnCom">Completed</button>
-                    <button className="dropdownItemBtnPly">Playing</button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div className="dropdownToggle">
-            <div className="dropdownToggleSpanDiv">
-              <span className="dropdownChapterNameSpan">
-                Chapter 3: Components
-              </span>
-              <span className="dropdownVideoSpan">
-                1/12 Videos{" "}
-                <span className="dropdownTimeSpan">
-                  <span className="dropdownTimeSpanDot"></span>28m
                 </span>
-              </span>
+              </div>
+              {openChapter === "chapter1" ? (
+                <IoIosArrowUp />
+              ) : (
+                <IoIosArrowDown />
+              )}
             </div>
-            {openChapter === "chapter3" ? <IoIosArrowUp /> : <IoIosArrowDown />}
+
+            <div
+              onClick={() => toggleDropdown("chapter2")}
+              className="dropdownToggle"
+              aria-expanded={openChapter === "chapter2"}
+              aria-controls="dropdown-chapter2"
+            >
+              <div className="dropdownToggleSpanDiv">
+                <span className="dropdownChapterNameSpan">
+                  Chapter 2: Curriculum
+                </span>
+                <span className="dropdownVideoSpan">
+                  1/12 Videos{" "}
+                  <span className="dropdownTimeSpan">
+                    <span className="dropdownTimeSpanDot"></span>28m
+                  </span>
+                </span>
+              </div>
+              {openChapter === "chapter2" ? (
+                <IoIosArrowUp />
+              ) : (
+                <IoIosArrowDown />
+              )}
+            </div>
+            {openChapter === "chapter2" && (
+              <ul id="dropdown-chapter2" className="dropdownMenu">
+                {dropDownCourseLi.map((item) => (
+                  <li key={item} className="dropdownItem">
+                    <span className="dropdownItemSpan">
+                      {item}
+                      <span className="dropdownItemSpanIcon">
+                        <MdSlowMotionVideo />{" "}
+                        <span className="dropdownItemSpanText"> 10m</span>
+                      </span>
+                    </span>
+                    <div className="dropdownItemBtn">
+                      <button className="dropdownItemBtnCom">Completed</button>
+                      <button className="dropdownItemBtnPly">Playing</button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <div className="dropdownToggle">
+              <div className="dropdownToggleSpanDiv">
+                <span className="dropdownChapterNameSpan">
+                  Chapter 3: Components
+                </span>
+                <span className="dropdownVideoSpan">
+                  1/12 Videos{" "}
+                  <span className="dropdownTimeSpan">
+                    <span className="dropdownTimeSpanDot"></span>28m
+                  </span>
+                </span>
+              </div>
+              {openChapter === "chapter3" ? (
+                <IoIosArrowUp />
+              ) : (
+                <IoIosArrowDown />
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="courseInfo">
-        <div className="courseSummary">
-          <h2>Vue JS Scratch Course</h2>
-          <div className="courseThumbnail">
-            <div className="courseCreator">
-              <img src={img3} alt="Thumbnail" />
-              <div className="courseCreatorText">
-                <p>Kitani Studio</p>
-                <p>Design Studio</p>
+        <div className="courseInfo">
+          <div className="courseSummary">
+            <h2>Vue JS Scratch Course</h2>
+            <div className="courseThumbnail">
+              <div className="courseCreator">
+                <img src={img3} alt="Thumbnail" />
+                <div className="courseCreatorText">
+                  <p>Kitani Studio</p>
+                  <p>Design Studio</p>
+                </div>
+              </div>
+              <div className="courseStats">
+                <span className="courseStatsSpan">
+                  <p className="courseStatsP">
+                    <BsPeople className="courseStatsIcons" />
+                    2.3k
+                  </p>
+                </span>
+                <span className="courseStatsSpan">
+                  <p className="courseStatsP">
+                    <MdOutlineRateReview className="courseStatsIcons" />
+                    1.4k
+                  </p>
+                </span>
               </div>
             </div>
-            <div className="courseStats">
-              <span className="courseStatsSpan">
-                <p className="courseStatsP">
-                  <BsPeople className="courseStatsIcons" />
-                  2.3k
-                </p>
-              </span>
-              <span className="courseStatsSpan">
-                <p className="courseStatsP">
-                  <MdOutlineRateReview className="courseStatsIcons" />
-                  1.4k
-                </p>
-              </span>
+            <div className="courseDescription">
+              <h4>About Course</h4>
+              <p>
+                Vue (pronounced /vjuː/, like view) is a progressive framework
+                for building user interfaces. Unlike other monolithic
+                frameworks, Vue is designed from the ground up to be
+                incrementally adoptable. The core library is focused on the view
+                layer only, and is easy to pick up and integrate with other
+                libraries or existing projects. On the other hand, Vue is also
+                perfectly capable of powering sophisticated Single-Page
+                Applications when used in combination with modern tooling and
+                supporting libraries.
+              </p>
             </div>
-          </div>
-          <div className="courseDescription">
-            <h4>About Course</h4>
-            <p>
-              Vue (pronounced /vjuː/, like view) is a progressive framework for
-              building user interfaces. Unlike other monolithic frameworks, Vue
-              is designed from the ground up to be incrementally adoptable. The
-              core library is focused on the view layer only, and is easy to
-              pick up and integrate with other libraries or existing projects.
-              On the other hand, Vue is also perfectly capable of powering
-              sophisticated Single-Page Applications when used in combination
-              with modern tooling and supporting libraries.
-            </p>
-          </div>
-          <div className="courseReviews">
-            <h4>Reviews</h4>
-            {reviewData.map((person, index) => (
-              <div key={index} className="reviewItemContainer">
-                <div className="reviewItemContainerImg">
-                  <img src={person.profilePic} alt="Profile" />
+            <div className="courseReviews">
+              <h4>Reviews</h4>
+              {reviewData.map((person, index) => (
+                <div key={index} className="reviewItemContainer">
+                  <div className="reviewItemContainerImg">
+                    <img src={person.profilePic} alt="Profile" />
+                  </div>
+                  <div className="reviewContent">
+                    <p>{person.pname}</p>
+                    <p>{person.review}</p>
+                  </div>
                 </div>
-                <div className="reviewContent">
-                  <p>{person.pname}</p>
-                  <p>{person.review}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button className="loadMoreReviews">Load more reviews</button>
           </div>
-          <button className="loadMoreReviews">Load more reviews</button>
+          <div className="courseImage">
+            <img src={img2} alt="Course" />
+          </div>
         </div>
-        <div className="courseImage">
-          <img src={img2} alt="Course" />
-        </div>
-      </div>
 
-      <SubscribeCard />
-      <FooterComponent />
+        <SubscribeCard />
+      </Layout>
     </>
   );
 }

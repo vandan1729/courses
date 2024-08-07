@@ -1,4 +1,4 @@
-import '../styling/Categories3.css'
+import '../../styling/Categories3.css'
 function Categories3() { 
   return (
     <>

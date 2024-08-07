@@ -6,9 +6,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import logo from "/src/assets/logo.png";
 import CartMenu from "../homePage1/CartMenu";
 
-import "../styling/Navbar2.css";
-import { UserContext } from "../contextProvider/UserContextProvider";
-import { WishListContext } from "../contextProvider/WishlistFilter";
+import "../../styling/Navbar2.css";
+import { UserContext } from "../../contextProvider/UserContextProvider";
+import { WishListContext } from "../../contextProvider/WishlistFilter";
 import { useNavigate } from "react-router-dom";
 
 function Navbar2() {

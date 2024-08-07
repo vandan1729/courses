@@ -66,7 +66,7 @@
     gap: 3px;
 }
 
-.cardAuthor p {
+.cardAuthor span {
     color: #3DCBB1;
     font-weight: 400;
 }
@@ -83,20 +83,21 @@
     color: #f39c12;
 }
 
-.cardNewPrice {
+.cardPrice {
     display: flex;
-    align-content: center;
+    align-items: center;
     margin: 0.5rem 0;
+}
+
+.cardNewPrice {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 .cardOldPrice {
-    display: flex;
-    align-items: center;
     padding-left: 10px;
     font-size: 1.2rem;
-    text-decoration-line: line-through;
+    text-decoration: line-through;
     color: #1B1B1B;
     font-weight: 100;
 }
@@ -119,7 +120,7 @@
     background-color: rgb(211, 235, 235);
 }
 
-.exploreCoursesBtn{
+.exploreCoursesBtn {
     width: fit-content;
     margin: auto;
     background-color: #3DCBB1;

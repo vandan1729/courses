@@ -9,34 +9,34 @@ import MyCoursePage from "./components/homePage1/MyCoursePage";
 import PaidWebinarPage from "./components/homePage1/PaidWebinarPage";
 import MyAccount1 from "./components/homePage1/MyAccount1";
 import "react-toastify/dist/ReactToastify.css";
-import WishlistPage from "./components/commanComponents/WishlistPage";
-import { CardContextProvider } from "./components/contextProvider/CardFilter";
-import { UserContextProvider } from "./components/contextProvider/UserContextProvider";
-import { WishListContextProvider } from "./components/contextProvider/WishlistFilter";
+import WishlistPage from "./commonComponents/WishlistPage";
+import { CardContextProvider } from "./contextProvider/CardFilter";
+import { UserContextProvider } from "./contextProvider/UserContextProvider";
+import { WishListContextProvider } from "./contextProvider/WishlistFilter";
 
 function App() {
   return (
     <WishListContextProvider>
-    <CardContextProvider>
-      <UserContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage1 />}></Route>
-            <Route
-              path="/paidOfflineVideo1"
-              element={<PaidOfflineVideo1 />}
-            ></Route>
-            <Route path="/homePage2" element={<HomePage2 />}></Route>
-            <Route path="/homePage3" element={<HomePage3 />}></Route>
-            <Route path="/loginPage" element={<LoginPage />}></Route>
-            <Route path="/myCoursePage" element={<MyCoursePage />}></Route>
-            <Route path="/paidWebinar" element={<PaidWebinarPage />}></Route>
-            <Route path="/myAccount1" element={<MyAccount1 />}></Route>
-            <Route path="/wishlistPage" element={<WishlistPage />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </UserContextProvider>
-    </CardContextProvider>
+      <CardContextProvider>
+        <UserContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage1 />}></Route>
+              <Route
+                path="/paidOfflineVideo1"
+                element={<PaidOfflineVideo1 />}
+              ></Route>
+              <Route path="/homePage2" element={<HomePage2 />}></Route>
+              <Route path="/homePage3" element={<HomePage3 />}></Route>
+              <Route path="/loginPage" element={<LoginPage />}></Route>
+              <Route path="/myCoursePage" element={<MyCoursePage />}></Route>
+              <Route path="/paidWebinar" element={<PaidWebinarPage />}></Route>
+              <Route path="/myAccount1" element={<MyAccount1 />}></Route>
+              <Route path="/wishlistPage" element={<WishlistPage />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </UserContextProvider>
+      </CardContextProvider>
     </WishListContextProvider>
   );
 }

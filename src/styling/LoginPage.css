@@ -7,8 +7,7 @@
     height: 520px;
     overflow: hidden;
     margin: 8rem 0 0 20rem;
-    border-radius: 10px; 
-
+    border-radius: 10px;
 }
 
 .loginPageImg {
@@ -19,7 +18,7 @@
 .loginPageImg img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px 0 0 10px; 
+    border-radius: 10px 0 0 10px;
 }
 
 .loginPageInputs {
@@ -29,17 +28,15 @@
     flex-direction: column;
     background-color: #c4e2e4;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 0 10px 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border-radius: 0 10px 10px 0 ; 
 }
 
 .loginPageLogo {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 10px 0 20px;
 }
 
 .loginPageLogo img {
@@ -67,7 +64,6 @@
 }
 
 .loginPageTextInput input {
-    position: relative;
     background-color: #FAFAFA;
     padding: 10px 30px 10px 10px;
     margin-bottom: 10px;
@@ -109,7 +105,7 @@
     font-size: 16px;
 }
 
-.orYouCanSPan {
+.orYouCanSpan {
     display: block;
     margin: 20px 0;
     font-size: 16px;
@@ -132,28 +128,26 @@
 }
 
 .loginPageFbBtn {
-    position: relative;
     background-color: #4267B2;
     color: #fff;
+    position: relative;
 }
 
 .loginPageFbBtnIcon {
-
     position: absolute;
     left: 52%;
     font-size: 20px;
     transform: translateY(40%);
     background-color: #ddd;
     color: #4267B2;
-    padding: 2.5px 0px 0px 3px;
+    padding: 2.5px 0 0 3px;
     border-radius: 2px;
-
 }
 
 .loginPageAppBtn {
-    position: relative;
     background-color: #1B1B1B;
     color: #fff;
+    position: relative;
 }
 
 .loginPageAppBtnIcon {
@@ -166,9 +160,9 @@
 }
 
 .loginPageGoogleBtn {
-    position: relative;
     background-color: #f4f4f4;
-    color: #000000;
+    color: #000;
+    position: relative;
 }
 
 .loginPageGoogleBtnIcon {

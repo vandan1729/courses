@@ -1,11 +1,9 @@
-import InstructorCard from "/src/components/commanComponents/InstructorCard.jsx";
 import img1 from "/src/assets/homePage1/popularInstructor/image1.png";
 import img2 from "/src/assets/homePage1/popularInstructor/image2.png";
 import img3 from "/src/assets/homePage1/popularInstructor/image3.png";
 import img4 from "/src/assets/homePage1/popularInstructor/image4.png";
 
-function PopularInstructor() {
-  const popularInstructorData = [
+export const PopularInstructorData = [
     {
       popularInstructorimg: img1,
     },
@@ -19,14 +17,3 @@ function PopularInstructor() {
       popularInstructorimg: img4,
     },
   ];
-
-  return (
-    <InstructorCard
-      header="Popular Instructors"
-      heading="We know the best things for You. Top picks for You."
-      data={popularInstructorData}
-    />
-  );
-}
-
-export default PopularInstructor;

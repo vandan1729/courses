@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import Navbar2 from "../homePage2/Navbar2";
-import MyCourseCardData from "../homePage1/MyCourseCardData";
+import Navbar2 from "../components/homePage2/Navbar2";
 import { WishListContext } from "../contextProvider/WishlistFilter";
 import "../styling/WishlistPage.css";
 import FooterComponent from "./FooterComponent";
+import WishlistPageContainer from "./WishlistPageContainer";
+import { FilteredData } from "../data/MyCourseCardData";
 
 function WishlistPage() {
   const { newWishListData, wishListValue } = useContext(WishListContext);
@@ -13,6 +14,7 @@ function WishlistPage() {
   };
 
   const wishlistData = ["All Courses", "Courses", "Wishlist", "Completed"];
+  const filteredCourses = FilteredData();
 
   return (
     <>
@@ -34,7 +36,8 @@ function WishlistPage() {
             </p>
           ))}
         </div>
-        <MyCourseCardData />
+
+        <WishlistPageContainer data={filteredCourses} header={wishListValue} />
       </div>
       <FooterComponent />
     </>

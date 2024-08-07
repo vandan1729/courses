@@ -2,24 +2,23 @@ import { useContext, useState, useEffect } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { WishListContext } from "../contextProvider/WishlistFilter";
-import "/src/components/styling/CardContainer.css";
+import "/src/styling/CardContainer.css";
 import { useNavigate } from "react-router-dom";
 
 function WishlistPageContainer({ header, data }) {
-  const { wishListItems, addToWishList, wishListValue } =
-    useContext(WishListContext);
+  const { wishListItems, addToWishList } = useContext(WishListContext);
   const [likedItems, setLikedItems] = useState({});
   const [exploreCoursesBtn, setExploreCoursesBtn] = useState(false);
 
   const navigate = useNavigate();
 
   const handleExploreCoursesClick = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   useEffect(() => {
-    setExploreCoursesBtn(wishListValue === "Wishlist");
-  }, [wishListValue]);
+    setExploreCoursesBtn(header === "Wishlist");
+  }, [header]);
 
   const handleLikeClick = (item) => {
     addToWishList(item);
@@ -35,8 +34,8 @@ function WishlistPageContainer({ header, data }) {
       <span>List of your {header}</span>
       <div className="cardData">
         {data.length > 0 ? (
-          data.map((item, index) => (
-            <div className="card" key={index}>
+          data.map((item) => (
+            <div className="card" key={item.id}>
               <div className="cardImgContainer">
                 <span
                   className="cardImgIconSpan"
@@ -72,10 +71,17 @@ function WishlistPageContainer({ header, data }) {
             </div>
           ))
         ) : (
-            <h1>No data available</h1>
+          <h1>No data available</h1>
         )}
       </div>
-        {exploreCoursesBtn && <button className="exploreCoursesBtn" onClick={handleExploreCoursesClick}>Explore Courses</button>}
+      {exploreCoursesBtn && (
+        <button
+          className="exploreCoursesBtn"
+          onClick={handleExploreCoursesClick}
+        >
+          Explore Courses
+        </button>
+      )}
     </div>
   );
 }

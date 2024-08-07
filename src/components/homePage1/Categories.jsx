@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import "/src/components/styling/Categories.css";
-import { CardContext } from "../contextProvider/CardFilter";
+import "/src/styling/Categories.css";
+import { CardContext } from "../../contextProvider/CardFilter";
 
 function Categories() {
   const { newCardData } = useContext(CardContext);

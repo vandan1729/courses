@@ -4,7 +4,7 @@ import { FaRegBell } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import logo from "../../assets/logo.png";
 
-import "../styling/Navbar3.css";
+import "../../styling/Navbar3.css";
 
 function Navbar3() {
   const browse = [

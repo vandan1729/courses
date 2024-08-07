@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import "/src/components/styling/CardContainer.css";
+import "/src/styling/CardContainer.css";
 
 function MyCourseCardContainer({ header, heading, data }) {
   const [likedItems, setLikedItems] = useState({});

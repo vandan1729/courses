@@ -5,7 +5,7 @@ import { MdOutlineLock } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import "/src/components/styling/LoginPage.css";
+import "/src/styling/LoginPage.css";
 
 function LoginPage() {
   return (
@@ -25,20 +25,27 @@ function LoginPage() {
           </span>
 
           <div className="loginPageTextInput">
-            <input type="text" placeholder="Email Address" /> <MdOutlineEmail className="emailicon"/>
-            <input type="text" placeholder="Password" /> <MdOutlineLock className="lockIcon"/>
+            <input type="text" placeholder="Email Address" />{" "}
+            <MdOutlineEmail className="emailicon" />
+            <input type="text" placeholder="Password" />{" "}
+            <MdOutlineLock className="lockIcon" />
             <button className="loginPageLoginBtn">Login</button>
           </div>
 
           <span className="orYouCanSPan">or you can</span>
 
           <div className="loginPageBtnGroup">
-            <button className="loginPageFbBtn">Continue with Facebook </button>< FaFacebookF className="loginPageFbBtnIcon"/>
-            <button className="loginPageAppBtn">Continue with Apple</button><FaApple className="loginPageAppBtnIcon"/>
-            <button className="loginPageGoogleBtn">Continue with Google</button><FcGoogle className="loginPageGoogleBtnIcon"/>
+            <button className="loginPageFbBtn">Continue with Facebook </button>
+            <FaFacebookF className="loginPageFbBtnIcon" />
+            <button className="loginPageAppBtn">Continue with Apple</button>
+            <FaApple className="loginPageAppBtnIcon" />
+            <button className="loginPageGoogleBtn">Continue with Google</button>
+            <FcGoogle className="loginPageGoogleBtnIcon" />
           </div>
 
-          <span className="needAnAccountSpan">Need an Account ? <span className="signUpSpan">Sign Up</span></span>
+          <span className="needAnAccountSpan">
+            Need an Account ? <span className="signUpSpan">Sign Up</span>
+          </span>
         </div>
       </div>
     </>

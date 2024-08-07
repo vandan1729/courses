@@ -1,4 +1,4 @@
-import "../styling/SubscribeCard.css";
+import "../../styling/SubscribeCard.css";
 import { IoSearchOutline } from "react-icons/io5";
 
 function SubscribeCard() {
