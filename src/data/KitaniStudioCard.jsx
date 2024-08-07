@@ -12,6 +12,7 @@ export const KitaniStudioCardData = [
     cardDescription:
       "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
     cardRating: 1.5,
+    cardTotalRating: "(12.5k)",
     cardNewPrice: "$24.92",
     cardOldPrice: "$32.90",
   },
@@ -23,6 +24,7 @@ export const KitaniStudioCardData = [
     cardDescription:
       "Learn how to make web application with Vue.js Framework.",
     cardRating: 4,
+    cardTotalRating: "(12.5k)",
     cardNewPrice: "$24.92",
     cardOldPrice: "$32.90",
   },
@@ -33,7 +35,8 @@ export const KitaniStudioCardData = [
     cardCategory: "Mobile Programming",
     cardDescription:
       "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    cardRating: 5,
+    cardRating: 3.8,
+    cardTotalRating: "(12.5k)",
     cardNewPrice: "$24.92",
     cardOldPrice: "$32.90",
   },
@@ -44,7 +47,8 @@ export const KitaniStudioCardData = [
     cardCategory: "Web Programming",
     cardDescription:
       "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    cardRating: 3,
+    cardRating: 3.1,
+    cardTotalRating: "(12.5k)",
     cardNewPrice: "$24.92",
     cardOldPrice: "$32.90",
   },

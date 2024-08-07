@@ -1,4 +1,4 @@
-import FooterComponent from '../../commonComponents/FooterComponent';
+import FooterComponent from '../common/FooterComponent';
 import Navbar2 from '../homePage2/Navbar2';
 import '../../styling/MyAccount1.css';
 import { TbCameraPlus } from 'react-icons/tb';

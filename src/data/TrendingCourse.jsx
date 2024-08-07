@@ -16,6 +16,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 3,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -27,6 +28,7 @@ export const TrendingCourseData = [
       cardDescription:
         "Learn how to make web application with Vue.js Framework.",
       cardRating: 5,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -38,6 +40,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 1,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -49,6 +52,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 4,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -60,6 +64,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 3,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -71,6 +76,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 2,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -82,6 +88,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 4,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },
@@ -93,6 +100,7 @@ export const TrendingCourseData = [
       cardDescription:
         "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
       cardRating: 5,
+      cardTotalRating: "(12.5k)",
       cardNewPrice: "$24.92",
       cardOldPrice: "$32.90",
     },

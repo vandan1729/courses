@@ -3,11 +3,10 @@ import "/src/styling/Categories.css";
 import { CardContext } from "../../contextProvider/CardFilter";
 
 function Categories() {
-  const { newCardData } = useContext(CardContext);
-  const [selectedCategory, setSelectedCategory] = useState("All Recommendation");
+  const { newCardData, cardValue } = useContext(CardContext);
+
 
   const handleClick = (category) => {
-    setSelectedCategory(category);
     newCardData(category);
   };
 
@@ -27,7 +26,7 @@ function Categories() {
       {categories.map((category, index) => (
         <span
           key={index}
-          className={`categoriesSpan ${selectedCategory === category ? 'selected' : ''}`}
+          className={`categoriesSpan ${cardValue === category ? 'selected' : ''}`}
           onClick={() => handleClick(category)}
         >
           {category}

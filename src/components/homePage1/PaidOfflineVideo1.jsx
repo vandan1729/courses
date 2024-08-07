@@ -12,7 +12,7 @@ import { BsPeople } from "react-icons/bs";
 import { MdOutlineRateReview, MdSlowMotionVideo } from "react-icons/md";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "../../styling/PaidOfflineVideo1.css";
-import FooterComponent from "../../commonComponents/FooterComponent";
+import FooterComponent from "../common/FooterComponent";
 import Navbar2 from "../homePage2/Navbar2";
 import Layout from "../../layoutComponent/Layout";
 

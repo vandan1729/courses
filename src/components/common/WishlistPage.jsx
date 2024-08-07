@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import Navbar2 from "../components/homePage2/Navbar2";
-import { WishListContext } from "../contextProvider/WishlistFilter";
-import "../styling/WishlistPage.css";
+import Navbar2 from "../homePage2/Navbar2";
+import { WishListContext } from "../../contextProvider/WishlistFilter";
+import "../../styling/WishlistPage.css";
 import FooterComponent from "./FooterComponent";
 import WishlistPageContainer from "./WishlistPageContainer";
-import { FilteredData } from "../data/MyCourseCardData";
+import { FilteredData } from "../../data/MyCourseCardData";
 
 function WishlistPage() {
   const { newWishListData, wishListValue } = useContext(WishListContext);

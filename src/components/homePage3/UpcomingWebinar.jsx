@@ -3,7 +3,7 @@ import img1 from "/src/assets/homePage1/trendingCourse/image1.png";
 import img2 from "/src/assets/homePage1/trendingCourse/image2.png";
 import img4 from "/src/assets/homePage1/trendingCourse/image4.png";
 import img6 from "/src/assets/homePage1/trendingCourse/image6.png";
-import CardContainer from "../../commonComponents/CardContainer";
+import CardContainer from "../common/CardContainer";
 import "../../styling/UpcomingWebinar.css";
 
 function UpcomingWebinar() {

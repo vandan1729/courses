@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { WishListContext } from "../contextProvider/WishlistFilter";
+import { WishListContext } from "../../contextProvider/WishlistFilter";
 import "/src/styling/CardContainer.css";
 import { useNavigate } from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar2 from "../components/homePage2/Navbar2";
-import HomeFooter from "../commonComponents/FooterComponent";
+import HomeFooter from "../components/common/FooterComponent";
 
 const Layout = ({ children }) => {
   return (

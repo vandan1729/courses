@@ -2,12 +2,12 @@ import Navbar1 from "./Navbar1";
 import SubscribeCard from "./SubscribeCard";
 import SliderComponent from "./SliderComponent";
 import Categories from "./Categories";
-import HomeFooter from "../../commonComponents/FooterComponent";
+import HomeFooter from "../common/FooterComponent";
 import { KitaniStudioCardData } from "../../data/KitaniStudioCard";
 import { TrendingCourseData } from "../../data/TrendingCourse";
 import { PopularInstructorData } from "../../data/PopularInstructor";
-import CardContainer from "../../commonComponents/CardContainer";
-import InstructorCard from "../../commonComponents/InstructorCard";
+import CardContainer from "../common/CardContainer";
+import InstructorCard from "../common/InstructorCard";
 
 
 function HomePage1() {

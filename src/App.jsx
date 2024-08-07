@@ -9,7 +9,7 @@ import MyCoursePage from "./components/homePage1/MyCoursePage";
 import PaidWebinarPage from "./components/homePage1/PaidWebinarPage";
 import MyAccount1 from "./components/homePage1/MyAccount1";
 import "react-toastify/dist/ReactToastify.css";
-import WishlistPage from "./commonComponents/WishlistPage";
+import WishlistPage from "./components/common/WishlistPage";
 import { CardContextProvider } from "./contextProvider/CardFilter";
 import { UserContextProvider } from "./contextProvider/UserContextProvider";
 import { WishListContextProvider } from "./contextProvider/WishlistFilter";

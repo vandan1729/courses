@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoPersonOutline } from "react-icons/io5";
 import "/src/styling/CardContainer.css";
-import { CardContext } from "../contextProvider/CardFilter";
+import { CardContext } from "../../contextProvider/CardFilter";
 import CardRatingComponent from "./CardRatingComponent";
 
 function CardContainer({ header, heading, data }) {
@@ -40,7 +40,11 @@ function CardContainer({ header, heading, data }) {
                     <span>{item.cardAuthor}</span>
                   </p>
                   <p className="cardDescription">{item.cardDescription}</p>
+                  <span className="cardRatingSpan">
                   <p className="cardRating"><CardRatingComponent cardRating={item.cardRating}/></p>
+                  <p>{item.cardTotalRating}</p>
+                  </span>
+
                   <p className="cardNewPrice">
                     {item.cardNewPrice}
                     <span className="cardOldPrice">{item.cardOldPrice}</span>

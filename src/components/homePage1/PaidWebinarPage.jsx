@@ -1,5 +1,5 @@
 import Navbar2 from "../homePage2/Navbar2";
-import FooterComponent from "../../commonComponents/FooterComponent";
+import FooterComponent from "../common/FooterComponent";
 import SubscribeCard from "./SubscribeCard";
 
 import img1 from "/src/assets/homePage1/PaidWebinar/image.png";

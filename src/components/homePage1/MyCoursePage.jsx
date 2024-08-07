@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar2 from "../homePage2/Navbar2";
 import SliderComponent from "./SliderComponent";
-import FooterComponent from "../../commonComponents/FooterComponent";
+import FooterComponent from "../common/FooterComponent";
 import SubscribeCard from "./SubscribeCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";

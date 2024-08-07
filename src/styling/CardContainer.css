@@ -12,7 +12,6 @@
 }
 
 .cardContainer span {
-    font-size: 1rem;
     margin-bottom: 2px;
     color: #666;
 }
@@ -26,8 +25,7 @@
 /* Card styling */
 .card {
     position: relative;
-    width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     background-color: #fff;
     border-radius: 29px;
     margin: 10px 10px 10px 0;
@@ -78,7 +76,7 @@
 }
 
 .cardRating {
-    margin: 0.5rem 0;
+    margin: 0.1rem 0;
     font-size: 1rem;
     color: #f39c12;
 }
@@ -126,4 +124,12 @@
     background-color: #3DCBB1;
     color: #fff;
     padding: 10px 20px;
+}
+
+.cardRatingSpan{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
 }

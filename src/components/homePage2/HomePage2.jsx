@@ -5,9 +5,9 @@ import { PopularInstructorData } from "../../data/PopularInstructor";
 import SubscribeCard from "../homePage1/SubscribeCard";
 import Categories from "../homePage1/Categories";
 import { CompleteCourseCardData } from "../../data/CourseData";
-import HomeFooter from "../../commonComponents/FooterComponent";
-import CardContainer from "../../commonComponents/CardContainer";
-import InstructorCard from "../../commonComponents/InstructorCard";
+import HomeFooter from "../common/FooterComponent";
+import CardContainer from "../common/CardContainer";
+import InstructorCard from "../common/InstructorCard";
 import Layout from "../../layoutComponent/Layout";
 
 function HomePage2() {
