@@ -1,187 +1,183 @@
 .mainDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-    width: 800px;
-    height: 520px;
-    overflow: hidden;
-    margin: 8rem 0 0 20rem;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  width: 800px;
+  height: 520px;
+  overflow: hidden;
+  margin: 8rem 0 0 20rem;
+  border-radius: 10px;
 }
 
 .loginPageImg {
-    width: 50%;
-    height: 100%;
+  width: 50%;
+  height: 100%;
 }
 
 .loginPageImg img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px 0 0 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px 0 0 10px;
 }
 
 .loginPageInputs {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #c4e2e4;
-    padding: 20px;
-    border-radius: 0 10px 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4e2e4;
+  padding: 20px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .loginPageLogo {
-    display: flex;
-    align-items: center;
-    margin: 10px 0 20px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 20px;
 }
 
 .loginPageLogo img {
-    height: 40px;
-    margin-right: 10px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .loginPageLogo span {
-    font-size: 18px;
-    font-weight: 700;
-    color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
 }
 
 .loginPageText {
-    text-align: start;
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
+  text-align: start;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .loginPageTextInput {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .loginPageTextInput input {
-    background-color: #FAFAFA;
-    padding: 10px 30px 10px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
+  background-color: #fafafa;
+  padding: 10px 30px 10px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 .loginPageTextInput input::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .emailicon,
 .lockIcon {
-    position: absolute;
-    color: #999;
-    font-size: 22px;
+  position: absolute;
+  color: #999;
+  font-size: 22px;
 }
 
 .emailicon {
-    top: 15%;
-    left: 90%;
-    transform: translateY(-50%);
+  top: 15%;
+  left: 90%;
+  transform: translateY(-50%);
 }
 
 .lockIcon {
-    top: 50%;
-    left: 90%;
-    transform: translateY(-50%);
+  top: 50%;
+  left: 90%;
+  transform: translateY(-50%);
 }
 
 .loginPageLoginBtn {
-    background-color: #3DCBB1;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: #3dcbb1;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.orYouCanSpan {
-    display: block;
-    margin: 20px 0;
-    font-size: 16px;
-    color: #666;
-    font-weight: 600;
+.orYouCanSPan {
+  margin: 12px 0;
+  font-size: 16px;
+  color: #666;
+  font-weight: 600;
 }
 
 .loginPageBtnGroup {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .loginPageBtnGroup button {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 14px;
 }
 
 .loginPageFbBtn {
-    background-color: #4267B2;
-    color: #fff;
-    position: relative;
+  background-color: #4267b2;
+  color: #fff;
+  position: relative;
 }
 
 .loginPageFbBtnIcon {
-    position: absolute;
-    left: 52%;
-    font-size: 20px;
-    transform: translateY(40%);
-    background-color: #ddd;
-    color: #4267B2;
-    padding: 2.5px 0 0 3px;
-    border-radius: 2px;
+  position: absolute;
+  font-size: 20px;
+  transform: translateY(0.6rem) translateX(5rem);
+  background-color: #ddd;
+  color: #4267b2;
+  padding: 2.5px 0 0 3px;
+  border-radius: 2px;
 }
 
 .loginPageAppBtn {
-    background-color: #1B1B1B;
-    color: #fff;
-    position: relative;
+  background-color: #1b1b1b;
+  color: #fff;
+  position: relative;
 }
 
 .loginPageAppBtnIcon {
-    position: absolute;
-    left: 51.8%;
-    font-size: 28px;
-    top: 67%;
-    color: #ddd;
-    border-radius: 50px;
+  position: absolute;
+  transform: translateY(3.4rem) translateX(4.8rem);
+  font-size: 28px;
+  color: #ffffff;
+  border-radius: 50px;
 }
 
 .loginPageGoogleBtn {
-    background-color: #f4f4f4;
-    color: #000;
-    position: relative;
+  background-color: #f4f4f4;
+  color: #000;
+  position: relative;
 }
 
 .loginPageGoogleBtnIcon {
-    position: absolute;
-    left: 52%;
-    font-size: 25px;
-    top: 73.8%;
-    color: #ddd;
-    border-radius: 50px;
+  position: absolute;
+  transform: translateY(6.6rem) translateX(5rem);
+  font-size: 25px;
+  color: #ddd;
+  border-radius: 50px;
 }
 
 .needAnAccountSpan {
-    display: block;
-    margin-top: 5px;
-    font-size: 16px;
-    color: #666;
-    font-weight: 600;
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 600;
 }
 
 .signUpSpan {
-    color: #3DCBB1;
+  color: #3dcbb1;
 }

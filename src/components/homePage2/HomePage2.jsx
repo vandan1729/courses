@@ -1,14 +1,14 @@
-import Navbar2 from "./Navbar2";
-import { KitaniStudioCardData } from "../../data/KitaniStudioCard";
-import { TrendingCourseData } from "../../data/TrendingCourse";
-import { PopularInstructorData } from "../../data/PopularInstructor";
-import SubscribeCard from "../homePage1/SubscribeCard";
-import Categories from "../homePage1/Categories";
-import { CompleteCourseCardData } from "../../data/CourseData";
-import HomeFooter from "../common/FooterComponent";
-import CardContainer from "../common/CardContainer";
-import InstructorCard from "../common/InstructorCard";
-import Layout from "../../layoutComponent/Layout";
+import Navbar2 from './Navbar2'
+import { KitaniStudioCardData } from '../../data/KitaniStudioCard'
+import { TrendingCourseData } from '../../data/TrendingCourse'
+import { PopularInstructorData } from '../../data/PopularInstructor'
+import SubscribeCard from '../homePage1/SubscribeCard'
+import Categories from '../homePage1/Categories'
+import { CompleteCourseCardData } from '../../data/CourseData'
+import HomeFooter from '../common/FooterComponent'
+import CardContainer from '../common/CardContainer'
+import InstructorCard from '../common/InstructorCard'
+import Layout from '../../layoutComponent/Layout'
 
 function HomePage2() {
   return (
@@ -42,7 +42,7 @@ function HomePage2() {
         <SubscribeCard />
       </Layout>
     </>
-  );
+  )
 }
 
-export default HomePage2;
+export default HomePage2

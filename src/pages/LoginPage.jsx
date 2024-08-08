@@ -1,11 +1,13 @@
-import profilePic from "/src/assets/homePage1/loginPage/loginPage.png";
-import logo from "/src/assets/logo.png";
-import { MdOutlineEmail } from "react-icons/md";
-import { MdOutlineLock } from "react-icons/md";
-import { FaFacebookF } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import "/src/styling/LoginPage.css";
+import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
+import logo from '/src/assets/logo.png'
+
+import { MdOutlineEmail } from 'react-icons/md'
+import { MdOutlineLock } from 'react-icons/md'
+import { FaFacebookF } from 'react-icons/fa'
+import { FaApple } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
+
+import '/src/styling/LoginPage.css'
 
 function LoginPage() {
   return (
@@ -25,9 +27,9 @@ function LoginPage() {
           </span>
 
           <div className="loginPageTextInput">
-            <input type="text" placeholder="Email Address" />{" "}
+            <input type="text" placeholder="Email Address" />{' '}
             <MdOutlineEmail className="emailicon" />
-            <input type="text" placeholder="Password" />{" "}
+            <input type="text" placeholder="Password" />{' '}
             <MdOutlineLock className="lockIcon" />
             <button className="loginPageLoginBtn">Login</button>
           </div>
@@ -49,7 +51,7 @@ function LoginPage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage

@@ -1,22 +1,22 @@
-import { useState } from "react";
-import Navbar2 from "../homePage2/Navbar2";
-import SliderComponent from "./SliderComponent";
-import FooterComponent from "../common/FooterComponent";
-import SubscribeCard from "./SubscribeCard";
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
-import "../../styling/MyCoursePage.css";
-import Layout from "../../layoutComponent/Layout";
+import { useState } from 'react'
+import { IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowUp } from 'react-icons/io'
+
+import SliderComponent from '../components/homePage1/SliderComponent'
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import Layout from '../layoutComponent/Layout'
+
+import '../styling/MyCoursePage.css'
 
 function MyCoursePage() {
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState(null)
 
-  const browse1 = ["Hello"];
-  const browse2 = ["Welcome"];
+  const browse1 = ['Hello']
+  const browse2 = ['Welcome']
 
   const toggleDropdown = (dropdown) => {
-    setOpenDropdown(openDropdown === dropdown ? null : dropdown);
-  };
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
+  }
 
   return (
     <>
@@ -30,11 +30,11 @@ function MyCoursePage() {
 
           <div className="myCoursetTopLayerDropDown">
             <button
-              onClick={() => toggleDropdown("dropdown1")}
+              onClick={() => toggleDropdown('dropdown1')}
               className="myCoursetTopLayerDropDownToggle"
             >
-              All Rated{" "}
-              {openDropdown === "dropdown1" ? (
+              All Rated{' '}
+              {openDropdown === 'dropdown1' ? (
                 <IoIosArrowUp />
               ) : (
                 <IoIosArrowDown />
@@ -42,18 +42,18 @@ function MyCoursePage() {
             </button>
 
             <button
-              onClick={() => toggleDropdown("dropdown2")}
+              onClick={() => toggleDropdown('dropdown2')}
               className="myCoursetTopLayerDropDownToggle"
             >
-              Recently added{" "}
-              {openDropdown === "dropdown2" ? (
+              Recently added{' '}
+              {openDropdown === 'dropdown2' ? (
                 <IoIosArrowUp />
               ) : (
                 <IoIosArrowDown />
               )}
             </button>
 
-            {openDropdown === "dropdown1" && (
+            {openDropdown === 'dropdown1' && (
               <ul className="dropdownMenu1">
                 {browse1.map((item) => (
                   <li key={item} className="myCoursetTopLayerDropDownItems">
@@ -63,7 +63,7 @@ function MyCoursePage() {
               </ul>
             )}
 
-            {openDropdown === "dropdown2" && (
+            {openDropdown === 'dropdown2' && (
               <ul className="dropdownMenu2">
                 {browse2.map((item) => (
                   <li key={item} className="myCoursetTopLayerDropDownItems">
@@ -77,7 +77,7 @@ function MyCoursePage() {
         <SubscribeCard />
       </Layout>
     </>
-  );
+  )
 }
 
-export default MyCoursePage;
+export default MyCoursePage

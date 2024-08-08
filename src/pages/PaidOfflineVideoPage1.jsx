@@ -1,62 +1,63 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import SubscribeCard from "./SubscribeCard";
-import img1 from "/src/assets/homePage1/paidOfflineVideo/image1.png";
-import img2 from "/src/assets/homePage1/paidOfflineVideo/image2.png";
-import img3 from "/src/assets/homePage1/paidOfflineVideo/thumbnail.png";
-import profile1 from "/src/assets/homePage1/paidOfflineVideo/profile1.png";
-import profile2 from "/src/assets/homePage1/paidOfflineVideo/profile2.png";
-import profile3 from "/src/assets/homePage1/paidOfflineVideo/profile3.png";
-import profile4 from "/src/assets/homePage1/paidOfflineVideo/profile4.png";
-import { BsPeople } from "react-icons/bs";
-import { MdOutlineRateReview, MdSlowMotionVideo } from "react-icons/md";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import "../../styling/PaidOfflineVideo1.css";
-import FooterComponent from "../common/FooterComponent";
-import Navbar2 from "../homePage2/Navbar2";
-import Layout from "../../layoutComponent/Layout";
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import Layout from '../layoutComponent/Layout'
+
+import img1 from '/src/assets/homePage1/paidOfflineVideo/image1.png'
+import img2 from '/src/assets/homePage1/paidOfflineVideo/image2.png'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
+import profile1 from '/src/assets/homePage1/paidOfflineVideo/profile1.png'
+import profile2 from '/src/assets/homePage1/paidOfflineVideo/profile2.png'
+import profile3 from '/src/assets/homePage1/paidOfflineVideo/profile3.png'
+import profile4 from '/src/assets/homePage1/paidOfflineVideo/profile4.png'
+
+import { BsPeople } from 'react-icons/bs'
+import { MdOutlineRateReview, MdSlowMotionVideo } from 'react-icons/md'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+
+import '../styling/PaidOfflineVideoPage1.css'
 
 const dropDownCourseLi = [
-  "Installing Vue JS",
-  "Understand Vue Components",
-  "Vue Templating",
-  "Vue Forms",
-  "Vue Styling",
-];
+  'Installing Vue JS',
+  'Understand Vue Components',
+  'Vue Templating',
+  'Vue Forms',
+  'Vue Styling',
+]
 
 const reviewData = [
   {
     profilePic: profile1,
-    pname: "Leonardo Da Vinci",
+    pname: 'Leonardo Da Vinci',
     review:
       "Loved the course. I've learned some very subtle techniques, especially on leaves.",
   },
   {
     profilePic: profile2,
-    pname: "Titania S",
+    pname: 'Titania S',
     review:
-      "I loved the course; it had been a long time since I had experimented with watercolors and now I will do it more often thanks to Kitani Studio.",
+      'I loved the course; it had been a long time since I had experimented with watercolors and now I will do it more often thanks to Kitani Studio.',
   },
   {
     profilePic: profile3,
-    pname: "Zhirkov",
+    pname: 'Zhirkov',
     review:
-      "Yes. I just emphasize that the use of Photoshop, for non-users, becomes difficult to follow. What requires a course to master it. Safe and very didactic teacher.",
+      'Yes. I just emphasize that the use of Photoshop, for non-users, becomes difficult to follow. What requires a course to master it. Safe and very didactic teacher.',
   },
   {
     profilePic: profile4,
-    pname: "Miphoska",
+    pname: 'Miphoska',
     review:
       "I haven't finished the course yet, as I would like to have some feedback from the teacher about the comments I shared on the forum 3 months ago, and I still haven't had any answer. I think the course is well-structured, however the explanations and videos are very quick for beginners. However, it is good to go practicing.",
   },
-];
+]
 
-function PaidOfflineVideo1() {
-  const [openChapter, setOpenChapter] = useState(null);
+function PaidOfflineVideoPage1() {
+  const [openChapter, setOpenChapter] = useState(null)
 
   const toggleDropdown = (chapter) => {
-    setOpenChapter((prevChapter) => (prevChapter === chapter ? null : chapter));
-  };
+    setOpenChapter((prevChapter) => (prevChapter === chapter ? null : chapter))
+  }
 
   return (
     <>
@@ -73,13 +74,13 @@ function PaidOfflineVideo1() {
                   Chapter 1: Course Overview
                 </span>
                 <span className="dropdownVideoSpan">
-                  1/12 Videos{" "}
+                  1/12 Videos{' '}
                   <span className="dropdownTimeSpan">
                     <span className="dropdownTimeSpanDot"></span>28m
                   </span>
                 </span>
               </div>
-              {openChapter === "chapter1" ? (
+              {openChapter === 'chapter1' ? (
                 <IoIosArrowUp />
               ) : (
                 <IoIosArrowDown />
@@ -87,9 +88,9 @@ function PaidOfflineVideo1() {
             </div>
 
             <div
-              onClick={() => toggleDropdown("chapter2")}
+              onClick={() => toggleDropdown('chapter2')}
               className="dropdownToggle"
-              aria-expanded={openChapter === "chapter2"}
+              aria-expanded={openChapter === 'chapter2'}
               aria-controls="dropdown-chapter2"
             >
               <div className="dropdownToggleSpanDiv">
@@ -97,26 +98,26 @@ function PaidOfflineVideo1() {
                   Chapter 2: Curriculum
                 </span>
                 <span className="dropdownVideoSpan">
-                  1/12 Videos{" "}
+                  1/12 Videos{' '}
                   <span className="dropdownTimeSpan">
                     <span className="dropdownTimeSpanDot"></span>28m
                   </span>
                 </span>
               </div>
-              {openChapter === "chapter2" ? (
+              {openChapter === 'chapter2' ? (
                 <IoIosArrowUp />
               ) : (
                 <IoIosArrowDown />
               )}
             </div>
-            {openChapter === "chapter2" && (
+            {openChapter === 'chapter2' && (
               <ul id="dropdown-chapter2" className="dropdownMenu">
                 {dropDownCourseLi.map((item) => (
                   <li key={item} className="dropdownItem">
                     <span className="dropdownItemSpan">
                       {item}
                       <span className="dropdownItemSpanIcon">
-                        <MdSlowMotionVideo />{" "}
+                        <MdSlowMotionVideo />{' '}
                         <span className="dropdownItemSpanText"> 10m</span>
                       </span>
                     </span>
@@ -135,13 +136,13 @@ function PaidOfflineVideo1() {
                   Chapter 3: Components
                 </span>
                 <span className="dropdownVideoSpan">
-                  1/12 Videos{" "}
+                  1/12 Videos{' '}
                   <span className="dropdownTimeSpan">
                     <span className="dropdownTimeSpanDot"></span>28m
                   </span>
                 </span>
               </div>
-              {openChapter === "chapter3" ? (
+              {openChapter === 'chapter3' ? (
                 <IoIosArrowUp />
               ) : (
                 <IoIosArrowDown />
@@ -214,7 +215,7 @@ function PaidOfflineVideo1() {
         <SubscribeCard />
       </Layout>
     </>
-  );
+  )
 }
 
-export default PaidOfflineVideo1;
+export default PaidOfflineVideoPage1

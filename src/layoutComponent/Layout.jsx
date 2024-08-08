@@ -1,6 +1,6 @@
-import React from "react";
-import Navbar2 from "../components/homePage2/Navbar2";
-import HomeFooter from "../components/common/FooterComponent";
+import React from 'react'
+import Navbar2 from '../components/homePage2/Navbar2'
+import HomeFooter from '../components/common/FooterComponent'
 
 const Layout = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <HomeFooter />
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

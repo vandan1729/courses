@@ -1,76 +1,76 @@
 .navbar3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .navbar3Logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logoImg {
-    width: 45px;
+  width: 45px;
 }
 
 .navbar3Logo span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
 }
 
 .navbar3Dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .navbar3DropdownToggle {
-    background: #f8f9fa;
-    border: 1px solid #ddd;
-    margin-left: 5rem;
-    width: 8rem;
-    cursor: pointer;
-    border-radius: 4px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  margin-left: 5rem;
+  width: 8rem;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .navbar3DropdownMenu {
-    position: absolute;
-    width: fit-content;
-    top: 100%;
-    left: 35%;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: fit-content;
+  top: 100%;
+  left: 35%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar3DropdownItem {
-    padding: 10px;
-    cursor: pointer;
-    margin: 1rem;
+  padding: 10px;
+  cursor: pointer;
+  margin: 1rem;
 }
 
 .navbar3DropdownItem:hover {
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .navbar3Menu {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar3Item {
-    margin-right: 20px;
-    font-size: 1rem;
-    cursor: pointer;
+  margin-right: 20px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .navbar3CartIcon {
-    font-size: 1.5rem;
-    margin-right: 20px;
-    cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  cursor: pointer;
 }

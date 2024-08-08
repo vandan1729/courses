@@ -1,5 +1,5 @@
-import "../../styling/SubscribeCard.css";
-import { IoSearchOutline } from "react-icons/io5";
+import '../../styling/SubscribeCard.css'
+import { IoSearchOutline } from 'react-icons/io5'
 
 function SubscribeCard() {
   return (
@@ -14,7 +14,7 @@ function SubscribeCard() {
         <button className="subscribeButton">Subscribe</button>
       </div>
     </div>
-  );
+  )
 }
 
-export default SubscribeCard;
+export default SubscribeCard

@@ -1,86 +1,91 @@
-import { useContext, useState, useRef, useEffect } from "react";
-import { IoIosSearch } from "react-icons/io";
-import { MdShoppingCart } from "react-icons/md";
-import { FaRegBell } from "react-icons/fa";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import logo from "/src/assets/logo.png";
-import CartMenu from "../homePage1/CartMenu";
+import { useContext, useState, useRef, useEffect } from 'react'
+import { IoIosSearch } from 'react-icons/io'
+import { MdShoppingCart } from 'react-icons/md'
+import { FaRegBell } from 'react-icons/fa'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+import { UserContext } from '../../contextProvider/UserContextProvider'
+import { WishListContext } from '../../contextProvider/WishlistFilter'
+import { useNavigate } from 'react-router-dom'
 
-import "../../styling/Navbar2.css";
-import { UserContext } from "../../contextProvider/UserContextProvider";
-import { WishListContext } from "../../contextProvider/WishlistFilter";
-import { useNavigate } from "react-router-dom";
+import logo from '/src/assets/logo.png'
+import CartMenu from '../homePage1/CartMenu'
+
+import '../../styling/Navbar2.css'
 
 function Navbar2() {
-  const { userData } = useContext(UserContext);
-  const { newWishListData } = useContext(WishListContext);
-  const [isCartVisible, setIsCartVisible] = useState(false);
-  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false);
-  const [isBrowseOpen, setIsBrowseOpen] = useState(false);
-  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false);
+  const { userData } = useContext(UserContext)
+  const { newWishListData } = useContext(WishListContext)
 
-  const cartDropdownRef = useRef(null);
-  const naviGate = useNavigate();
+  const [isCartVisible, setIsCartVisible] = useState(false)
+  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
+  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false)
+
+  const cartDropdownRef = useRef(null)
+  const naviGate = useNavigate()
 
   const toggleCartMenu = () => {
-    setIsCartVisible((prevState) => !prevState);
-  };
+    setIsCartVisible((prevState) => !prevState)
+  }
 
   const closeCartMenu = () => {
-    setIsCartVisible(false);
-  };
+    setIsCartVisible(false)
+  }
 
   const handleNavigate = () => {
-    naviGate("/loginPage");
-  };
+    naviGate('/loginPage')
+  }
 
   const handleMyCourses = () => {
-    naviGate("/wishlistPage");
-    newWishListData("All Courses");
-  };
+    naviGate('/wishlistPage')
+    newWishListData('All Courses')
+  }
 
   const handleAccountSetting = () => {
-    naviGate("/myAccount1");
-  };
+    naviGate('/myAccount1')
+  }
 
   const handleMainLogoClick = () => {
-    naviGate("/");
-  };
+    naviGate('/')
+  }
 
   const handleWishlistClick = () => {
-    naviGate("/wishlistPage");
-    newWishListData("Wishlist");
-  };
+    naviGate('/wishlistPage')
+    newWishListData('Wishlist')
+  }
 
   const browse = [
-    "Design",
-    "Programming",
-    "Business & Marketing",
-    "Photo & Video",
-    "Writing",
-  ];
+    'Design',
+    'Programming',
+    'Business & Marketing',
+    'Photo & Video',
+    'Writing',
+  ]
 
   const toggleBrowseDropdown = () => {
-    setIsBrowseOpen((prev) => !prev);
-    setIsBrowseArrowUp(!isBrowseArrowUp);
-  };
+    setIsBrowseOpen((prev) => !prev)
+    setIsBrowseArrowUp(!isBrowseArrowUp)
+  }
 
   const toggleCartDropdown = () => {
-    setIsCartDropdownOpen((prev) => !prev);
-  };
+    setIsCartDropdownOpen((prev) => !prev)
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (cartDropdownRef.current && !cartDropdownRef.current.contains(event.target)) {
-        setIsCartDropdownOpen(false);
+      if (
+        cartDropdownRef.current &&
+        !cartDropdownRef.current.contains(event.target)
+      ) {
+        setIsCartDropdownOpen(false)
       }
-    };
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <div className="navbar2">
@@ -121,7 +126,7 @@ function Navbar2() {
               </p>
               <p className="cartDropdownMenuEmailId">{userData.userEmail}</p>
               <p onClick={handleMyCourses}>My Courses</p>
-              <p>My Cart</p>
+              <p onClick={toggleCartMenu}>My Cart</p>
               <p
                 className="cartDropdownWhishlist"
                 onClick={handleWishlistClick}
@@ -144,7 +149,7 @@ function Navbar2() {
       </div>
       <CartMenu isVisible={isCartVisible} onClose={closeCartMenu} />
     </div>
-  );
+  )
 }
 
-export default Navbar2;
+export default Navbar2

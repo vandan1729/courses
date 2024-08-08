@@ -1,66 +1,89 @@
 .footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px 70px;
-    background-color: #000;
-    color: #ecf0f1;
-    font-size: 17px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 20px; /* Reduced padding for smaller screens */
+  background-color: #000;
+  color: #ecf0f1;
+  font-size: 16px; /* Adjust font size for smaller screens */
 }
 
 .footerUpperSection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-bottom: 1px solid #393838;
-    flex: 1;
-    margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #393838;
+  flex: 1;
+  margin: 10px;
 }
 
 .footerLogo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .footerLogo img {
-    width: 45px;
-    margin-right: 5px;
+  width: 30px; /* Reduced logo size for smaller screens */
+  margin-right: 5px;
 }
 
 .footerSection ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .footerSection li {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .footerBottom {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
 }
 
 .socialIcons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 10px; /* Reduced gap for smaller screens */
 }
 
 .socialIcons svg {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    transition: color 0.3s;
+  width: 18px; /* Reduced icon size for smaller screens */
+  height: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .socialIcons svg:hover {
-    color: #3498db;
+  color: #3498db;
 }
 
-.footerLogo {
-    display: flex;
-    align-items: center;
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px;
+  }
+  .footerLogo img {
+    width: 25px;
+  }
+  .socialIcons svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Media query for extra small screens */
+@media (max-width: 480px) {
+  .footer {
+    padding: 5px;
+  }
+  .footerLogo img {
+    width: 20px;
+  }
+  .socialIcons svg {
+    width: 14px;
+    height: 14px;
+  }
 }

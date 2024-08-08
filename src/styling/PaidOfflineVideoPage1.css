@@ -1,14 +1,14 @@
 .paidOfflineVideo {
-  height: 550px;
+  height: 600px;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   padding: 20px 70px 0 70px;
-  margin: 2.5rem 0;
+  margin-top: 1rem;
 }
 
 .courseDetails {
-  width: 780px;
+  width: 800px;
 }
 
 .courseDetails img {
@@ -16,7 +16,6 @@
 }
 
 .dropdownGroup {
-  /* margin-right: 10px; */
   display: flex;
   flex-direction: column;
 }
@@ -34,7 +33,7 @@
 }
 
 .dropdownToggle {
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,14 +51,14 @@
 .dropdownVideoSpan {
   display: flex;
   align-items: center;
-  color: #A3A3A3;
+  color: #a3a3a3;
 }
 
 .dropdownTimeSpan {
   display: flex;
   border-radius: 50px;
   align-items: center;
-  color: #3DCBB1;
+  color: #3dcbb1;
 }
 
 .dropdownTimeSpanDot {
@@ -79,10 +78,9 @@
 
 .dropdownMenu {
   list-style: none;
-  width: 500px;
   padding: 10px 0 10px 10px;
-  background-color: #F9F9F9;
-  color: #C7C7C7;
+  background-color: #f9f9f9;
+  color: #c7c7c7;
   position: relative;
   left: 0;
   top: 0;
@@ -104,11 +102,11 @@
 .dropdownItemSpanIcon {
   display: flex;
   align-items: center;
-  color: #3DCBB1;
+  color: #3dcbb1;
 }
 
 .dropdownItemSpanText {
-  color: #3DCBB1;
+  color: #3dcbb1;
 }
 
 .dropdownItemBtn {
@@ -119,16 +117,15 @@
 
 .dropdownItemBtnCom {
   padding: 4px 10px;
-  background-color: #3DCBB1;
+  background-color: #3dcbb1;
   color: #ffffff;
 }
 
 .dropdownItemBtnPly {
   padding: 4px 10px;
-  background-color: #FE416D;
+  background-color: #fe416d;
   color: #ffffff;
 }
-
 
 .dropdownItem:hover {
   background-color: #e9ecef;
@@ -151,7 +148,6 @@
 .courseImage img {
   width: 387px;
   height: 632px;
-  /* margin-left: 10px; */
 }
 
 .courseSummary {
@@ -188,7 +184,7 @@
 
 .courseCreatorText p:first-child {
   font-size: 18px;
-  color: #3DCBB1;
+  color: #3dcbb1;
   font-weight: 600;
 }
 
@@ -212,7 +208,7 @@
 .courseStatsIcons {
   width: 24px;
   height: 24px;
-  color: #3DCBB1;
+  color: #3dcbb1;
 }
 
 .courseStatsSpan {
@@ -258,7 +254,7 @@
 }
 
 .reviewContent p:first-child {
-  color: #3DCBB1;
+  color: #3dcbb1;
   padding-bottom: 30px;
   font-weight: 600;
 }
@@ -266,7 +262,6 @@
 .reviewContent p:nth-child(2) {
   color: #5b6060;
 }
-
 
 .loadMoreReviews {
   margin: auto;
@@ -279,6 +274,6 @@
 }
 
 .loadMoreReviews:hover {
-  border: 1px solid #3DCBB1;
-  color: #3DCBB1;
+  border: 1px solid #3dcbb1;
+  color: #3dcbb1;
 }

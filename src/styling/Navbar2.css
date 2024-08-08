@@ -1,153 +1,156 @@
 .navbar2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 70px;
-    box-shadow: 1px 2px rgb(239, 237, 237);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px;
+  box-shadow: 1px 2px rgb(239, 237, 237);
 }
 
 .navbar2Logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar2Logo span {
-    margin-left: 4px;
-    font-size: 23px;
-    font-weight: bold;
+  margin-left: 4px;
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .navbar2Logo img {
-    width: 45px;
+  width: 45px;
 }
 
-.navbar2Logo img:hover,span:hover {
-    cursor: pointer;
+.navbar2Logo img:hover,
+span:hover {
+  cursor: pointer;
 }
 
 .navbar2Search {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar2Search input {
-    height: 37px;
-    width: 400px;
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 15px 0 0 15px;
-    border-right: none;
+  height: 37px;
+  width: 400px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 15px 0 0 15px;
+  border-right: none;
 }
 
 .navbar2Search input:focus {
-    outline: none;
+  outline: none;
 }
 
 .navbar2SearchIcon {
-    height: 37px;
-    font-size: 23px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 15px 15px 0;
-    cursor: pointer;
-    background-color: #ffffff;
+  height: 37px;
+  font-size: 23px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+  background-color: #ffffff;
 }
 
 .navbar2Menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 .navbar2CartEmojiIcon {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .navbar2Item {
-    display: contents;
-    font-size: 18px;
+  display: contents;
+  font-size: 18px;
 }
 .navbar2CartIcon {
-    height: 24px;
-    width: 24px;
-    margin-top: 0.5rem;
-    cursor: pointer;
+  height: 24px;
+  width: 24px;
+  margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 .dropdown2 {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown2Toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    gap: 4px;
-    margin-left: 5rem;
-    width: 8rem;
-    cursor: pointer;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  gap: 4px;
+  margin-left: 5rem;
+  width: 8rem;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .dropdown2Menu {
-    position: absolute;
-    width: 220px;
-    top: 100%;
-    left: 35%;
-    background: #fff;
-    border-radius: 4px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 220px;
+  top: 100%;
+  left: 35%;
+  background: #fff;
+  border-radius: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown2Item {
-    padding: 10px;
-    cursor: pointer;
-    margin: 1rem;
+  padding: 10px;
+  cursor: pointer;
+  margin: 1rem;
 }
 
 .cartDropdownContainer {
-    position: relative;
-  }
-  
-  .cartDropdownMenu {
-    display: block;
-    width: 250px;
-    position: absolute;
-    top: 62px;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 10px;
-    list-style: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .cartDropdownMenu p {
-    margin: 0;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .cartDropdownMenu p:hover {
-    background-color: #f0f0f0;
-  }
+  position: relative;
+}
 
-  .navbar2CartEmojiIcon:hover {
-    cursor: pointer;
-  }
+.cartDropdownMenu {
+  display: block;
+  width: 250px;
+  position: absolute;
+  top: 62px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  list-style: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
-  .cartDropdownMenuEmailId,.cartDropdownWhishlist,.cartDropdownAccountSetting {
-    border-bottom: 2px solid #EEEEEE;
-  }
+.cartDropdownMenu p {
+  margin: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
 
-  .cartDropdownAccountLogout {
-    color: red;
-  }
+.cartDropdownMenu p:hover {
+  background-color: #f0f0f0;
+}
+
+.navbar2CartEmojiIcon:hover {
+  cursor: pointer;
+}
+
+.cartDropdownMenuEmailId,
+.cartDropdownWhishlist,
+.cartDropdownAccountSetting {
+  border-bottom: 2px solid #eeeeee;
+}
+
+.cartDropdownAccountLogout {
+  color: red;
+}

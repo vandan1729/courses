@@ -1,91 +1,123 @@
 /* navbar1.css */
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 70px;
-    height: 60px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px;
+  height: 60px;
 }
 
 .navbarLogo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbarLogo span {
-    margin-left: 4px;
-    font-size: 1.5rem;
-    font-weight: bold;
+  margin-left: 4px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .navbarLogo img {
-    width: 45px;
+  width: 45px;
 }
 
 .navbarSearch {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbarSearch input {
-    height: 37px;
-    width: 400px;
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 3px 0 0 3px;
-    border-right: none;
+  height: 37px;
+  width: 400px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px 0 0 3px;
+  border-right: none;
 }
 
 .navbarSearch input:focus {
-    outline: none;
+  outline: none;
 }
 
 .navbarSearchIcon {
-    height: 37px;
-    font-size: 20px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
+  height: 37px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
 }
 
 .navbarMenu {
-    width: 850px;
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
+  width: 850px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbarItem {
-    display: contents;
-    cursor: pointer;
-    font-size: 1rem;
+  display: contents;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .navbarCartIcon {
-    font-size: 23px;
-    cursor: pointer;
+  font-size: 23px;
+  cursor: pointer;
 }
 
 button {
-    font-size: 1rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 .navbarLoginBtn {
-    color: #000;
-    height: 32px;
-    width: 63px;
+  color: #000;
+  height: 32px;
+  width: 63px;
 }
 
 .navbarSignUpBtn {
-    background-color: #3DCBB1;
-    color: #FFFFFF;
-    height: 32px;
-    width: 99px;
+  background-color: #3dcbb1;
+  color: #ffffff;
+  height: 32px;
+  width: 99px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .navbarLogo span {
+    font-size: 1rem;
+  }
+
+  .navbarSearch input {
+    height: 25px;
+    width: 150px;
+  }
+
+  .navbarSearchIcon {
+    height: 25px;
+  }
+
+  .navbarLogo {
+    margin-right: 25px;
+  }
+
+  .navbarLogo img {
+    width: 35px;
+  }
+
+  .navbarMenu {
+    width: 650px;
+  }
 }

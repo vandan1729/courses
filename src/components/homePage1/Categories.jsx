@@ -1,28 +1,28 @@
-import { useContext, useState } from "react";
-import "/src/styling/Categories.css";
-import { CardContext } from "../../contextProvider/CardFilter";
+import { useContext, useState } from 'react'
+import { CardContext } from '../../contextProvider/CardFilter'
+
+import '/src/styling/Categories.css'
 
 function Categories() {
-  const { newCardData, cardValue } = useContext(CardContext);
-
+  const { newCardData, cardValue } = useContext(CardContext)
 
   const handleClick = (category) => {
-    newCardData(category);
-  };
+    newCardData(category)
+  }
 
   const categories = [
-    "All Recommendation",
-    "Adobe Illustrator",
-    "Adobe Photoshop",
-    "UI Design",
-    "Web Programming",
-    "Mobile Programming",
-    "Backend Development",
-    "Vue JS"
-  ];
+    'All Recommendation',
+    'Adobe Illustrator',
+    'Adobe Photoshop',
+    'UI Design',
+    'Web Programming',
+    'Mobile Programming',
+    'Backend Development',
+    'Vue JS',
+  ]
 
   return (
-    <div className='categoriesText'>
+    <div className="categoriesText">
       {categories.map((category, index) => (
         <span
           key={index}
@@ -33,7 +33,7 @@ function Categories() {
         </span>
       ))}
     </div>
-  );
+  )
 }
 
-export default Categories;
+export default Categories

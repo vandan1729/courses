@@ -1,29 +1,29 @@
-import { useState } from "react";
-import { IoCartOutline } from "react-icons/io5";
-import { FaRegBell } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
-import logo from "../../assets/logo.png";
+import { useState } from 'react'
+import { IoCartOutline } from 'react-icons/io5'
+import { FaRegBell } from 'react-icons/fa'
+import { CgProfile } from 'react-icons/cg'
+import logo from '../../assets/logo.png'
 
-import "../../styling/Navbar3.css";
+import '../../styling/Navbar3.css'
 
 function Navbar3() {
   const browse = [
-    "Design",
-    "Programming",
-    "Business & Marketing",
-    "Photo & Video",
-    "Writing",
-  ];
+    'Design',
+    'Programming',
+    'Business & Marketing',
+    'Photo & Video',
+    'Writing',
+  ]
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedText, setSelectedText] = useState("Browse");
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedText, setSelectedText] = useState('Browse')
 
-  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const toggleDropdown = () => setIsOpen((prev) => !prev)
 
   const handleItemClick = (item) => {
-    setSelectedText(item);
-    setIsOpen(false);
-  };
+    setSelectedText(item)
+    setIsOpen(false)
+  }
 
   return (
     <nav className="navbar3">
@@ -56,7 +56,7 @@ function Navbar3() {
         <CgProfile className="navbar3CartIcon" />
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar3;
+export default Navbar3

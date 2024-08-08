@@ -1,5 +1,5 @@
-import Navbar3 from "./Navbar3";
-import "../../styling/HeroSection.css";
+import Navbar3 from './Navbar3'
+import '../../styling/HeroSection.css'
 
 function HeroSection() {
   return (
@@ -22,7 +22,7 @@ function HeroSection() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default HeroSection;
+export default HeroSection

@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { IoPersonOutline } from "react-icons/io5";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import "/src/styling/CardContainer.css";
+import { useState } from 'react'
+import { IoPersonOutline } from 'react-icons/io5'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import '/src/styling/CardContainer.css'
 
 function MyCourseCardContainer({ header, heading, data }) {
-  const [likedItems, setLikedItems] = useState({});
+  const [likedItems, setLikedItems] = useState({})
 
   const handleLikeClick = (id) => {
     setLikedItems((prevState) => ({
       ...prevState,
       [id]: !prevState[id],
-    }));
-  };
+    }))
+  }
 
   return (
     <div className="cardContainer">
@@ -33,8 +33,8 @@ function MyCourseCardContainer({ header, heading, data }) {
                 <IoPersonOutline />
                 <p>{item.cardAuthor}</p>
               </p>
-              {item.cardDescription === "Completed!" ? (
-                <p className="cardDescription" style={{ color: "#3DCBB1" }}>
+              {item.cardDescription === 'Completed!' ? (
+                <p className="cardDescription" style={{ color: '#3DCBB1' }}>
                   {item.cardDescription}
                 </p>
               ) : (
@@ -45,7 +45,7 @@ function MyCourseCardContainer({ header, heading, data }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default MyCourseCardContainer;
+export default MyCourseCardContainer

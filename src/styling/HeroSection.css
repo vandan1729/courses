@@ -1,70 +1,70 @@
 .mainHeroSectionDiv {
-    background-image: url('/src/assets/homePage3/heroSection/heroSectionBg.png');
-    background-size: cover;
-    /* background-position: top right; */
-    padding: 20px;
-    color: white;
-    text-align: center;
-    /* filter: brightness(50%) */
+  background-image: url('/src/assets/homePage3/heroSection/heroSectionBg.png');
+  background-size: cover;
+  /* background-position: top right; */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  /* filter: brightness(50%) */
 }
 
 .heroSectionContent {
-    margin-top: 12rem;
-    filter: brightness(100%);
+  margin-top: 12rem;
+  filter: brightness(100%);
 }
 
 .heroSectionContent h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .heroSectionContent p {
-    font-size: 1.2rem;
-    margin-bottom: 50px;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
 }
 
 .heroSectionFilter {
-    background-color: #ffffff;
-    /* position: relative; */
-    padding: 20px;
-    border-radius: 15px;
-    display: inline-block;
-    top: 6rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* margin-bottom: 10rem; */
+  background-color: #ffffff;
+  /* position: relative; */
+  padding: 20px;
+  border-radius: 15px;
+  display: inline-block;
+  top: 6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* margin-bottom: 10rem; */
 }
 
 .heroSectionFilter h2 {
-    text-align: start;
-    font-size: 1.5rem;
-    color: black;
-    margin-bottom: 20px;
+  text-align: start;
+  font-size: 1.5rem;
+  color: black;
+  margin-bottom: 20px;
 }
 
 .heroSectionFilterInputs {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .heroSectionFilterInputs input {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
 }
 
 .heroSectionFilterInputs button {
-    padding: 10px 35px;
-    background-color: #00BFA6;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 1rem;
-    cursor: pointer;
+  padding: 10px 35px;
+  background-color: #00bfa6;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .heroSectionFilterInputs button:hover {
-    background-color: #009C87;
+  background-color: #009c87;
 }

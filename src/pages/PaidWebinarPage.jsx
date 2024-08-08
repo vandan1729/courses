@@ -1,29 +1,27 @@
-import Navbar2 from "../homePage2/Navbar2";
-import FooterComponent from "../common/FooterComponent";
-import SubscribeCard from "./SubscribeCard";
+import { useState } from 'react'
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import Layout from '../layoutComponent/Layout'
 
-import img1 from "/src/assets/homePage1/PaidWebinar/image.png";
-import img2 from "/src/assets/homePage1/PaidWebinar/image2.jpg";
-import img3 from "/src/assets/homePage1/paidOfflineVideo/thumbnail.png";
+import img1 from '/src/assets/homePage1/PaidWebinar/image.png'
+import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
+import pro1 from '/src/assets/homePage1/paidOfflineVideo/profile1.png'
+import pro2 from '/src/assets/homePage1/paidOfflineVideo/profile2.png'
+import pro3 from '/src/assets/homePage1/paidOfflineVideo/profile3.png'
+import pro4 from '/src/assets/homePage1/paidOfflineVideo/profile4.png'
 
-import pro1 from "/src/assets/homePage1/paidOfflineVideo/profile1.png";
-import pro2 from "/src/assets/homePage1/paidOfflineVideo/profile2.png";
-import pro3 from "/src/assets/homePage1/paidOfflineVideo/profile3.png";
-import pro4 from "/src/assets/homePage1/paidOfflineVideo/profile4.png";
+import { BsPeople } from 'react-icons/bs'
+import { MdOutlineRateReview } from 'react-icons/md'
+import { PiNavigationArrowFill } from 'react-icons/pi'
 
-import { BsPeople } from "react-icons/bs";
-import { MdOutlineRateReview } from "react-icons/md";
-import { PiNavigationArrowFill } from "react-icons/pi";
-import "../../styling/PaidWebinarPage.css";
-import { useState } from "react";
-import Layout from "../../layoutComponent/Layout";
+import '../styling/PaidWebinarPage.css'
 
 function PaidWebinarPage() {
-  const [chat, setChat] = useState([]);
-  const [message, setMessage] = useState("");
+  const [chat, setChat] = useState([])
+  const [message, setMessage] = useState('')
 
-  const profiles = [pro1, pro2, pro3, pro4];
-  const profilesName = ["Urvish", "Ramesh", "Suresh", "Mukesh"];
+  const profiles = [pro1, pro2, pro3, pro4]
+  const profilesName = ['Urvish', 'Ramesh', 'Suresh', 'Mukesh']
 
   const handleLiveChatSubmit = () => {
     if (message.trim()) {
@@ -31,11 +29,11 @@ function PaidWebinarPage() {
         message: message.trim(),
         img: profiles[Math.floor(Math.random() * profiles.length)],
         name: profilesName[Math.floor(Math.random() * profilesName.length)],
-      };
-      setChat((prevChat) => [...prevChat, newChatItem]);
-      setMessage("");
+      }
+      setChat((prevChat) => [...prevChat, newChatItem])
+      setMessage('')
     }
-  };
+  }
 
   return (
     <>
@@ -47,10 +45,10 @@ function PaidWebinarPage() {
 
           <div className="paidWebinarChat">
             <div>
-              <p style={{ fontWeight: "650", fontSize: "20px" }}>
+              <p style={{ fontWeight: '650', fontSize: '20px' }}>
                 Live Chat Webinar
               </p>
-              <p style={{ color: "#3DCBB1" }}>{chat.length} Active users</p>
+              <p style={{ color: '#3DCBB1' }}>{chat.length} Active users</p>
             </div>
 
             <ul className="paidWebinarChatUl">
@@ -59,7 +57,7 @@ function PaidWebinarPage() {
                   <li className="paidWebinarChatLi" key={index}>
                     <img src={item.img} alt="Profile" />
                     <div>
-                      <p style={{ fontWeight: "650", marginBottom: "0.4rem" }}>
+                      <p style={{ fontWeight: '650', marginBottom: '0.4rem' }}>
                         {item.name}
                       </p>
                       <p>{item.message}</p>
@@ -126,8 +124,8 @@ function PaidWebinarPage() {
           <div className="paidWebinarCourseImage">
             <div className="paidWebinarCourseImageText">
               <div>
-                <p style={{ fontSize: "18px", fontWeight: "600" }}>WEBINAR</p>
-                <p style={{ fontWeight: "300" }}>August 16, 2024</p>
+                <p style={{ fontSize: '18px', fontWeight: '600' }}>WEBINAR</p>
+                <p style={{ fontWeight: '300' }}>August 16, 2024</p>
               </div>
 
               <div className="paidWebinarCourseImagePTextDiv">
@@ -150,6 +148,6 @@ function PaidWebinarPage() {
         <SubscribeCard />
       </Layout>
     </>
-  );
+  )
 }
-export default PaidWebinarPage;
+export default PaidWebinarPage

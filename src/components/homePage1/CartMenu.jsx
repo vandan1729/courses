@@ -1,31 +1,29 @@
-import { useRef, useEffect } from "react";
-import "../../styling/CartMenu.css";
-import { RxCross1 } from "react-icons/rx";
+import { useRef, useEffect } from 'react'
+import { RxCross1 } from 'react-icons/rx'
+
+import '../../styling/CartMenu.css'
 
 const CartMenu = ({ isVisible, onClose }) => {
-  const cartMenuRef = useRef(null);
+  const cartMenuRef = useRef(null)
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (cartMenuRef.current && !cartMenuRef.current.contains(event.target)) {
-        onClose();
+        onClose()
       }
-    };
+    }
 
     if (isVisible) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isVisible, onClose]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isVisible, onClose])
 
   return (
-    <div
-      className={`cartMenu ${isVisible ? "visible" : ""}`}
-      ref={cartMenuRef}
-    >
+    <div className={`cartMenu ${isVisible ? 'visible' : ''}`} ref={cartMenuRef}>
       <div className="closeBtnDiv">
         <RxCross1 className="closeBtn" onClick={onClose} />
       </div>
@@ -37,7 +35,7 @@ const CartMenu = ({ isVisible, onClose }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartMenu;
+export default CartMenu

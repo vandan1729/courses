@@ -1,36 +1,35 @@
 .cartMenu {
-    position: fixed;
-    top: 0;
-    right: -500px;
-    width: 300px;
-    height: 100%;
-    background: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: right 0.3s ease-in-out;
-    padding: 20px;
-    z-index: 1000;
-  }
-  
-  .cartMenu.visible {
-    right: 0;
-  }
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  z-index: 1000;
+}
 
-  .cartMenuData {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+.cartMenu.visible {
+  right: 0;
+}
+
+.cartMenuData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .closeBtnDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-size: 25px;
 }
 
 .closeBtn:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+  cursor: pointer;
+  transform: scale(1.2);
 }
-  

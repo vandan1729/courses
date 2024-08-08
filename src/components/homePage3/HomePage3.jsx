@@ -7,11 +7,11 @@ import UpcomingWebinar from './UpcomingWebinar'
 function HomePage3() {
   return (
     <>
-    <HeroSection />
-    <TopCourseData />
-    <TrendingCourses />
-    <UpcomingWebinar />
-    <HomeFooter />
+      <HeroSection />
+      <TopCourseData />
+      <TrendingCourses />
+      <UpcomingWebinar />
+      <HomeFooter />
     </>
   )
 }

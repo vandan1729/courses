@@ -1,32 +1,33 @@
-import { useContext, useState, useEffect } from "react";
-import { IoPersonOutline } from "react-icons/io5";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { WishListContext } from "../../contextProvider/WishlistFilter";
-import "/src/styling/CardContainer.css";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect } from 'react'
+import { IoPersonOutline } from 'react-icons/io5'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { WishListContext } from '../../contextProvider/WishlistFilter'
+import { useNavigate } from 'react-router-dom'
+
+import '/src/styling/CardContainer.css'
 
 function WishlistPageContainer({ header, data }) {
-  const { wishListItems, addToWishList } = useContext(WishListContext);
-  const [likedItems, setLikedItems] = useState({});
-  const [exploreCoursesBtn, setExploreCoursesBtn] = useState(false);
+  const { wishListItems, addToWishList } = useContext(WishListContext)
+  const [likedItems, setLikedItems] = useState({})
+  const [exploreCoursesBtn, setExploreCoursesBtn] = useState(false)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleExploreCoursesClick = () => {
-    navigate("/");
-  };
+    navigate('/')
+  }
 
   useEffect(() => {
-    setExploreCoursesBtn(header === "Wishlist");
-  }, [header]);
+    setExploreCoursesBtn(header === 'Wishlist')
+  }, [header])
 
   const handleLikeClick = (item) => {
-    addToWishList(item);
+    addToWishList(item)
     setLikedItems((prevState) => ({
       ...prevState,
       [item.id]: !prevState[item.id],
-    }));
-  };
+    }))
+  }
 
   return (
     <div className="cardContainer">
@@ -60,9 +61,9 @@ function WishlistPageContainer({ header, data }) {
                   className="cardDescription"
                   style={{
                     color:
-                      item.cardDescription === "Completed!"
-                        ? "#3DCBB1"
-                        : "inherit",
+                      item.cardDescription === 'Completed!'
+                        ? '#3DCBB1'
+                        : 'inherit',
                   }}
                 >
                   {item.cardDescription}
@@ -83,7 +84,7 @@ function WishlistPageContainer({ header, data }) {
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default WishlistPageContainer;
+export default WishlistPageContainer

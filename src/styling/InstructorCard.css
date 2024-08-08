@@ -1,33 +1,31 @@
 .instructorCardDataContainer {
-    padding: 20px 70px;
-    height: 478px;
+  padding: 20px 70px;
 }
 
 .instructorCardDataContainer h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .instructorCardDataContainer span {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #666;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
 }
 
 .instructorCardsContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
 }
 
 .instructorCard {
-    width: 330px;
-    height: 400px;
-    box-sizing: border-box;
+  width: 300px;
+  box-sizing: border-box;
+  margin-left: 10px;
 }
 
 .instructorCardImg {
-    width: 100%;
+  width: 100%;
 }

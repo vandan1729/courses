@@ -1,112 +1,104 @@
 .myCoursetTopLayer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 70px 0px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px 0px 70px;
 }
 
 .myCoursetTopLayerText1 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .myCoursetTopLayerText2 {
-    font-size: 18px;
-    color: #767676;
+  font-size: 18px;
+  color: #767676;
 }
 
 .myCoursetTopLayerDropDown {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .myCoursetTopLayerDropDownToggle {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #767676;
-    border-radius: 2px;
-    background-color: #fff;
-    width: 200px;
-    padding: 10px 28px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #767676;
+  border-radius: 2px;
+  background-color: #fff;
+  width: 200px;
+  padding: 10px 28px;
 }
 
 .dropdownMenu1 {
-    position: absolute;
-    list-style-type: none;
-    top: 38.6rem;
-    width: 179px;
-    padding: 10px;
-    border: 1px solid #767676;
-    border-radius: 0 0 10px 10px;
-    border-top: none;
-    cursor: pointer;
-
+  position: absolute;
+  list-style-type: none;
+  top: 38.6rem;
+  width: 179px;
+  padding: 10px;
+  border: 1px solid #767676;
+  border-radius: 0 0 10px 10px;
+  border-top: none;
+  cursor: pointer;
 }
 
 .dropdownMenu2 {
-    position: absolute;
-    list-style-type: none;
-    top: 38.6rem;
-    left: 78.1rem;
-    width: 178px;
-    padding: 10px;
-    border: 1px solid #767676;
-    border-radius: 0 0 10px 10px;
-    border-top: none;
-    cursor: pointer;
+  position: absolute;
+  list-style-type: none;
+  top: 38.6rem;
+  left: 78.1rem;
+  width: 178px;
+  padding: 10px;
+  border: 1px solid #767676;
+  border-radius: 0 0 10px 10px;
+  border-top: none;
+  cursor: pointer;
 }
 
-
 .myCoursetTopLayerDropDownItems {
-    padding-left: 18px;
+  padding-left: 18px;
 }
 
 .dropdownMenu1:hover {
-    background-color: #cecaca;
+  background-color: #cecaca;
 }
 .dropdownMenu2:hover {
-    background-color: #cecaca;
+  background-color: #cecaca;
 }
 
 .paginationControls {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .paginationControlsNumber {
-    font-size: 15px;
-    text-align: center;
-    padding: 12px 18px;
-    margin: 0 8px;
-    border-radius: 12px;
-    background-color: #ffffff;
-    border: 2px solid #767676;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
-  }
-  .paginationControlsBtn {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    color: #767676;
-    background-color: #fff;
-    border: 2px solid #767676;
-    margin: 0 15px;
-    cursor: pointer;
-    padding: 5px 8px;
-    border-radius: 2px;
-  }
+.paginationControlsNumber {
+  font-size: 15px;
+  text-align: center;
+  padding: 12px 18px;
+  margin: 0 8px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 2px solid #767676;
+}
+.paginationControlsBtn {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #767676;
+  background-color: #fff;
+  border: 2px solid #767676;
+  margin: 0 15px;
+  cursor: pointer;
+  padding: 5px 8px;
+  border-radius: 2px;
+}
 
-
-
-  .paginationControls .active {
-    font-weight: bold;
-    border: 2px solid #3DCBB1;
-    color: #3DCBB1;
-
-  }
-  
-  
+.paginationControls .active {
+  font-weight: bold;
+  border: 2px solid #3dcbb1;
+  color: #3dcbb1;
+}
