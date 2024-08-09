@@ -16,6 +16,7 @@ function MyAccountPage1() {
     userHeadLine: userData.userHeadLine,
     email: userData.userEmail,
     selectedFile: null,
+    profileImage: userData.userProfile,
   })
 
   const fileInputRef = useRef(null)
@@ -31,10 +32,14 @@ function MyAccountPage1() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]
-    setFormData((prevData) => ({
-      ...prevData,
-      selectedFile: file,
-    }))
+    if (file) {
+      const fileUrl = URL.createObjectURL(file)
+      setFormData((prevData) => ({
+        ...prevData,
+        selectedFile: file,
+        profileImage: fileUrl,
+      }))
+    }
   }
 
   const handleIconClick = () => {
@@ -60,7 +65,11 @@ function MyAccountPage1() {
       return
     }
 
-    newUserData(formData)
+    newUserData({
+      ...formData,
+      userProfile: formData.profileImage,
+    })
+
     toast.success('Uploaded Successfully 😎', {
       position: 'top-center',
       autoClose: 5000,
@@ -89,8 +98,14 @@ function MyAccountPage1() {
           </div>
 
           <div className="accountFormContainer">
-            <span className="profileEmoji">😎</span>
+            <img
+              src={formData.profileImage}
+              alt="Profile"
+              className="profileImage"
+            />
+
             <TbCameraPlus className="cameraEmoji" onClick={handleIconClick} />
+
             <input
               type="file"
               accept="image/*"
@@ -98,6 +113,7 @@ function MyAccountPage1() {
               style={{ display: 'none' }}
               onChange={handleFileChange}
             />
+            
             <form onSubmit={handleSubmit}>
               <label htmlFor="userFirstName">First Name</label>
               <input

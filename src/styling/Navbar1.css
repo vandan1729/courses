@@ -30,11 +30,13 @@
 }
 
 .navbarSearch input {
+  position: relative;
   height: 37px;
   width: 400px;
   padding: 5px 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  background-color: #FAFAFA;
+  border: none;
   border-radius: 3px 0 0 3px;
   border-right: none;
 }
@@ -44,12 +46,11 @@
 }
 
 .navbarSearchIcon {
-  height: 37px;
-  font-size: 20px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-left: none;
-  border-radius: 0 3px 3px 0;
+  position: absolute;
+  transform: translateY(0%);
+  left: 65%;
+  color: black;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -71,24 +72,33 @@
   cursor: pointer;
 }
 
-button {
+.navbarMenu button {
   font-size: 1rem;
-  border: none;
   border-radius: 12px;
   cursor: pointer;
 }
 
+
 .navbarLoginBtn {
-  color: #000;
-  height: 32px;
-  width: 63px;
+  background-color: #ffffff;
+  padding: 6px 12px;
+  font-weight: 450;
+  border: 2px solid black;
 }
 
 .navbarSignUpBtn {
   background-color: #3dcbb1;
   color: #ffffff;
-  height: 32px;
-  width: 99px;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: none;
+}
+
+.navbarTimeLapIcon {
+  font-size: 18px;
 }
 
 @media (max-width: 768px) {

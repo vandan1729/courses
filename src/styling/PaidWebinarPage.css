@@ -182,7 +182,9 @@
 }
 
 .paidWebinarChatArrow1 {
-  transform: translateX(25rem) translateY(25rem) rotate(90deg);
+  top: 103%;
+  left: 90%;
+  transform: rotate(90deg);
   position: absolute;
   font-size: 28px;
   background-color: #f9f9f9;

@@ -1,3 +1,4 @@
+/* Main Navbar Container */
 .navbar2 {
   display: flex;
   justify-content: space-between;
@@ -6,6 +7,7 @@
   box-shadow: 1px 2px rgb(239, 237, 237);
 }
 
+/* Logo Section */
 .navbar2Logo {
   display: flex;
   align-items: center;
@@ -26,18 +28,21 @@ span:hover {
   cursor: pointer;
 }
 
+/* Search Bar */
 .navbar2Search {
   display: flex;
   align-items: center;
 }
 
 .navbar2Search input {
+  position: relative;
   height: 37px;
   width: 400px;
   padding: 5px 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 15px 0 0 15px;
+  background-color: #FAFAFA;
+  border: none;
+  border-radius: 3px 0 0 3px;
   border-right: none;
 }
 
@@ -46,22 +51,38 @@ span:hover {
 }
 
 .navbar2SearchIcon {
-  height: 37px;
-  font-size: 23px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-left: none;
-  border-radius: 0 15px 15px 0;
+  position: absolute;
+  transform: translateY(0%);
+  left: 65%;
+  color: black;
+  font-size: 25px;
   cursor: pointer;
-  background-color: #ffffff;
 }
 
+/* Menu Section */
 .navbar2Menu {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
 }
+
+/* Profile Section */
+.navbar2ProfileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.cartDropdownProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icons */
 .navbar2CartEmojiIcon {
   font-size: 25px;
 }
@@ -70,6 +91,7 @@ span:hover {
   display: contents;
   font-size: 18px;
 }
+
 .navbar2CartIcon {
   height: 24px;
   width: 24px;
@@ -77,6 +99,7 @@ span:hover {
   cursor: pointer;
 }
 
+/* Dropdown Menu */
 .dropdown2 {
   position: relative;
   display: inline-block;
@@ -90,7 +113,10 @@ span:hover {
   gap: 4px;
   margin-left: 5rem;
   width: 8rem;
+  font-size: 17px;
+  font-weight: 450;
   cursor: pointer;
+  border: none;
   border-radius: 4px;
 }
 
@@ -113,6 +139,7 @@ span:hover {
   margin: 1rem;
 }
 
+/* Cart Dropdown Menu */
 .cartDropdownContainer {
   position: relative;
 }

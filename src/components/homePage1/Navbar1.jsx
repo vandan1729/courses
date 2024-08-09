@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { IoIosSearch } from 'react-icons/io'
 import { MdShoppingCart } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
+import { MdTimelapse } from 'react-icons/md'
 
 import logo from '/src/assets/logo.png'
 import CartMenu from './CartMenu'
@@ -24,6 +25,10 @@ function Navbar1() {
     setIsCartVisible(false)
   }
 
+  const handleSingUpClick = () => {
+    navigate('/signUpPage')
+  }
+
   return (
     <>
       <nav className="navbar">
@@ -42,7 +47,9 @@ function Navbar1() {
           <button className="navbarLoginBtn" onClick={handleNavigate}>
             Login
           </button>
-          <button className="navbarSignUpBtn" onClick={handleNavigate}>
+
+          <button className="navbarSignUpBtn" onClick={handleSingUpClick}>
+            <MdTimelapse className="navbarTimeLapIcon" />
             Sign Up
           </button>
         </div>

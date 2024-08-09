@@ -78,30 +78,38 @@
 }
 
 .accountFormContainer form button:hover {
-  background-color: #3dcbb1;
+  background-color: #2b9a8e;
 }
 
 .accountFormPic {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  margin-bottom: 20px;
 }
 
 .profileEmoji {
-  position: relative;
+  font-size: 40px;
   border: 2px solid #ddd;
   padding: 10px;
   border-radius: 50%;
-  font-size: 2rem;
-  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .cameraEmoji {
-  position: absolute;
-  transform: translateX(90%) translateY(3.3rem);
-  font-size: 19px;
-}
-
-.cameraEmoji:hover {
+  position: relative;
+  transform: translateY(-160%);
+  left: 5%;
+  font-size: 24px;
   cursor: pointer;
 }
 

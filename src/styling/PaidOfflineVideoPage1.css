@@ -115,16 +115,19 @@
   align-items: center;
 }
 
-.dropdownItemBtnCom {
+.dropdownItemBtnCom, .dropdownItemBtnPly {
   padding: 4px 10px;
-  background-color: #3dcbb1;
+  border: none;
+  border-radius: 5px;
   color: #ffffff;
 }
 
+.dropdownItemBtnCom {
+  background-color: #3dcbb1;
+}
+
 .dropdownItemBtnPly {
-  padding: 4px 10px;
   background-color: #fe416d;
-  color: #ffffff;
 }
 
 .dropdownItem:hover {
@@ -268,12 +271,13 @@
   margin-top: 2rem;
   padding: 10px 20px;
   background-color: #ffffff;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .loadMoreReviews:hover {
-  border: 1px solid #3dcbb1;
-  color: #3dcbb1;
+  border: 2px solid #3dcbb1;
+
 }

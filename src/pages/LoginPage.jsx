@@ -6,10 +6,23 @@ import { MdOutlineLock } from 'react-icons/md'
 import { FaFacebookF } from 'react-icons/fa'
 import { FaApple } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
+import { IoMdClose } from "react-icons/io";
+
+import { useNavigate } from "react-router-dom";
 
 import '/src/styling/LoginPage.css'
 
 function LoginPage() {
+  const navigate = useNavigate();
+
+  const handleSingUpClick = () => {
+      navigate("/signUpPage")
+  }
+
+  const handleCloseIconClick = () => {
+    navigate("/")
+  }
+
   return (
     <>
       <div className="mainDiv">
@@ -17,6 +30,7 @@ function LoginPage() {
           <img src={profilePic} alt="Profile Pic" />
         </div>
         <div className="loginPageInputs">
+        <IoMdClose className='loginPageCloseIcon' onClick={handleCloseIconClick}/>
           <div className="loginPageLogo">
             <img src={logo} alt="Logo" />
             <span>MyCourse.io</span>
@@ -46,7 +60,7 @@ function LoginPage() {
           </div>
 
           <span className="needAnAccountSpan">
-            Need an Account ? <span className="signUpSpan">Sign Up</span>
+            Need an Account ? <span className="signUpSpan" onClick={handleSingUpClick}>Sign Up</span>
           </span>
         </div>
       </div>

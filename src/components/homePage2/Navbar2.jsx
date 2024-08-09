@@ -13,7 +13,7 @@ import CartMenu from '../homePage1/CartMenu'
 import '../../styling/Navbar2.css'
 
 function Navbar2() {
-  const { userData } = useContext(UserContext)
+  const { userData, newUserData } = useContext(UserContext)
   const { newWishListData } = useContext(WishListContext)
 
   const [isCartVisible, setIsCartVisible] = useState(false)
@@ -116,9 +116,20 @@ function Navbar2() {
         <MdShoppingCart className="navbar2CartIcon" onClick={toggleCartMenu} />
         <FaRegBell className="navbar2CartIcon" />
         <div className="cartDropdownContainer" ref={cartDropdownRef}>
-          <p className="navbar2CartEmojiIcon" onClick={toggleCartDropdown}>
-            😎
-          </p>
+          <div className="cartDropdownProfile">
+            {userData.userProfile ? (
+              <img
+                src={userData.userProfile}
+                alt="Profile"
+                className="navbar2ProfileImage"
+                onClick={toggleCartDropdown}
+              />
+            ) : (
+              <p className="navbar2CartEmojiIcon" onClick={toggleCartDropdown}>
+                😎
+              </p>
+            )}
+          </div>
           {isCartDropdownOpen && (
             <div className="cartDropdownMenu">
               <p>

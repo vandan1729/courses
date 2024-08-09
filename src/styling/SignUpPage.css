@@ -1,0 +1,195 @@
+.mainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    width: 800px;
+    height: 520px;
+    overflow: hidden;
+    margin: 8rem 0 0 20rem;
+    border-radius: 10px;
+}
+
+.signUpPageCloseIcon {
+    position: absolute;
+    font-size: 27px;
+    top: 17%;
+    left: 71%;
+}
+
+.signUpPageCloseIcon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.signUpPageImg {
+    width: 50%;
+    height: 100%;
+}
+
+.signUpPageImg img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.signUpPageInputs {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #c4e2e4;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signUpPageLogo {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 20px;
+}
+
+.signUpPageLogo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.signUpPageLogo span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.signUpPageText {
+    text-align: start;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.signUpPageTextInput {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.signUpPageTextInput input {
+    background-color: #fafafa;
+    padding: 10px 30px 10px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.signUpPageTextInput input::placeholder {
+    color: #999;
+}
+
+.emailIcon,
+.lockIcon {
+    position: absolute;
+    color: #999;
+    font-size: 22px;
+}
+
+.emailIcon {
+    top: 15%;
+    left: 90%;
+    transform: translateY(-50%);
+}
+
+.lockIcon {
+    top: 50%;
+    left: 90%;
+    transform: translateY(-50%);
+}
+
+.signUpPageLoginBtn {
+    background-color: #3dcbb1;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.orYouCanSpan {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #666;
+    font-weight: 600;
+}
+
+.signUpPageBtnGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.signUpPageBtnGroup button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 14px;
+}
+
+.signUpPageFbBtn {
+    background-color: #4267b2;
+    color: #fff;
+    position: relative;
+}
+
+.signUpPageFbBtnIcon {
+    position: absolute;
+    font-size: 20px;
+    transform: translateY(0.6rem) translateX(5rem);
+    background-color: #ddd;
+    color: #4267b2;
+    padding: 2.5px 0 0 3px;
+    border-radius: 2px;
+}
+
+.signUpPageAppBtn {
+    background-color: #1b1b1b;
+    color: #fff;
+    position: relative;
+}
+
+.signUpPageAppBtnIcon {
+    position: absolute;
+    transform: translateY(3.4rem) translateX(4.8rem);
+    font-size: 28px;
+    color: #ffffff;
+    border-radius: 50px;
+}
+
+.signUpPageGoogleBtn {
+    background-color: #f4f4f4;
+    color: #000;
+    position: relative;
+}
+
+.signUpPageGoogleBtnIcon {
+    position: absolute;
+    transform: translateY(6.6rem) translateX(5rem);
+    font-size: 25px;
+    color: #ddd;
+    border-radius: 50px;
+}
+
+.needAnAccountSpan {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 600;
+}
+
+.signUpSpan {
+    color: #3dcbb1;
+}

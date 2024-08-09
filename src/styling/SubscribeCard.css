@@ -69,11 +69,12 @@
   color: #fff;
   cursor: pointer;
   margin-left: 10px;
+  font-size: 17px;
   font-weight: 600;
 }
 
 .subscribeButton:hover {
-  background-color: #218838;
+  background-color: #1fb599;
 }
 @media (max-width: 768px) {
   .subscribeBanner {

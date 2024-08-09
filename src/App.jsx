@@ -13,6 +13,8 @@ import WishlistPage from './pages/WishlistPage'
 import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
+import SignUpPage from './pages/SignUpPage'
+import LoadingPage from './pages/LoadingPage'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Route path="/paidWebinar" element={<PaidWebinarPage />}></Route>
         <Route path="/myAccount1" element={<MyAccount1 />}></Route>
         <Route path="/wishlistPage" element={<WishlistPage />}></Route>
+        <Route path="/signUpPage" element={<SignUpPage />}></Route>
+        <Route path="/loadingPage" element={<LoadingPage />}></Route>
       </Routes>
     </BrowserRouter>
   )

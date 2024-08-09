@@ -10,6 +10,18 @@
   border-radius: 10px;
 }
 
+.loginPageCloseIcon {
+  position: absolute;
+  font-size: 27px;
+  top: 17%;
+  left: 71%;
+}
+
+.loginPageCloseIcon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
 .loginPageImg {
   width: 50%;
   height: 100%;

@@ -1,13 +1,15 @@
-import { useState, createContext } from 'react'
+import { useState, createContext } from 'react';
+import profileImg from '/src/assets/profileImg.jpg';
 
 export const UserContext = createContext()
 
 export const UserContextProvider = ({ children }) => {
   const [userData, setUserData] = useState({
-    userFirstName: 'Ayush',
-    userLastName: 'Patel',
+    userFirstName: 'UserFirstName',
+    userLastName: 'UserLastName',
     userHeadLine: 'Hello',
-    userEmail: 'ayush@gamil.com',
+    userEmail: 'User@EmailId',
+    userProfile: profileImg,
   })
 
   const newUserData = (newData) => {
