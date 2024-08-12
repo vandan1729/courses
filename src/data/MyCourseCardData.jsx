@@ -1,5 +1,6 @@
 import { useContext } from 'react'
-import { WishListContext } from '../contextProvider/WishlistFilter'
+import { useSelector } from 'react-redux';
+
 
 const myCourseCardData = [
   {
@@ -97,23 +98,24 @@ const myCourseCardData = [
   },
 ]
 
-export const FilteredData = () => {
-  const { wishListValue, wishListItems } = useContext(WishListContext)
 
-  return myCourseCardData.filter((course) => {
-    // console.log('wishListValue:', wishListValue);
+export const FilteredData = () => {
+  const { wishListValue, wishListItems } = useSelector((state) => state.wishList);
+
+  const filteredData = myCourseCardData.filter((course) => {
     if (wishListValue === 'All Courses') {
-      // Show all courses
-      return true
+      return true;
     } else if (wishListValue === 'Completed') {
-      // Show only completed courses
-      return course.cardDescription === 'Completed!'
+      return course.cardDescription === 'Completed!';
     } else if (wishListValue === 'Wishlist') {
-      // Show only courses that are in the wishlist
-      return wishListItems.some((wishItem) => wishItem.id === course.id)
+      return wishListItems.some((wishItem) => wishItem.id === course.id);
     } else {
-      // Show courses that match the wishListValue in some other way
-      return course.cardContent.includes(wishListValue)
+      return course.cardContent.includes(wishListValue);
     }
-  })
-}
+  });
+
+  console.log("Filtered Data: ", filteredData);
+
+  return filteredData;
+};
+

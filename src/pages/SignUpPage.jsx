@@ -1,70 +1,130 @@
+import React, { useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
+import { MdOutlineEmail, MdOutlineLock } from 'react-icons/md'
+import { FaFacebookF, FaApple } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
+
 import profilePic from '../assets/homePage1/singUpPage/singUpImg.png'
 import logo from '/src/assets/logo.png'
 
-import { MdOutlineEmail } from 'react-icons/md'
-import { MdOutlineLock } from 'react-icons/md'
-import { FaFacebookF } from 'react-icons/fa'
-import { FaApple } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
-import { IoMdClose } from "react-icons/io";
+import { useDispatch, useSelector } from 'react-redux'
+import { setSignUpVisible, setLoginVisible, setOpacityValue } from '../redux/features/modalSlice'
+import { setUserData } from '../redux/features/userDataSlice'
+// import { initialState as userInitialState } from '../redux/features/userDataSlice';
 
-
+import '/src/styling/LoginPage.css'
 import '/src/styling/SignUpPage.css'
+import { toast } from 'react-toastify'
 
-function SignUpPage({ onClose, isVisible }) {
+function SignUpPage({ isVisible }) {
+
+  const dispatch = useDispatch()
+  const userData = useSelector((state) => state.user)
+  console.log(userData)
+
+  const [userSignUp, setUserSignUp] = useState({
+    userEmailID: '',
+    userPassword: '',
+  })
 
   const handleCloseIconClick = () => {
-    if (onClose) onClose();
+    dispatch(setSignUpVisible(false))
+    dispatch(setOpacityValue(false))
   }
 
+  const handleChange = (e) => {
+    const { id, value } = e.target
+    setUserSignUp((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }))
+  }
+
+  const hanldeLoginClick = () => {
+    dispatch(setSignUpVisible(false))
+    dispatch(setLoginVisible(true))
+  }
+
+  const handleSubmit = () => {
+    if (userSignUp.userEmailID === '' || userSignUp.userPassword === '') {
+      toast.error("Please Fill Data Properly")
+      return
+    } else {
+      toast.success("Register SuccessFully")
+
+      dispatch(
+        setUserData({
+          userEmail: userSignUp.userEmailID,
+          userPassword: userSignUp.userPassword,
+        }),
+      )
+
+      setTimeout(() => {
+        hanldeLoginClick();
+      }, 1500)
+    }
+  }
+
+  // console.log(userInitialState)
+
+
   return (
-    <>
-      
-      <div className={`SignUpmainDiv ${isVisible ? 'visible' : ''}`}>
-        <div className="signUpPageImg">
-          <img src={profilePic} alt="Profile Pic" />
-        </div>
-        <div className="signUpPageInputs">
-            <IoMdClose className='signUpPageCloseIcon' onClick={handleCloseIconClick}/>
-          <div className="signUpPageLogo">
-            <img src={logo} alt="Logo" />
-            <span>MyCourse.io</span>
-          </div>
-
-          <span className="signUpPageText">
-            Join us and get more benefits. We promise to keep your data safely.
-          </span>
-
-          <div className="signUpPageBtnGroup">
-            <button className="signUpPageFbBtn">Continue with Facebook</button>
-            <FaFacebookF className="signUpPageFbBtnIcon" />
-            <button className="signUpPageAppBtn">Continue with Apple</button>
-            <FaApple className="signUpPageAppBtnIcon" />
-            <button className="signUpPageGoogleBtn">
-              Continue with Google
-            </button>
-            <FcGoogle className="signUpPageGoogleBtnIcon" />
-          </div>
-
-          <span className="orYouCanSpan">or you can</span>
-
-          <div className="signUpPageTextInput">
-            <input type="text" placeholder="Email Address" />{' '}
-            <MdOutlineEmail className="emailIcon" />
-            <input type="text" placeholder="Password" />{' '}
-            <MdOutlineLock className="lockIcon" />
-            <button className="signUpPageLoginBtn">Create Account</button>
-          </div>
-
-          <span className="needAnAccountSpan">
-            Already have an Account?{' '}
-            <span className="signUpSpan" >
-              Login
-            </span>
-          </span>
-        </div>
+    <div className={`SignUpmainDiv ${isVisible ? 'visible' : ''}`}>
+      <div className="signUpPageImg">
+        <img src={profilePic} alt="Profile Pic" />
       </div>
-    </>
+      <div className="signUpPageInputs">
+        <IoMdClose
+          className="signUpPageCloseIcon"
+          onClick={handleCloseIconClick}
+        />
+        <div className="signUpPageLogo">
+          <img src={logo} alt="Logo" />
+          <span>MyCourse.io</span>
+        </div>
+
+        <span className="signUpPageText">
+          Join us and get more benefits. We promise to keep your data safely.
+        </span>
+
+        <div className="signUpPageBtnGroup">
+          <button className="signUpPageFbBtn">Continue with Facebook</button>
+          <FaFacebookF className="signUpPageFbBtnIcon" />
+          <button className="signUpPageAppBtn">Continue with Apple</button>
+          <FaApple className="signUpPageAppBtnIcon" />
+          <button className="signUpPageGoogleBtn">Continue with Google</button>
+          <FcGoogle className="signUpPageGoogleBtnIcon" />
+        </div>
+
+        <span className="orYouCanSpan">or you can</span>
+
+        <div className="signUpPageTextInput">
+          <input
+            type="text"
+            id="userEmailID" // Ensure id matches with handleChange function
+            placeholder="Email Address"
+            value={userSignUp.userEmailID}
+            onChange={handleChange}
+          />
+          <MdOutlineEmail className="emailIcon" />
+          <input
+            type="password"
+            id="userPassword" // Ensure id matches with handleChange function
+            placeholder="Password"
+            value={userSignUp.userPassword}
+            onChange={handleChange}
+          />
+          <MdOutlineLock className="lockIcon" />
+          <button className="signUpPageLoginBtn" onClick={handleSubmit}>
+            Create Account
+          </button>
+        </div>
+
+        <span className="needAnAccountSpan">
+          Already have an Account? <span className="signUpSpan" onClick={hanldeLoginClick}>Login</span>
+        </span>
+      </div>
+    </div>
   )
 }
 

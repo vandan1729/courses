@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Navbar1 from '../components/homePage1/Navbar1';
 import SubscribeCard from '../components/homePage1/SubscribeCard';
 import SliderComponent from '../components/homePage1/SliderComponent';
@@ -10,14 +11,14 @@ import InstructorCard from '../components/common/InstructorCard';
 import { KitaniStudioCardData } from '../data/KitaniStudioCard';
 import { TrendingCourseData } from '../data/TrendingCourse';
 import { PopularInstructorData } from '../data/PopularInstructor';
-import { HomePageColorOpacityContext } from "../contextProvider/HomePageColorOpacity";
-import LoadingPage from './LoadingPage';
 
+import LoadingPage from './LoadingPage';
 
 function HomePage1() {
   const [isLoading, setIsLoading] = useState(true);
 
-  const { opacityValue } = useContext(HomePageColorOpacityContext);
+  // Access opacity value from Redux state
+  const opacityValue = useSelector((state) => state.modal.opacityValue);
 
   useEffect(() => {
     const timer = setTimeout(() => {

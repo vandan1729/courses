@@ -1,29 +1,28 @@
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { IoPersonOutline } from 'react-icons/io5'
-import { CardContext } from '../../contextProvider/CardFilter'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { IoPersonOutline } from 'react-icons/io5';
+import CardRatingComponent from './CardRatingComponent';
 
-import CardRatingComponent from './CardRatingComponent'
-
-import '/src/styling/CardContainer.css'
+import '/src/styling/CardContainer.css';
 
 function CardContainer({ header, heading, data }) {
-  const { cardValue } = useContext(CardContext)
+  const cardValue = useSelector((state) => state.card.cardValue);
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-
+  // Filter data based on cardValue from Redux store
   const filteredData = data?.filter(
     (item) =>
-      item.cardCategory === cardValue || cardValue === 'All Recommendation',
-  )
+      item.cardCategory === cardValue || cardValue === 'All Recommendation'
+  );
 
+  // Handle image click to navigate based on itemCategory
   const handleImgClick = (itemCategory) => {
     if (itemCategory === 'Web Programming') {
-      navigate('/paidOfflineVideo1')
+      navigate('/paidOfflineVideo1');
     } else {
-      navigate('/paidWebinar')
+      navigate('/paidWebinar');
     }
-  }
+  };
 
   return (
     <div className="cardContainer">
@@ -53,7 +52,6 @@ function CardContainer({ header, heading, data }) {
                     </p>
                     <p>{item.cardTotalRating}</p>
                   </span>
-
                   <p className="cardNewPrice">
                     {item.cardNewPrice}
                     <span className="cardOldPrice">{item.cardOldPrice}</span>
@@ -64,10 +62,10 @@ function CardContainer({ header, heading, data }) {
           </div>
         </>
       ) : (
-        <h2 className="noDataMessage">No Data In " {header} "</h2>
+        <h2 className="noDataMessage">No Data In "{header}"</h2>
       )}
     </div>
-  )
+  );
 }
 
-export default CardContainer
+export default CardContainer;

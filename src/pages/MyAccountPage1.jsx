@@ -1,14 +1,16 @@
 import { TbCameraPlus } from 'react-icons/tb'
-import { UserContext } from '../contextProvider/UserContextProvider'
-import { useContext, useState, useRef } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
+import { useState, useRef } from 'react'
 
 import Layout from '../layoutComponent/Layout'
+import { setUserData } from '../redux/features/userDataSlice'  // Adjust the import path as needed
 
 import '../styling/MyAccountPage1.css'
 
 function MyAccountPage1() {
-  const { userData, newUserData } = useContext(UserContext)
+
+  const dispatch = useDispatch()
+  const userData = useSelector((state) => state.user)  // Access user data from Redux store
 
   const [formData, setFormData] = useState({
     userFirstName: userData.userFirstName,
@@ -52,34 +54,16 @@ function MyAccountPage1() {
     e.preventDefault()
     const hasEmptyData = Object.values(formData).some((value) => value === '')
     if (hasEmptyData) {
-      toast.warn('Fill Data Properly 🤌', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      })
+      toast.warn('Fill Data Properly 🤌')
       return
     }
 
-    newUserData({
+    dispatch(setUserData({
       ...formData,
       userProfile: formData.profileImage,
-    })
+    }))
 
-    toast.success('Uploaded Successfully 😎', {
-      position: 'top-center',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-    })
+    toast.success('Uploaded Successfully 😎')
   }
 
   return (
@@ -154,7 +138,6 @@ function MyAccountPage1() {
           </div>
         </div>
 
-        <ToastContainer />
       </Layout>
     </>
   )

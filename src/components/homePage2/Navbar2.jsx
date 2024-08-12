@@ -1,91 +1,65 @@
-import { useContext, useState, useRef, useEffect } from 'react'
-import { IoIosSearch } from 'react-icons/io'
-import { MdShoppingCart } from 'react-icons/md'
-import { FaRegBell } from 'react-icons/fa'
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
-import { UserContext } from '../../contextProvider/UserContextProvider'
-import { WishListContext } from '../../contextProvider/WishlistFilter'
-import { useNavigate } from 'react-router-dom'
-
-import logo from '/src/assets/logo.png'
-import CartMenu from '../homePage1/CartMenu'
-
-import '../../styling/Navbar2.css'
+// src/components/homePage2/Navbar2.jsx
+import { useDispatch, useSelector } from 'react-redux';
+import { IoIosSearch } from 'react-icons/io';
+import { MdShoppingCart } from 'react-icons/md';
+import { FaRegBell } from 'react-icons/fa';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
+import { setWishListValue } from '../../redux/features/wishListSlice';
+import { useEffect, useRef, useState } from 'react';
+import logo from '/src/assets/logo.png';
+import CartMenu from '../homePage1/CartMenu';
+import '../../styling/Navbar2.css';
 
 function Navbar2() {
-  const { userData, newUserData } = useContext(UserContext)
-  const { newWishListData } = useContext(WishListContext)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [isCartVisible, setIsCartVisible] = useState(false)
-  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
-  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
-  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false)
+  // Access Redux state
+  const userData = useSelector(state => state.user);
+  const wishListValue = useSelector(state => state.wishList.wishListValue);
 
-  const cartDropdownRef = useRef(null)
-  const naviGate = useNavigate()
+  // Local state
+  const [isCartVisible, setIsCartVisible] = useState(false);
+  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false);
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false);
+  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false);
 
-  const toggleCartMenu = () => {
-    setIsCartVisible((prevState) => !prevState)
-  }
+  const cartDropdownRef = useRef(null);
 
-  const closeCartMenu = () => {
-    setIsCartVisible(false)
-  }
-
-  const handleNavigate = () => {
-    naviGate('/loginPage')
-  }
-
+  const toggleCartMenu = () => setIsCartVisible(prev => !prev);
+  const closeCartMenu = () => setIsCartVisible(false);
+  const handleNavigate = () => navigate('/');
   const handleMyCourses = () => {
-    naviGate('/wishlistPage')
-    newWishListData('All Courses')
-  }
-
-  const handleAccountSetting = () => {
-    naviGate('/myAccount1')
-  }
-
-  const handleMainLogoClick = () => {
-    naviGate('/')
-  }
-
+    navigate('/wishlistPage');
+    dispatch(setWishListValue('All Courses'));
+  };
+  const handleAccountSetting = () => navigate('/myAccount1');
+  const handleMainLogoClick = () => navigate('/');
   const handleWishlistClick = () => {
-    naviGate('/wishlistPage')
-    newWishListData('Wishlist')
-  }
+    navigate('/wishlistPage');
+    dispatch(setWishListValue('Wishlist'));
+  };
 
-  const browse = [
-    'Design',
-    'Programming',
-    'Business & Marketing',
-    'Photo & Video',
-    'Writing',
-  ]
+  const browse = ['Design', 'Programming', 'Business & Marketing', 'Photo & Video', 'Writing'];
 
   const toggleBrowseDropdown = () => {
-    setIsBrowseOpen((prev) => !prev)
-    setIsBrowseArrowUp(!isBrowseArrowUp)
-  }
+    setIsBrowseOpen(prev => !prev);
+    setIsBrowseArrowUp(prev => !prev);
+  };
 
-  const toggleCartDropdown = () => {
-    setIsCartDropdownOpen((prev) => !prev)
-  }
+  const toggleCartDropdown = () => setIsCartDropdownOpen(prev => !prev);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        cartDropdownRef.current &&
-        !cartDropdownRef.current.contains(event.target)
-      ) {
-        setIsCartDropdownOpen(false)
+    const handleClickOutside = event => {
+      if (cartDropdownRef.current && !cartDropdownRef.current.contains(event.target)) {
+        setIsCartDropdownOpen(false);
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="navbar2">
@@ -98,7 +72,7 @@ function Navbar2() {
           </button>
           {isBrowseOpen && (
             <ul className="dropdown2Menu">
-              {browse.map((item) => (
+              {browse.map(item => (
                 <li key={item} className="dropdown2Item">
                   {item}
                 </li>
@@ -160,7 +134,7 @@ function Navbar2() {
       </div>
       <CartMenu isVisible={isCartVisible} onClose={closeCartMenu} />
     </div>
-  )
+  );
 }
 
-export default Navbar2
+export default Navbar2;

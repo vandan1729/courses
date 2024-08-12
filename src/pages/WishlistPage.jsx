@@ -1,22 +1,22 @@
-import { useContext } from 'react'
-import { FilteredData } from '../data/MyCourseCardData'
-import { WishListContext } from '../contextProvider/WishlistFilter'
-
-import Navbar2 from '../components/homePage2/Navbar2'
-import FooterComponent from '../components/common/FooterComponent'
-import WishlistPageContainer from '../components/common/WishlistPageContainer'
-
-import '../styling/WishlistPage.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { setWishListValue } from '../redux/features/wishListSlice';
+import { FilteredData } from '../data/MyCourseCardData';
+import Navbar2 from '../components/homePage2/Navbar2';
+import FooterComponent from '../components/common/FooterComponent';
+import WishlistPageContainer from '../components/common/WishlistPageContainer';
+import '../styling/WishlistPage.css';
 
 function WishlistPage() {
-  const { newWishListData, wishListValue } = useContext(WishListContext)
+  const dispatch = useDispatch();
+  const wishListValue = useSelector((state) => state.wishList.wishListValue);
 
   const handleClick = (value) => {
-    newWishListData(value)
-  }
+    dispatch(setWishListValue(value));
+  };
 
-  const wishlistData = ['All Courses', 'Courses', 'Wishlist', 'Completed']
-  const filteredCourses = FilteredData()
+  const wishlistData = ['All Courses', 'Courses', 'Wishlist', 'Completed'];
+
+  const filteredCourses = FilteredData();
 
   return (
     <>
@@ -29,9 +29,7 @@ function WishlistPage() {
           {wishlistData.map((wish, index) => (
             <p
               key={index}
-              className={`sidebarOption ${
-                wishListValue === wish ? 'selected' : ''
-              }`}
+              className={`sidebarOption ${wishListValue === wish ? 'selected' : ''}`}
               onClick={() => handleClick(wish)}
             >
               {wish}
@@ -43,7 +41,7 @@ function WishlistPage() {
       </div>
       <FooterComponent />
     </>
-  )
+  );
 }
 
-export default WishlistPage
+export default WishlistPage;

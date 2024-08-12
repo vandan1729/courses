@@ -113,18 +113,21 @@
   border-radius: 50%;
   position: absolute;
   top: 10px;
-  left: 90%;
+  left: 88%;
   cursor: pointer;
   z-index: 10;
   background-color: rgb(211, 235, 235);
 }
 
 .exploreCoursesBtn {
+  border: none;
+  border-radius: 5px;
   width: fit-content;
   margin: auto;
   background-color: #3dcbb1;
   color: #fff;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .cardRatingSpan {

@@ -1,7 +1,7 @@
-import { useContext, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { IoIosSearch } from 'react-icons/io';
 import { MdShoppingCart, MdTimelapse } from 'react-icons/md';
-import { HomePageColorOpacityContext } from '../../contextProvider/HomePageColorOpacity';
+import { setLoginVisible, setSignUpVisible, setCartVisible, setOpacityValue } from '../../redux/features/modalSlice';
 
 import logo from '/src/assets/logo.png';
 import CartMenu from './CartMenu';
@@ -11,39 +11,40 @@ import SignUpPage from '../../pages/SignUpPage';
 import '/src/styling/Navbar1.css';
 
 function Navbar1() {
-  const [isLoginVisible, setIsLoginVisible] = useState(false);
-  const [isSignUpVisible, setIsSignUpVisible] = useState(false);
-  const [isCartVisible, setIsCartVisible] = useState(false);
+  const dispatch = useDispatch();
 
-  const { newOpacityValue } = useContext(HomePageColorOpacityContext);
+  // Access visibility states from Redux
+  const isLoginVisible = useSelector((state) => state.modal.loginVisible);
+  const isSignUpVisible = useSelector((state) => state.modal.signUpVisible);
+  const isCartVisible = useSelector((state) => state.modal.cartVisible);
 
   const toggleCartMenu = () => {
-    setIsCartVisible((prevState) => !prevState);
+    dispatch(setCartVisible(!isCartVisible));
   };
 
   const closeCartMenu = () => {
-    setIsCartVisible(false);
-    newOpacityValue(false);
+    dispatch(setCartVisible(false));
+    dispatch(setOpacityValue(false));
   };
 
   const closeSignUpMenu = () => {
-    setIsSignUpVisible(false);
-    newOpacityValue(false);
+    dispatch(setSignUpVisible(false));
+    dispatch(setOpacityValue(false));
   };
 
   const openSignUpMenu = () => {
-    setIsSignUpVisible(true);
-    newOpacityValue(true);
+    dispatch(setSignUpVisible(true));
+    dispatch(setOpacityValue(true));
   };
 
   const openLoginMenu = () => {
-    setIsLoginVisible(true);
-    newOpacityValue(true);
+    dispatch(setLoginVisible(true));
+    dispatch(setOpacityValue(true));
   };
 
   const closeLoginMenu = () => {
-    setIsLoginVisible(false);
-    newOpacityValue(false);
+    dispatch(setLoginVisible(false));
+    dispatch(setOpacityValue(false));
   };
 
   return (
