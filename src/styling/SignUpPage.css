@@ -1,20 +1,28 @@
-.mainDiv {
+.SignUpmainDiv {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    overflow: hidden;
+    margin-top: 6rem;
     width: 800px;
     height: 520px;
-    overflow: hidden;
-    margin: 8rem 0 0 20rem;
-    border-radius: 10px;
+    position: fixed;
+    top: -2%;
+    right: 100%;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+.SignUpmainDiv.visible {
+    right: 23%;
 }
 
 .signUpPageCloseIcon {
     position: absolute;
     font-size: 27px;
-    top: 17%;
-    left: 71%;
+    top: 1%;
+    left: 95%;
 }
 
 .signUpPageCloseIcon:hover {
@@ -23,24 +31,22 @@
 }
 
 .signUpPageImg {
-    width: 50%;
+    width: 60%;
     height: 100%;
 }
 
 .signUpPageImg img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px 0 0 10px;
 }
 
 .signUpPageInputs {
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #c4e2e4;
     padding: 20px;
-    border-radius: 0 10px 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }

@@ -8,24 +8,19 @@ import { FaApple } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { IoMdClose } from "react-icons/io";
 
-import { useNavigate } from 'react-router-dom'
 
 import '/src/styling/SignUpPage.css'
 
-function SignUpPage() {
-  const navigate = useNavigate()
-
-  const handleLoginClick = () => {
-    navigate('/loginPage')
-  }
+function SignUpPage({ onClose, isVisible }) {
 
   const handleCloseIconClick = () => {
-    navigate("/")
+    if (onClose) onClose();
   }
 
   return (
     <>
-      <div className="mainDiv">
+      
+      <div className={`SignUpmainDiv ${isVisible ? 'visible' : ''}`}>
         <div className="signUpPageImg">
           <img src={profilePic} alt="Profile Pic" />
         </div>
@@ -63,7 +58,7 @@ function SignUpPage() {
 
           <span className="needAnAccountSpan">
             Already have an Account?{' '}
-            <span className="signUpSpan" onClick={handleLoginClick}>
+            <span className="signUpSpan" >
               Login
             </span>
           </span>

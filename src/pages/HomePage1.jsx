@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar1 from '../components/homePage1/Navbar1';
 import SubscribeCard from '../components/homePage1/SubscribeCard';
 import SliderComponent from '../components/homePage1/SliderComponent';
@@ -10,10 +10,14 @@ import InstructorCard from '../components/common/InstructorCard';
 import { KitaniStudioCardData } from '../data/KitaniStudioCard';
 import { TrendingCourseData } from '../data/TrendingCourse';
 import { PopularInstructorData } from '../data/PopularInstructor';
+import { HomePageColorOpacityContext } from "../contextProvider/HomePageColorOpacity";
 import LoadingPage from './LoadingPage';
+
 
 function HomePage1() {
   const [isLoading, setIsLoading] = useState(true);
+
+  const { opacityValue } = useContext(HomePageColorOpacityContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,29 +34,31 @@ function HomePage1() {
       ) : (
         <>
           <Navbar1 />
-          <SliderComponent />
-          <Categories />
+          <div style={{ opacity: opacityValue ? '0.5' : '1' }}>
+            <SliderComponent />
+            <Categories />
 
-          <CardContainer
-            data={KitaniStudioCardData}
-            header="More from Kitani Studio"
-            heading="We know the best things for You. Top picks for You"
-          />
+            <CardContainer
+              data={KitaniStudioCardData}
+              header="More from Kitani Studio"
+              heading="We know the best things for You. Top picks for You"
+            />
 
-          <CardContainer
-            data={TrendingCourseData}
-            header="Trending Course"
-            heading="We know the best things for You.  Top picks for You."
-          />
+            <CardContainer
+              data={TrendingCourseData}
+              header="Trending Course"
+              heading="We know the best things for You. Top picks for You."
+            />
 
-          <InstructorCard
-            header="Popular Instructors"
-            heading="We know the best things for You. Top picks for You."
-            data={PopularInstructorData}
-          />
+            <InstructorCard
+              header="Popular Instructors"
+              heading="We know the best things for You. Top picks for You."
+              data={PopularInstructorData}
+            />
 
-          <SubscribeCard />
-          <HomeFooter />
+            <SubscribeCard />
+            <HomeFooter />
+          </div>
         </>
       )}
     </>
