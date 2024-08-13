@@ -22,22 +22,41 @@
   color: #3dcbb1;
 }
 
+/* Styles for Tablets */
 @media (max-width: 768px) {
   .categoriesText {
     width: 100%;
-    padding: 20px 70px;
+    padding: 10px;
+    /* Adjust padding for smaller screens */
     margin: 0;
+    flex-wrap: wrap;
+    /* Allow wrapping of items if needed */
+    background-color: #fff;
+    /* Ensure background color consistency */
   }
 
   .categoriesSpan {
-    width: fit-content;
-    font-size: 10px;
-    padding: 0 8px;
-    margin-left: 1rem;
+    font-size: 12px;
+    /* Slightly larger font size for readability */
+    padding: 0 12px;
+    /* Adjust padding for smaller screens */
+    margin: 0.5rem;
+    /* Add margin for spacing between items */
+  }
+}
+
+@media (max-width: 480px) {
+  .categoriesText {
+    padding: 10px  0 0 10px;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
   }
 
-  .categoriesSpan.selected {
-    border: 2px solid #3dcbb1;
-    color: #3dcbb1;
+  .categoriesSpan {
+    font-size: 10px;
+    padding: 5px 8px;
   }
+
+
 }

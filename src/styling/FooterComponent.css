@@ -77,13 +77,22 @@
 /* Media query for extra small screens */
 @media (max-width: 480px) {
   .footer {
-    padding: 5px;
+    padding: 10px 0 0 10px;
   }
   .footerLogo img {
-    width: 20px;
+    width: 28px;
   }
   .socialIcons svg {
     width: 14px;
     height: 14px;
+  }
+
+  .footerBottom {
+    width: 100%;
+    font-size: 0.61rem;
+  }
+  .footerSection li {
+    font-size: 0.6rem;
+    margin: 8px;
   }
 }

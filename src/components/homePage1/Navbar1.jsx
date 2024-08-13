@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoIosSearch } from 'react-icons/io';
 import { MdShoppingCart, MdTimelapse } from 'react-icons/md';
 import { setLoginVisible, setSignUpVisible, setCartVisible, setOpacityValue } from '../../redux/features/modalSlice';
+import { toast } from 'react-toastify';
 
 import logo from '/src/assets/logo.png';
 import CartMenu from './CartMenu';
@@ -13,13 +14,19 @@ import '/src/styling/Navbar1.css';
 function Navbar1() {
   const dispatch = useDispatch();
 
+
   // Access visibility states from Redux
   const isLoginVisible = useSelector((state) => state.modal.loginVisible);
   const isSignUpVisible = useSelector((state) => state.modal.signUpVisible);
   const isCartVisible = useSelector((state) => state.modal.cartVisible);
+  const userEmail = useSelector((state) => state.user.userEmail)
 
   const toggleCartMenu = () => {
-    dispatch(setCartVisible(!isCartVisible));
+    if(userEmail){
+      dispatch(setCartVisible(!isCartVisible));
+    } else {
+      toast.info("Please Login!!")
+    }
   };
 
   const closeCartMenu = () => {
@@ -33,11 +40,13 @@ function Navbar1() {
   };
 
   const openSignUpMenu = () => {
+    dispatch(setLoginVisible(false));
     dispatch(setSignUpVisible(true));
     dispatch(setOpacityValue(true));
   };
 
   const openLoginMenu = () => {
+    dispatch(setSignUpVisible(false));
     dispatch(setLoginVisible(true));
     dispatch(setOpacityValue(true));
   };

@@ -29,3 +29,38 @@
 .instructorCardImg {
   width: 100%;
 }
+@media (max-width: 480px) {
+  .instructorCardDataContainer {
+    padding: 10px 5px; 
+  }
+
+  .instructorCardDataContainer h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .instructorCardDataContainer span {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .instructorCardsContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px; 
+    padding: 0 10px;
+    scrollbar-width: none; 
+  }
+
+  .instructorCardsContainer::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .instructorCard {
+    margin: 0;
+  }
+
+  .instructorCardImg {
+    width: 150px;
+  }
+}

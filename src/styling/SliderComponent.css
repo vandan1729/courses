@@ -60,8 +60,26 @@
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 480px) {
   .slider {
-    width: 180%;
+    width: 90%;
+    height: 200px; 
+    margin: 5px 0 0 15px; 
   }
+
+  .left-arrow, .right-arrow {
+    font-size: 1rem;
+    padding: 10px 5px;
+
+  }
+
+  .dot {
+    height: 8px; 
+    width: 8px;
+  }
+
+  .dots {
+    bottom: 1; 
+  }
+
 }

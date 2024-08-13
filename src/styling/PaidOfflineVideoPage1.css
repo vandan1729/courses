@@ -281,3 +281,98 @@
   border: 2px solid #3dcbb1;
 
 }
+
+@media (max-width: 480px) {
+  .paidOfflineVideo {
+    height: auto; 
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .courseDetails {
+    width: 100%; 
+  }
+
+  .courseDetails img {
+    width: 100%; 
+  }
+
+  .dropdownGroup button {
+    font-weight: 600; /
+  }
+
+  .dropdownToggle {
+    width: 100%; 
+    padding: 10px;
+  }
+
+  .dropdownMenu {
+    width: 100%; 
+    padding: 5px;
+  }
+
+  .dropdownItem {
+    padding: 8px;
+  }
+
+  .courseInfo {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .courseSummary h2 {
+    font-size: 20px;
+  }
+
+  .courseImage img {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .courseThumbnail {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .courseCreator img {
+    width: 40px; 
+    height: 40px;
+  }
+
+  .courseCreatorText p:first-child {
+    font-size: 16px; 
+  }
+
+  .courseCreatorText p:nth-child(2) {
+    font-size: 14px; 
+  }
+
+  .courseStatsP {
+    font-size: 16px; 
+  }
+
+  .courseDescription h4,
+  .courseReviews h4 {
+    font-size: 18px; 
+  }
+
+  .courseDescription p,
+  .courseReviews p {
+    font-size: 14px; 
+  }
+
+  .reviewItemContainer {
+    flex-direction: column; 
+  }
+
+  .reviewContent {
+    font-size: 18px; 
+  }
+
+  .loadMoreReviews {
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px; 
+  }
+}

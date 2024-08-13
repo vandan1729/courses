@@ -92,14 +92,6 @@
 
 @media (max-width: 480px) {
   .subscribeBanner {
-    margin: 10px;
-  }
-
-  .subscribeText h2 {
-    font-size: 1.4rem;
-  }
-
-  .subscribeText p {
-    font-size: 1rem;
+    display: none;
   }
 }

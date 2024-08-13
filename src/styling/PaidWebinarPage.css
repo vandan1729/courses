@@ -1,3 +1,4 @@
+/* Base Styles (for large screens) */
 .paidWebinarVideo {
   height: 500px;
   overflow: hidden;
@@ -47,7 +48,7 @@
 .paidWebinarCourseImage img {
   width: 300px;
   height: 400px;
-  border-radius: 0 10px 10px 0px;
+  border-radius: 0 10px 10px 0;
 }
 
 .paidWebinarCourseImagePTextDiv {
@@ -141,6 +142,13 @@
   margin: 10px;
 }
 
+.paidWebinarCourseDescription {
+  padding-bottom: 20px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0px 2px rgb(253, 251, 251);
+  text-align: justify;
+}
+
 .paidWebinarCourseDescription h4 {
   font-size: 20px;
   margin: 10px 0;
@@ -148,13 +156,6 @@
 
 .paidWebinarCourseDescription p {
   color: #5b6060;
-}
-
-.paidWebinarCourseDescription {
-  padding-bottom: 20px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0px 2px rgb(253, 251, 251);
-  text-align: justify;
 }
 
 .paidWebinarChat {
@@ -211,4 +212,194 @@
 
 .paidWebinarChatUl img {
   width: 50px;
+}
+
+/* Responsive Styles */
+
+/* Tablets and smaller screens */
+@media (max-width: 1024px) {
+  .paidWebinarVideo {
+    padding: 20px 30px;
+    flex-direction: column;
+  }
+
+  .paidWebinarCourseDetails {
+    width: 100%;
+  }
+
+  .paidWebinarCourseInfo {
+    padding: 10px 30px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .paidWebinarCourseSummary h2 {
+    width: auto;
+    font-size: 20px;
+  }
+
+  .paidWebinarCourseImageText {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .paidWebinarCourseImage img {
+    width: 100%;
+    height: auto;
+  }
+
+  .paidWebinarCourseImagePTextDiv {
+    width: 100%;
+    font-size: 30px;
+  }
+
+  .paidWebinarCoursePTextDiv2 {
+    margin-top: 4rem;
+    font-size: 18px;
+  }
+
+  .paidWebinarCourseBtn {
+    width: 100%;
+    padding: 8px 16px;
+  }
+
+  .paidWebinarCourseThumbnail {
+    flex-direction: column;
+  }
+
+  .paidWebinarCourseCreator img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .paidWebinarCourseCreatorText p:first-child {
+    font-size: 16px;
+  }
+
+  .paidWebinarCourseCreatorText p:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .paidWebinarCourseStatsP {
+    font-size: 16px;
+  }
+
+  .paidWebinarCourseDescription h4 {
+    font-size: 18px;
+  }
+
+  .paidWebinarCourseDescription p {
+    font-size: 16px;
+  }
+
+  .paidWebinarChat {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .paidWebinarChatInput {
+    width: calc(100% + 20px);
+    transform: translateX(-10px) translateY(0);
+  }
+
+  .paidWebinarChatArrow1 {
+    left: 85%;
+  }
+
+  .paidWebinarChatUl {
+    height: auto;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .paidWebinarVideo {
+    padding: 10px;
+  }
+
+  .paidWebinarCourseDetails {
+    width: 100%;
+  }
+
+  .paidWebinarCourseInfo {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .paidWebinarCourseSummary h2 {
+    width: auto;
+    font-size: 18px;
+  }
+
+  .paidWebinarCourseImageText {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .paidWebinarCourseImage img {
+    width: 100%;
+    height: auto;
+  }
+
+  .paidWebinarCourseImagePTextDiv {
+    width: 100%;
+    font-size: 24px;
+  }
+
+  .paidWebinarCoursePTextDiv2 {
+    margin-top: 2rem;
+    font-size: 16px;
+  }
+
+  .paidWebinarCourseBtn {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .paidWebinarCourseThumbnail {
+    flex-direction: column;
+  }
+
+  .paidWebinarCourseCreator img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .paidWebinarCourseCreatorText p:first-child {
+    font-size: 14px;
+  }
+
+  .paidWebinarCourseCreatorText p:nth-child(2) {
+    font-size: 12px;
+  }
+
+  .paidWebinarCourseStatsP {
+    font-size: 14px;
+  }
+
+  .paidWebinarCourseDescription h4 {
+    font-size: 16px;
+  }
+
+  .paidWebinarCourseDescription p {
+    font-size: 14px;
+  }
+
+  .paidWebinarChat {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+  }
+
+  .paidWebinarChatInput {
+    width: calc(100% + 10px);
+    transform: translateX(-5px) translateY(0);
+  }
+
+  .paidWebinarChatArrow1 {
+    left: 80%;
+  }
 }

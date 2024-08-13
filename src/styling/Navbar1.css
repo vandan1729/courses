@@ -131,3 +131,28 @@
     width: 650px;
   }
 }
+
+@media (max-width: 480px) {
+  .navbarSearch,.navbarSearchIcon,.navbarItem,.navbarSignUpBtn,.navbarLoginBtn{
+    display: none;
+  }
+  .navbar {
+    padding: 0;
+    align-items: center;
+    justify-content: space-between ;
+  }
+  .navbarLogo img{
+    width: 30px;
+  }
+  .navbarLogo span{
+    font-size: 15px;
+    width: 120px;
+  }
+  .navbarMenu{
+    margin-right: 10px;
+    justify-content: end;
+  }
+  .navbarCartIcon{
+    font-size: 20px;
+  }
+}
