@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useSelector } from 'react-redux';
 
 
-const myCourseCardData = [
+export const myCourseCardData = [
   {
     id: 1,
     cardImg: '/src/assets/homePage1/myCourse/image1.png',

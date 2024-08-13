@@ -1,72 +1,99 @@
 // src/components/homePage2/Navbar2.jsx
-import { useDispatch, useSelector } from 'react-redux';
-import { IoIosSearch } from 'react-icons/io';
-import { MdShoppingCart } from 'react-icons/md';
-import { FaRegBell } from 'react-icons/fa';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
-import { setWishListValue } from '../../redux/features/wishListSlice';
-import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { IoIosSearch } from 'react-icons/io'
+import { MdShoppingCart } from 'react-icons/md'
+import { FaRegBell } from 'react-icons/fa'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
+import { setWishListValue } from '../../redux/features/wishListSlice'
+import { useEffect, useRef, useState } from 'react'
 
-import {setUserData} from "../../redux/features/userDataSlice"
+import { setUserData } from '../../redux/features/userDataSlice'
 
-import logo from '/src/assets/logo.png';
-import CartMenu from '../homePage1/CartMenu';
+import { myCourseCardData } from '../../data/MyCourseCardData'
 
-import '../../styling/Navbar2.css';
+import logo from '/src/assets/logo.png'
+import CartMenu from '../homePage1/CartMenu'
+
+import '../../styling/Navbar2.css'
 
 function Navbar2() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  // SearchBar Code
+  const [searchItem, setSearchItem] = useState('')
+  const [filterItem, setFilterItem] = useState([])
+
+  useEffect(() => {
+    if (searchItem.trim()) {
+      setFilterItem(
+        myCourseCardData.filter((data) =>
+          data.cardContent.toLowerCase().includes(searchItem.toLowerCase()),
+        ),
+      )
+    } else {
+      setFilterItem([])
+    }
+  }, [searchItem])
 
   // Access Redux state
-  const userData = useSelector(state => state.user);
+  const userData = useSelector((state) => state.user)
   // const wishListValue = useSelector(state => state.wishList.wishListValue);
 
   // Local state
-  const [isCartVisible, setIsCartVisible] = useState(false);
-  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false);
-  const [isBrowseOpen, setIsBrowseOpen] = useState(false);
-  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false)
+  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
+  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false)
 
-  const cartDropdownRef = useRef(null);
+  const cartDropdownRef = useRef(null)
 
-  const toggleCartMenu = () => setIsCartVisible(prev => !prev);
-  const closeCartMenu = () => setIsCartVisible(false);
+  const toggleCartMenu = () => setIsCartVisible((prev) => !prev)
+  const closeCartMenu = () => setIsCartVisible(false)
   const handleNavigate = () => {
-    navigate('/');
-    dispatch(setUserData({userEmail:""}))
+    navigate('/')
+    dispatch(setUserData({ userEmail: '' }))
   }
   const handleMyCourses = () => {
-    navigate('/wishlistPage');
-    dispatch(setWishListValue('All Courses'));
-  };
-  const handleAccountSetting = () => navigate('/myAccount1');
-  const handleMainLogoClick = () => navigate('/');
+    navigate('/wishlistPage')
+    dispatch(setWishListValue('All Courses'))
+  }
+  const handleAccountSetting = () => navigate('/myAccount1')
+  const handleMainLogoClick = () => navigate('/')
   const handleWishlistClick = () => {
-    navigate('/wishlistPage');
-    dispatch(setWishListValue('Wishlist'));
-  };
+    navigate('/wishlistPage')
+    dispatch(setWishListValue('Wishlist'))
+  }
 
-  const browse = ['Design', 'Programming', 'Business & Marketing', 'Photo & Video', 'Writing'];
+  const browse = [
+    'Design',
+    'Programming',
+    'Business & Marketing',
+    'Photo & Video',
+    'Writing',
+  ]
 
   const toggleBrowseDropdown = () => {
-    setIsBrowseOpen(prev => !prev);
-    setIsBrowseArrowUp(prev => !prev);
-  };
+    setIsBrowseOpen((prev) => !prev)
+    setIsBrowseArrowUp((prev) => !prev)
+  }
 
-  const toggleCartDropdown = () => setIsCartDropdownOpen(prev => !prev);
+  const toggleCartDropdown = () => setIsCartDropdownOpen((prev) => !prev)
 
   useEffect(() => {
-    const handleClickOutside = event => {
-      if (cartDropdownRef.current && !cartDropdownRef.current.contains(event.target)) {
-        setIsCartDropdownOpen(false);
+    const handleClickOutside = (event) => {
+      if (
+        cartDropdownRef.current &&
+        !cartDropdownRef.current.contains(event.target)
+      ) {
+        setIsCartDropdownOpen(false)
       }
-    };
+    }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <div className="navbar2">
@@ -79,7 +106,7 @@ function Navbar2() {
           </button>
           {isBrowseOpen && (
             <ul className="dropdown2Menu">
-              {browse.map(item => (
+              {browse.map((item) => (
                 <li key={item} className="dropdown2Item">
                   {item}
                 </li>
@@ -89,7 +116,19 @@ function Navbar2() {
         </div>
       </div>
       <div className="navbar2Search">
-        <input type="text" placeholder="Search For Courses" />
+        <input
+          type="text"
+          placeholder="Search For Courses"
+          value={searchItem}
+          onChange={(e) => setSearchItem(e.target.value)}
+        />
+        {filterItem.length > 0 && (
+          <div className="navbar2SearchItem">
+            {filterItem.map((item) => (
+              <div key={item.id}>{item.cardContent}</div>
+            ))}
+          </div>
+        )}
         <IoIosSearch className="navbar2SearchIcon" />
       </div>
       <div className="navbar2Menu">
@@ -141,7 +180,7 @@ function Navbar2() {
       </div>
       <CartMenu isVisible={isCartVisible} onClose={closeCartMenu} />
     </div>
-  );
+  )
 }
 
-export default Navbar2;
+export default Navbar2

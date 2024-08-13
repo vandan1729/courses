@@ -101,6 +101,36 @@
   font-size: 18px;
 }
 
+.navbarSearchItem {
+  width: 400px;
+  position: absolute;
+  top: 10%;
+  padding: 0.5rem;
+  z-index: 1;
+  background-color: #F4F4F4;
+  font-size: 17px;
+  font-weight: 600;
+  opacity: 0.9;
+  cursor: pointer;
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+}
+
+.navbarSearchItem:hover {
+  background-color: #F9F9F9;
+}
+
+.navbarSearchItem div {
+  padding: 0.5rem; 
+  border-bottom: 1px solid #ddd; 
+}
+
+.navbarSearchItem div:last-child {
+  border-bottom: none; 
+}
+
+
+
 @media (max-width: 768px) {
   .navbar {
     width: 100%;

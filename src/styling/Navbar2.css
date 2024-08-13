@@ -37,6 +37,7 @@ span:hover {
 }
 
 .navbar2Search input {
+  position: relative;
   height: 37px;
   width: 400px;
   padding: 5px 10px;
@@ -183,6 +184,34 @@ span:hover {
 
 .cartDropdownAccountLogout {
   color: red;
+}
+
+.navbar2SearchItem {
+  width: 400px;
+  position: absolute;
+  top: 110%;
+  padding: 0.5rem;
+  z-index: 1;
+  background-color: #F4F4F4;
+  font-size: 17px;
+  font-weight: 600;
+  opacity: 0.9;
+  cursor: pointer;
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+}
+
+.navbar2SearchItem:hover {
+  background-color: #F9F9F9;
+}
+
+.navbar2SearchItem div {
+  padding: 0.5rem; 
+  border-bottom: 1px solid #ddd; 
+}
+
+.navbar2SearchItem div:last-child {
+  border-bottom: none; 
 }
 
 @media (max-width: 480px) {
