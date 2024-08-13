@@ -19,8 +19,8 @@ import { toast } from 'react-toastify'
 function SignUpPage({ isVisible }) {
 
   const dispatch = useDispatch()
-  const userData = useSelector((state) => state.user)
-  console.log(userData)
+  // const userData = useSelector((state) => state.user)
+  // console.log(userData)
 
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',

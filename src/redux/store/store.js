@@ -4,7 +4,7 @@ import cardReducer from '../features/cardSlice';
 import homePageColorOpacityReducer from '../features/homePageColorOpacitySlice';
 import userReducer from '../features/userDataSlice';
 import wishListReducer from '../features/wishListSlice';
-import modalReducer from '../features/modalSlice';  // Import modalSlice
+import modalReducer from '../features/modalSlice';  
 
 const store = configureStore({
   reducer: {
@@ -12,7 +12,7 @@ const store = configureStore({
     homePageColorOpacity: homePageColorOpacityReducer,
     user: userReducer,
     wishList: wishListReducer,
-    modal: modalReducer,  // Add modal reducer
+    modal: modalReducer,  
   },
 });
 

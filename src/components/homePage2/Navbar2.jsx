@@ -7,8 +7,12 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import { setWishListValue } from '../../redux/features/wishListSlice';
 import { useEffect, useRef, useState } from 'react';
+
+import {setUserData} from "../../redux/features/userDataSlice"
+
 import logo from '/src/assets/logo.png';
 import CartMenu from '../homePage1/CartMenu';
+
 import '../../styling/Navbar2.css';
 
 function Navbar2() {
@@ -17,7 +21,7 @@ function Navbar2() {
 
   // Access Redux state
   const userData = useSelector(state => state.user);
-  const wishListValue = useSelector(state => state.wishList.wishListValue);
+  // const wishListValue = useSelector(state => state.wishList.wishListValue);
 
   // Local state
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -29,7 +33,10 @@ function Navbar2() {
 
   const toggleCartMenu = () => setIsCartVisible(prev => !prev);
   const closeCartMenu = () => setIsCartVisible(false);
-  const handleNavigate = () => navigate('/');
+  const handleNavigate = () => {
+    navigate('/');
+    dispatch(setUserData({userEmail:""}))
+  }
   const handleMyCourses = () => {
     navigate('/wishlistPage');
     dispatch(setWishListValue('All Courses'));

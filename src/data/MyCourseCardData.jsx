@@ -114,7 +114,7 @@ export const FilteredData = () => {
     }
   });
 
-  console.log("Filtered Data: ", filteredData);
+  // console.log("Filtered Data: ", filteredData);
 
   return filteredData;
 };
