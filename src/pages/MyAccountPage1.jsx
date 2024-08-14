@@ -1,6 +1,7 @@
 import { TbCameraPlus } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useRef } from 'react'
+import { toast } from 'react-toastify';
 
 import Layout from '../layoutComponent/Layout'
 import { setUserData } from '../redux/features/userDataSlice'  // Adjust the import path as needed

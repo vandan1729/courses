@@ -8,6 +8,11 @@ import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { BsPeople } from 'react-icons/bs';
 import { MdOutlineRateReview } from 'react-icons/md';
+import { CiViewList } from "react-icons/ci";
+import { MdOutlineChromeReaderMode } from "react-icons/md";
+import { MdLiveTv } from "react-icons/md";
+import { FaVolumeHigh } from "react-icons/fa6";
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleWishListItem } from '../redux/features/wishListSlice';
@@ -71,10 +76,10 @@ function UnPaidWebinarPage() {
             </div>
 
             <div className="unPaidWebinarInfo">
-              <span className="unPaidWebinarInfoSection">{details.sections}</span>
-              <span className="unPaidWebinarInfoLecture">{details.lectures}</span>
-              <span className="unPaidWebinarInfoTotalLength">{details.length}</span>
-              <span className="unPaidWebinarInfoLanguage">{details.language}</span>
+              <span className="unPaidWebinarInfoSection"><CiViewList className='unPaidWebinarInfoIcon'/> {details.sections}</span>
+              <span className="unPaidWebinarInfoLecture"><MdOutlineChromeReaderMode className="unPaidWebinarInfoIcon"/>{details.lectures}</span>
+              <span className="unPaidWebinarInfoTotalLength"><MdLiveTv className="unPaidWebinarInfoIcon"/>{details.length}</span>
+              <span className="unPaidWebinarInfoLanguage"><FaVolumeHigh className="unPaidWebinarInfoIcon" />{details.language}</span>
             </div>
           </div>
         </div>
