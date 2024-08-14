@@ -1,4 +1,3 @@
-// src/redux/features/wishListSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const wishListSlice = createSlice({
@@ -6,13 +5,14 @@ const wishListSlice = createSlice({
   initialState: {
     wishListValue: 'All Courses',
     wishListItems: [],
+    myCourseCardData: [],
   },
   reducers: {
     setWishListValue: (state, action) => {
       state.wishListValue = action.payload;
     },
     toggleWishListItem: (state, action) => {
-      const item = action.payload;
+      const item = action.payload; // Full card object
       const existingIndex = state.wishListItems.findIndex((i) => i.id === item.id);
       if (existingIndex >= 0) {
         state.wishListItems.splice(existingIndex, 1);
@@ -20,8 +20,11 @@ const wishListSlice = createSlice({
         state.wishListItems.push(item);
       }
     },
+    setMyCourseCardData: (state, action) => {
+      state.myCourseCardData = action.payload;
+    },
   },
 });
 
-export const { setWishListValue, toggleWishListItem } = wishListSlice.actions;
+export const { setWishListValue, toggleWishListItem, setMyCourseCardData } = wishListSlice.actions;
 export default wishListSlice.reducer;

@@ -4,7 +4,7 @@ import { IoPersonOutline } from 'react-icons/io5';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toggleWishListItem } from '../../redux/features/wishListSlice';
-import '/src/styling/CardContainer.css';
+import '../../styling/CardContainer.css';
 
 function WishlistPageContainer({ header, data }) {
   const dispatch = useDispatch();

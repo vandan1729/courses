@@ -1,7 +1,3 @@
-import { useContext } from 'react'
-import { useSelector } from 'react-redux';
-
-
 export const myCourseCardData = [
   {
     id: 1,
@@ -99,10 +95,9 @@ export const myCourseCardData = [
 ]
 
 
-export const FilteredData = () => {
-  const { wishListValue, wishListItems } = useSelector((state) => state.wishList);
 
-  const filteredData = myCourseCardData.filter((course) => {
+export const getFilteredData = (wishListValue, wishListItems, myCourseCardData) => {
+  return myCourseCardData.filter((course) => {
     if (wishListValue === 'All Courses') {
       return true;
     } else if (wishListValue === 'Completed') {
@@ -113,9 +108,7 @@ export const FilteredData = () => {
       return course.cardContent.includes(wishListValue);
     }
   });
-
-  // console.log("Filtered Data: ", filteredData);
-
-  return filteredData;
 };
+
+
 

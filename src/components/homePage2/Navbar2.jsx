@@ -16,6 +16,7 @@ import logo from '/src/assets/logo.png'
 import CartMenu from '../homePage1/CartMenu'
 
 import '../../styling/Navbar2.css'
+import WishlistCounter from '../common/WishlistCounter'
 
 function Navbar2() {
   const dispatch = useDispatch()
@@ -162,7 +163,7 @@ function Navbar2() {
                 className="cartDropdownWhishlist"
                 onClick={handleWishlistClick}
               >
-                Wishlist
+                Wishlist <WishlistCounter />
               </p>
               <p>Notifications</p>
               <p

@@ -8,11 +8,13 @@ import MyCoursePage from './pages/MyCoursePage'
 import PaidWebinarPage from './pages/PaidWebinarPage'
 import MyAccount1 from './pages/MyAccountPage1'
 import WishlistPage from './pages/WishlistPage'
+import UnPaidWebinarPage from './pages/UnPaidWebinarPage'
 
-import 'react-toastify/dist/ReactToastify.css'
 import { Provider } from 'react-redux'
-import store from './redux/store/store' // Import default export
-import { ToastContainer, toast } from 'react-toastify'
+import store from './redux/store/store'
+
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
 
@@ -34,6 +36,7 @@ function App() {
           <Route path="/paidWebinar" element={<PaidWebinarPage />} />
           <Route path="/myAccount1" element={<MyAccount1 />} />
           <Route path="/wishlistPage" element={<WishlistPage />} />
+          <Route path="/unPaidWebinarPage" element={<UnPaidWebinarPage />} />
         </Routes>
         <ToastContainer
           position="top-center"

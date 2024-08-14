@@ -1,15 +1,17 @@
-import { useSelector } from 'react-redux'
+// src/components/CardContainer.js
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
 import { IoPersonOutline } from 'react-icons/io5'
 import CardRatingComponent from './CardRatingComponent'
-
-import { toast } from 'react-toastify';
-
 import '/src/styling/CardContainer.css'
 
 function CardContainer({ header, heading, data }) {
   const cardValue = useSelector((state) => state.card.cardValue)
   const userProfile = useSelector((state) => state.user.userEmail)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   // Filter data based on cardValue from Redux store
@@ -18,16 +20,29 @@ function CardContainer({ header, heading, data }) {
       item.cardCategory === cardValue || cardValue === 'All Recommendation',
   )
 
-  // Handle image click to navigate based on itemCategory
-  const handleImgClick = (itemCategory) => {
+  const handleImgClick = (item) => {
     if (userProfile) {
-      if (itemCategory === 'Web Programming') {
-        navigate('/paidOfflineVideo1')
-      } else {
-        navigate('/paidWebinar')
-      }
+      dispatch(
+        updateCardDetails({
+          price: {
+            newPrice: item.cardNewPrice,
+            oldPrice: item.cardOldPrice,
+          },
+          discount: item.cardDiscount || '20% OFF',
+          details: {
+            sections: item.cardSections || 'No Sections',
+            lectures: item.cardLectures || 'NO Lectures',
+            length: item.cardLength || 'NO length',
+            language: item.cardLanguage || 'English',
+          },
+          courseName: item.cardContent,
+          courseDetails: item.cardDescription,
+          courseImage: item?.cardImg,
+        }),
+      )
+      navigate('/unPaidWebinarPage')
     } else {
-      toast.info("Please Login To Continue")
+      toast.info('Please Login To Continue')
     }
   }
 
@@ -44,7 +59,7 @@ function CardContainer({ header, heading, data }) {
                   src={item?.cardImg}
                   alt="Card Img"
                   className="cardImg"
-                  onClick={() => handleImgClick(item.cardCategory)}
+                  onClick={() => handleImgClick(item)}
                 />
                 <div className="cardContent">
                   <h4>{item.cardContent}</h4>
@@ -53,12 +68,13 @@ function CardContainer({ header, heading, data }) {
                     <span>{item.cardAuthor}</span>
                   </p>
                   <p className="cardDescription">{item.cardDescription}</p>
-                  <span className="cardRatingSpan">
-                    <p className="cardRating">
+                  <div className="cardRatingSpan">
+                    <div className="cardRating">
                       <CardRatingComponent cardRating={item.cardRating} />
-                    </p>
+                    </div>
                     <p>{item.cardTotalRating}</p>
-                  </span>
+                  </div>
+
                   <p className="cardNewPrice">
                     {item.cardNewPrice}
                     <span className="cardOldPrice">{item.cardOldPrice}</span>

@@ -1,22 +1,30 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWishListValue } from '../redux/features/wishListSlice';
-import { FilteredData } from '../data/MyCourseCardData';
+import { setWishListValue, setMyCourseCardData } from '../redux/features/wishListSlice';
 import Navbar2 from '../components/homePage2/Navbar2';
 import FooterComponent from '../components/common/FooterComponent';
 import WishlistPageContainer from '../components/common/WishlistPageContainer';
+import { myCourseCardData } from '../data/MyCourseCardData';
 import '../styling/WishlistPage.css';
 
 function WishlistPage() {
   const dispatch = useDispatch();
   const wishListValue = useSelector((state) => state.wishList.wishListValue);
+  const wishListItems = useSelector((state) => state.wishList.wishListItems);
+  const myCourseCardDataFromStore = useSelector((state) => state.wishList.myCourseCardData);
+
+  useEffect(() => {
+    dispatch(setMyCourseCardData(myCourseCardData));
+  }, [dispatch]);
 
   const handleClick = (value) => {
     dispatch(setWishListValue(value));
   };
 
-  const wishlistData = ['All Courses', 'Courses', 'Wishlist', 'Completed'];
+  // Determine which data to use based on wishListValue
+  const displayedData = wishListValue === 'Wishlist' ? wishListItems : myCourseCardDataFromStore;
 
-  const filteredCourses = FilteredData();
+  const wishlistData = ['All Courses', 'Courses', 'Wishlist', 'Completed'];
 
   return (
     <>
@@ -37,7 +45,11 @@ function WishlistPage() {
           ))}
         </div>
 
-        <WishlistPageContainer data={filteredCourses} header={wishListValue} />
+        <WishlistPageContainer 
+          data={displayedData} 
+          header={wishListValue}
+        />
+       
       </div>
       <FooterComponent />
     </>
