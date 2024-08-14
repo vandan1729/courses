@@ -1,0 +1,143 @@
+import React, { useState } from 'react';
+import Layout from '../layoutComponent/Layout';
+import SubscribeCard from '../components/homePage1/SubscribeCard';
+
+import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg';
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png';
+
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { BsPeople } from 'react-icons/bs';
+import { MdOutlineRateReview } from 'react-icons/md';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleWishListItem } from '../redux/features/wishListSlice';
+
+import '../styling/UnPaidWebinarPage.css';
+
+function UnPaidWebinarPage() {
+  const { price, discount, details, courseName, courseDetails, courseImage } =
+    useSelector((state) => state.unPaidWebinar);
+  const wishListItems = useSelector((state) => state.wishList.wishListItems);
+  const dispatch = useDispatch();
+
+  // Local state to track if the course is in the wishlist
+  const [isInWishlist, setIsInWishlist] = useState(
+    wishListItems.some((item) => item.id === courseName)
+  );
+
+  const handleWishlistClick = () => {
+    const cardData = {
+      id: courseName, // Assuming courseName is a unique identifier
+      cardImg: courseImage,
+      cardContent: courseName,
+      cardAuthor: 'Kitani Studio', // Update as needed
+      cardDescription: courseDetails || 'Default course description goes here...',
+    };
+    dispatch(toggleWishListItem(cardData));
+    setIsInWishlist(!isInWishlist); // Update local state
+  };
+
+  return (
+    <>
+      <Layout>
+        <div className="unPaidWebinarVideo">
+          <div className="unPaidWebinarCourseDetails">
+            <img src={courseImage} alt="Video" />
+          </div>
+
+          <div className="unPaidWebinarDetails">
+            <div className="unPaidWebinarPrice">
+              <span className="unpaidWebinarNewPrice">{price.newPrice}</span>
+              <span className="unpaidWebinarOldPrice">{price.oldPrice}</span>
+            </div>
+            <div className="unPaidWebinarDiscount">
+              <span className="unPaidWebinarDiscountNumber">{discount}</span>
+            </div>
+
+            <div className="unPaidWebinarDetailsBtn">
+              <button className="unPaidWebinarDetailsBuyBtn">Buy</button>
+              <button
+                className="unPaidWebinarDetailsWishlistBtn"
+                onClick={handleWishlistClick}
+                aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+              >
+                {isInWishlist ? (
+                  <FaHeart color="red" className="unPaidWebinarDetailsHeartIcon" />
+                ) : (
+                  <FaRegHeart className="unPaidWebinarDetailsHeartIcon" />
+                )}
+                {isInWishlist ? 'In Wishlist' : 'Add to Wishlist'}
+              </button>
+            </div>
+
+            <div className="unPaidWebinarInfo">
+              <span className="unPaidWebinarInfoSection">{details.sections}</span>
+              <span className="unPaidWebinarInfoLecture">{details.lectures}</span>
+              <span className="unPaidWebinarInfoTotalLength">{details.length}</span>
+              <span className="unPaidWebinarInfoLanguage">{details.language}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="unPaidWebinarCourseInfo">
+          <div className="unPaidWebinarCourseSummary">
+            <h2>{courseName || 'Default Course Name'}</h2>
+            <div className="unPaidWebinarCourseThumbnail">
+              <div className="unPaidWebinarCourseCreator">
+                <img src={img3} alt="Thumbnail" />
+                <div className="unPaidWebinarCourseCreatorText">
+                  <p>Kitani Studio</p>
+                  <p>Design Studio</p>
+                </div>
+              </div>
+              <div className="unPaidWebinarCourseStats">
+                <span className="unPaidWebinarCourseStatsSpan">
+                  <p className="unPaidWebinarCourseStatsP">
+                    <BsPeople className="unPaidWebinarCourseStatsIcons" />
+                    2.3k
+                  </p>
+                </span>
+                <span className="unPaidWebinarCourseStatsSpan">
+                  <p className="unPaidWebinarCourseStatsP">
+                    <MdOutlineRateReview className="unPaidWebinarCourseStatsIcons" />
+                    1.4k
+                  </p>
+                </span>
+              </div>
+            </div>
+            <div className="unPaidWebinarCourseDescription">
+              <h4>About Course</h4>
+              <p>{courseDetails || 'Default course description goes here...'}</p>
+            </div>
+          </div>
+          <div className="unPaidWebinarCourseImage">
+            <div className="unPaidWebinarCourseImageText">
+              <div>
+                <p style={{ fontSize: '18px', fontWeight: '600' }}>WEBINAR</p>
+                <p style={{ fontWeight: '300' }}>August 16, 2024</p>
+              </div>
+
+              <div className="unPaidWebinarCourseImagePTextDiv">
+                <p className="unPaidWebinarCourseImagePText">
+                  Photography <br /> Manual <br />
+                  Scratch Course
+                </p>
+              </div>
+
+              <div className="unPaidWebinarCoursePTextDiv2">
+                <p>Kitani Sarasvati</p>
+              </div>
+
+              <button className="unPaidWebinarCourseBtn">Get it Now</button>
+            </div>
+            <img src={img2} alt="Course" />
+          </div>
+        </div>
+
+        <SubscribeCard />
+      </Layout>
+    </>
+  );
+}
+
+export default UnPaidWebinarPage;
