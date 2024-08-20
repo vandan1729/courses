@@ -12,7 +12,7 @@ import { CiViewList } from "react-icons/ci";
 import { MdOutlineChromeReaderMode } from "react-icons/md";
 import { MdLiveTv } from "react-icons/md";
 import { FaVolumeHigh } from "react-icons/fa6";
-
+import { toast } from 'react-toastify';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleWishListItem } from '../redux/features/wishListSlice';
@@ -25,21 +25,27 @@ function UnPaidWebinarPage() {
   const wishListItems = useSelector((state) => state.wishList.wishListItems);
   const dispatch = useDispatch();
 
+  const userEmailId = useSelector((state) => state.user.userEmail)
+
   // Local state to track if the course is in the wishlist
   const [isInWishlist, setIsInWishlist] = useState(
     wishListItems.some((item) => item.id === courseName)
   );
 
   const handleWishlistClick = () => {
-    const cardData = {
-      id: courseName, // Assuming courseName is a unique identifier
-      cardImg: courseImage,
-      cardContent: courseName,
-      cardAuthor: 'Kitani Studio', // Update as needed
-      cardDescription: courseDetails || 'Default course description goes here...',
-    };
-    dispatch(toggleWishListItem(cardData));
-    setIsInWishlist(!isInWishlist); // Update local state
+    if(userEmailId) {
+      const cardData = {
+        id: courseName, // Assuming courseName is a unique identifier
+        cardImg: courseImage,
+        cardContent: courseName,
+        cardAuthor: 'Kitani Studio', // Update as needed
+        cardDescription: courseDetails || 'Default course description goes here...',
+      };
+      dispatch(toggleWishListItem(cardData));
+      setIsInWishlist(!isInWishlist); // Update local state
+    } else {
+      toast.warn("Please Login To Add In Wishlist")
+    }
   };
 
   return (

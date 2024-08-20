@@ -1,13 +1,4 @@
-.wishlistCountericon {
-    position: relative;
-    padding: 1px;
-    color: red;
-    font-size: 23px;
-}
-
 .wishListCounter {
-position: absolute;
-font-size: 0.9rem;
-left: 6rem;
-color: white;
+color: black;
+font-size: 16px;
 }

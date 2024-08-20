@@ -1,8 +1,6 @@
-// src/components/CardContainer.js
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
 import { IoPersonOutline } from 'react-icons/io5'
 import CardRatingComponent from './CardRatingComponent'
@@ -10,7 +8,6 @@ import '/src/styling/CardContainer.css'
 
 function CardContainer({ header, heading, data }) {
   const cardValue = useSelector((state) => state.card.cardValue)
-  const userProfile = useSelector((state) => state.user.userEmail)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -21,29 +18,25 @@ function CardContainer({ header, heading, data }) {
   )
 
   const handleImgClick = (item) => {
-    if (userProfile) {
-      dispatch(
-        updateCardDetails({
-          price: {
-            newPrice: item.cardNewPrice,
-            oldPrice: item.cardOldPrice,
-          },
-          discount: item.cardDiscount || '20% OFF',
-          details: {
-            sections: item.cardSections || 'No Sections',
-            lectures: item.cardLectures || 'NO Lectures',
-            length: item.cardLength || 'NO length',
-            language: item.cardLanguage || 'English',
-          },
-          courseName: item.cardContent,
-          courseDetails: item.cardDescription,
-          courseImage: item?.cardImg,
-        }),
-      )
-      navigate('/unPaidWebinarPage')
-    } else {
-      toast.info('Please Login To Continue')
-    }
+    dispatch(
+      updateCardDetails({
+        price: {
+          newPrice: item.cardNewPrice,
+          oldPrice: item.cardOldPrice,
+        },
+        discount: item.cardDiscount || '20% OFF',
+        details: {
+          sections: item.cardSections || 'No Sections',
+          lectures: item.cardLectures || 'NO Lectures',
+          length: item.cardLength || 'NO length',
+          language: item.cardLanguage || 'English',
+        },
+        courseName: item.cardContent,
+        courseDetails: item.cardDescription,
+        courseImage: item?.cardImg,
+      }),
+    )
+    navigate('/unPaidWebinarPage')
   }
 
   return (

@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
+import ScrollToTop from './components/common/ScrollToTop'
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
           pauseOnHover
           theme="light"
         />
+        <ScrollToTop />
       </BrowserRouter>
     </Provider>
   )

@@ -1,4 +1,3 @@
-import { FaHeart } from 'react-icons/fa';
 import "../../styling/WishlistCounter.css"
 
 import { useSelector } from "react-redux"
@@ -10,8 +9,13 @@ function WishlistCounter() {
 
   return (
     <>
-    <FaHeart  className='wishlistCountericon'/>
-    <span className='wishListCounter'>{wishListCounter}</span>
+    {
+      wishListCounter > 0 ? (
+        <span className='wishListCounter'>({wishListCounter})</span>
+      ) : (
+        <></>
+      )
+    }
     </>
   )
 }
