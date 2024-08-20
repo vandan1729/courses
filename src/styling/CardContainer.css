@@ -1,3 +1,4 @@
+/* General Container Styling */
 .cardContainer {
   padding: 20px 70px;
   display: flex;
@@ -22,10 +23,10 @@
   gap: 40px;
 }
 
-/* Card styling */
+/* Card Styling */
 .card {
   position: relative;
-  max-width: 300px;
+  width: 295px;
   background-color: #fff;
   border-radius: 29px;
   margin-top: 1.5rem;
@@ -138,8 +139,43 @@
   padding: 0;
 }
 
-@media (max-width: 480px) {
+/* Responsive Styling for Tablets */
+@media (max-width: 768px) {
+  
+  .cardContainer {
+    padding: 10px 35px;
+  }
+  
+  .cardContainer h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
 
+  .cardData {
+    gap: 15px;
+  }
+
+  .card {
+    width: 220px;
+    background-color: #fff;
+    border-radius: 29px;
+    margin-top: 1.5rem;
+    overflow: hidden;
+  }
+  .cardContent h4,.cardAuthor,.cardRating{
+    font-size: 0.9rem;
+  }
+  .cardDescription {
+    font-size: 0.8rem;
+  }
+  .cardNewPrice,.cardOldPrice {
+    font-size: 1.2rem;
+  }
+
+}
+
+/* Responsive Styling for Mobile */
+@media (max-width: 480px) {
   .cardContainer {
     padding: 10px 0 0 10px;
   }

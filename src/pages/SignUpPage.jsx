@@ -58,10 +58,7 @@ function SignUpPage({ isVisible }) {
           userPassword: userSignUp.userPassword,
         }),
       )
-
-      setTimeout(() => {
-        hanldeLoginClick();
-      }, 1500)
+      dispatch(setOpacityValue(false))
     }
   }
 

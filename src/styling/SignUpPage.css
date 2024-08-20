@@ -199,3 +199,34 @@
 .signUpSpan {
     color: #3dcbb1;
 }
+
+
+@media (max-width: 768px) {
+
+    .SignUpmainDiv.visible {
+      width: 700px;
+      height: 32rem;
+      top: -5%;
+      right: 2%;
+  
+    }
+  
+    .signUpPageImg img {
+      height: 32rem;
+    }
+  
+    .signUpPageFbBtnIcon {
+      transform: translateY(0.6rem) translateX(3rem);
+    }
+  
+    .signUpPageAppBtnIcon {
+      transform: translateY(3.4rem) translateX(2.8rem);
+  
+    }
+  
+    .signUpPageGoogleBtnIcon {
+    transform: translateY(6.6rem) translateX(3rem);
+    }
+    
+  
+  }

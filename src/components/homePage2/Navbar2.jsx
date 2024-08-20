@@ -1,4 +1,3 @@
-// src/components/homePage2/Navbar2.jsx
 import { useDispatch, useSelector } from 'react-redux'
 import { IoIosSearch } from 'react-icons/io'
 import { MdShoppingCart } from 'react-icons/md'
@@ -8,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
 
+import { setOpacityValue } from '../../redux/features/modalSlice'
 import { setUserData } from '../../redux/features/userDataSlice'
 
 import { myCourseCardData } from '../../data/MyCourseCardData'
@@ -30,8 +30,8 @@ function Navbar2() {
     if (searchItem.trim()) {
       setFilterItem(
         myCourseCardData.filter((data) =>
-          data.cardContent.toLowerCase().includes(searchItem.toLowerCase()),
-        ),
+          data.cardContent.toLowerCase().includes(searchItem.toLowerCase())
+        )
       )
     } else {
       setFilterItem([])
@@ -40,13 +40,11 @@ function Navbar2() {
 
   // Access Redux state
   const userData = useSelector((state) => state.user)
-  // const wishListValue = useSelector(state => state.wishList.wishListValue);
 
   // Local state
   const [isCartVisible, setIsCartVisible] = useState(false)
   const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
   const [isBrowseOpen, setIsBrowseOpen] = useState(false)
-  const [isBrowseArrowUp, setIsBrowseArrowUp] = useState(false)
 
   const cartDropdownRef = useRef(null)
 
@@ -54,7 +52,8 @@ function Navbar2() {
   const closeCartMenu = () => setIsCartVisible(false)
   const handleNavigate = () => {
     navigate('/')
-    dispatch(setUserData({ userEmail: '' }))
+    dispatch(setUserData({userEmail:""}))
+    dispatch(setOpacityValue(true))
   }
   const handleMyCourses = () => {
     navigate('/wishlistPage')
@@ -77,7 +76,6 @@ function Navbar2() {
 
   const toggleBrowseDropdown = () => {
     setIsBrowseOpen((prev) => !prev)
-    setIsBrowseArrowUp((prev) => !prev)
   }
 
   const toggleCartDropdown = () => setIsCartDropdownOpen((prev) => !prev)
@@ -103,7 +101,7 @@ function Navbar2() {
         <span onClick={handleMainLogoClick}>My Course.io</span>
         <div className="dropdown2">
           <button onClick={toggleBrowseDropdown} className="dropdown2Toggle">
-            Browse {isBrowseArrowUp ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            Browse {isBrowseOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </button>
           {isBrowseOpen && (
             <ul className="dropdown2Menu">
@@ -123,12 +121,14 @@ function Navbar2() {
           value={searchItem}
           onChange={(e) => setSearchItem(e.target.value)}
         />
-        {filterItem.length > 0 && (
+        {filterItem.length > 0 ? (
           <div className="navbar2SearchItem">
             {filterItem.map((item) => (
               <div key={item.id}>{item.cardContent}</div>
             ))}
           </div>
+        ) : (
+          searchItem && <div>No results found</div>
         )}
         <IoIosSearch className="navbar2SearchIcon" />
       </div>

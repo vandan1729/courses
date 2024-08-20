@@ -129,37 +129,110 @@
   border-bottom: none; 
 }
 
-
+.navbarMenuIconDiv {
+  display: none;
+}
 
 @media (max-width: 768px) {
+.navbarItem,.navbarSignUpBtn,.navbarLoginBtn{
+    display: none;
+  }
   .navbar {
-    width: 100%;
+    padding: 10px 35px;
   }
 
-  .navbarLogo span {
-    font-size: 1rem;
-  }
-
-  .navbarSearch input {
-    height: 25px;
-    width: 150px;
-  }
-
-  .navbarSearchIcon {
-    height: 25px;
-  }
-
-  .navbarLogo {
-    margin-right: 25px;
-  }
-
-  .navbarLogo img {
-    width: 35px;
+.navbarSearchIcon {
+    font-size: 22px;
   }
 
   .navbarMenu {
-    width: 650px;
+    display: flex;
+    justify-content: space-between;
   }
+  
+  .navbarSearch input {
+    width: 300px;
+    margin-left: 2rem;
+    padding: 3px 10px;
+    font-size: 0.9rem;
+  }
+
+  .navbarSearchIcon {
+    left: 74%;
+  }
+
+  .navbarMenuIconDiv {
+    display: block;
+    font-size: 28px;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+
+  .navbarLogo img{
+    width: 30px;
+  }
+  .navbarLogo span{
+    font-size: 15px;
+    width: 120px;
+  }
+  .navbarCartIcon {
+    font-size: 20px;
+    margin-right: 1rem;
+  }
+  .navbarMenuDeactivate {
+    display: none;
+  }
+
+  .navbarMenuActive {
+    width: 40rem;
+    position: absolute;
+    top: 10rem;
+    left: 1rem;
+    background-color: #666;
+    z-index: 100000;
+    list-style-type: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbarMenuActiveLi {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.8rem 2rem;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbarMenuActiveLi:last-child {
+    border-bottom: none;
+  }
+  
+  .navbarMenuActiveLi:hover {
+    background-color: #3dcbb1;
+    color: #fff;
+  }
+  
+  .navbarMenuIconDiv {
+    position: relative;
+  }
+  
+  .navbarMenuIcon {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbarMenuIcon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  
+
 }
 
 @media (max-width: 480px) {
@@ -171,6 +244,11 @@
     align-items: center;
     justify-content: space-between ;
   }
+
+  .navbarMenuIcon {
+    display: block;
+  }
+
   .navbarLogo img{
     width: 30px;
   }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IoIosSearch } from 'react-icons/io'
+import { IoIosSearch, IoIosMenu } from 'react-icons/io'
+import { IoMdClose } from "react-icons/io";
 import { MdShoppingCart, MdTimelapse } from 'react-icons/md'
 import {
   setLoginVisible,
@@ -9,6 +10,7 @@ import {
   setOpacityValue,
 } from '../../redux/features/modalSlice'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
 import logo from '/src/assets/logo.png'
 import CartMenu from './CartMenu'
@@ -21,10 +23,12 @@ import '/src/styling/Navbar1.css'
 
 function Navbar1() {
   const dispatch = useDispatch()
+  const navigate =  useNavigate()
 
   // SearchBar Code
   const [searchItem, setSearchItem] = useState('')
   const [filterItem, setFilterItem] = useState([])
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     if (searchItem.trim()) {
@@ -79,12 +83,53 @@ function Navbar1() {
     dispatch(setOpacityValue(false))
   }
 
+  const handleNavbarMenuIconClick = () => {
+    setToggle(!toggle)
+    dispatch(setLoginVisible(false))
+    dispatch(setSignUpVisible(false))
+    dispatch(setOpacityValue(true))
+  }
+  
+  const handleNavbarMenuCloseIcon = () => {
+    dispatch(setOpacityValue(false))
+    setToggle(!toggle)
+  }
+
+  const handleLoginLi = () => {
+    setToggle(!toggle)
+    dispatch(setLoginVisible(true))
+  }
+
+  const handleSignUpLi = () => {
+    setToggle(!toggle)
+    dispatch(setSignUpVisible(true))
+  }
+
+  const handleMainLogoClick = () => navigate('/')
+
   return (
     <>
       <nav className="navbar">
+        <div className="navbarMenuIconDiv">
+          {
+            toggle ? <IoMdClose  color='#3dcbb1' onClick={handleNavbarMenuCloseIcon}/> 
+            : 
+            <IoIosMenu
+            color="#3dcbb1"
+            className="navbarMenuIcon"
+            onClick={handleNavbarMenuIconClick}
+          />
+          }
+          
+          <ul className={toggle ? 'navbarMenuActive' : 'navbarMenuDeactivate'}>
+            <li className="navbarMenuActiveLi" onClick={handleLoginLi}>Login</li>
+            <li className="navbarMenuActiveLi" onClick={handleSignUpLi}>Sign Up</li>
+          </ul>
+        </div>
+
         <div className="navbarLogo">
-          <img src={logo} alt="Logo" />
-          <span>My Course.io</span>
+          <img src={logo} alt="Logo" onClick={handleMainLogoClick}/>
+          <span onClick={handleMainLogoClick}>My Course.io</span>
         </div>
 
         <div className="navbarMenu">

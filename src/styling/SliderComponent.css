@@ -55,8 +55,24 @@
 
 @media (max-width: 768px) {
   .slider {
-    width: 100%;
-    margin-left: 100px;
+    width: 90%;
+    height: 200px; 
+    margin: 10px 35px; 
+  }
+
+  .left-arrow, .right-arrow {
+    font-size: 1rem;
+    padding: 10px 5px;
+
+  }
+
+  .dot {
+    height: 8px; 
+    width: 8px;
+  }
+
+  .dots {
+    bottom: 1; 
   }
 }
 

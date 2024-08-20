@@ -29,6 +29,13 @@
 .instructorCardImg {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .instructorCardDataContainer {
+    padding: 10px 35px;
+  }
+}
+
 @media (max-width: 480px) {
   .instructorCardDataContainer {
     padding: 10px 5px; 

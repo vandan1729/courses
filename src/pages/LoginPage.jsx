@@ -16,7 +16,6 @@ import { toast } from 'react-toastify';
 
 function LoginPage({ isVisible }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useNavigate
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -39,9 +38,10 @@ function LoginPage({ isVisible }) {
     if (email === userEmail && password === userPassword) { // Replace 'admin' with actual password if stored in Redux
 
       toast.success('Login Successfully')
-      setTimeout(() => {
-        navigate('/wishlistPage'); 
-      }, 1500);
+
+      dispatch(setLoginVisible(false));
+      dispatch(setOpacityValue(false));
+
     } else {
       toast.error('EmailId or Password Not Match')
     }

@@ -25,34 +25,27 @@
 /* Styles for Tablets */
 @media (max-width: 768px) {
   .categoriesText {
-    width: 100%;
-    padding: 10px;
-    /* Adjust padding for smaller screens */
+    padding: 10px 35px;
     margin: 0;
-    flex-wrap: wrap;
-    /* Allow wrapping of items if needed */
+    overflow-y: auto;
+    scrollbar-width: none;
     background-color: #fff;
-    /* Ensure background color consistency */
   }
 
   .categoriesSpan {
     font-size: 12px;
-    /* Slightly larger font size for readability */
-    padding: 0 12px;
-    /* Adjust padding for smaller screens */
-    margin: 0.5rem;
-    /* Add margin for spacing between items */
+    padding: 0 15px;
+    margin-left: 0.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .categoriesText {
-    padding: 10px  0 0 10px;
-    flex-direction: column;
+    padding: 15px 35px;
     overflow-y: auto;
     scrollbar-width: none;
   }
-
+  
   .categoriesSpan {
     font-size: 10px;
     padding: 5px 8px;
