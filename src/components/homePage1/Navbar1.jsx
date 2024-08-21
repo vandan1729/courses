@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoIosSearch, IoIosMenu } from 'react-icons/io'
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose } from 'react-icons/io'
 import { MdShoppingCart, MdTimelapse } from 'react-icons/md'
 import {
   setLoginVisible,
@@ -10,7 +10,7 @@ import {
   setOpacityValue,
 } from '../../redux/features/modalSlice'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 import logo from '/src/assets/logo.png'
 import CartMenu from './CartMenu'
@@ -23,7 +23,7 @@ import '/src/styling/Navbar1.css'
 
 function Navbar1() {
   const dispatch = useDispatch()
-  const navigate =  useNavigate()
+  const navigate = useNavigate()
 
   // SearchBar Code
   const [searchItem, setSearchItem] = useState('')
@@ -56,13 +56,10 @@ function Navbar1() {
     }
   }
 
-  const closeCartMenu = () => {
-    dispatch(setCartVisible(false))
-    dispatch(setOpacityValue(false))
-  }
-
-  const closeSignUpMenu = () => {
+  const closeMenus = () => {
+    dispatch(setLoginVisible(false))
     dispatch(setSignUpVisible(false))
+    dispatch(setCartVisible(false))
     dispatch(setOpacityValue(false))
   }
 
@@ -78,18 +75,12 @@ function Navbar1() {
     dispatch(setOpacityValue(true))
   }
 
-  const closeLoginMenu = () => {
-    dispatch(setLoginVisible(false))
-    dispatch(setOpacityValue(false))
-  }
-
   const handleNavbarMenuIconClick = () => {
     setToggle(!toggle)
-    dispatch(setLoginVisible(false))
-    dispatch(setSignUpVisible(false))
+    closeMenus()
     dispatch(setOpacityValue(true))
   }
-  
+
   const handleNavbarMenuCloseIcon = () => {
     dispatch(setOpacityValue(false))
     setToggle(!toggle)
@@ -111,24 +102,28 @@ function Navbar1() {
     <>
       <nav className="navbar">
         <div className="navbarMenuIconDiv">
-          {
-            toggle ? <IoMdClose  color='#3dcbb1' onClick={handleNavbarMenuCloseIcon}/> 
-            : 
+          {toggle ? (
+            <IoMdClose color="#3dcbb1" onClick={handleNavbarMenuCloseIcon} />
+          ) : (
             <IoIosMenu
-            color="#3dcbb1"
-            className="navbarMenuIcon"
-            onClick={handleNavbarMenuIconClick}
-          />
-          }
-          
+              color="#3dcbb1"
+              className="navbarMenuIcon"
+              onClick={handleNavbarMenuIconClick}
+            />
+          )}
+
           <ul className={toggle ? 'navbarMenuActive' : 'navbarMenuDeactivate'}>
-            <li className="navbarMenuActiveLi" onClick={handleLoginLi}>Login</li>
-            <li className="navbarMenuActiveLi" onClick={handleSignUpLi}>Sign Up</li>
+            <li className="navbarMenuActiveLi" onClick={handleLoginLi}>
+              Login
+            </li>
+            <li className="navbarMenuActiveLi" onClick={handleSignUpLi}>
+              Sign Up
+            </li>
           </ul>
         </div>
 
         <div className="navbarLogo">
-          <img src={logo} alt="Logo" onClick={handleMainLogoClick}/>
+          <img src={logo} alt="Logo" onClick={handleMainLogoClick} />
           <span onClick={handleMainLogoClick}>My Course.io</span>
         </div>
 
@@ -173,9 +168,9 @@ function Navbar1() {
         </div>
       </nav>
 
-      <LoginPage isVisible={isLoginVisible} onClose={closeLoginMenu} />
-      <SignUpPage isVisible={isSignUpVisible} onClose={closeSignUpMenu} />
-      <CartMenu isVisible={isCartVisible} onClose={closeCartMenu} />
+      <LoginPage />
+      <SignUpPage />
+      <CartMenu />
     </>
   )
 }

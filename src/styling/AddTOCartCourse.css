@@ -18,12 +18,12 @@
 .cartMenuProductRemoveIcon {
   font-size: 1.3rem;
   position: absolute;
-  transform: translateX(9.7rem) translateY(-0.5rem);
+  transform: translateX(8.8rem) translateY(-0.9rem);
   cursor: pointer;
 }
 
 .cartMenuProductRemoveIcon:hover {
-  transform: translateX(9.7rem) translateY(-0.5rem) scale(1.2);
+  transform: translateX(8.8rem) translateY(-0.9rem) scale(1.2);
 }
 
 .cartMenuProductName {

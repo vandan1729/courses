@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
 
-import { setOpacityValue } from '../../redux/features/modalSlice'
+import {
+  setOpacityValue,
+  setCartVisible,
+} from '../../redux/features/modalSlice'
 import { setUserData } from '../../redux/features/userDataSlice'
 
 import { myCourseCardData } from '../../data/MyCourseCardData'
@@ -27,13 +30,14 @@ function Navbar2() {
   const [filterItem, setFilterItem] = useState([])
 
   const totalBuyProduct = useSelector((state) => state.buyProduct)
+  const isCartVisible = useSelector((state) => state.modal.cartVisible)
 
   useEffect(() => {
     if (searchItem.trim()) {
       setFilterItem(
         myCourseCardData.filter((data) =>
-          data.cardContent.toLowerCase().includes(searchItem.toLowerCase())
-        )
+          data.cardContent.toLowerCase().includes(searchItem.toLowerCase()),
+        ),
       )
     } else {
       setFilterItem([])
@@ -44,18 +48,12 @@ function Navbar2() {
   const userData = useSelector((state) => state.user)
   const productData = useSelector((state) => state.buyProduct)
 
-  // Local state
-  const [isCartVisible, setIsCartVisible] = useState(false)
-  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
-  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
-
   const cartDropdownRef = useRef(null)
 
-  const toggleCartMenu = () => setIsCartVisible((prev) => !prev)
-  const closeCartMenu = () => setIsCartVisible(false)
+  const toggleCartMenu = () => dispatch(setCartVisible(!isCartVisible))
   const handleNavigate = () => {
     navigate('/')
-    dispatch(setUserData({userEmail:""}))
+    dispatch(setUserData({ userEmail: '' }))
     dispatch(setOpacityValue(true))
   }
   const handleMyCourses = () => {
@@ -77,10 +75,12 @@ function Navbar2() {
     'Writing',
   ]
 
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
   const toggleBrowseDropdown = () => {
     setIsBrowseOpen((prev) => !prev)
   }
 
+  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
   const toggleCartDropdown = () => setIsCartDropdownOpen((prev) => !prev)
 
   useEffect(() => {
@@ -124,25 +124,24 @@ function Navbar2() {
           value={searchItem}
           onChange={(e) => setSearchItem(e.target.value)}
         />
-        {filterItem.length > 0 ? (
+        {filterItem.length > 0 && (
           <div className="navbar2SearchItem">
             {filterItem.map((item) => (
               <div key={item.id}>{item.cardContent}</div>
             ))}
           </div>
-        ) : (
-          searchItem && <div>No results found</div>
         )}
+        {searchItem && filterItem.length === 0 && <div>No results found</div>}
         <IoIosSearch className="navbar2SearchIcon" />
       </div>
       <div className="navbar2Menu">
         <span className="navbar2Item">Become Instructor</span>
         <MdShoppingCart className="navbar2CartIcon" onClick={toggleCartMenu} />
-        {
-          productData.length > 0 ? (
-            <span className='navbar2CartCount'>{totalBuyProduct.length}</span>
-          ) : (<></>)
-        }
+        {productData.length > 0 && (
+          <span className="navbar2CartCount" onClick={toggleCartMenu}>
+            {totalBuyProduct.length}
+          </span>
+        )}
 
         <FaRegBell className="navbar2CartIcon" />
         <div className="cartDropdownContainer" ref={cartDropdownRef}>
@@ -188,7 +187,7 @@ function Navbar2() {
           )}
         </div>
       </div>
-      <CartMenu isVisible={isCartVisible} onClose={closeCartMenu} />
+      <CartMenu />
     </div>
   )
 }

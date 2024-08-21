@@ -23,9 +23,8 @@
 }
 
 .closeBtnDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
+  position: absolute;
+  transform: translateX(18rem);
   font-size: 25px;
 }
 
@@ -35,10 +34,15 @@
 }
 
 .cartMenuProductDetails {
-  height: 85%;
+  height: 91.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.cartMenuProduct {
+  overflow-y:auto;
+  scrollbar-width: none;
 }
 
 .cartMenuProductBuyBtn {
