@@ -1,52 +1,80 @@
-import React, { useState } from 'react';
-import Layout from '../layoutComponent/Layout';
-import SubscribeCard from '../components/homePage1/SubscribeCard';
+import React, { useState, useEffect } from 'react'
+import Layout from '../layoutComponent/Layout'
+import SubscribeCard from '../components/homePage1/SubscribeCard'
 
-import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg';
-import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png';
+import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { BsPeople } from 'react-icons/bs';
-import { MdOutlineRateReview } from 'react-icons/md';
-import { CiViewList } from "react-icons/ci";
-import { MdOutlineChromeReaderMode } from "react-icons/md";
-import { MdLiveTv } from "react-icons/md";
-import { FaVolumeHigh } from "react-icons/fa6";
-import { toast } from 'react-toastify';
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { BsPeople } from 'react-icons/bs'
+import { MdOutlineRateReview } from 'react-icons/md'
+import { CiViewList } from 'react-icons/ci'
+import { MdOutlineChromeReaderMode } from 'react-icons/md'
+import { MdLiveTv } from 'react-icons/md'
+import { FaVolumeHigh } from 'react-icons/fa6'
+import { toast } from 'react-toastify'
 
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleWishListItem } from '../redux/features/wishListSlice';
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleWishListItem } from '../redux/features/wishListSlice'
+import { setBuyProduct } from '../redux/features/buyProductSlice'
 
-import '../styling/UnPaidWebinarPage.css';
+import '../styling/UnPaidWebinarPage.css'
 
 function UnPaidWebinarPage() {
   const { price, discount, details, courseName, courseDetails, courseImage } =
-    useSelector((state) => state.unPaidWebinar);
-  const wishListItems = useSelector((state) => state.wishList.wishListItems);
-  const dispatch = useDispatch();
-
+    useSelector((state) => state.unPaidWebinar)
+  const wishListItems = useSelector((state) => state.wishList.wishListItems)
+  const buyProductId = useSelector((state) => state.buyProduct)
   const userEmailId = useSelector((state) => state.user.userEmail)
+  const dispatch = useDispatch()
 
-  // Local state to track if the course is in the wishlist
   const [isInWishlist, setIsInWishlist] = useState(
-    wishListItems.some((item) => item.id === courseName)
-  );
+    wishListItems.some((item) => item.id === courseName),
+  )
+
+  const [isInCart, setIsInCart] = useState(
+    buyProductId.some((product) => product.id === courseName)
+  )
+
+  useEffect(() => {
+    setIsInCart(buyProductId.some((product) => product.id === courseName))
+  }, [buyProductId, courseName])
 
   const handleWishlistClick = () => {
-    if(userEmailId) {
+    if (userEmailId) {
       const cardData = {
-        id: courseName, // Assuming courseName is a unique identifier
+        id: courseName,
         cardImg: courseImage,
         cardContent: courseName,
-        cardAuthor: 'Kitani Studio', // Update as needed
-        cardDescription: courseDetails || 'Default course description goes here...',
-      };
-      dispatch(toggleWishListItem(cardData));
-      setIsInWishlist(!isInWishlist); // Update local state
+        cardAuthor: 'Kitani Studio',
+        cardDescription:
+          courseDetails || 'Default course description goes here...',
+      }
+      dispatch(toggleWishListItem(cardData))
+      setIsInWishlist(!isInWishlist)
     } else {
-      toast.warn("Please Login To Add In Wishlist")
+      toast.warn('Please Login To Add In Wishlist')
     }
-  };
+  }
+
+  const handleBuyProduct = () => {
+    if (userEmailId) {
+      const productData = {
+        id: courseName,
+        cardImg: courseImage,
+        cardContent: courseName,
+        cardAuthor: 'Kitani Studio',
+        cardDescription:
+          courseDetails || 'Default course description goes here...',
+        cardPrice: price.newPrice,
+        cardDiscountPrice: price.oldPrice,
+      }
+      dispatch(setBuyProduct(productData))
+      toast.success('Product added to cart!')
+    } else {
+      toast.warn('Please Login To Buy Product')
+    }
+  }
 
   return (
     <>
@@ -58,22 +86,33 @@ function UnPaidWebinarPage() {
 
           <div className="unPaidWebinarDetails">
             <div className="unPaidWebinarPrice">
-              <span className="unpaidWebinarNewPrice">{price.newPrice}</span>
-              <span className="unpaidWebinarOldPrice">{price.oldPrice}</span>
+              <span className="unpaidWebinarNewPrice">${price.newPrice}</span>
+              <span className="unpaidWebinarOldPrice">${price.oldPrice}</span>
             </div>
             <div className="unPaidWebinarDiscount">
               <span className="unPaidWebinarDiscountNumber">{discount}</span>
             </div>
 
             <div className="unPaidWebinarDetailsBtn">
-              <button className="unPaidWebinarDetailsBuyBtn">Buy</button>
+              <button
+                className="unPaidWebinarDetailsBuyBtn"
+                onClick={handleBuyProduct}
+                disabled={isInCart} // Disable button if already in cart
+              >
+                {isInCart ? 'In Cart' : 'Buy Now'}
+              </button>
               <button
                 className="unPaidWebinarDetailsWishlistBtn"
                 onClick={handleWishlistClick}
-                aria-label={isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+                aria-label={
+                  isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'
+                }
               >
                 {isInWishlist ? (
-                  <FaHeart color="red" className="unPaidWebinarDetailsHeartIcon" />
+                  <FaHeart
+                    color="red"
+                    className="unPaidWebinarDetailsHeartIcon"
+                  />
                 ) : (
                   <FaRegHeart className="unPaidWebinarDetailsHeartIcon" />
                 )}
@@ -82,10 +121,22 @@ function UnPaidWebinarPage() {
             </div>
 
             <div className="unPaidWebinarInfo">
-              <span className="unPaidWebinarInfoSection"><CiViewList className='unPaidWebinarInfoIcon'/> {details.sections}</span>
-              <span className="unPaidWebinarInfoLecture"><MdOutlineChromeReaderMode className="unPaidWebinarInfoIcon"/>{details.lectures}</span>
-              <span className="unPaidWebinarInfoTotalLength"><MdLiveTv className="unPaidWebinarInfoIcon"/>{details.length}</span>
-              <span className="unPaidWebinarInfoLanguage"><FaVolumeHigh className="unPaidWebinarInfoIcon" />{details.language}</span>
+              <span className="unPaidWebinarInfoSection">
+                <CiViewList className="unPaidWebinarInfoIcon" />{' '}
+                {details.sections}
+              </span>
+              <span className="unPaidWebinarInfoLecture">
+                <MdOutlineChromeReaderMode className="unPaidWebinarInfoIcon" />
+                {details.lectures}
+              </span>
+              <span className="unPaidWebinarInfoTotalLength">
+                <MdLiveTv className="unPaidWebinarInfoIcon" />
+                {details.length}
+              </span>
+              <span className="unPaidWebinarInfoLanguage">
+                <FaVolumeHigh className="unPaidWebinarInfoIcon" />
+                {details.language}
+              </span>
             </div>
           </div>
         </div>
@@ -118,7 +169,9 @@ function UnPaidWebinarPage() {
             </div>
             <div className="unPaidWebinarCourseDescription">
               <h4>About Course</h4>
-              <p>{courseDetails || 'Default course description goes here...'}</p>
+              <p>
+                {courseDetails || 'Default course description goes here...'}
+              </p>
             </div>
           </div>
           <div className="unPaidWebinarCourseImage">
@@ -148,7 +201,7 @@ function UnPaidWebinarPage() {
         <SubscribeCard />
       </Layout>
     </>
-  );
+  )
 }
 
-export default UnPaidWebinarPage;
+export default UnPaidWebinarPage

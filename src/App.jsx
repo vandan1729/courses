@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
 import ScrollToTop from './components/common/ScrollToTop'
+import CourseBuyPage from './pages/CourseBuyPage'
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/myAccount1" element={<MyAccount1 />} />
           <Route path="/wishlistPage" element={<WishlistPage />} />
           <Route path="/unPaidWebinarPage" element={<UnPaidWebinarPage />} />
+          <Route path="/courseBuyPage" element={<CourseBuyPage />} />
         </Routes>
         <ToastContainer
           position="top-center"

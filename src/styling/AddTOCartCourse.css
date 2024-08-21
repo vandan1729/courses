@@ -1,0 +1,48 @@
+.cartMenuProductDiv {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 10px;
+}
+
+.cartMenuProductImg img {
+  width: 8rem;
+}
+
+.cartMenuProductDetails {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cartMenuProductRemoveIcon {
+  font-size: 1.3rem;
+  position: absolute;
+  transform: translateX(9.7rem) translateY(-0.5rem);
+  cursor: pointer;
+}
+
+.cartMenuProductRemoveIcon:hover {
+  transform: translateX(9.7rem) translateY(-0.5rem) scale(1.2);
+}
+
+.cartMenuProductName {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3dcbb1;
+}
+
+.cartMenuProductPriceSpan {
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.cartMenuProductPrice {
+  font-size: 1rem;
+}
+
+.cartMenuProductDiscountPrice {
+  color: #666;
+  text-decoration: line-through;
+}

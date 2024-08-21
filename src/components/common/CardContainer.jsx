@@ -69,8 +69,8 @@ function CardContainer({ header, heading, data }) {
                   </div>
 
                   <p className="cardNewPrice">
-                    {item.cardNewPrice}
-                    <span className="cardOldPrice">{item.cardOldPrice}</span>
+                    ${item.cardNewPrice}
+                    <span className="cardOldPrice">${item.cardOldPrice}</span>
                   </p>
                 </div>
               </div>

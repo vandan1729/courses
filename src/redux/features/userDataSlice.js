@@ -5,7 +5,7 @@ const initialState = {
   userFirstName: 'UserFirstName',
   userLastName: 'UserLastName',
   userHeadLine: 'Hello',
-  userEmail: '',
+  userEmail: 'a',
   userProfile: profileImg,
   userPassword: "admin",
 };

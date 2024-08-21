@@ -26,6 +26,8 @@ function Navbar2() {
   const [searchItem, setSearchItem] = useState('')
   const [filterItem, setFilterItem] = useState([])
 
+  const totalBuyProduct = useSelector((state) => state.buyProduct)
+
   useEffect(() => {
     if (searchItem.trim()) {
       setFilterItem(
@@ -40,6 +42,7 @@ function Navbar2() {
 
   // Access Redux state
   const userData = useSelector((state) => state.user)
+  const productData = useSelector((state) => state.buyProduct)
 
   // Local state
   const [isCartVisible, setIsCartVisible] = useState(false)
@@ -135,6 +138,12 @@ function Navbar2() {
       <div className="navbar2Menu">
         <span className="navbar2Item">Become Instructor</span>
         <MdShoppingCart className="navbar2CartIcon" onClick={toggleCartMenu} />
+        {
+          productData.length > 0 ? (
+            <span className='navbar2CartCount'>{totalBuyProduct.length}</span>
+          ) : (<></>)
+        }
+
         <FaRegBell className="navbar2CartIcon" />
         <div className="cartDropdownContainer" ref={cartDropdownRef}>
           <div className="cartDropdownProfile">

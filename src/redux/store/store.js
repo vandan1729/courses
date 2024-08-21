@@ -5,6 +5,7 @@ import userReducer from '../features/userDataSlice';
 import wishListReducer from '../features/wishListSlice';
 import modalReducer from '../features/modalSlice';  
 import unPaidWebinarReducer from '../features/unPaidWebinarSlice';  
+import buyProductReducer from '../features/buyProductSlice';
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
     user: userReducer,
     wishList: wishListReducer,
     modal: modalReducer,  
-    unPaidWebinar: unPaidWebinarReducer,  
+    unPaidWebinar: unPaidWebinarReducer, 
+    buyProduct: buyProductReducer, 
   },
 });
 
