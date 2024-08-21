@@ -10,11 +10,12 @@ import profilePic from '/src/assets/homePage1/loginPage/loginPage.png';
 import logo from '/src/assets/logo.png';
 
 import { setLoginVisible, setOpacityValue, setSignUpVisible } from '../redux/features/modalSlice';
+import { login } from '../redux/features/authSlice';
 
 import '/src/styling/LoginPage.css';
 import { toast } from 'react-toastify';
 
-function LoginPage({ isVisible }) {
+function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,6 +23,7 @@ function LoginPage({ isVisible }) {
   // Access user data from the Redux store
   const userEmail = useSelector((state) => state.user.userEmail);
   const userPassword = useSelector((state) => state.user.userPassword);
+  const isVisible = useSelector((state) => state.modal.loginVisible)
 
   const handleCloseIconClick = () => {
     dispatch(setLoginVisible(false));
@@ -41,6 +43,7 @@ function LoginPage({ isVisible }) {
 
       dispatch(setLoginVisible(false));
       dispatch(setOpacityValue(false));
+      dispatch(login())
 
     } else {
       toast.error('EmailId or Password Not Match')

@@ -8,12 +8,12 @@ import Navbar1 from '../components/homePage1/Navbar1'
 
 const Layout = ({ children }) => {
   
-  const userEmailId = useSelector((state) => state.user.userEmail)
+  const auth = useSelector((state) => state.auth.isAuthenticated)
 
   return (
     <>
     {
-      userEmailId ? (
+      auth ? (
         
         <>
         <Navbar2 />

@@ -10,17 +10,17 @@ import logo from '/src/assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSignUpVisible, setLoginVisible, setOpacityValue } from '../redux/features/modalSlice'
 import { setUserData } from '../redux/features/userDataSlice'
-// import { initialState as userInitialState } from '../redux/features/userDataSlice';
+import { logout,login } from '../redux/features/authSlice'
 
 import '/src/styling/LoginPage.css'
 import '/src/styling/SignUpPage.css'
 import { toast } from 'react-toastify'
 
-function SignUpPage({ isVisible }) {
+function SignUpPage() {
 
   const dispatch = useDispatch()
-  // const userData = useSelector((state) => state.user)
-  // console.log(userData)
+  const isVisible = useSelector((state) => state.modal.signUpVisible)
+
 
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',
@@ -57,12 +57,11 @@ function SignUpPage({ isVisible }) {
           userEmail: userSignUp.userEmailID,
           userPassword: userSignUp.userPassword,
         }),
+        dispatch(login())
       )
       dispatch(setOpacityValue(false))
     }
   }
-
-  // console.log(userInitialState)
 
 
   return (

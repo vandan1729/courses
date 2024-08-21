@@ -3,12 +3,14 @@ import HomePage1 from './pages/HomePage1'
 import HomePage2 from './components/homePage2/HomePage2'
 import HomePage3 from './components/homePage3/HomePage3'
 import PaidOfflineVideoPage1 from './pages/PaidOfflineVideoPage1'
-import LoginPage from './pages/LoginPage'
 import MyCoursePage from './pages/MyCoursePage'
 import PaidWebinarPage from './pages/PaidWebinarPage'
 import MyAccount1 from './pages/MyAccountPage1'
 import WishlistPage from './pages/WishlistPage'
 import UnPaidWebinarPage from './pages/UnPaidWebinarPage'
+import CourseBuyPage from './pages/CourseBuyPage'
+import ScrollToTop from './components/common/ScrollToTop'
+import ProtectedRoute from './components/common/ProtectedRoute'
 
 import { Provider } from 'react-redux'
 import store from './redux/store/store'
@@ -17,29 +19,40 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
-import ScrollToTop from './components/common/ScrollToTop'
-import CourseBuyPage from './pages/CourseBuyPage'
 
 function App() {
-
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage1 />} />
-          <Route
-            path="/paidOfflineVideo1"
-            element={<PaidOfflineVideoPage1 />}
-          />
           <Route path="/homePage2" element={<HomePage2 />} />
           <Route path="/homePage3" element={<HomePage3 />} />
-          <Route path="/loginPage" element={<LoginPage />} />
-          <Route path="/myCoursePage" element={<MyCoursePage />} />
-          <Route path="/paidWebinar" element={<PaidWebinarPage />} />
-          <Route path="/myAccount1" element={<MyAccount1 />} />
-          <Route path="/wishlistPage" element={<WishlistPage />} />
           <Route path="/unPaidWebinarPage" element={<UnPaidWebinarPage />} />
-          <Route path="/courseBuyPage" element={<CourseBuyPage />} />
+          <Route
+            path="/paidOfflineVideo1"
+            element={<ProtectedRoute element={PaidOfflineVideoPage1} />}
+          />
+          <Route
+            path="/myCoursePage"
+            element={<ProtectedRoute element={MyCoursePage} />}
+          />
+          <Route
+            path="/paidWebinar"
+            element={<ProtectedRoute element={PaidWebinarPage} />}
+          />
+          <Route
+            path="/myAccount1"
+            element={<ProtectedRoute element={MyAccount1} />}
+          />
+          <Route
+            path="/wishlistPage"
+            element={<ProtectedRoute element={WishlistPage} />}
+          />
+          <Route
+            path="/courseBuyPage"
+            element={<ProtectedRoute element={CourseBuyPage} />}
+          />
         </Routes>
         <ToastContainer
           position="top-center"

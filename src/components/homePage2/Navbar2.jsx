@@ -12,7 +12,7 @@ import {
   setCartVisible,
 } from '../../redux/features/modalSlice'
 import { setUserData } from '../../redux/features/userDataSlice'
-
+import { logout } from '../../redux/features/authSlice'
 import { myCourseCardData } from '../../data/MyCourseCardData'
 
 import logo from '/src/assets/logo.png'
@@ -53,7 +53,7 @@ function Navbar2() {
   const toggleCartMenu = () => dispatch(setCartVisible(!isCartVisible))
   const handleNavigate = () => {
     navigate('/')
-    dispatch(setUserData({ userEmail: '' }))
+    dispatch(logout())
     dispatch(setOpacityValue(true))
   }
   const handleMyCourses = () => {

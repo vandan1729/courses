@@ -43,13 +43,12 @@ function Navbar1() {
   }, [searchItem])
 
   // Access visibility states from Redux
-  const isLoginVisible = useSelector((state) => state.modal.loginVisible)
-  const isSignUpVisible = useSelector((state) => state.modal.signUpVisible)
+
   const isCartVisible = useSelector((state) => state.modal.cartVisible)
-  const userEmail = useSelector((state) => state.user.userEmail)
+  const auth = useSelector((state) => state.auth.isAuthenticated)
 
   const toggleCartMenu = () => {
-    if (userEmail) {
+    if (auth) {
       dispatch(setCartVisible(!isCartVisible))
     } else {
       toast.info('Please Login!')

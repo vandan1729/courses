@@ -25,7 +25,7 @@ function UnPaidWebinarPage() {
     useSelector((state) => state.unPaidWebinar)
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const buyProductId = useSelector((state) => state.buyProduct)
-  const userEmailId = useSelector((state) => state.user.userEmail)
+  const auth = useSelector((state) => state.auth.isAuthenticated)
   const dispatch = useDispatch()
 
   const [isInWishlist, setIsInWishlist] = useState(
@@ -41,7 +41,7 @@ function UnPaidWebinarPage() {
   }, [buyProductId, courseName])
 
   const handleWishlistClick = () => {
-    if (userEmailId) {
+    if (auth) {
       const cardData = {
         id: courseName,
         cardImg: courseImage,
@@ -58,7 +58,7 @@ function UnPaidWebinarPage() {
   }
 
   const handleBuyProduct = () => {
-    if (userEmailId) {
+    if (auth) {
       const productData = {
         id: courseName,
         cardImg: courseImage,
