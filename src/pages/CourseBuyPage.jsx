@@ -7,7 +7,7 @@ import { setWishListValue } from '../redux/features/wishListSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { SuccessAnimation } from '../components/common/SuccessAnimation'
+import  SuccessAnimation  from '../components/common/SuccessAnimation'
 import { setBuyCourseData } from '../redux/features/wishListSlice'
 import { clearCart } from '../redux/features/buyProductSlice'
 
@@ -18,10 +18,11 @@ function CourseBuyPage() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [showSuccess, setShowSuccess] = useState(false)
-
-
+  
+  
   const handleBuyPage = () => {
-
+    
+    console.log(product)
     setShowSuccess(true)
     dispatch(setBuyCourseData(product))
     dispatch(setWishListValue('Courses'))
@@ -30,7 +31,7 @@ function CourseBuyPage() {
       setShowSuccess(false)
       navigate('/wishlistPage')
       dispatch(clearCart());
-    }, 2000)
+    }, 5000)
   }
 
   return (

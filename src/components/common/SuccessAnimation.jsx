@@ -1,33 +1,25 @@
-import { motion } from 'framer-motion';
+import "../../styling/SuccessAnimation.css"
 
-export const SuccessAnimation = () => (
-    <motion.div
-      initial={{ scale: 0 }}
-      animate={{ scale: 1, rotate: 360 }}
-      exit={{ scale: 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-      }}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100px",
-        height: "100px",
-        backgroundColor: "#3771Df",
-        borderRadius: "50%",
-        color: "white",
-        fontSize: "1.5rem",
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        zIndex: 9999,
-      }}
-    >
-      ✔️
-    </motion.div>
-  );
-  
+function SuccessAnimation() {
+  return (
+    <>
+      <div className="wrapper">
+        {' '}
+        <svg
+          className="checkmark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 52 52"
+        >
+          <path
+            className="checkmark__check"
+            fill="none"
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+          />
+        </svg>
+        <div className="output"></div>
+      </div>
+    </>
+  )
+}
+
+export default SuccessAnimation

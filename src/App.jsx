@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import './App.css'
 import ErrorPage from './pages/ErrorPage'
+import SuccessAnimation from './components/common/SuccessAnimation'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage1 />} />
           <Route path="/homePage2" element={<HomePage2 />} />
+          <Route path="/successAnimation" element={<SuccessAnimation />} />
           <Route path="/homePage3" element={<HomePage3 />} />
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/unPaidWebinarPage" element={<UnPaidWebinarPage />} />

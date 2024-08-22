@@ -1,8 +1,8 @@
 /* General Container Styling */
 .cardContainer {
+  min-height: 24.3vh;
   padding: 20px 70px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
