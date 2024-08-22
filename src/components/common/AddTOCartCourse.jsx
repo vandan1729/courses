@@ -11,7 +11,6 @@ import '../../styling/AddTOCartCourse.css'
 
 function AddTOCartCourse() {
   const productData = useSelector((state) => state.buyProduct)
-  console.log(productData)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

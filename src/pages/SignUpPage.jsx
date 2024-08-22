@@ -10,7 +10,7 @@ import logo from '/src/assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSignUpVisible, setLoginVisible, setOpacityValue } from '../redux/features/modalSlice'
 import { setUserData } from '../redux/features/userDataSlice'
-import { logout,login } from '../redux/features/authSlice'
+import { login } from '../redux/features/authSlice'
 
 import '/src/styling/LoginPage.css'
 import '/src/styling/SignUpPage.css'
@@ -20,7 +20,7 @@ function SignUpPage() {
 
   const dispatch = useDispatch()
   const isVisible = useSelector((state) => state.modal.signUpVisible)
-
+  const auth = useSelector((state) => state.auth.isAuthenticated)
 
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',
@@ -47,22 +47,22 @@ function SignUpPage() {
 
   const handleSubmit = () => {
     if (userSignUp.userEmailID === '' || userSignUp.userPassword === '') {
-      toast.error("Please Fill Data Properly")
-      return
+      toast.error("Please Fill Data Properly");
+      return;
     } else {
-      toast.success("Register SuccessFully")
-
+      toast.success("Register Successfully");
+  
       dispatch(
         setUserData({
           userEmail: userSignUp.userEmailID,
           userPassword: userSignUp.userPassword,
-        }),
-        dispatch(login())
-      )
-      dispatch(setOpacityValue(false))
+        })
+      );
+      dispatch(login());
+      dispatch(setOpacityValue(false));
+  
     }
-  }
-
+  };
 
   return (
     <div className={`SignUpmainDiv ${isVisible ? 'visible' : ''}`}>
