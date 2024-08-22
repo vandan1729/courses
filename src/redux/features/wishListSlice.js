@@ -1,30 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit'
 
 const wishListSlice = createSlice({
   name: 'wishList',
   initialState: {
     wishListValue: 'All Courses',
     wishListItems: [],
-    myCourseCardData: [],
+    allCourseCardData: [],
+    buyCourseData: [],
   },
   reducers: {
     setWishListValue: (state, action) => {
-      state.wishListValue = action.payload;
+      state.wishListValue = action.payload
     },
     toggleWishListItem: (state, action) => {
-      const item = action.payload; // Full card object
-      const existingIndex = state.wishListItems.findIndex((i) => i.id === item.id);
+      const item = action.payload // Full card object
+      const existingIndex = state.wishListItems.findIndex(
+        (i) => i.id === item.id,
+      )
       if (existingIndex >= 0) {
-        state.wishListItems.splice(existingIndex, 1);
+        // Remove item if it exists
+        state.wishListItems.splice(existingIndex, 1)
       } else {
-        state.wishListItems.push(item);
+        // Add item if it does not exist
+        state.wishListItems.push(item)
       }
     },
-    setMyCourseCardData: (state, action) => {
-      state.myCourseCardData = action.payload;
+    setAllCourseCardData: (state, action) => {
+      state.allCourseCardData = action.payload
+    },
+    setBuyCourseData: (state, action) => {
+      state.buyCourseData = action.payload
     },
   },
-});
+})
 
-export const { setWishListValue, toggleWishListItem, setMyCourseCardData } = wishListSlice.actions;
-export default wishListSlice.reducer;
+export const {
+  setWishListValue,
+  toggleWishListItem,
+  setAllCourseCardData,
+  setBuyCourseData,
+} = wishListSlice.actions
+export default wishListSlice.reducer

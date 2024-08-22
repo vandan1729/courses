@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setWishListValue, setMyCourseCardData } from '../redux/features/wishListSlice';
+import { setWishListValue, setAllCourseCardData } from '../redux/features/wishListSlice';
 import Navbar2 from '../components/homePage2/Navbar2';
 import FooterComponent from '../components/common/FooterComponent';
 import WishlistPageContainer from '../components/common/WishlistPageContainer';
@@ -10,11 +10,11 @@ import '../styling/WishlistPage.css';
 function WishlistPage() {
   const dispatch = useDispatch();
   const wishListValue = useSelector((state) => state.wishList.wishListValue);
-  const wishListItems = useSelector((state) => state.wishList.wishListItems);
-  const myCourseCardDataFromStore = useSelector((state) => state.wishList.myCourseCardData);
+  const wishListItems = useSelector((state) => state.wishList.wishListItems) || [];
+  const myCourseCardDataFromStore = useSelector((state) => state.wishList.allCourseCardData) || [];
 
   useEffect(() => {
-    dispatch(setMyCourseCardData(myCourseCardData));
+    dispatch(setAllCourseCardData(myCourseCardData));
   }, [dispatch]);
 
   const handleClick = (value) => {

@@ -1,56 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { IoPersonOutline } from 'react-icons/io5';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import { toggleWishListItem } from '../../redux/features/wishListSlice';
-import '../../styling/CardContainer.css';
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { IoPersonOutline } from 'react-icons/io5'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { toggleWishListItem } from '../../redux/features/wishListSlice'
+import '../../styling/CardContainer.css'
 
 function WishlistPageContainer({ header, data }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const wishListItems = useSelector((state) => state.wishList.wishListItems);
-  const wishListValue = useSelector((state) => state.wishList.wishListValue);
-  
-  const [likedItems, setLikedItems] = useState({});
-  const [filteredData, setFilteredData] = useState([]);
+  const wishListItems = useSelector((state) => state.wishList.wishListItems)
+  const wishListValue = useSelector((state) => state.wishList.wishListValue)
+  const buyCourseData = useSelector((state) => state.wishList.buyCourseData)
+
+  const [likedItems, setLikedItems] = useState({})
+  const [filteredData, setFilteredData] = useState([])
 
   // Handle the click on the 'Explore Courses' button
   const handleExploreCoursesClick = () => {
-    navigate('/');
-  };
+    navigate('/')
+  }
 
   // Handle adding/removing items from the wishlist
   const handleLikeClick = (item) => {
-    dispatch(toggleWishListItem(item));
-  };
+    dispatch(toggleWishListItem(item))
+  }
 
   // Filter data based on wishlist value and wishlist items
   useEffect(() => {
-    let updatedFilteredData = [];
+    let updatedFilteredData = []
 
     if (wishListValue === 'All Courses') {
-      updatedFilteredData = data;
+      updatedFilteredData = data
     } else if (wishListValue === 'Completed') {
-      updatedFilteredData = data.filter(item => item.cardDescription === 'Completed!');
+      updatedFilteredData = data.filter(
+        (item) => item.cardDescription === 'Completed!',
+      )
     } else if (wishListValue === 'Wishlist') {
-      updatedFilteredData = data.filter(item => wishListItems.some(wishItem => wishItem.id === item.id));
+      updatedFilteredData = data.filter((item) =>
+        wishListItems.some((wishItem) => wishItem.id === item.id),
+      )
+    } else if (wishListValue === 'Courses') {
+      updatedFilteredData = buyCourseData
     } else {
-      updatedFilteredData = data.filter(item => item.cardContent.includes(wishListValue));
+      updatedFilteredData = data.filter((item) =>
+        item.cardContent.includes(wishListValue),
+      )
     }
 
-    setFilteredData(updatedFilteredData);
-  }, [wishListValue, data, wishListItems]);
+    setFilteredData(updatedFilteredData)
+  }, [wishListValue, data, wishListItems])
 
   // Update liked items state when wishlist changes
   useEffect(() => {
-    const updatedLikedItems = {};
-    wishListItems.forEach(item => {
-      updatedLikedItems[item.id] = true;
-    });
-    setLikedItems(updatedLikedItems);
-  }, [wishListItems]);
+    const updatedLikedItems = {}
+    wishListItems.forEach((item) => {
+      updatedLikedItems[item.id] = true
+    })
+    setLikedItems(updatedLikedItems)
+  }, [wishListItems])
 
   return (
     <div className="cardContainer">
@@ -64,7 +73,11 @@ function WishlistPageContainer({ header, data }) {
                 <span
                   className="cardImgIconSpan"
                   onClick={() => handleLikeClick(item)}
-                  aria-label={likedItems[item.id] ? "Remove from wishlist" : "Add to wishlist"}
+                  aria-label={
+                    likedItems[item.id]
+                      ? 'Remove from wishlist'
+                      : 'Add to wishlist'
+                  }
                 >
                   {likedItems[item.id] ? (
                     <FaHeart color="red" />
@@ -107,7 +120,7 @@ function WishlistPageContainer({ header, data }) {
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default WishlistPageContainer;
+export default WishlistPageContainer
