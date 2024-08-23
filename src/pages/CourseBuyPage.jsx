@@ -24,12 +24,8 @@ function CourseBuyPage() {
 
 
   const handleBuyPage = () => {
-<<<<<<< Updated upstream
-
-=======
     
     dispatch(setOpacityValue(true))
->>>>>>> Stashed changes
     setShowSuccess(true)
     dispatch(setBuyCourseData(product))
     dispatch(setWishListValue('Courses'))
