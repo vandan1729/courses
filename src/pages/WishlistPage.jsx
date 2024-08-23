@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setWishListValue, setAllCourseCardData } from '../redux/features/wishListSlice';
-import Navbar2 from '../components/homePage2/Navbar2';
-import FooterComponent from '../components/common/FooterComponent';
+
 import WishlistPageContainer from '../components/common/WishlistPageContainer';
 import { myCourseCardData } from '../data/MyCourseCardData';
+
+import Layout from '../layoutComponent/Layout';
+
 import '../styling/WishlistPage.css';
 
 function WishlistPage() {
@@ -28,7 +30,7 @@ function WishlistPage() {
 
   return (
     <>
-      <Navbar2 />
+      <Layout>
       <div className="wishlistPageMainDiv">
         <div className="wishlistPageTitle">
           <h2>My Course</h2>
@@ -50,7 +52,7 @@ function WishlistPage() {
         />
        
       </div>
-      <FooterComponent />
+    </Layout>
     </>
   );
 }

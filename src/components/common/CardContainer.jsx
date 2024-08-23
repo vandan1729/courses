@@ -58,7 +58,6 @@ function CardContainer({ header, heading, data }) {
         updatedLikedItems[item.id] = true
       })
       setLikedItems(updatedLikedItems)
-      console.log(updatedLikedItems)
     }, [wishListItems])
 
   return (

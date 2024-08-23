@@ -7,11 +7,12 @@ import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
 
+import {  toast } from 'react-toastify';
+
 import {
   setOpacityValue,
   setCartVisible,
 } from '../../redux/features/modalSlice'
-import { setUserData } from '../../redux/features/userDataSlice'
 import { logout } from '../../redux/features/authSlice'
 import { myCourseCardData } from '../../data/MyCourseCardData'
 
@@ -29,6 +30,18 @@ function Navbar2() {
   const [searchItem, setSearchItem] = useState('')
   const [filterItem, setFilterItem] = useState([])
 
+  const userData = useSelector((state) => state.user)
+  const productData = useSelector((state) => state.buyProduct)
+
+  const cartDropdownRef = useRef(null)
+
+  const toggleCartMenu = () => {
+    if(productData.length === 0) {
+      return toast.info("Your cart is empty!")
+    }
+    dispatch(setCartVisible(!isCartVisible))
+  }
+
   const totalBuyProduct = useSelector((state) => state.buyProduct)
   const isCartVisible = useSelector((state) => state.modal.cartVisible)
 
@@ -45,12 +58,7 @@ function Navbar2() {
   }, [searchItem])
 
   // Access Redux state
-  const userData = useSelector((state) => state.user)
-  const productData = useSelector((state) => state.buyProduct)
 
-  const cartDropdownRef = useRef(null)
-
-  const toggleCartMenu = () => dispatch(setCartVisible(!isCartVisible))
   const handleNavigate = () => {
     navigate('/')
     dispatch(logout())

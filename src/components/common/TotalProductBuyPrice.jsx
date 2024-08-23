@@ -8,7 +8,7 @@ function TotalProductBuyPrice() {
   const buyProducts = useSelector((state) => state.buyProduct)
 
   const totalPrice = buyProducts.reduce((total, product) => total + product.cardPrice,0)
-  const totalDiscountPrice = buyProducts.reduce((total, product) => total + product.cardDiscountPrice,0)
+  const totalDiscountPrice = Math.round(buyProducts.reduce((total, product) => total + product.cardDiscountPrice,0) * 10)/10
 
   return (
     <>

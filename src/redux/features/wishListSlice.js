@@ -29,7 +29,7 @@ const wishListSlice = createSlice({
       state.allCourseCardData = action.payload
     },
     setBuyCourseData: (state, action) => {
-      state.buyCourseData = action.payload
+      state.buyCourseData = [...state.buyCourseData, ...action.payload];
     },
   },
 })
