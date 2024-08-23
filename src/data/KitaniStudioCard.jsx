@@ -5,6 +5,7 @@ import img4 from '/src/assets/homePage1/kitaniStudio/image4.png'
 
 export const KitaniStudioCardData = [
   {
+    id: 4,
     cardImg: img1,
     cardContent: 'VUE JS SCRATCH COURSE',
     cardAuthor: 'Kitani Studio',
@@ -17,6 +18,7 @@ export const KitaniStudioCardData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 5,
     cardImg: img2,
     cardContent: 'UI DESIGN FOR BEGINNERS',
     cardAuthor: 'Kitani Studio',
@@ -28,6 +30,7 @@ export const KitaniStudioCardData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 6,
     cardImg: img3,
     cardContent: 'MOBILE DEV REACT NATIVE',
     cardAuthor: 'Kitani Studio',
@@ -40,6 +43,7 @@ export const KitaniStudioCardData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 7,
     cardImg: img4,
     cardContent: 'WEBSITE DEV ZERO TO HERO',
     cardAuthor: 'Kitani Studio',

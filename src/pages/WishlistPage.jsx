@@ -47,7 +47,6 @@ function WishlistPage() {
 
         <WishlistPageContainer 
           data={displayedData} 
-          header={wishListValue}
         />
        
       </div>

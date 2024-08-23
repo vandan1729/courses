@@ -1,21 +1,33 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
 import { IoPersonOutline } from 'react-icons/io5'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+
 import CardRatingComponent from './CardRatingComponent'
+import { toggleWishListItem } from '../../redux/features/wishListSlice'
+
 import '/src/styling/CardContainer.css'
 
 function CardContainer({ header, heading, data }) {
   const cardValue = useSelector((state) => state.card.cardValue)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [likedItems, setLikedItems] = useState({})
+
 
   // Filter data based on cardValue from Redux store
   const filteredData = data?.filter(
     (item) =>
       item.cardCategory === cardValue || cardValue === 'All Recommendation',
   )
+
+  const wishListItems = useSelector((state) => state.wishList.wishListItems)
+
+  const handleLikeClick = (item) => {
+    dispatch(toggleWishListItem(item))
+  }
 
   const handleImgClick = (item) => {
     dispatch(
@@ -39,6 +51,16 @@ function CardContainer({ header, heading, data }) {
     navigate('/unPaidWebinarPage')
   }
 
+    // Update liked items state when wishlist changes
+    useEffect(() => {
+      const updatedLikedItems = {}
+      wishListItems.forEach((item) => {
+        updatedLikedItems[item.id] = true
+      })
+      setLikedItems(updatedLikedItems)
+      console.log(updatedLikedItems)
+    }, [wishListItems])
+
   return (
     <div className="cardContainer">
       {filteredData && filteredData.length > 0 ? (
@@ -48,6 +70,22 @@ function CardContainer({ header, heading, data }) {
           <div className="cardData">
             {filteredData.map((item, index) => (
               <div className="card" key={index}>
+                <span
+                  className="cardImgIconSpan"
+                  onClick={() => handleLikeClick(item)}
+                  aria-label={
+                    likedItems[item.id]
+                      ? 'Remove from wishlist'
+                      : 'Add to wishlist'
+                  }
+                >
+                  {likedItems[item.id] ? (
+                    <FaHeart color="red" />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </span>
+
                 <img
                   src={item?.cardImg}
                   alt="Card Img"

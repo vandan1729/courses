@@ -10,10 +10,13 @@ import { AnimatePresence } from 'framer-motion'
 import { SuccessAnimation } from '../components/common/SuccessAnimation'
 import { setBuyCourseData } from '../redux/features/wishListSlice'
 import { clearCart } from '../redux/features/buyProductSlice'
+import { setOpacityValue } from '../redux/features/modalSlice'
 
 import '../styling/CourseBuyPage.css'
 
 function CourseBuyPage() {
+
+  const opacityValue = useSelector((state) => state.modal.opacityValue)
   const product = useSelector((state) => state.buyProduct)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -21,12 +24,18 @@ function CourseBuyPage() {
 
 
   const handleBuyPage = () => {
+<<<<<<< Updated upstream
 
+=======
+    
+    dispatch(setOpacityValue(true))
+>>>>>>> Stashed changes
     setShowSuccess(true)
     dispatch(setBuyCourseData(product))
     dispatch(setWishListValue('Courses'))
 
     setTimeout(() => {
+      dispatch(setOpacityValue(false))
       setShowSuccess(false)
       navigate('/wishlistPage')
       dispatch(clearCart());
@@ -36,7 +45,7 @@ function CourseBuyPage() {
   return (
     <>
       <Layout>
-        <div className="courseBuyPageDiv">
+        <div className="courseBuyPageDiv" style={{ opacity: opacityValue ? '0.5' : '1' }}>
           <div className="courseBuyPageItems">
             <h3>Course Details</h3>
             <AddTOCartCourse />

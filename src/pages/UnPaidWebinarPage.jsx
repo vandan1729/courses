@@ -17,6 +17,7 @@ import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleWishListItem } from '../redux/features/wishListSlice'
 import { setBuyProduct } from '../redux/features/buyProductSlice'
+import { setCartVisible } from '../redux/features/modalSlice'
 
 import '../styling/UnPaidWebinarPage.css'
 
@@ -70,6 +71,7 @@ function UnPaidWebinarPage() {
         cardDiscountPrice: price.oldPrice,
       }
       dispatch(setBuyProduct(productData))
+      dispatch(setCartVisible(true));
       toast.success('Product added to cart!')
     } else {
       toast.warn('Please Login To Buy Product')

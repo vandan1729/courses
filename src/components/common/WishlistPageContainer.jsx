@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
 import '../../styling/CardContainer.css'
 
-function WishlistPageContainer({ header, data }) {
+function WishlistPageContainer({ data }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -38,9 +38,7 @@ function WishlistPageContainer({ header, data }) {
         (item) => item.cardDescription === 'Completed!',
       )
     } else if (wishListValue === 'Wishlist') {
-      updatedFilteredData = data.filter((item) =>
-        wishListItems.some((wishItem) => wishItem.id === item.id),
-      )
+      updatedFilteredData = wishListItems
     } else if (wishListValue === 'Courses') {
       updatedFilteredData = buyCourseData
     } else {
@@ -61,10 +59,11 @@ function WishlistPageContainer({ header, data }) {
     setLikedItems(updatedLikedItems)
   }, [wishListItems])
 
+
   return (
     <div className="cardContainer">
-      <h3>{header}</h3>
-      <span>List of your {header}</span>
+      <h3>{wishListValue}</h3>
+      <span>List of your {wishListValue}</span>
       <div className="cardData">
         {filteredData.length > 0 ? (
           filteredData.map((item) => (
@@ -111,7 +110,7 @@ function WishlistPageContainer({ header, data }) {
           <h1>No data available</h1>
         )}
       </div>
-      {header === 'Wishlist' && (
+      {wishListValue === 'Wishlist' && (
         <button
           className="exploreCoursesBtn"
           onClick={handleExploreCoursesClick}

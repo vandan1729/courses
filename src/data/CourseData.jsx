@@ -4,18 +4,21 @@ import img3 from '/src/assets/homePage2/completeCourseCard/image3.png'
 
 export const CompleteCourseCardData = [
   {
+    id: 1,
     cardImg: img1,
     cardContent: 'Java Programming Beginner',
     cardAuthor: 'Kitani Studio',
     cardDescription: '4/10 Videos Completed',
   },
   {
+    id: 2,
     cardImg: img2,
     cardContent: 'iOS 13 & Swift 5 - Complete iOS...',
     cardAuthor: 'Kitani Studio',
     cardDescription: '12/40 Videos Completed',
   },
   {
+    id: 3,
     cardImg: img3,
     cardContent: 'Wordpress Course Intermediate',
     cardAuthor: 'Ghoniyyu Maulidi',

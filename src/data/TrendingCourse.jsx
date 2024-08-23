@@ -9,6 +9,7 @@ import img8 from '/src/assets/homePage1/trendingCourse/image8.png'
 
 export const TrendingCourseData = [
   {
+    id: 20,
     cardImg: img1,
     cardContent: 'Adobe Illustrator Scretch Course',
     cardAuthor: 'Kitani Studio',
@@ -21,6 +22,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 21,
     cardImg: img2,
     cardContent: 'Bootcamp  Vue.js Web Framework',
     cardAuthor: 'Kitani Studio',
@@ -32,6 +34,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 22,
     cardImg: img3,
     cardContent: 'Design Fundamentals',
     cardAuthor: 'Kitani Studio',
@@ -44,6 +47,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 23,
     cardImg: img4,
     cardContent: 'Ionic - Build iOS, Android & Web...',
     cardAuthor: 'Kitani Studio',
@@ -56,6 +60,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 24,
     cardImg: img5,
     cardContent: 'Adobe Illustrator Scretch Course',
     cardAuthor: 'Kitani Studio',
@@ -68,6 +73,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 25,
     cardImg: img6,
     cardContent: 'Bootcamp  Vue.js Web Framework',
     cardAuthor: 'Kitani Studio',
@@ -80,6 +86,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 26,
     cardImg: img7,
     cardContent: 'Design Fundamentals',
     cardAuthor: 'Kitani Studio',
@@ -92,6 +99,7 @@ export const TrendingCourseData = [
     cardOldPrice: 32.90,
   },
   {
+    id: 27,
     cardImg: img8,
     cardContent: 'Ionic - Build iOS, Android & Web...',
     cardAuthor: 'Kitani Studio',
