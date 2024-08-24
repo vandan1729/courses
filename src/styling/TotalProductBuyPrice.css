@@ -2,12 +2,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     padding: 10px 0;
     margin-bottom: 1.5rem;
-    /* border: 2px solid black; */
 }
 
+.ProductPriceItem {
+    display: flex;
+    justify-content: space-between;
+}
 
 .ProductPriceDetailsDiv h3 {
     border-bottom: 2px dotted #666;
@@ -27,6 +29,10 @@
 .productTotalAmount {
     display: flex;
     align-items: center;
+}
+.productPrice {
+    width: fit-content;
+    max-width: calc(90% - 1.5rem);
 }
 
 .productTotalAmount {

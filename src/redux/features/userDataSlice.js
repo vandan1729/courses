@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import profileImg from '/src/assets/profileImg.jpg';
+import { createSlice } from '@reduxjs/toolkit'
+import profileImg from '/src/assets/profileImg.jpg'
 
 const initialState = {
   userFirstName: 'UserFirstName',
@@ -7,18 +7,18 @@ const initialState = {
   userHeadLine: 'Hello',
   userEmail: '',
   userProfile: profileImg,
-  userPassword: "admin",
-};
+  userPassword: 'admin',
+}
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     setUserData: (state, action) => {
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload }
     },
   },
-});
+})
 
-export const { setUserData } = userSlice.actions;
-export default userSlice.reducer;
+export const { setUserData } = userSlice.actions
+export default userSlice.reducer

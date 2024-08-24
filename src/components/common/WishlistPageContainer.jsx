@@ -59,7 +59,6 @@ function WishlistPageContainer({ data }) {
     setLikedItems(updatedLikedItems)
   }, [wishListItems])
 
-
   return (
     <div className="cardContainer">
       <h3>{wishListValue}</h3>

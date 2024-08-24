@@ -37,11 +37,29 @@ function FooterComponent() {
       </div>
       <div className="footerBottom">
         <span>Copyright © MyCourse.io 2024. All Rights Reserved</span>
-        <div className="socialIcons">
-          <FaTwitter />
-          <FaInstagram />
-          <FaFacebook />
-        </div>
+        <ul className="socialIcons">
+          <li className="icon-content">
+            <p data-social="twitter">
+              <FaTwitter />
+              <div className="filled"></div>
+            </p>
+            <span className="tooltip">Twitter</span>
+          </li>
+          <li className="icon-content">
+            <p data-social="instagram">
+              <FaInstagram />
+              <div className="filled"></div>
+            </p>
+            <span className="tooltip">Instagram</span>
+          </li>
+          <li className="icon-content">
+            <p data-social="facebook">
+              <FaFacebook />
+              <div className="filled"></div>
+            </p>
+            <span className="tooltip">Facebook</span>
+          </li>
+        </ul>
       </div>
     </footer>
   )

@@ -41,23 +41,78 @@
 }
 
 .cartMenuProduct {
-  overflow-y:auto;
+  overflow-y: auto;
   scrollbar-width: none;
 }
+
+/* //////////////////////////////////////////////////////////// */
 
 .cartMenuProductBuyBtn {
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 10px 80px;
+  padding: 20px 100px;
   background-color: #ffffff;
   border: 3px solid #3dcbb1;
   border-radius: 3px;
   cursor: pointer;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
 }
 
-.cartMenuProductBuyBtn:hover {
-  transform: scale(1.1);
+.cartMenuProductBuyBtn .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.cartMenuProductBuyBtn .button-wrapper,
+.cartMenuProductBuyBtn .text,
+.cartMenuProductBuyBtn .icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.cartMenuProductBuyBtn .text {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartMenuProductBuyBtn .text,
+.cartMenuProductBuyBtn .icon {
+  transition: top 0.5s;
+}
+
+.cartMenuProductBuyBtn .icon {
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartMenuProductBuyBtn .icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cartMenuProductBuyBtn:hover .text {
+  top: -100%;
+}
+
+.cartMenuProductBuyBtn:hover .icon {
+  top: 0;
+}
+
+
+/* //////////////////////////////////////////////////////////// */
 
 .cartMenuProductCheckoutDiv {
   display: flex;
@@ -66,14 +121,14 @@
 }
 
 .cartMenuProductCloseDeleteIcon {
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  font-size: 1.8rem;
+  margin-left: 1.5rem;
   cursor: pointer;
 }
 
 .cartMenuProductOpenDeleteIcon {
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  font-size: 2rem;
+  margin-left: 1.5rem;
   cursor: pointer;
   display: none;
 }
@@ -90,5 +145,5 @@
   position: absolute;
   transform: translateY(100%) translateX(70%);
   font-size: 8rem;
-  cursor: pointer; 
+  cursor: pointer;
 }

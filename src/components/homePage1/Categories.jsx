@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setCardValue } from '../../redux/features/cardSlice';
-import '/src/styling/Categories.css';
+import { useDispatch, useSelector } from 'react-redux'
+import { setCardValue } from '../../redux/features/cardSlice'
+import '/src/styling/Categories.css'
 
 function Categories() {
-  const dispatch = useDispatch();
-  const cardValue = useSelector((state) => state.card.cardValue);
+  const dispatch = useDispatch()
+  const cardValue = useSelector((state) => state.card.cardValue)
 
   const handleClick = (category) => {
-    dispatch(setCardValue(category));
-  };
+    dispatch(setCardValue(category))
+  }
 
   const categories = [
     'All Recommendation',
@@ -19,7 +19,7 @@ function Categories() {
     'Mobile Programming',
     'Backend Development',
     'Vue JS',
-  ];
+  ]
 
   return (
     <div className="categoriesText">
@@ -33,7 +33,7 @@ function Categories() {
         </span>
       ))}
     </div>
-  );
+  )
 }
 
-export default Categories;
+export default Categories

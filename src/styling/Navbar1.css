@@ -15,6 +15,9 @@
 }
 
 .navbarLogo span {
+  background: linear-gradient(to top, #BDE8CA, #1fb599);
+  background-clip: text;
+  color: transparent;
   margin-left: 4px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -112,8 +115,8 @@
   font-weight: 600;
   opacity: 0.9;
   cursor: pointer;
-  border: 1px solid #ddd; 
-  border-radius: 4px; 
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .navbarSearchItem:hover {
@@ -121,12 +124,12 @@
 }
 
 .navbarSearchItem div {
-  padding: 0.5rem; 
-  border-bottom: 1px solid #ddd; 
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
 }
 
 .navbarSearchItem div:last-child {
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 .navbarMenuIconDiv {
@@ -134,14 +137,18 @@
 }
 
 @media (max-width: 768px) {
-.navbarItem,.navbarSignUpBtn,.navbarLoginBtn{
+
+  .navbarItem,
+  .navbarSignUpBtn,
+  .navbarLoginBtn {
     display: none;
   }
+
   .navbar {
     padding: 10px 35px;
   }
 
-.navbarSearchIcon {
+  .navbarSearchIcon {
     font-size: 22px;
   }
 
@@ -149,7 +156,7 @@
     display: flex;
     justify-content: space-between;
   }
-  
+
   .navbarSearch input {
     width: 300px;
     margin-left: 2rem;
@@ -168,17 +175,20 @@
     cursor: pointer;
   }
 
-  .navbarLogo img{
+  .navbarLogo img {
     width: 30px;
   }
-  .navbarLogo span{
+
+  .navbarLogo span {
     font-size: 15px;
     width: 120px;
   }
+
   .navbarCartIcon {
     font-size: 20px;
     margin-right: 1rem;
   }
+
   .navbarMenuDeactivate {
     display: none;
   }
@@ -195,7 +205,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
   }
-  
+
   .navbarMenuActiveLi {
     display: flex;
     justify-content: center;
@@ -206,61 +216,70 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+
   .navbarMenuActiveLi:last-child {
     border-bottom: none;
   }
-  
+
   .navbarMenuActiveLi:hover {
     background-color: #3dcbb1;
     color: #fff;
   }
-  
+
   .navbarMenuIconDiv {
     position: relative;
   }
-  
+
   .navbarMenuIcon {
     font-size: 2rem;
     cursor: pointer;
     transition: transform 0.3s ease;
   }
-  
+
   .navbarMenuIcon:hover {
     transform: scale(1.1);
   }
-  
-  
-  
+
+
+
 
 }
 
 @media (max-width: 480px) {
-  .navbarSearch,.navbarSearchIcon,.navbarItem,.navbarSignUpBtn,.navbarLoginBtn{
+
+  .navbarSearch,
+  .navbarSearchIcon,
+  .navbarItem,
+  .navbarSignUpBtn,
+  .navbarLoginBtn {
     display: none;
   }
+
   .navbar {
     padding: 0;
     align-items: center;
-    justify-content: space-between ;
+    justify-content: space-between;
   }
 
   .navbarMenuIcon {
     display: block;
   }
 
-  .navbarLogo img{
+  .navbarLogo img {
     width: 30px;
   }
-  .navbarLogo span{
+
+  .navbarLogo span {
     font-size: 15px;
     width: 120px;
   }
-  .navbarMenu{
+
+  .navbarMenu {
     margin-right: 10px;
     justify-content: end;
   }
-  .navbarCartIcon{
+
+  .navbarCartIcon {
     font-size: 20px;
   }
 }

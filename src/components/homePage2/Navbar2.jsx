@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
 
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 import {
   setOpacityValue,
@@ -36,8 +36,8 @@ function Navbar2() {
   const cartDropdownRef = useRef(null)
 
   const toggleCartMenu = () => {
-    if(productData.length === 0) {
-      return toast.info("Your cart is empty!")
+    if (productData.length === 0) {
+      return toast.info('Your cart is empty!')
     }
     dispatch(setCartVisible(!isCartVisible))
   }

@@ -1,5 +1,5 @@
 .courseBuyPageDiv {
-    height: 54vh;
+    min-height: 54vh;
     padding: 20px 70px;
     display: flex;
     justify-content: center;
@@ -17,11 +17,70 @@
     flex-direction: column;
 }
 
-.courseBuyPageBuyBtn {
+/* .courseBuyPageBuyBtn {
     background-color: #3dcbb1;
     font-size: 1.1rem;
     font-weight: 500;
     padding: 5px 20px;
     border-radius: 3px;
     cursor: pointer;
+} */
+
+.courseBuyPageBuyBtn {
+    width: fit-content;
+    min-width: calc(100% - 1rem);
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .08);
+    background-color: #fefefe;
+    color: #121212;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.courseBuyPageBuyBtn .button-decor {
+    position: absolute;
+    inset: 0;
+    background-color: #3dcbb1;
+    transform: translateX(-100%);
+    transition: transform .3s;
+    z-index: 0;
+}
+
+.courseBuyPageBuyBtn .button-content {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.courseBuyPageBuyBtn .button__icon {
+    width: 70px;
+    height: 40px;
+    font-size: 1.8rem;
+    background-color: #3dcbb1;
+    display: grid;
+    place-items: center;
+}
+
+.courseBuyPageBuyBtn .button__text {
+    transition: color .2s;
+    padding: 2px 1.5rem 2px;
+    padding-left: .75rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.courseBuyPageBuyBtn:hover .button__text {
+    color: #fff;
+}
+
+.courseBuyPageBuyBtn:hover .button-decor {
+    transform: translate(0);
 }

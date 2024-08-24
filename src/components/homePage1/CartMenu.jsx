@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { RiDeleteBin6Line, RiDeleteBin5Line } from 'react-icons/ri'
 import { RxCross1 } from 'react-icons/rx'
 import { BsCartPlus } from 'react-icons/bs'
+import { MdOutlinePayments } from 'react-icons/md'
 
 import AddTOCartCourse from '../common/AddTOCartCourse'
 import { useDispatch, useSelector } from 'react-redux'
@@ -33,7 +34,7 @@ const CartMenu = () => {
   }
 
   useEffect(() => {
-    if(productData.length === 0) {
+    if (productData.length === 0) {
       handleEmptyCartClick()
     }
   })
@@ -87,7 +88,12 @@ const CartMenu = () => {
               className="cartMenuProductBuyBtn"
               onClick={handleBuyBtnClick}
             >
-              Buy Now
+              <div className="button-wrapper">
+                <div className="text">Buy Now</div>
+                <span className="icon">
+                  <MdOutlinePayments />
+                </span>
+              </div>
             </button>
           </div>
         ) : (

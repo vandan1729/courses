@@ -22,7 +22,7 @@ import { setCartVisible } from '../redux/features/modalSlice'
 import '../styling/UnPaidWebinarPage.css'
 
 function UnPaidWebinarPage() {
-  const { price, discount, details, courseName, courseDetails, courseImage } =
+  const { price, discount, details, courseName, courseDetails, courseImage, id } =
     useSelector((state) => state.unPaidWebinar)
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const buyProductId = useSelector((state) => state.buyProduct)
@@ -30,21 +30,21 @@ function UnPaidWebinarPage() {
   const dispatch = useDispatch()
 
   const [isInWishlist, setIsInWishlist] = useState(
-    wishListItems.some((item) => item.id === courseName),
+    wishListItems.some((item) => item.id === id),
   )
 
   const [isInCart, setIsInCart] = useState(
-    buyProductId.some((product) => product.id === courseName)
+    buyProductId.some((product) => product.id === id)
   )
 
   useEffect(() => {
-    setIsInCart(buyProductId.some((product) => product.id === courseName))
+    setIsInCart(buyProductId.some((product) => product.id === id))
   }, [buyProductId, courseName])
 
   const handleWishlistClick = () => {
     if (auth) {
       const cardData = {
-        id: courseName,
+        id: id,
         cardImg: courseImage,
         cardContent: courseName,
         cardAuthor: 'Kitani Studio',
@@ -61,7 +61,7 @@ function UnPaidWebinarPage() {
   const handleBuyProduct = () => {
     if (auth) {
       const productData = {
-        id: courseName,
+        id: id,
         cardImg: courseImage,
         cardContent: courseName,
         cardAuthor: 'Kitani Studio',

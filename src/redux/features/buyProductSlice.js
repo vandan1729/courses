@@ -1,27 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = [];
+const initialState = []
 
 const buyProductSlice = createSlice({
-  name: "buyProduct",
+  name: 'buyProduct',
   initialState,
   reducers: {
     setBuyProduct: (state, action) => {
-      const product = action.payload;
-      const existingProductIndex = state.findIndex((item) => item.id === product.id);
+      const product = action.payload
+      const existingProductIndex = state.findIndex(
+        (item) => item.id === product.id,
+      )
       if (existingProductIndex === -1) {
-        state.push(product);
+        state.push(product)
       }
     },
     removeProduct: (state, action) => {
-      const productId = action.payload;
-      return state.filter(item => item.id !== productId);
+      const productId = action.payload
+      return state.filter((item) => item.id !== productId)
     },
     clearCart: () => {
-      return [];
-    }
+      return []
+    },
   },
-});
+})
 
-export const { setBuyProduct, removeProduct, clearCart } = buyProductSlice.actions;
-export default buyProductSlice.reducer;
+export const { setBuyProduct, removeProduct, clearCart } =
+  buyProductSlice.actions
+export default buyProductSlice.reducer

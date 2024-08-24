@@ -1,6 +1,6 @@
 /* General Container Styling */
 .cardContainer {
-  min-height: 24.3vh;
+  min-height: 23.2vh;
   padding: 20px 70px;
   display: flex;
   flex-direction: column;
@@ -141,11 +141,11 @@
 
 /* Responsive Styling for Tablets */
 @media (max-width: 768px) {
-  
+
   .cardContainer {
     padding: 10px 35px;
   }
-  
+
   .cardContainer h3 {
     margin: 0;
     font-size: 1.2rem;
@@ -162,13 +162,19 @@
     margin-top: 1.5rem;
     overflow: hidden;
   }
-  .cardContent h4,.cardAuthor,.cardRating{
+
+  .cardContent h4,
+  .cardAuthor,
+  .cardRating {
     font-size: 0.9rem;
   }
+
   .cardDescription {
     font-size: 0.8rem;
   }
-  .cardNewPrice,.cardOldPrice {
+
+  .cardNewPrice,
+  .cardOldPrice {
     font-size: 1.2rem;
   }
 

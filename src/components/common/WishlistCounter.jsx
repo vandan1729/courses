@@ -1,21 +1,18 @@
-import "../../styling/WishlistCounter.css"
+import '../../styling/WishlistCounter.css'
 
-import { useSelector } from "react-redux"
+import { useSelector } from 'react-redux'
 
 function WishlistCounter() {
-
-    const wishListData = useSelector((state) => state.wishList.wishListItems)
-    const wishListCounter = wishListData.length;
+  const wishListData = useSelector((state) => state.wishList.wishListItems)
+  const wishListCounter = wishListData.length
 
   return (
     <>
-    {
-      wishListCounter > 0 ? (
-        <span className='wishListCounter'>({wishListCounter})</span>
+      {wishListCounter > 0 ? (
+        <span className="wishListCounter">({wishListCounter})</span>
       ) : (
         <></>
-      )
-    }
+      )}
     </>
   )
 }

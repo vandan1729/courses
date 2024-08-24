@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
@@ -15,7 +15,6 @@ function CardContainer({ header, heading, data }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [likedItems, setLikedItems] = useState({})
-
 
   // Filter data based on cardValue from Redux store
   const filteredData = data?.filter(
@@ -43,6 +42,7 @@ function CardContainer({ header, heading, data }) {
           length: item.cardLength || 'NO length',
           language: item.cardLanguage || 'English',
         },
+        id: item.id,
         courseName: item.cardContent,
         courseDetails: item.cardDescription,
         courseImage: item?.cardImg,
@@ -51,14 +51,14 @@ function CardContainer({ header, heading, data }) {
     navigate('/unPaidWebinarPage')
   }
 
-    // Update liked items state when wishlist changes
-    useEffect(() => {
-      const updatedLikedItems = {}
-      wishListItems.forEach((item) => {
-        updatedLikedItems[item.id] = true
-      })
-      setLikedItems(updatedLikedItems)
-    }, [wishListItems])
+  // Update liked items state when wishlist changes
+  useEffect(() => {
+    const updatedLikedItems = {}
+    wishListItems.forEach((item) => {
+      updatedLikedItems[item.id] = true
+    })
+    setLikedItems(updatedLikedItems)
+  }, [wishListItems])
 
   return (
     <div className="cardContainer">
