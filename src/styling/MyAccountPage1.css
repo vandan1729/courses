@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #f4f4f4;
 }
 
 .myAccountContainer h2 {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   font-size: 2rem;
   color: #333;
 }
@@ -15,20 +15,20 @@
 .sidebar {
   display: flex;
   gap: 2rem;
-  margin: 10px 0 20px 0;
-  height: 60px;
+  margin: 0.625rem 0 1.25rem 0;
+  height: 3.75rem;
 }
 
 .sidebar p {
   height: fit-content;
-  margin: 10px 0 0 0;
-  padding: 1px;
+  margin: 0.625rem 0 0 0;
+  padding: 0.0625rem;
   cursor: pointer;
   font-size: 1.1rem;
 }
 
 .sidebarProfile {
-  border-bottom: 2px solid #3dcbb1;
+  border-bottom: 0.125rem solid #3dcbb1;
 }
 
 .accountFormContainer {
@@ -38,12 +38,12 @@
 }
 
 .accountFormContainer form {
-  width: 600px;
+  width: 37.5rem;
   margin: 1rem;
 }
 
 .accountFormContainer form label {
-  margin: 10px 0 5px;
+  margin: 0.625rem 0 0.3125rem;
   color: #8f8f8f;
 }
 
@@ -51,11 +51,11 @@
 .accountFormContainer form select,
 .accountFormContainer form input[type='email'] {
   width: 100%;
-  margin-bottom: 15px;
-  padding: 2px;
+  margin-bottom: 0.9375rem;
+  padding: 0.125rem;
   color: #333;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0.0625rem solid #ddd;
   background-color: #f4f4f4;
   font-size: 1rem;
 }
@@ -67,11 +67,11 @@
 }
 
 .accountFormContainer form button {
-  padding: 10px 60px;
+  padding: 0.625rem 3.75rem;
   background-color: #3dcbb1;
   color: #fff;
   border: none;
-  border-radius: 14px;
+  border-radius: 0.875rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -84,23 +84,23 @@
 .accountFormPic {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .profileImage {
-  width: 100px;
-  height: 100px;
+  width: 6.25rem;
+  height: 6.25rem;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
-  border: 2px solid #ddd;
-  margin-bottom: 20px;
+  border: 0.125rem solid #ddd;
+  margin-bottom: 1.25rem;
 }
 
 .profileEmoji {
-  font-size: 40px;
-  border: 2px solid #ddd;
-  padding: 10px;
+  font-size: 2.5rem;
+  border: 0.125rem solid #ddd;
+  padding: 0.625rem;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -109,12 +109,12 @@
   position: relative;
   transform: translateY(-160%);
   left: 5%;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
 .accountFormContainerBtn {
-  margin: 15px 0;
+  margin: 0.9375rem 0;
   display: flex;
   justify-content: center;
 }

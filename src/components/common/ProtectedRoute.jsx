@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 const ProtectedRoute = ({ element: Component }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
-
+  console.log(isAuthenticated)
   return isAuthenticated ? <Component /> : <Navigate to="/*" />
 }
 

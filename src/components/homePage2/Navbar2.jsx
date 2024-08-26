@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { IoIosSearch } from 'react-icons/io'
+import { IoIosSearch, IoIosMenu } from 'react-icons/io'
 import { MdShoppingCart } from 'react-icons/md'
 import { FaRegBell } from 'react-icons/fa'
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
@@ -105,9 +105,40 @@ function Navbar2() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  const [toggle, setToggle] = useState(false)
+  const handleNavbarMenuIconClick = () => {
+    setToggle(!toggle)
+    dispatch(setOpacityValue(true))
+  }
+
+  const handleNavbarMenuCloseIcon = () => {
+    setToggle(!toggle)
+    dispatch(setOpacityValue(false))
+  }
+
   return (
     <div className="navbar2">
       <div className="navbar2Logo">
+        <div className="navbar2MenuIconDiv">
+          {toggle ? (
+            <IoMdClose color="#3dcbb1" onClick={handleNavbarMenuCloseIcon} />
+          ) : (
+            <IoIosMenu
+              color="#3dcbb1"
+              className="navbar2MenuIcon"
+              onClick={handleNavbarMenuIconClick}
+            />
+          )}
+
+          <ul className={toggle ? 'navbarMenuActive' : 'navbarMenuDeactivate'}>
+            <li className="navbarMenuActiveLi" onClick={handleMyCourses}>
+              My Courses
+            </li>
+            <li className="navbarMenuActiveLi" onClick={handleWishlistClick}>
+              Wishlist
+            </li>
+          </ul>
+        </div>
         <img src={logo} alt="Logo" onClick={handleMainLogoClick} />
         <span onClick={handleMainLogoClick}>My Course.io</span>
         <div className="dropdown2">
@@ -188,14 +219,12 @@ function Navbar2() {
               >
                 Account Settings
               </p>
-              <p className="cartDropdownAccountLogout" onClick={handleNavigate}>
-                Logout
-              </p>
+              <p onClick={handleNavigate}>Logout</p>
             </div>
           )}
         </div>
       </div>
-      <CartMenu />
+      <CartMenu isVisible={isCartVisible} />
     </div>
   )
 }

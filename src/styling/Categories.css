@@ -1,31 +1,40 @@
 .categoriesText {
-  height: 37px;
+  height: 2.3125rem;
+  /* 37px converted to rem */
   margin-top: 3rem;
   display: flex;
   justify-content: space-between;
-  padding: 20px 70px;
+  padding: 1.25rem 4.375rem;
+  /* 20px 70px converted to rem */
 }
 
 .categoriesSpan {
   display: flex;
   align-items: center;
-  height: 37px;
-  font-size: 14px;
-  border: 2px solid #d4cdcd;
-  border-radius: 12px;
-  padding: 0 20px;
+  height: 2.3125rem;
+  /* 37px converted to rem */
+  font-size: 0.875rem;
+  /* 14px converted to rem */
+  border: 0.125rem solid #d4cdcd;
+  /* 2px converted to rem */
+  border-radius: 0.75rem;
+  /* 12px converted to rem */
+  padding: 0 1.25rem;
+  /* 0 20px converted to rem */
   cursor: pointer;
 }
 
 .categoriesSpan.selected {
-  border: 2px solid #3dcbb1;
+  border: 0.125rem solid #3dcbb1;
+  /* 2px converted to rem */
   color: #3dcbb1;
 }
 
 /* Styles for Tablets */
 @media (max-width: 768px) {
   .categoriesText {
-    padding: 10px 35px;
+    padding: 0.625rem 2.1875rem;
+    /* 10px 35px converted to rem */
     margin: 0;
     overflow-y: auto;
     scrollbar-width: none;
@@ -33,23 +42,27 @@
   }
 
   .categoriesSpan {
-    font-size: 12px;
-    padding: 0 15px;
+    font-size: 0.75rem;
+    /* 12px converted to rem */
+    padding: 0 0.9375rem;
+    /* 0 15px converted to rem */
     margin-left: 0.1rem;
   }
 }
 
+/* Styles for Mobile */
 @media (max-width: 480px) {
   .categoriesText {
-    padding: 15px 35px;
+    padding: 0.9375rem 2.1875rem;
+    /* 15px 35px converted to rem */
     overflow-y: auto;
     scrollbar-width: none;
   }
-  
+
   .categoriesSpan {
-    font-size: 10px;
-    padding: 5px 8px;
+    font-size: 0.625rem;
+    /* 10px converted to rem */
+    padding: 0.3125rem 0.5rem;
+    /* 5px 8px converted to rem */
   }
-
-
 }

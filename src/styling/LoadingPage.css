@@ -1,6 +1,6 @@
 /* Import necessary fonts */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
-@import url('https://fonts.googleapis.com/css?family=Oswald:700');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;400i;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 
 /* Ensure other pages are not affected by these styles */
 .loader-wrapper {
@@ -8,7 +8,6 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   color: #FFF;
@@ -16,23 +15,23 @@
 
 .loaderSpan {
   color: #393838;
-  font-size: 28px;
-  margin-top: 25px;
+  font-size: 1.75rem;
+  margin-top: 1.5625rem;
 }
 
 .LoaderBalls {
-  width: 130px;
+  width: 8.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .LoaderBalls__item {
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
   border-radius: 50%;
   background: #00f1ca;
-  animation: bouncing 0.4s alternate infinite cubic-bezier(.6,.05,.15,.95);
+  animation: bouncing 0.4s alternate infinite cubic-bezier(.6, .05, .15, .95);
 }
 
 .LoaderBalls__item:nth-child(1) {
@@ -49,9 +48,10 @@
 
 @keyframes bouncing {
   0% {
-    transform: translate3d(0, 10px, 0) scale(1.2, 0.85);
+    transform: translate3d(0, 0.625rem, 0) scale(1.2, 0.85);
   }
+
   100% {
-    transform: translate3d(0, -20px, 0) scale(0.9, 1.1);
+    transform: translate3d(0, -1.25rem, 0) scale(0.9, 1.1);
   }
 }

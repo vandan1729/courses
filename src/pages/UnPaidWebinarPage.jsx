@@ -5,6 +5,7 @@ import SubscribeCard from '../components/homePage1/SubscribeCard'
 import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
 import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 
+import { MdShoppingCart } from 'react-icons/md'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { BsPeople } from 'react-icons/bs'
 import { MdOutlineRateReview } from 'react-icons/md'
@@ -22,8 +23,15 @@ import { setCartVisible } from '../redux/features/modalSlice'
 import '../styling/UnPaidWebinarPage.css'
 
 function UnPaidWebinarPage() {
-  const { price, discount, details, courseName, courseDetails, courseImage, id } =
-    useSelector((state) => state.unPaidWebinar)
+  const {
+    price,
+    discount,
+    details,
+    courseName,
+    courseDetails,
+    courseImage,
+    id,
+  } = useSelector((state) => state.unPaidWebinar)
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const buyProductId = useSelector((state) => state.buyProduct)
   const auth = useSelector((state) => state.auth.isAuthenticated)
@@ -34,7 +42,7 @@ function UnPaidWebinarPage() {
   )
 
   const [isInCart, setIsInCart] = useState(
-    buyProductId.some((product) => product.id === id)
+    buyProductId.some((product) => product.id === id),
   )
 
   useEffect(() => {
@@ -71,7 +79,7 @@ function UnPaidWebinarPage() {
         cardDiscountPrice: price.oldPrice,
       }
       dispatch(setBuyProduct(productData))
-      dispatch(setCartVisible(true));
+      dispatch(setCartVisible(true))
       toast.success('Product added to cart!')
     } else {
       toast.warn('Please Login To Buy Product')
@@ -101,7 +109,8 @@ function UnPaidWebinarPage() {
                 onClick={handleBuyProduct}
                 disabled={isInCart} // Disable button if already in cart
               >
-                {isInCart ? 'In Cart' : 'Buy Now'}
+                <MdShoppingCart className="unPaidWebinarDetailsCartIcon" />
+                {isInCart ? 'In Cart' : 'Add To Cart'}
               </button>
               <button
                 className="unPaidWebinarDetailsWishlistBtn"

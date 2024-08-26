@@ -1,34 +1,83 @@
+/* Wishlist Page Main Div */
 .wishlistPageMainDiv {
   display: flex;
   flex-direction: column;
   margin: 4rem 0;
+  padding: 0 2rem;
+  /* Add padding for smaller screens */
 }
 
+/* Wishlist Page Title */
 .wishlistPageTitle {
   display: flex;
   justify-content: center;
+  font-size: 1.5rem;
+  /* Adjust font size for smaller screens */
 }
 
+/* Wishlist Page Sidebar */
 .wishlistPageSideBar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  margin: 10px 0 0 0;
-  height: 60px;
+  gap: 1.25rem;
+  margin: 0;
+  height: 3.75rem;
+  flex-wrap: wrap;
+  /* Allow wrapping for smaller screens */
 }
 
+/* Sidebar Option */
 .sidebarOption {
-  margin: 10px 0;
-  padding: 1px;
+  margin: 0.625rem 0;
+  padding: 0.0625rem;
   cursor: pointer;
   font-size: 1.1rem;
 }
 
-.sidebarOption:hover {
-  border-bottom: 2px solid #3dcbb1;
+.sidebarOption:hover,
+.sidebarOption.selected {
+  border-bottom: 0.125rem solid #3dcbb1;
 }
 
-.sidebarOption.selected {
-  border-bottom: 2px solid #3dcbb1;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .wishlistPageMainDiv {
+    margin: 2rem 0;
+  }
+
+  .wishlistPageTitle {
+    font-size: 1.25rem;
+  }
+
+  .wishlistPageSideBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+
+  .sidebarOption {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .wishlistPageMainDiv {
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+
+  .wishlistPageTitle {
+    font-size: 1rem;
+  }
+
+  .wishlistPageSideBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .sidebarOption {
+    font-size: 0.9rem;
+  }
 }

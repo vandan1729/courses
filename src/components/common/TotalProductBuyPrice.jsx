@@ -6,17 +6,16 @@ import '../../styling/TotalProductBuyPrice.css'
 function TotalProductBuyPrice() {
   const buyProducts = useSelector((state) => state.buyProduct)
 
-  const totalPrice =
-    Math.round(
-      buyProducts.reduce((total, product) => total + product.cardPrice, 0) * 10,
-    ) / 10
-  const totalDiscountPrice =
-    Math.round(
-      buyProducts.reduce(
-        (total, product) => total + product.cardDiscountPrice,
-        0,
-      ) * 10,
-    ) / 10
+  const totalPrice = buyProducts
+    .reduce((total, product) => total + product.cardPrice, 0)
+    .toFixed(2)
+
+  const totalDiscountPrice = (
+    buyProducts.reduce(
+      (total, product) => total + product.cardDiscountPrice,
+      0,
+    ) - totalPrice
+  ).toFixed(2)
 
   return (
     <>

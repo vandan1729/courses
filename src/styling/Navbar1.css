@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 70px;
+  padding: 1.25rem 4.375rem;
   height: 60px;
 }
 
@@ -18,13 +18,13 @@
   background: linear-gradient(to top, #BDE8CA, #1fb599);
   background-clip: text;
   color: transparent;
-  margin-left: 4px;
+  margin-left: 0.25rem;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .navbarLogo img {
-  width: 45px;
+  width: 2.8125rem;
 }
 
 .navbarSearch {
@@ -34,13 +34,13 @@
 
 .navbarSearch input {
   position: relative;
-  height: 37px;
-  width: 400px;
-  padding: 5px 10px;
+  height: 2.3125rem;
+  width: 25rem;
+  padding: 0.3125rem 0.625rem;
   font-size: 1rem;
   background-color: #FAFAFA;
   border: none;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0.1875rem 0 0 0.1875rem;
   border-right: none;
 }
 
@@ -53,12 +53,12 @@
   transform: translateY(0%);
   left: 65%;
   color: black;
-  font-size: 25px;
+  font-size: 1.5625rem;
   cursor: pointer;
 }
 
 .navbarMenu {
-  width: 850px;
+  width: 53.125rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,20 +71,19 @@
 }
 
 .navbarCartIcon {
-  font-size: 23px;
+  font-size: 1.4375rem;
   cursor: pointer;
 }
 
 .navbarMenu button {
   font-size: 1rem;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   cursor: pointer;
 }
 
-
 .navbarLoginBtn {
   background-color: #ffffff;
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
   font-weight: 450;
   border: 1px solid black;
 }
@@ -92,31 +91,31 @@
 .navbarSignUpBtn {
   background-color: #3dcbb1;
   color: #ffffff;
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   border: none;
 }
 
 .navbarTimeLapIcon {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .navbarSearchItem {
-  width: 400px;
+  width: 25rem;
   position: absolute;
   top: 10%;
   padding: 0.5rem;
   z-index: 1;
   background-color: #F4F4F4;
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 600;
   opacity: 0.9;
   cursor: pointer;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .navbarSearchItem:hover {
@@ -145,11 +144,11 @@
   }
 
   .navbar {
-    padding: 10px 35px;
+    padding: 0.625rem 2.1875rem;
   }
 
   .navbarSearchIcon {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 
   .navbarMenu {
@@ -158,9 +157,9 @@
   }
 
   .navbarSearch input {
-    width: 300px;
+    width: 18.75rem;
     margin-left: 2rem;
-    padding: 3px 10px;
+    padding: 0.1875rem 0.625rem;
     font-size: 0.9rem;
   }
 
@@ -170,22 +169,22 @@
 
   .navbarMenuIconDiv {
     display: block;
-    font-size: 28px;
+    font-size: 1.75rem;
     margin-right: 2rem;
     cursor: pointer;
   }
 
   .navbarLogo img {
-    width: 30px;
+    width: 1.875rem;
   }
 
   .navbarLogo span {
-    font-size: 15px;
-    width: 120px;
+    font-size: 0.9375rem;
+    width: 7.5rem;
   }
 
   .navbarCartIcon {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-right: 1rem;
   }
 
@@ -194,15 +193,15 @@
   }
 
   .navbarMenuActive {
-    width: 40rem;
+    width: 25rem;
     position: absolute;
     top: 10rem;
     left: 1rem;
     background-color: #666;
     z-index: 100000;
     list-style-type: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
   }
 
@@ -239,10 +238,6 @@
   .navbarMenuIcon:hover {
     transform: scale(1.1);
   }
-
-
-
-
 }
 
 @media (max-width: 480px) {
@@ -266,20 +261,20 @@
   }
 
   .navbarLogo img {
-    width: 30px;
+    width: 1.875rem;
   }
 
   .navbarLogo span {
-    font-size: 15px;
-    width: 120px;
+    font-size: 0.9375rem;
+    width: 7.5rem;
   }
 
   .navbarMenu {
-    margin-right: 10px;
+    margin-right: 0.625rem;
     justify-content: end;
   }
 
   .navbarCartIcon {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }

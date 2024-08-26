@@ -1,13 +1,17 @@
 .cartMenu {
   position: fixed;
   top: 0;
-  right: -500px;
-  width: 300px;
+  right: -31.25rem;
+  /* 500px converted to rem */
+  width: 18.75rem;
+  /* 300px converted to rem */
   height: 100%;
   background: white;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: -0.125rem 0 0.3125rem rgba(0, 0, 0, 0.2);
+  /* -2px 0 5px converted to rem */
   transition: right 0.3s ease-in-out;
-  padding: 20px;
+  padding: 1.25rem;
+  /* 20px converted to rem */
   z-index: 1000;
 }
 
@@ -25,7 +29,9 @@
 .closeBtnDiv {
   position: absolute;
   transform: translateX(18rem);
-  font-size: 25px;
+  /* 288px converted to rem */
+  font-size: 1.5625rem;
+  /* 25px converted to rem */
 }
 
 .closeBtn:hover {
@@ -45,15 +51,16 @@
   scrollbar-width: none;
 }
 
-/* //////////////////////////////////////////////////////////// */
-
 .cartMenuProductBuyBtn {
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 20px 100px;
+  padding: 1.25rem 6.25rem;
+  /* 20px 100px converted to rem */
   background-color: #ffffff;
-  border: 3px solid #3dcbb1;
-  border-radius: 3px;
+  border: 0.1875rem solid #3dcbb1;
+  /* 3px converted to rem */
+  border-radius: 0.1875rem;
+  /* 3px converted to rem */
   cursor: pointer;
   position: relative;
   text-align: center;
@@ -99,8 +106,10 @@
 }
 
 .cartMenuProductBuyBtn .icon svg {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  /* 24px converted to rem */
+  height: 1.5rem;
+  /* 24px converted to rem */
 }
 
 .cartMenuProductBuyBtn:hover .text {
@@ -110,9 +119,6 @@
 .cartMenuProductBuyBtn:hover .icon {
   top: 0;
 }
-
-
-/* //////////////////////////////////////////////////////////// */
 
 .cartMenuProductCheckoutDiv {
   display: flex;

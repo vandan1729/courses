@@ -1,7 +1,7 @@
 .cartMenuProductDiv {
   margin-top: 1.5rem;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .cartMenuProductImg img {
@@ -12,18 +12,18 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  gap: 3px;
+  gap: 0.1875rem;
 }
 
 .cartMenuProductRemoveIcon {
   font-size: 1.3rem;
   position: absolute;
-  transform: translateX(8.8rem) translateY(-0.9rem);
+  transform: translateX(9rem) translateY(-0.6rem);
   cursor: pointer;
 }
 
 .cartMenuProductRemoveIcon:hover {
-  transform: translateX(8.8rem) translateY(-0.9rem) scale(1.2);
+  transform: translateX(9rem) translateY(-0.6rem) scale(1.2);
 }
 
 .cartMenuProductName {
@@ -34,7 +34,7 @@
 
 .cartMenuProductPriceSpan {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   font-weight: 600;
 }
 
@@ -45,4 +45,71 @@
 .cartMenuProductDiscountPrice {
   color: #666;
   text-decoration: line-through;
+}
+
+
+@media (max-width: 768px) {
+  .cartMenuProductDiv {
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .cartMenuProductImg img {
+    width: 6rem;
+  }
+
+  .cartMenuProductDetails {
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .cartMenuProductRemoveIcon {
+    font-size: 1.2rem;
+    transform: translateX(11rem) translateY(-1rem);
+  }
+
+  .cartMenuProductName {
+    font-size: 0.9rem;
+  }
+
+  .cartMenuProductPriceSpan {
+    gap: 0.5rem;
+  }
+
+  .cartMenuProductPrice {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .cartMenuProductDiv {
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .cartMenuProductImg img {
+    width: 5rem;
+  }
+
+  .cartMenuProductDetails {
+    gap: 0.2rem;
+  }
+
+  .cartMenuProductRemoveIcon {
+    font-size: 1.1rem;
+    transform: translateX(10.5rem) translateY(-1rem);
+  }
+
+  .cartMenuProductName {
+    font-size: 0.85rem;
+  }
+
+  .cartMenuProductPrice {
+    font-size: 0.85rem;
+  }
+
+  .cartMenuProductPriceSpan {
+    gap: 0.4rem;
+  }
 }

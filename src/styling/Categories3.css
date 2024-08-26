@@ -5,14 +5,18 @@
 }
 
 .categories3Span {
-  font-size: 18px;
+  font-size: 1.125rem;
+  /* 18px converted to rem */
   font-weight: 600;
-  padding: 10px;
-  margin-right: 25px;
+  padding: 0.625rem;
+  /* 10px converted to rem */
+  margin-right: 1.5625rem;
+  /* 25px converted to rem */
 }
 
 .categories3Span:hover {
-  border-bottom: 2px solid #3dcbb1;
+  border-bottom: 0.125rem solid #3dcbb1;
+  /* 2px converted to rem */
   cursor: pointer;
 }
 
@@ -25,12 +29,15 @@
 
 .topCourseDiv h2 {
   margin: 4rem 0 2rem 0;
-  font-size: 40px;
+  font-size: 2.5rem;
+  /* 40px converted to rem */
 }
 
 .discountBannerImg {
   width: 70%;
-  padding-bottom: 10px;
-  border-radius: 8px;
+  padding-bottom: 0.625rem;
+  /* 10px converted to rem */
+  border-radius: 0.5rem;
+  /* 8px converted to rem */
   /* object-fit: contain; */
 }

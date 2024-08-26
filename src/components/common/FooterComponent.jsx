@@ -5,13 +5,13 @@ import '/src/styling/FooterComponent.css'
 function FooterComponent() {
   return (
     <footer className="footer">
-      <div className="footerUpperSection">
-        <div className="footerSection">
-          <div className="footerLogo">
-            <img src={logo} alt="logo" />
-            <h2>MyCourse.io</h2>
-          </div>
+      <div className="footerSection">
+        <div className="footerLogo">
+          <img src={logo} alt="logo" />
+          <h2>MyCourse.io</h2>
         </div>
+      </div>
+      <div className="footerUpperSection">
         <div className="footerSection">
           <ul>
             <li>Web Programming</li>
@@ -39,24 +39,24 @@ function FooterComponent() {
         <span>Copyright © MyCourse.io 2024. All Rights Reserved</span>
         <ul className="socialIcons">
           <li className="icon-content">
-            <p data-social="twitter">
+            <div data-social="twitter">
               <FaTwitter />
               <div className="filled"></div>
-            </p>
+            </div>
             <span className="tooltip">Twitter</span>
           </li>
           <li className="icon-content">
-            <p data-social="instagram">
+            <div data-social="instagram">
               <FaInstagram />
               <div className="filled"></div>
-            </p>
+            </div>
             <span className="tooltip">Instagram</span>
           </li>
           <li className="icon-content">
-            <p data-social="facebook">
+            <div data-social="facebook">
               <FaFacebook />
               <div className="filled"></div>
-            </p>
+            </div>
             <span className="tooltip">Facebook</span>
           </li>
         </ul>

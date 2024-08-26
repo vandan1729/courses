@@ -1,66 +1,62 @@
 .mainHeroSectionDiv {
   background-image: url('/src/assets/homePage3/heroSection/heroSectionBg.png');
   background-size: cover;
-  /* background-position: top right; */
-  padding: 20px;
+  padding: 1.25rem;
   color: white;
   text-align: center;
-  /* filter: brightness(50%) */
 }
 
 .heroSectionContent {
-  margin-top: 12rem;
+  margin-top: 7.5rem;
   filter: brightness(100%);
 }
 
 .heroSectionContent h2 {
-  font-size: 2.5rem;
+  font-size: 1.875rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .heroSectionContent p {
   font-size: 1.2rem;
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
 }
 
 .heroSectionFilter {
   background-color: #ffffff;
-  /* position: relative; */
-  padding: 20px;
-  border-radius: 15px;
+  padding: 1.25rem;
+  border-radius: 0.9375rem;
   display: inline-block;
   top: 6rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* margin-bottom: 10rem; */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .heroSectionFilter h2 {
   text-align: start;
   font-size: 1.5rem;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .heroSectionFilterInputs {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .heroSectionFilterInputs input {
-  width: 250px;
-  padding: 10px;
+  width: 15.625rem;
+  padding: 0.625rem;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   font-size: 1rem;
 }
 
 .heroSectionFilterInputs button {
-  padding: 10px 35px;
+  padding: 0.625rem 2.1875rem;
   background-color: #00bfa6;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   font-size: 1rem;
   cursor: pointer;
 }

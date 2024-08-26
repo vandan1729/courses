@@ -4,18 +4,18 @@
   justify-content: center;
   flex-direction: column;
   background-color: #ffec8a;
-  height: 171px;
+  height: 10.6875rem;
   margin-top: 3rem;
 }
 
 .recommendationsDiv p {
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-weight: 600;
 }
 
 .recommendationsDiv button {
   margin-top: 1rem;
-  padding: 11px 20px;
+  padding: 0.6875rem 1.25rem;
   background-color: #ffec8a;
   border: 1px solid black;
 }

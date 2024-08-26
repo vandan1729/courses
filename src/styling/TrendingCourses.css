@@ -3,45 +3,45 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
-  padding: 20px;
+  gap: 3.125rem;
+  padding: 1.25rem;
   margin-left: 10rem;
 }
 
 .trendingCoursesContainer h2 {
   margin-top: 2rem;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   font-size: 2rem;
   font-weight: bold;
 }
 
 .largeImgContainer {
   flex: 1;
-  min-width: 300px;
+  min-width: 18.75rem;
 }
 
 .largeImg {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
 }
 
 .courseCardsContainer {
   display: flex;
   flex: 2;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .courseCard {
-  width: calc(40% - 20px);
+  width: calc(40% - 1.25rem);
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 35px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2.1875rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 20px;
-  padding: 10px;
+  margin-bottom: 1.25rem;
+  padding: 0.625rem;
 }
 
 .courseCardImg {
@@ -50,7 +50,7 @@
 }
 
 .courseCardContent {
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .courseCardContent h4 {

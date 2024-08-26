@@ -1,7 +1,8 @@
 /* General Container Styling */
 .cardContainer {
   min-height: 23.2vh;
-  padding: 20px 70px;
+  padding: 1.25rem 4.375rem;
+  /* 20px 70px */
   display: flex;
   flex-direction: column;
 }
@@ -9,26 +10,31 @@
 .cardContainer h3 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  /* 10px */
 }
 
 .cardContainer span {
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
+  /* 2px */
   color: #666;
 }
 
 .cardData {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 2.5rem;
+  /* 40px */
 }
 
 /* Card Styling */
 .card {
   position: relative;
-  width: 295px;
+  width: 18.4375rem;
+  /* 295px */
   background-color: #fff;
-  border-radius: 29px;
+  border-radius: 1.8125rem;
+  /* 29px */
   margin-top: 1.5rem;
   overflow: hidden;
 }
@@ -48,7 +54,8 @@
 }
 
 .cardContent {
-  padding-left: 5px;
+  padding-left: 0.3125rem;
+  /* 5px */
 }
 
 .cardContent h4 {
@@ -62,7 +69,8 @@
   font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.1875rem;
+  /* 3px */
 }
 
 .cardAuthor span {
@@ -77,7 +85,8 @@
 }
 
 .cardRating {
-  margin: 0.1rem 0;
+  margin: 0.0625rem 0;
+  /* 0.1rem */
   font-size: 1rem;
   color: #f39c12;
 }
@@ -85,7 +94,7 @@
 .cardPrice {
   display: flex;
   align-items: center;
-  margin: 0.8rem 0;
+  margin: 0.5rem 0;
 }
 
 .cardNewPrice {
@@ -95,7 +104,8 @@
 }
 
 .cardOldPrice {
-  padding-left: 10px;
+  padding-left: 0.625rem;
+  /* 10px */
   font-size: 1.2rem;
   text-decoration: line-through;
   color: #1b1b1b;
@@ -109,11 +119,13 @@
 .cardImgIconSpan {
   display: flex;
   justify-content: center;
-  padding: 5px;
+  padding: 0.3125rem;
+  /* 5px */
   color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 10px;
+  top: 0.625rem;
+  /* 10px */
   left: 88%;
   cursor: pointer;
   z-index: 10;
@@ -122,19 +134,22 @@
 
 .exploreCoursesBtn {
   border: none;
-  border-radius: 12px;
+  border-radius: 0.75rem;
+  /* 12px */
   width: fit-content;
   margin: auto;
   background-color: #3dcbb1;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
   cursor: pointer;
 }
 
 .cardRatingSpan {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
+  /* 5px */
   margin: 0;
   padding: 0;
 }
@@ -143,7 +158,8 @@
 @media (max-width: 768px) {
 
   .cardContainer {
-    padding: 10px 35px;
+    padding: 0.625rem 2.1875rem;
+    /* 10px 35px */
   }
 
   .cardContainer h3 {
@@ -152,13 +168,16 @@
   }
 
   .cardData {
-    gap: 15px;
+    gap: 0.9375rem;
+    /* 15px */
   }
 
   .card {
-    width: 220px;
+    width: 13.75rem;
+    /* 220px */
     background-color: #fff;
-    border-radius: 29px;
+    border-radius: 1.8125rem;
+    /* 29px */
     margin-top: 1.5rem;
     overflow: hidden;
   }
@@ -183,7 +202,9 @@
 /* Responsive Styling for Mobile */
 @media (max-width: 480px) {
   .cardContainer {
-    padding: 10px 0 0 10px;
+    padding: 0.625rem 0 0 0.625rem;
+    align-items: center;
+    /* 10px 0 0 10px */
   }
 
   .cardContainer h3 {
@@ -192,7 +213,8 @@
   }
 
   .cardContainer span {
-    font-size: 12px;
+    font-size: 0.75rem;
+    /* 12px */
     margin-bottom: 0.5rem;
   }
 
@@ -207,7 +229,8 @@
 
   .cardImgContainer {
     position: relative;
-    height: 150px;
+    height: 9.375rem;
+    /* 150px */
   }
 
   .cardImg {
@@ -215,7 +238,8 @@
   }
 
   .cardContent {
-    padding: 0 10px;
+    padding: 0 0.625rem;
+    /* 0 10px */
   }
 
   .cardContent h4 {
@@ -268,14 +292,18 @@
   }
 
   .cardImgIconSpan {
-    top: 5px;
+    top: 0.3125rem;
+    /* 5px */
     left: 90%;
-    padding: 3px;
-    font-size: 16px;
+    padding: 0.1875rem;
+    /* 3px */
+    font-size: 1rem;
+    /* 16px */
   }
 
   .exploreCoursesBtn {
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
+    /* 8px 16px */
     font-size: 0.9rem;
   }
 

@@ -3,15 +3,15 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 6rem;
-    width: 800px;
-    height: 520px;
+    margin-top: 3.75rem;
+    width: 50rem;
+    height: 32.5rem;
     position: fixed;
     top: -2%;
     right: 100%;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 .SignUpmainDiv.visible {
@@ -20,7 +20,7 @@
 
 .signUpPageCloseIcon {
     position: absolute;
-    font-size: 27px;
+    font-size: 1.6875rem;
     top: 1%;
     left: 95%;
 }
@@ -46,33 +46,33 @@
     display: flex;
     flex-direction: column;
     background-color: #c4e2e4;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .signUpPageLogo {
     display: flex;
     align-items: center;
-    margin: 10px 0 20px;
+    margin: 0.625rem 0 1.25rem;
 }
 
 .signUpPageLogo img {
-    height: 40px;
-    margin-right: 10px;
+    height: 2.5rem;
+    margin-right: 0.625rem;
 }
 
 .signUpPageLogo span {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     color: #333;
 }
 
 .signUpPageText {
     text-align: start;
-    font-size: 16px;
+    font-size: 1rem;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .signUpPageTextInput {
@@ -83,11 +83,11 @@
 
 .signUpPageTextInput input {
     background-color: #fafafa;
-    padding: 10px 30px 10px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 0.625rem 1.875rem 0.625rem 0.625rem;
+    margin-bottom: 0.625rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
 }
 
 .signUpPageTextInput input::placeholder {
@@ -98,7 +98,7 @@
 .lockIcon {
     position: absolute;
     color: #999;
-    font-size: 22px;
+    font-size: 1.375rem;
 }
 
 .emailIcon {
@@ -117,15 +117,15 @@
     background-color: #3dcbb1;
     color: #fff;
     border: none;
-    padding: 10px;
-    border-radius: 14px;
+    padding: 0.625rem;
+    border-radius: 0.875rem;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .orYouCanSpan {
-    margin: 12px 0;
-    font-size: 16px;
+    margin: 0.75rem 0;
+    font-size: 1rem;
     color: #666;
     font-weight: 600;
 }
@@ -136,12 +136,12 @@
 }
 
 .signUpPageBtnGroup button {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
     border: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     cursor: pointer;
-    border-radius: 14px;
+    border-radius: 0.875rem;
 }
 
 .signUpPageFbBtn {
@@ -152,12 +152,12 @@
 
 .signUpPageFbBtnIcon {
     position: absolute;
-    font-size: 20px;
-    transform: translateY(0.6rem) translateX(5rem);
+    font-size: 1.25rem;
+    transform: translateY(0.6rem) translateX(3.125rem);
     background-color: #ddd;
     color: #4267b2;
-    padding: 2.5px 0 0 3px;
-    border-radius: 2px;
+    padding: 0.15625rem 0 0 0.1875rem;
+    border-radius: 0.125rem;
 }
 
 .signUpPageAppBtn {
@@ -168,10 +168,10 @@
 
 .signUpPageAppBtnIcon {
     position: absolute;
-    transform: translateY(3.4rem) translateX(4.8rem);
-    font-size: 28px;
+    transform: translateY(3.4rem) translateX(2.8rem);
+    font-size: 1.75rem;
     color: #ffffff;
-    border-radius: 50px;
+    border-radius: 3.125rem;
 }
 
 .signUpPageGoogleBtn {
@@ -182,16 +182,16 @@
 
 .signUpPageGoogleBtnIcon {
     position: absolute;
-    transform: translateY(6.6rem) translateX(5rem);
-    font-size: 25px;
+    transform: translateY(6.6rem) translateX(3.125rem);
+    font-size: 1.5625rem;
     color: #ddd;
-    border-radius: 50px;
+    border-radius: 3.125rem;
 }
 
 .needAnAccountSpan {
     display: block;
-    margin-top: 5px;
-    font-size: 16px;
+    margin-top: 0.3125rem;
+    font-size: 1rem;
     color: #666;
     font-weight: 600;
 }
@@ -200,33 +200,27 @@
     color: #3dcbb1;
 }
 
-
-@media (max-width: 768px) {
-
+@media (max-width: 48rem) {
     .SignUpmainDiv.visible {
-      width: 700px;
-      height: 32rem;
-      top: -5%;
-      right: 2%;
-  
+        width: 43.75rem;
+        height: 32rem;
+        top: -5%;
+        right: 2%;
     }
-  
+
     .signUpPageImg img {
-      height: 32rem;
+        height: 32rem;
     }
-  
+
     .signUpPageFbBtnIcon {
-      transform: translateY(0.6rem) translateX(3rem);
+        transform: translateY(0.6rem) translateX(1.875rem);
     }
-  
+
     .signUpPageAppBtnIcon {
-      transform: translateY(3.4rem) translateX(2.8rem);
-  
+        transform: translateY(3.4rem) translateX(1.75rem);
     }
-  
+
     .signUpPageGoogleBtnIcon {
-    transform: translateY(6.6rem) translateX(3rem);
+        transform: translateY(6.6rem) translateX(1.875rem);
     }
-    
-  
-  }
+}

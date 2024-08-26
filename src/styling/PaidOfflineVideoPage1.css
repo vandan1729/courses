@@ -1,14 +1,14 @@
 .paidOfflineVideo {
-  height: 600px;
+  height: 37.5rem;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  padding: 20px 70px 0 70px;
+  padding: 1.25rem 4.375rem 0 4.375rem;
   margin-top: 1rem;
 }
 
 .courseDetails {
-  width: 800px;
+  width: 50rem;
 }
 
 .courseDetails img {
@@ -25,22 +25,22 @@
 }
 
 .dropdownToggle:first-child {
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0.625rem 0.625rem 0 0;
 }
 
 .dropdownToggle:last-child {
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 0.625rem 0.625rem;
 }
 
 .dropdownToggle {
-  width: 450px;
+  width: 28.125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #f4f4f4;
   color: black;
   cursor: pointer;
-  padding: 15px;
+  padding: 0.9375rem;
   text-align: left;
 }
 
@@ -56,19 +56,19 @@
 
 .dropdownTimeSpan {
   display: flex;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   align-items: center;
   color: #3dcbb1;
 }
 
 .dropdownTimeSpanDot {
   display: flex;
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
   background-color: #5b6060;
-  border: 2px solid #5b6060;
+  border: 0.125rem solid #5b6060;
   border-radius: 50%;
-  margin: 0 5px;
+  margin: 0 0.3125rem;
 }
 
 .dropdownToggleSpanDiv {
@@ -78,7 +78,7 @@
 
 .dropdownMenu {
   list-style: none;
-  padding: 10px 0 10px 10px;
+  padding: 0.625rem 0 0.625rem 0.625rem;
   background-color: #f9f9f9;
   color: #c7c7c7;
   position: relative;
@@ -90,7 +90,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 0.625rem;
   cursor: pointer;
 }
 
@@ -111,14 +111,15 @@
 
 .dropdownItemBtn {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   align-items: center;
 }
 
-.dropdownItemBtnCom, .dropdownItemBtnPly {
-  padding: 4px 10px;
+.dropdownItemBtnCom,
+.dropdownItemBtnPly {
+  padding: 0.25rem 0.625rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   color: #ffffff;
 }
 
@@ -134,23 +135,21 @@
   background-color: #e9ecef;
 }
 
-/* /////////////////////////////////courseInfo//////////////////////////////////// */
-
 .courseInfo {
   display: flex;
-  padding: 0 70px;
-  gap: 20px;
+  padding: 0 4.375rem;
+  gap: 1.25rem;
 }
 
 .courseSummary h2 {
-  width: 790px;
-  height: 31px;
-  font-size: 24px;
+  width: 49.375rem;
+  height: 1.9375rem;
+  font-size: 1.5rem;
 }
 
 .courseImage img {
-  width: 387px;
-  height: 632px;
+  width: 24.1875rem;
+  height: 39.5rem;
 }
 
 .courseSummary {
@@ -163,10 +162,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 0.5rem;
-  margin-top: 2rem;
-  box-shadow: 0px 2px rgb(253, 251, 251);
+  padding-bottom: 1.25rem;
+  margin-bottom: 0.3125rem;
+  margin-top: 1.25rem;
+  box-shadow: 0 0.125rem rgb(253, 251, 251);
 }
 
 .courseCreator {
@@ -175,10 +174,10 @@
 }
 
 .courseCreator img {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .courseCreatorText {
@@ -186,7 +185,7 @@
 }
 
 .courseCreatorText p:first-child {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #3dcbb1;
   font-weight: 600;
 }
@@ -204,24 +203,24 @@
 .courseStatsP {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 18px;
+  gap: 0.3125rem;
+  font-size: 1.125rem;
 }
 
 .courseStatsIcons {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #3dcbb1;
 }
 
 .courseStatsSpan {
-  margin: 10px;
+  margin: 0.625rem;
 }
 
 .courseDescription h4,
 .courseReviews h4 {
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 1.25rem;
+  margin: 0.625rem 0;
 }
 
 .courseDescription p {
@@ -229,36 +228,36 @@
 }
 
 .courseDescription {
-  padding-bottom: 20px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0px 2px rgb(253, 251, 251);
+  padding-bottom: 1.25rem;
+  margin-bottom: 0.3125rem;
+  box-shadow: 0 0.125rem rgb(253, 251, 251);
   text-align: justify;
 }
 
 .courseReviews {
-  padding-bottom: 20px;
-  margin-bottom: 0.5rem;
-  box-shadow: 0px 2px rgb(253, 251, 251);
+  padding-bottom: 1.25rem;
+  margin-bottom: 0.3125rem;
+  box-shadow: 0 0.125rem rgb(253, 251, 251);
   text-align: justify;
 }
 
 .reviewItemContainerImg {
-  padding-right: 20px;
+  padding-right: 1.25rem;
 }
 
 .reviewItemContainer {
   display: flex;
   text-align: justify;
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
 .reviewContent {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .reviewContent p:first-child {
   color: #3dcbb1;
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
   font-weight: 600;
 }
 
@@ -268,111 +267,110 @@
 
 .loadMoreReviews {
   margin: auto;
-  margin-top: 2rem;
-  padding: 10px 20px;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
   background-color: #ffffff;
-  border: 2px solid black;
-  border-radius: 4px;
+  border: 0.125rem solid black;
+  border-radius: 0.25rem;
   cursor: pointer;
   font-weight: 600;
 }
 
 .loadMoreReviews:hover {
-  border: 2px solid #3dcbb1;
-
+  border: 0.125rem solid #3dcbb1;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   .paidOfflineVideo {
-    height: auto; 
+    height: auto;
     flex-direction: column;
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .courseDetails {
-    width: 100%; 
+    width: 100%;
   }
 
   .courseDetails img {
-    width: 100%; 
+    width: 100%;
   }
 
   .dropdownGroup button {
-    font-weight: 600; /
+    font-weight: 600;
   }
 
   .dropdownToggle {
-    width: 100%; 
-    padding: 10px;
+    width: 100%;
+    padding: 0.625rem;
   }
 
   .dropdownMenu {
-    width: 100%; 
-    padding: 5px;
+    width: 100%;
+    padding: 0.3125rem;
   }
 
   .dropdownItem {
-    padding: 8px;
+    padding: 0.5rem;
   }
 
   .courseInfo {
     flex-direction: column;
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .courseSummary h2 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .courseImage img {
-    width: 100%; 
-    height: auto; 
+    width: 100%;
+    height: auto;
   }
 
   .courseThumbnail {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 0;
+    padding: 0.625rem 0;
   }
 
   .courseCreator img {
-    width: 40px; 
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .courseCreatorText p:first-child {
-    font-size: 16px; 
+    font-size: 1rem;
   }
 
   .courseCreatorText p:nth-child(2) {
-    font-size: 14px; 
+    font-size: 0.875rem;
   }
 
   .courseStatsP {
-    font-size: 16px; 
+    font-size: 1rem;
   }
 
   .courseDescription h4,
   .courseReviews h4 {
-    font-size: 18px; 
+    font-size: 1.125rem;
   }
 
   .courseDescription p,
   .courseReviews p {
-    font-size: 14px; 
+    font-size: 0.875rem;
   }
 
   .reviewItemContainer {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .reviewContent {
-    font-size: 18px; 
+    font-size: 1.125rem;
   }
 
   .loadMoreReviews {
-    width: 100%; 
-    padding: 10px;
-    font-size: 16px; 
+    width: 100%;
+    padding: 0.625rem;
+    font-size: 1rem;
   }
 }
