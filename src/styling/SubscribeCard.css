@@ -54,7 +54,7 @@
   position: absolute;
   font-size: 1.25rem;
   font-weight: bolder;
-  transform: translateX(8.75rem) translateY(0.6rem);
+  transform: translateX(14rem) translateY(0.7rem);
   color: black;
   cursor: pointer;
 }
@@ -75,7 +75,7 @@
   background-color: #1fb599;
 }
 
-@media (max-width: 768rem) {
+@media (max-width: 768px) {
   .subscribeBanner {
     margin: 0.625rem 2.1875rem;
     width: 90%;
@@ -107,7 +107,7 @@
   }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 426px) {
   .subscribeBanner {
     display: none;
   }

@@ -21,6 +21,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 import ErrorPage from './pages/ErrorPage'
 import SuccessAnimation from './components/common/SuccessAnimation'
+import PaymentPage from './pages/PaymentPage'
 
 function App() {
   return (
@@ -32,7 +33,10 @@ function App() {
           <Route path="/successAnimation" element={<SuccessAnimation />} />
           <Route path="/homePage3" element={<HomePage3 />} />
           <Route path="/*" element={<ErrorPage />} />
-          <Route path="/unPaidWebinarPage" element={<UnPaidWebinarPage />} />
+          <Route
+            path="/unPaidWebinarPage/:cardContent"
+            element={<UnPaidWebinarPage />}
+          />
 
           <Route
             path="/paidOfflineVideo1"
@@ -57,6 +61,10 @@ function App() {
           <Route
             path="/courseBuyPage"
             element={<ProtectedRoute element={CourseBuyPage} />}
+          />
+          <Route
+            path="/paymentPage"
+            element={<ProtectedRoute element={PaymentPage} />}
           />
         </Routes>
         <ToastContainer

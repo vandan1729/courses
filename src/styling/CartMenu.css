@@ -2,16 +2,12 @@
   position: fixed;
   top: 0;
   right: -31.25rem;
-  /* 500px converted to rem */
   width: 18.75rem;
-  /* 300px converted to rem */
   height: 100%;
   background: white;
   box-shadow: -0.125rem 0 0.3125rem rgba(0, 0, 0, 0.2);
-  /* -2px 0 5px converted to rem */
   transition: right 0.3s ease-in-out;
   padding: 1.25rem;
-  /* 20px converted to rem */
   z-index: 1000;
 }
 
@@ -29,9 +25,7 @@
 .closeBtnDiv {
   position: absolute;
   transform: translateX(18rem);
-  /* 288px converted to rem */
   font-size: 1.5625rem;
-  /* 25px converted to rem */
 }
 
 .closeBtn:hover {
@@ -55,12 +49,9 @@
   font-weight: 600;
   font-size: 0.9rem;
   padding: 1.25rem 6.25rem;
-  /* 20px 100px converted to rem */
   background-color: #ffffff;
   border: 0.1875rem solid #3dcbb1;
-  /* 3px converted to rem */
   border-radius: 0.1875rem;
-  /* 3px converted to rem */
   cursor: pointer;
   position: relative;
   text-align: center;
@@ -86,14 +77,6 @@
   left: 0;
 }
 
-.cartMenuProductBuyBtn .text {
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cartMenuProductBuyBtn .text,
 .cartMenuProductBuyBtn .icon {
   transition: top 0.5s;
 }
@@ -107,9 +90,7 @@
 
 .cartMenuProductBuyBtn .icon svg {
   width: 1.5rem;
-  /* 24px converted to rem */
   height: 1.5rem;
-  /* 24px converted to rem */
 }
 
 .cartMenuProductBuyBtn:hover .text {
@@ -152,4 +133,58 @@
   transform: translateY(100%) translateX(70%);
   font-size: 8rem;
   cursor: pointer;
+}
+
+@media (max-width: 769px) {
+  .cartMenu {
+    width: 20rem;
+    right: -50rem;
+  }
+
+  .closeBtnDiv {
+    transform: translateX(18rem);
+    font-size: 1.25rem;
+  }
+
+  .cartMenuProductBuyBtn {
+    padding: 1rem 5rem;
+  }
+
+  .cartMenuProductCloseDeleteIcon {
+    font-size: 1.5rem;
+
+  }
+
+  .cartMenuProductOpenDeleteIcon {
+    font-size: 1.8rem;
+
+  }
+
+  .cartMenuProductCheckoutDiv {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+}
+
+@media (max-width: 426px) {
+  .cartMenu {
+    width: 12rem;
+    right: -16rem;
+  }
+
+  .closeBtnDiv {
+    transform: translateX(12rem);
+    font-size: 1rem;
+  }
+
+  .cartMenuProductBuyBtn {
+    padding: 0.8rem 3rem;
+  }
+
+  .emptyCartIcon {
+    font-size: 4rem;
+  }
 }

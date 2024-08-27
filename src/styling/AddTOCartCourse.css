@@ -1,3 +1,7 @@
+.cartMenuProductData {
+  width: 90%;
+}
+
 .cartMenuProductDiv {
   margin-top: 1.5rem;
   display: flex;

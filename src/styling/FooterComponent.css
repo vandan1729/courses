@@ -12,7 +12,7 @@
 .footerUpperSection {
   display: flex;
   justify-content: center;
-  gap: 25rem;
+  gap: 10%;
   border-bottom: 1px solid #393838;
   margin: 0.625rem;
 }

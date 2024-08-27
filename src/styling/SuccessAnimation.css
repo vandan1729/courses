@@ -1,7 +1,7 @@
 .checkmark {
   position: absolute;
   left: 48%;
-  top: 30%;
+  top: 40%;
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
@@ -53,8 +53,8 @@
 .output {
   position: absolute;
   overflow: hidden;
-  left: 44%;
-  top: 22%;
+  left: 43%;
+  top: 35%;
   padding: 3.2rem;
   border-radius: 50%;
   border: 2.5rem solid rgba(0, 255, 255, 0.7);

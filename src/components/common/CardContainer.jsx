@@ -48,7 +48,7 @@ function CardContainer({ header, heading, data }) {
         courseImage: item?.cardImg,
       }),
     )
-    navigate('/unPaidWebinarPage')
+    navigate(`/unPaidWebinarPage/${item.cardContent}`)
   }
 
   // Update liked items state when wishlist changes
