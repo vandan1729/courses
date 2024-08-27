@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import slider1 from '/src/assets/homePage1/slider/sliderImg1.jpg'
 import slider2 from '/src/assets/homePage1/slider/sliderImg2.jpg'
@@ -22,6 +22,14 @@ const SliderComponent = () => {
     const newIndex = isLastSlide ? 0 : currentIndex + 1
     setCurrentIndex(newIndex)
   }
+
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     goToNext()
+  //   }, 2800)
+
+  //   return () => clearInterval(intervalId)
+  // }, [currentIndex])
 
   return (
     <div className="slider">

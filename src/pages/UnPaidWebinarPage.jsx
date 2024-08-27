@@ -79,7 +79,6 @@ function UnPaidWebinarPage() {
         cardDiscountPrice: price.oldPrice,
       }
       dispatch(setBuyProduct(productData))
-      dispatch(setCartVisible(true))
       toast.success('Product added to cart!')
     } else {
       toast.warn('Please Login To Buy Product')

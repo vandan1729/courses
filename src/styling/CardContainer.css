@@ -2,7 +2,6 @@
 .cardContainer {
   min-height: 23.2vh;
   padding: 1.25rem 4.375rem;
-  /* 20px 70px */
   display: flex;
   flex-direction: column;
 }
@@ -11,12 +10,10 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.625rem;
-  /* 10px */
 }
 
 .cardContainer span {
   margin-bottom: 0.125rem;
-  /* 2px */
   color: #666;
 }
 
@@ -24,17 +21,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem;
-  /* 40px */
 }
 
 /* Card Styling */
 .card {
   position: relative;
   width: 18.4375rem;
-  /* 295px */
   background-color: #fff;
   border-radius: 1.8125rem;
-  /* 29px */
   margin-top: 1.5rem;
   overflow: hidden;
 }
@@ -55,7 +49,6 @@
 
 .cardContent {
   padding-left: 0.3125rem;
-  /* 5px */
 }
 
 .cardContent h4 {
@@ -70,7 +63,6 @@
   display: flex;
   align-items: center;
   gap: 0.1875rem;
-  /* 3px */
 }
 
 .cardAuthor span {
@@ -86,7 +78,6 @@
 
 .cardRating {
   margin: 0.0625rem 0;
-  /* 0.1rem */
   font-size: 1rem;
   color: #f39c12;
 }
@@ -105,7 +96,6 @@
 
 .cardOldPrice {
   padding-left: 0.625rem;
-  /* 10px */
   font-size: 1.2rem;
   text-decoration: line-through;
   color: #1b1b1b;
@@ -120,12 +110,10 @@
   display: flex;
   justify-content: center;
   padding: 0.3125rem;
-  /* 5px */
   color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 0.625rem;
-  /* 10px */
   left: 88%;
   cursor: pointer;
   z-index: 10;
@@ -135,13 +123,11 @@
 .exploreCoursesBtn {
   border: none;
   border-radius: 0.75rem;
-  /* 12px */
   width: fit-content;
   margin: auto;
   background-color: #3dcbb1;
   color: #fff;
   padding: 0.625rem 1.25rem;
-  /* 10px 20px */
   cursor: pointer;
 }
 
@@ -149,17 +135,14 @@
   display: flex;
   align-items: center;
   gap: 0.3125rem;
-  /* 5px */
   margin: 0;
   padding: 0;
 }
 
-/* Responsive Styling for Tablets */
 @media (max-width: 768px) {
 
   .cardContainer {
     padding: 0.625rem 2.1875rem;
-    /* 10px 35px */
   }
 
   .cardContainer h3 {
@@ -169,17 +152,19 @@
 
   .cardData {
     gap: 0.9375rem;
-    /* 15px */
   }
 
   .card {
     width: 13.75rem;
-    /* 220px */
     background-color: #fff;
     border-radius: 1.8125rem;
-    /* 29px */
     margin-top: 1.5rem;
     overflow: hidden;
+  }
+
+  .cardImgIconSpan {
+    padding: 0.2rem;
+    left: 86%;
   }
 
   .cardContent h4,
@@ -199,12 +184,10 @@
 
 }
 
-/* Responsive Styling for Mobile */
 @media (max-width: 480px) {
   .cardContainer {
     padding: 0.625rem 0 0 0.625rem;
     align-items: center;
-    /* 10px 0 0 10px */
   }
 
   .cardContainer h3 {
@@ -214,7 +197,6 @@
 
   .cardContainer span {
     font-size: 0.75rem;
-    /* 12px */
     margin-bottom: 0.5rem;
   }
 
@@ -230,7 +212,6 @@
   .cardImgContainer {
     position: relative;
     height: 9.375rem;
-    /* 150px */
   }
 
   .cardImg {
@@ -239,7 +220,6 @@
 
   .cardContent {
     padding: 0 0.625rem;
-    /* 0 10px */
   }
 
   .cardContent h4 {
@@ -293,17 +273,13 @@
 
   .cardImgIconSpan {
     top: 0.3125rem;
-    /* 5px */
-    left: 90%;
+    left: 85%;
     padding: 0.1875rem;
-    /* 3px */
     font-size: 1rem;
-    /* 16px */
   }
 
   .exploreCoursesBtn {
     padding: 0.5rem 1rem;
-    /* 8px 16px */
     font-size: 0.9rem;
   }
 

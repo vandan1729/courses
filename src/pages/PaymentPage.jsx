@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react'
 import Navbar2 from '../components/homePage2/Navbar2'
 import TotalProductBuyPrice from '../components/common/TotalProductBuyPrice'
 import QRCodeGenerator from '../components/common/QRCodeGenerator'
+
 import { toast } from 'react-toastify'
+import { CiCreditCard1 } from 'react-icons/ci'
+import { FaGooglePay } from 'react-icons/fa6'
+import { BsPaypal } from 'react-icons/bs'
 
 import { AnimatePresence } from 'framer-motion'
 import {
@@ -22,7 +26,15 @@ function PaymentPage() {
   const [paymentMethod, setPaymentMethod] = useState('card')
   const [timer, setTimer] = useState(null)
   const [timeLeft, setTimeLeft] = useState(120)
-  const [toggle, setToggle] = useState(false)
+
+  const [cardNumberValid, setCardNumberValid] = useState(false)
+  const [expiryDateValid, setExpiryDateValid] = useState(false)
+  const [cvcValid, setCvcValid] = useState(false)
+
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear() % 100)
+  const [currentMonth, setCurrentMonth] = useState(
+    (new Date().getMonth() + 1).toString().padStart(2, '0'),
+  )
 
   const opacityValue = useSelector((state) => state.modal.opacityValue)
   const product = useSelector((state) => state.buyProduct)
@@ -58,7 +70,7 @@ function PaymentPage() {
   }
 
   const handlePayment = () => {
-    if (toggle) {
+    if (cardNumberValid && expiryDateValid && cvcValid) {
       dispatch(setOpacityValue(true))
       setShowSuccess(true)
       dispatch(setBuyCourseData(product))
@@ -97,10 +109,6 @@ function PaymentPage() {
       const month = parseInt(monthStr, 10)
       const year = parseInt(yearStr, 10)
 
-      const currentDate = new Date()
-      const currentYear = currentDate.getFullYear() % 100
-      const currentMonth = currentDate.getMonth() + 1
-
       // Check if the month and year are valid
       if (
         month < 1 ||
@@ -108,17 +116,21 @@ function PaymentPage() {
         year < currentYear ||
         (year === currentYear && month < currentMonth)
       ) {
+        setExpiryDateValid(false)
         toast.error('Invalid Expiry Date')
-        setToggle(false)
       } else {
-        setToggle(true)
+        setExpiryDateValid(true)
       }
+    } else {
+      setExpiryDateValid(false)
     }
   }
 
   const handleCardInput = (e) => {
     const value = e.target.value
     const numericValue = value.replace(/\D/g, '')
+
+    setCardNumberValid(numericValue.length === 16)
 
     if (numericValue.length <= 4) {
       e.target.value = numericValue
@@ -128,8 +140,14 @@ function PaymentPage() {
       e.target.value = `${numericValue.slice(0, 4)} ${numericValue.slice(4, 8)} ${numericValue.slice(8, 12)}`
     } else {
       e.target.value = `${numericValue.slice(0, 4)} ${numericValue.slice(4, 8)} ${numericValue.slice(8, 12)} ${numericValue.slice(12, 16)}`
-      setToggle(true)
     }
+  }
+
+  const handleCvcInput = (e) => {
+    const value = e.target.value
+    const numericValue = value.replace(/\D/g, '')
+    setCvcValid(numericValue.length === 3)
+    e.target.value = numericValue
   }
 
   return (
@@ -155,6 +173,7 @@ function PaymentPage() {
             <label htmlFor="card" className="paymentLabel">
               Pay with Card
             </label>
+            <CiCreditCard1 className="creditCardIcon" />
           </div>
 
           {paymentMethod === 'card' && (
@@ -163,7 +182,7 @@ function PaymentPage() {
                 <span className="title">Card Number</span>
                 <input
                   type="text"
-                  className="input-field"
+                  className={`input-field ${cardNumberValid ? 'valid' : 'invalid'}`}
                   placeholder="0000 0000 0000 0000"
                   maxLength={19}
                   onChange={handleCardInput}
@@ -174,8 +193,8 @@ function PaymentPage() {
                   <span className="title">Expiry Date</span>
                   <input
                     type="text"
-                    className="input-field"
-                    placeholder="01/23"
+                    className={`input-field ${expiryDateValid ? 'valid' : 'invalid'}`}
+                    placeholder={`${currentMonth}/${currentYear}`}
                     onChange={handleExpiryDate}
                     maxLength={5}
                   />
@@ -187,6 +206,7 @@ function PaymentPage() {
                     className="input-field"
                     placeholder="CVC"
                     maxLength={3}
+                    onChange={handleCvcInput}
                   />
                 </label>
               </div>
@@ -206,6 +226,8 @@ function PaymentPage() {
             <label htmlFor="upi" className="paymentLabel">
               Pay with UPI
             </label>
+            <FaGooglePay className="gPayIcon" />
+            <BsPaypal className="payPalIcon" />
           </div>
 
           {paymentMethod === 'upi' && (
