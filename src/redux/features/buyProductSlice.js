@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = []
+const initialState = {
+  items: [],
+}
 
 const buyProductSlice = createSlice({
   name: 'buyProduct',
@@ -8,19 +10,19 @@ const buyProductSlice = createSlice({
   reducers: {
     setBuyProduct: (state, action) => {
       const product = action.payload
-      const existingProductIndex = state.findIndex(
+      const existingProductIndex = state.items.findIndex(
         (item) => item.id === product.id,
       )
       if (existingProductIndex === -1) {
-        state.push(product)
+        state.items.push(product)
       }
     },
     removeProduct: (state, action) => {
       const productId = action.payload
-      return state.filter((item) => item.id !== productId)
+      state.items = state.items.filter((item) => item.id !== productId)
     },
-    clearCart: () => {
-      return []
+    clearCart: (state) => {
+      state.items = []
     },
   },
 })

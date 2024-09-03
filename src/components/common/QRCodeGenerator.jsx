@@ -3,7 +3,7 @@ import QRCode from 'qrcode.react'
 import { useSelector } from 'react-redux'
 
 function QRCodeGenerator() {
-  const buyProducts = useSelector((state) => state.buyProduct)
+  const buyProducts = useSelector((state) => state.buyProduct.items)
 
   const totalPrice = buyProducts
     .reduce((total, product) => total + product.cardPrice, 0)

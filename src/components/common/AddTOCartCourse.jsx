@@ -10,7 +10,7 @@ import { setCartVisible } from '../../redux/features/modalSlice'
 import '../../styling/AddTOCartCourse.css'
 
 function AddTOCartCourse() {
-  const productData = useSelector((state) => state.buyProduct)
+  const productData = useSelector((state) => state.buyProduct.items)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

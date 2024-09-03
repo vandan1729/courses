@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
+import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
 import { IoPersonOutline } from 'react-icons/io5'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 import CardRatingComponent from './CardRatingComponent'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
@@ -23,32 +25,64 @@ function CardContainer({ header, heading, data }) {
   )
 
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
+  const buyCourseData = useSelector((state) => state.wishList.buyCourseData)
+  const buyCourseIds = buyCourseData.map((course) => course.id)
+
+  const finalFilteredData = filteredData?.filter((item) =>
+    buyCourseIds.includes(item.id),
+  )
 
   const handleLikeClick = (item) => {
     dispatch(toggleWishListItem(item))
   }
 
   const handleImgClick = (item) => {
-    dispatch(
-      updateCardDetails({
-        price: {
-          newPrice: item.cardNewPrice,
-          oldPrice: item.cardOldPrice,
-        },
-        discount: item.cardDiscount || '20% OFF',
-        details: {
-          sections: item.cardSections || 'No Sections',
-          lectures: item.cardLectures || 'NO Lectures',
-          length: item.cardLength || 'NO length',
-          language: item.cardLanguage || 'English',
-        },
-        id: item.id,
-        courseName: item.cardContent,
-        courseDetails: item.cardDescription,
-        courseImage: item?.cardImg,
-      }),
+    const isInFinalFilteredData = finalFilteredData?.some(
+      (finalItem) => finalItem.id === item.id,
     )
-    navigate(`/unPaidWebinarPage/${item.cardContent}`)
+    if (!isInFinalFilteredData) {
+      dispatch(
+        updateCardDetails({
+          price: {
+            newPrice: item.cardNewPrice,
+            oldPrice: item.cardOldPrice,
+          },
+          discount: item.cardDiscount || '20% OFF',
+          details: {
+            sections: item.cardSections || 'No Sections',
+            lectures: item.cardLectures || 'NO Lectures',
+            length: item.cardLength || 'NO length',
+            language: item.cardLanguage || 'English',
+          },
+          id: item.id,
+          courseName: item.cardContent,
+          courseDetails: item.cardDescription,
+          courseImage: item?.cardImg,
+        }),
+      )
+      navigate(`/unPaidWebinarPage/${item.cardContent}`)
+    } else if (isInFinalFilteredData) {
+      dispatch(
+        updateOfflineCardDetails({
+          price: {
+            newPrice: item.cardNewPrice,
+            oldPrice: item.cardOldPrice,
+          },
+          discount: item.cardDiscount || '20% OFF',
+          details: {
+            sections: item.cardSections || 'No Sections',
+            lectures: item.cardLectures || 'NO Lectures',
+            length: item.cardLength || 'NO length',
+            language: item.cardLanguage || 'English',
+          },
+          id: item.id,
+          courseName: item.cardContent,
+          courseDetails: item.cardDescription,
+          courseImage: item?.cardImg,
+        }),
+      )
+      navigate(`/paidOfflineVideo1`)
+    }
   }
 
   // Update liked items state when wishlist changes
@@ -67,51 +101,71 @@ function CardContainer({ header, heading, data }) {
           <h3>{header}</h3>
           <span>{heading}</span>
           <div className="cardData">
-            {filteredData.map((item, index) => (
-              <div className="card" key={index}>
-                <span
-                  className="cardImgIconSpan"
-                  onClick={() => handleLikeClick(item)}
-                  aria-label={
-                    likedItems[item.id]
-                      ? 'Remove from wishlist'
-                      : 'Add to wishlist'
-                  }
-                >
-                  {likedItems[item.id] ? (
-                    <FaHeart color="red" />
-                  ) : (
-                    <FaRegHeart />
-                  )}
-                </span>
+            {filteredData.map((item, index) => {
+              const isInFinalFilteredData = finalFilteredData?.some(
+                (finalItem) => finalItem.id === item.id,
+              )
 
-                <img
-                  src={item?.cardImg}
-                  alt="Card Img"
-                  className="cardImg"
-                  onClick={() => handleImgClick(item)}
-                />
-                <div className="cardContent">
-                  <h4>{item.cardContent}</h4>
-                  <p className="cardAuthor">
-                    <IoPersonOutline />
-                    <span>{item.cardAuthor}</span>
-                  </p>
-                  <p className="cardDescription">{item.cardDescription}</p>
-                  <div className="cardRatingSpan">
-                    <div className="cardRating">
-                      <CardRatingComponent cardRating={item.cardRating} />
+              return (
+                <div className="card" key={index}>
+                  <span
+                    className="cardImgIconSpan"
+                    onClick={() => handleLikeClick(item)}
+                    aria-label={
+                      likedItems[item.id]
+                        ? 'Remove from wishlist'
+                        : 'Add to wishlist'
+                    }
+                  >
+                    {likedItems[item.id] ? (
+                      <FaHeart color="red" />
+                    ) : (
+                      <FaRegHeart />
+                    )}
+                  </span>
+
+                  <img
+                    src={item?.cardImg}
+                    alt="Card Img"
+                    className="cardImg"
+                    onClick={() => handleImgClick(item)}
+                  />
+                  <div className="cardContent">
+                    <h4>{item.cardContent}</h4>
+                    <p className="cardAuthor">
+                      <IoPersonOutline />
+                      <span>{item.cardAuthor}</span>
+                    </p>
+                    <p className="cardDescription">{item.cardDescription}</p>
+                    <div className="cardRatingSpan">
+                      <div className="cardRating">
+                        <CardRatingComponent cardRating={item.cardRating} />
+                      </div>
+                      <p>{item.cardTotalRating}</p>
                     </div>
-                    <p>{item.cardTotalRating}</p>
-                  </div>
 
-                  <p className="cardNewPrice">
-                    ${item.cardNewPrice}
-                    <span className="cardOldPrice">${item.cardOldPrice}</span>
-                  </p>
+                    {!isInFinalFilteredData ? (
+                      <p className="cardNewPrice">
+                        ${item.cardNewPrice}
+                        <span className="cardOldPrice">
+                          ${item.cardOldPrice}
+                        </span>
+                      </p>
+                    ) : (
+                      <div className="goTOCourseBtnDiv">
+                        <button
+                          className="goToCourseBtn"
+                          onClick={() => handleImgClick(item)}
+                        >
+                          Go To Course
+                        </button>
+                        <FaArrowRightLong />
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </>
       ) : (

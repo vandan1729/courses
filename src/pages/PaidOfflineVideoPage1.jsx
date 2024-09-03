@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import SubscribeCard from '../components/homePage1/SubscribeCard'
 import Layout from '../layoutComponent/Layout'
@@ -55,6 +56,8 @@ const reviewData = [
 function PaidOfflineVideoPage1() {
   const [openChapter, setOpenChapter] = useState(null)
 
+  const buyCourseData = useSelector((state) => state.paidOfflineVideo)
+
   const toggleDropdown = (chapter) => {
     setOpenChapter((prevChapter) => (prevChapter === chapter ? null : chapter))
   }
@@ -64,7 +67,7 @@ function PaidOfflineVideoPage1() {
       <Layout>
         <div className="paidOfflineVideo">
           <div className="courseDetails">
-            <img src={img1} alt="Video" />
+            <img src={buyCourseData.courseImage} alt="Video" />
           </div>
 
           <div className="dropdownGroup">
@@ -153,7 +156,7 @@ function PaidOfflineVideoPage1() {
 
         <div className="courseInfo">
           <div className="courseSummary">
-            <h2>Vue JS Scratch Course</h2>
+            <h2>{buyCourseData.courseName}</h2>
             <div className="courseThumbnail">
               <div className="courseCreator">
                 <img src={img3} alt="Thumbnail" />
@@ -179,17 +182,7 @@ function PaidOfflineVideoPage1() {
             </div>
             <div className="courseDescription">
               <h4>About Course</h4>
-              <p>
-                Vue (pronounced /vjuː/, like view) is a progressive framework
-                for building user interfaces. Unlike other monolithic
-                frameworks, Vue is designed from the ground up to be
-                incrementally adoptable. The core library is focused on the view
-                layer only, and is easy to pick up and integrate with other
-                libraries or existing projects. On the other hand, Vue is also
-                perfectly capable of powering sophisticated Single-Page
-                Applications when used in combination with modern tooling and
-                supporting libraries.
-              </p>
+              <p>{buyCourseData.courseDetails}</p>
             </div>
             <div className="courseReviews">
               <h4>Reviews</h4>

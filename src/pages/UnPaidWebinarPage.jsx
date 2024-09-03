@@ -33,7 +33,7 @@ function UnPaidWebinarPage() {
     id,
   } = useSelector((state) => state.unPaidWebinar)
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
-  const buyProductId = useSelector((state) => state.buyProduct)
+  const buyProductId = useSelector((state) => state.buyProduct.items)
   const auth = useSelector((state) => state.auth.isAuthenticated)
   const dispatch = useDispatch()
 

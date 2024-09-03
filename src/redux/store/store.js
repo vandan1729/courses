@@ -7,6 +7,7 @@ import modalReducer from '../features/modalSlice'
 import unPaidWebinarReducer from '../features/unPaidWebinarSlice'
 import buyProductReducer from '../features/buyProductSlice'
 import authReducer from '../features/authSlice'
+import paidOfflineVideo from '../features/paidOfflineVideo'
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     unPaidWebinar: unPaidWebinarReducer,
     buyProduct: buyProductReducer,
     auth: authReducer,
+    paidOfflineVideo: paidOfflineVideo,
   },
 })
 

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import '../../styling/TotalProductBuyPrice.css'
 
 function TotalProductBuyPrice() {
-  const buyProducts = useSelector((state) => state.buyProduct)
+  const buyProducts = useSelector((state) => state.buyProduct.items)
 
   const totalPrice = buyProducts
     .reduce((total, product) => total + product.cardPrice, 0)

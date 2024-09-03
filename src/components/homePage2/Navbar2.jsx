@@ -13,6 +13,7 @@ import {
   setOpacityValue,
   setCartVisible,
 } from '../../redux/features/modalSlice'
+import { setLoginVisible } from '../../redux/features/modalSlice'
 import { logout } from '../../redux/features/authSlice'
 import { myCourseCardData } from '../../data/MyCourseCardData'
 
@@ -31,7 +32,7 @@ function Navbar2() {
   const [filterItem, setFilterItem] = useState([])
 
   const userData = useSelector((state) => state.user)
-  const productData = useSelector((state) => state.buyProduct)
+  const productData = useSelector((state) => state.buyProduct.items)
 
   const cartDropdownRef = useRef(null)
 
@@ -42,7 +43,7 @@ function Navbar2() {
     dispatch(setCartVisible(!isCartVisible))
   }
 
-  const totalBuyProduct = useSelector((state) => state.buyProduct)
+  const totalBuyProduct = useSelector((state) => state.buyProduct.items)
   const isCartVisible = useSelector((state) => state.modal.cartVisible)
 
   useEffect(() => {
@@ -63,6 +64,7 @@ function Navbar2() {
     navigate('/')
     dispatch(logout())
     dispatch(setOpacityValue(true))
+    dispatch(setLoginVisible(true))
   }
   const handleMyCourses = () => {
     navigate('/wishlistPage')

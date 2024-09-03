@@ -17,7 +17,7 @@ const CartMenu = () => {
   const navigate = useNavigate()
   const cartMenuRef = useRef(null)
   const dispatch = useDispatch()
-  const productData = useSelector((state) => state.buyProduct)
+  const productData = useSelector((state) => state.buyProduct.items)
   const isVisible = useSelector((state) => state.modal.cartVisible)
 
   const handleClearCart = () => {

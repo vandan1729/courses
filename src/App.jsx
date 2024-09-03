@@ -60,11 +60,15 @@ function App() {
           />
           <Route
             path="/courseBuyPage"
-            element={<ProtectedRoute element={CourseBuyPage} />}
+            element={
+              <ProtectedRoute element={CourseBuyPage} requiresCart={true} />
+            }
           />
           <Route
             path="/paymentPage"
-            element={<ProtectedRoute element={PaymentPage} />}
+            element={
+              <ProtectedRoute element={PaymentPage} requiresCart={true} />
+            }
           />
         </Routes>
         <ToastContainer

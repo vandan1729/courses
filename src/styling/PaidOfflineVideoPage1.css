@@ -8,11 +8,11 @@
 }
 
 .courseDetails {
-  width: 50rem;
+  width: 100%;
 }
 
 .courseDetails img {
-  max-width: 100%;
+  width: 90%;
 }
 
 .dropdownGroup {
@@ -257,7 +257,7 @@
 
 .reviewContent p:first-child {
   color: #3dcbb1;
-  padding-bottom: 1.875rem;
+  padding-bottom: 1rem;
   font-weight: 600;
 }
 

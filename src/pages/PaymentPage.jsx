@@ -37,7 +37,8 @@ function PaymentPage() {
   )
 
   const opacityValue = useSelector((state) => state.modal.opacityValue)
-  const product = useSelector((state) => state.buyProduct)
+  const product = useSelector((state) => state.buyProduct.items)
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [showSuccess, setShowSuccess] = useState(false)
@@ -45,7 +46,6 @@ function PaymentPage() {
   useEffect(() => {
     if (paymentMethod === 'upi') {
       startTimer()
-      setToggle(true)
     } else {
       clearInterval(timer)
       setTimeLeft(120)
@@ -70,18 +70,21 @@ function PaymentPage() {
   }
 
   const handlePayment = () => {
-    if (cardNumberValid && expiryDateValid && cvcValid) {
+    if (
+      (cardNumberValid && expiryDateValid && cvcValid) ||
+      paymentMethod === 'upi'
+    ) {
       dispatch(setOpacityValue(true))
       setShowSuccess(true)
       dispatch(setBuyCourseData(product))
       dispatch(setWishListValue('Courses'))
+      clearInterval(timer)
 
       setTimeout(() => {
         dispatch(setOpacityValue(false))
         setShowSuccess(false)
         navigate('/wishlistPage')
         dispatch(clearCart())
-        clearInterval(timer)
       }, 5000)
     } else {
       toast.error('Make sure your data is entered correctly.')
