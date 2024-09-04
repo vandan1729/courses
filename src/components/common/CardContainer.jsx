@@ -152,13 +152,11 @@ function CardContainer({ header, heading, data }) {
                         </span>
                       </p>
                     ) : (
-                      <div className="goTOCourseBtnDiv">
-                        <button
-                          className="goToCourseBtn"
-                          onClick={() => handleImgClick(item)}
-                        >
-                          Go To Course
-                        </button>
+                      <div
+                        className="goTOCourseBtnDiv"
+                        onClick={() => handleImgClick(item)}
+                      >
+                        <button className="goToCourseBtn">Go To Course</button>
                         <FaArrowRightLong />
                       </div>
                     )}

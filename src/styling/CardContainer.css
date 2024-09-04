@@ -28,7 +28,6 @@
   position: relative;
   width: 18.4375rem;
   background-color: #fff;
-  border-radius: 1.8125rem;
   margin-top: 1.5rem;
   overflow: hidden;
 }
@@ -143,11 +142,11 @@
   position: relative;
   width: 8rem;
   height: 1rem;
-  padding: 0.625rem 1.25rem;
+  padding: 0.6rem 1.2rem;
   margin-top: 1rem;
   background-color: #fff;
-  border: 2px solid #e0e0e0;
-  border-radius: 2rem;
+  border: 2px solid #666;
+  border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
 }
@@ -161,6 +160,7 @@
   width: 0;
   background-color: #3dcbb1;
   transition: width 0.3s ease;
+  cursor: pointer;
 }
 
 .goTOCourseBtnDiv:hover::before {
@@ -168,10 +168,11 @@
 }
 
 .goToCourseBtn {
+  font-size: 1rem;
   font-weight: 700;
   position: absolute;
-  top: 23%;
-  left: 12%;
+  top: 22%;
+  left: 7%;
   background: none;
   border: none;
   cursor: pointer;
@@ -180,7 +181,7 @@
 .goTOCourseBtnDiv svg {
   position: absolute;
   top: 15%;
-  left: 72%;
+  left: 75%;
   transition: transform 0.3s, background-color 0.3s;
   border-radius: 50%;
   border: 2px solid #333;
@@ -192,6 +193,9 @@
   transform: rotate(0deg);
 }
 
+.goTOCourseBtnDiv:hover {
+  border: 2px solid #3dcbb1;
+}
 
 
 @media (max-width: 768px) {

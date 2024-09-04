@@ -1,17 +1,17 @@
 .SignUpmainDiv {
+    position: fixed;
+    width: 50rem;
+    height: 32.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 3.75rem;
-    width: 50rem;
-    height: 32.5rem;
-    position: fixed;
+    margin-top: 6rem;
     top: -2%;
     right: 100%;
     transition: right 0.3s ease-in-out;
-    z-index: 1000;
     border-radius: 0.5rem;
+    z-index: 100;
 }
 
 .SignUpmainDiv.visible {
@@ -90,8 +90,9 @@
     font-size: 0.875rem;
 }
 
-.signUpPageTextInput input::placeholder {
-    color: #999;
+
+.signUpPageTextInput input:focus {
+    border: 2px solid #3dcbb1;
 }
 
 .emailIcon,
@@ -111,6 +112,7 @@
     top: 50%;
     left: 90%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .signUpPageLoginBtn {

@@ -172,7 +172,9 @@ function Navbar2() {
             ))}
           </div>
         )}
-        {searchItem && filterItem.length === 0 && <div>No results found</div>}
+        {searchItem && filterItem.length === 0 && (
+          <div className="navbar2SearchItem">No results found</div>
+        )}
         <IoIosSearch className="navbar2SearchIcon" />
       </div>
       <div className="navbar2Menu">

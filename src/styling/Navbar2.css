@@ -108,7 +108,7 @@ span:hover {
   width: 1rem;
   text-align: center;
   position: absolute;
-  transform: translateX(2.6rem) translateY(-0.75rem);
+  transform: translateX(2.5rem) translateY(-0.75rem);
   color: #666;
   border-radius: 50%;
   font-weight: bold;

@@ -1,54 +1,59 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'; // Import useSelector to access Redux state
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
-import { IoMdClose } from 'react-icons/io';
-import { MdOutlineEmail, MdOutlineLock } from 'react-icons/md';
-import { FaFacebookF, FaApple } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { IoMdClose } from 'react-icons/io'
+import { MdOutlineEmail } from 'react-icons/md'
+import { FaFacebookF, FaApple, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
 
-import profilePic from '/src/assets/homePage1/loginPage/loginPage.png';
-import logo from '/src/assets/logo.png';
+import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
+import logo from '/src/assets/logo.png'
 
-import { setLoginVisible, setOpacityValue, setSignUpVisible } from '../redux/features/modalSlice';
-import { login } from '../redux/features/authSlice';
+import {
+  setLoginVisible,
+  setOpacityValue,
+  setSignUpVisible,
+} from '../redux/features/modalSlice'
+import { login } from '../redux/features/authSlice'
 
-import '/src/styling/LoginPage.css';
-import { toast } from 'react-toastify';
+import '/src/styling/LoginPage.css'
+import { toast } from 'react-toastify'
 
 function LoginPage() {
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [iconToggle, setIconToggle] = useState(false)
 
   // Access user data from the Redux store
-  const userEmail = useSelector((state) => state.user.userEmail);
-  const userPassword = useSelector((state) => state.user.userPassword);
+  const userEmail = useSelector((state) => state.user.userEmail)
+  const userPassword = useSelector((state) => state.user.userPassword)
   const isVisible = useSelector((state) => state.modal.loginVisible)
 
   const handleCloseIconClick = () => {
-    dispatch(setLoginVisible(false));
-    dispatch(setOpacityValue(false)); // Pass `false` to close the modal
-  };
+    dispatch(setLoginVisible(false))
+    dispatch(setOpacityValue(false))
+  }
 
   const hanldeSignUpClick = () => {
-    dispatch(setLoginVisible(false));
-    dispatch(setSignUpVisible(true));
+    dispatch(setLoginVisible(false))
+    dispatch(setSignUpVisible(true))
   }
 
   const handleLogin = () => {
-    // Check credentials against Redux store
-    if (email === userEmail && password === userPassword) { // Replace 'admin' with actual password if stored in Redux
-
+    if (email === userEmail && password === userPassword) {
       toast.success('Login Successfully')
 
-      dispatch(setLoginVisible(false));
-      dispatch(setOpacityValue(false));
+      dispatch(setLoginVisible(false))
+      dispatch(setOpacityValue(false))
       dispatch(login())
-
     } else {
       toast.error('EmailId or Password Not Match')
     }
-  };
+  }
+
+  const handleLockIcon = () => {
+    setIconToggle(!iconToggle)
+  }
 
   return (
     <div className={`mainDiv ${isVisible ? 'visible' : ''}`}>
@@ -56,7 +61,10 @@ function LoginPage() {
         <img src={profilePic} alt="Profile Pic" />
       </div>
       <div className="loginPageInputs">
-        <IoMdClose className='loginPageCloseIcon' onClick={handleCloseIconClick} />
+        <IoMdClose
+          className="loginPageCloseIcon"
+          onClick={handleCloseIconClick}
+        />
         <div className="loginPageLogo">
           <img src={logo} alt="Logo" />
           <span>MyCourse.io</span>
@@ -75,13 +83,19 @@ function LoginPage() {
           />
           <MdOutlineEmail className="emailIcon" />
           <input
-            type="password"
+            type={`${iconToggle ? 'text' : 'password'}`}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)} // Update password state
           />
-          <MdOutlineLock className="lockIcon" />
-          <button className="loginPageLoginBtn" onClick={handleLogin}>Login</button> {/* Handle login on click */}
+          {iconToggle ? (
+            <FaRegEye className="lockIcon" onClick={handleLockIcon} />
+          ) : (
+            <FaRegEyeSlash className="lockIcon" onClick={handleLockIcon} />
+          )}
+          <button className="loginPageLoginBtn" onClick={handleLogin}>
+            Login
+          </button>{' '}
         </div>
 
         <span className="orYouCanSpan">or you can</span>
@@ -96,11 +110,14 @@ function LoginPage() {
         </div>
 
         <span className="needAnAccountSpan">
-          Need an Account? <span className="signUpSpan" onClick={hanldeSignUpClick}>Sign Up</span>
+          Need an Account?{' '}
+          <span className="signUpSpan" onClick={hanldeSignUpClick}>
+            Sign Up
+          </span>
         </span>
       </div>
     </div>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage

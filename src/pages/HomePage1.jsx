@@ -16,7 +16,6 @@ import Layout from '../layoutComponent/Layout'
 function HomePage1() {
   const [isLoading, setIsLoading] = useState(true)
 
-  // Access opacity value from Redux state
   const opacityValue = useSelector((state) => state.modal.opacityValue)
 
   useEffect(() => {
@@ -33,7 +32,12 @@ function HomePage1() {
         <LoadingPage />
       ) : (
         <Layout>
-          <div style={{ opacity: opacityValue ? '0.5' : '1' }}>
+          <div
+            style={{
+              opacity: opacityValue ? '0.5' : '1',
+              pointerEvents: opacityValue ? 'none' : 'auto',
+            }}
+          >
             <SliderComponent />
             <Categories />
 
