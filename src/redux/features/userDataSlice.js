@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 import profileImg from '/src/assets/profileImg.jpg'
 
 const initialState = {
-  userFirstName: 'UserFirstName',
-  userLastName: 'UserLastName',
-  userHeadLine: 'Hello',
-  userEmail: '',
+  userFirstName: 'Ayush',
+  userLastName: 'Patel',
+  userHeadLine: 'A Bold Attempt Is Half Success',
+  userEmail: 'ayush@gmail.com',
   userProfile: profileImg,
-  userPassword: 'admin',
+  userPassword: '123',
 }
 
 const userSlice = createSlice({

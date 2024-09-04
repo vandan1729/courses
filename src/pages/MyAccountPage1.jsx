@@ -1,25 +1,24 @@
 import { TbCameraPlus } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useRef } from 'react'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 import Layout from '../layoutComponent/Layout'
-import { setUserData } from '../redux/features/userDataSlice'  // Adjust the import path as needed
+import { setUserData } from '../redux/features/userDataSlice' // Adjust the import path as needed
 
 import '../styling/MyAccountPage1.css'
 
 function MyAccountPage1() {
-
   const dispatch = useDispatch()
-  const userData = useSelector((state) => state.user)  // Access user data from Redux store
+  const userData = useSelector((state) => state.user) // Access user data from Redux store
 
   const [formData, setFormData] = useState({
     userFirstName: userData.userFirstName,
     userLastName: userData.userLastName,
     userHeadLine: userData.userHeadLine,
-    email: userData.userEmail,
+    userEmail: userData.userEmail,
     selectedFile: null,
-    profileImage: userData.userProfile,
+    userProfile: userData.userProfile,
   })
 
   const fileInputRef = useRef(null)
@@ -40,7 +39,7 @@ function MyAccountPage1() {
       setFormData((prevData) => ({
         ...prevData,
         selectedFile: file,
-        profileImage: fileUrl,
+        userProfile: fileUrl,
       }))
     }
   }
@@ -59,10 +58,7 @@ function MyAccountPage1() {
       return
     }
 
-    dispatch(setUserData({
-      ...formData,
-      userProfile: formData.profileImage,
-    }))
+    dispatch(setUserData({ ...formData }))
 
     toast.success('Uploaded Successfully 😎')
   }
@@ -84,7 +80,7 @@ function MyAccountPage1() {
 
           <div className="accountFormContainer">
             <img
-              src={formData.profileImage}
+              src={formData.userProfile}
               alt="Profile"
               className="profileImage"
             />
@@ -98,7 +94,7 @@ function MyAccountPage1() {
               style={{ display: 'none' }}
               onChange={handleFileChange}
             />
-            
+
             <form onSubmit={handleSubmit}>
               <label htmlFor="userFirstName">First Name</label>
               <input
@@ -126,9 +122,9 @@ function MyAccountPage1() {
 
               <label htmlFor="email">Email</label>
               <input
-                id="email"
+                id="userEmail"
                 type="email"
-                value={formData.email}
+                value={formData.userEmail}
                 onChange={handleChange}
               />
 
@@ -138,7 +134,6 @@ function MyAccountPage1() {
             </form>
           </div>
         </div>
-
       </Layout>
     </>
   )

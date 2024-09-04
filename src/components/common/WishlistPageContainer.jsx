@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { IoPersonOutline } from 'react-icons/io5'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
+import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
+
 import '../../styling/CardContainer.css'
 
-function WishlistPageContainer({ data }) {
+function WishlistPageContainer() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const myCourseCardDataFromStore =
+    useSelector((state) => state.wishList.allCourseCardData) || []
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const wishListValue = useSelector((state) => state.wishList.wishListValue)
   const buyCourseData = useSelector((state) => state.wishList.buyCourseData)
@@ -17,40 +21,6 @@ function WishlistPageContainer({ data }) {
   const [likedItems, setLikedItems] = useState({})
   const [filteredData, setFilteredData] = useState([])
 
-  // Handle the click on the 'Explore Courses' button
-  const handleExploreCoursesClick = () => {
-    navigate('/')
-  }
-
-  // Handle adding/removing items from the wishlist
-  const handleLikeClick = (item) => {
-    dispatch(toggleWishListItem(item))
-  }
-
-  // Filter data based on wishlist value and wishlist items
-  useEffect(() => {
-    let updatedFilteredData = []
-
-    if (wishListValue === 'All Courses') {
-      updatedFilteredData = data
-    } else if (wishListValue === 'Completed') {
-      updatedFilteredData = data.filter(
-        (item) => item.cardDescription === 'Completed!',
-      )
-    } else if (wishListValue === 'Wishlist') {
-      updatedFilteredData = wishListItems
-    } else if (wishListValue === 'Courses') {
-      updatedFilteredData = buyCourseData
-    } else {
-      updatedFilteredData = data.filter((item) =>
-        item.cardContent.includes(wishListValue),
-      )
-    }
-
-    setFilteredData(updatedFilteredData)
-  }, [wishListValue, data, wishListItems])
-
-  // Update liked items state when wishlist changes
   useEffect(() => {
     const updatedLikedItems = {}
     wishListItems.forEach((item) => {
@@ -58,6 +28,57 @@ function WishlistPageContainer({ data }) {
     })
     setLikedItems(updatedLikedItems)
   }, [wishListItems])
+
+  useEffect(() => {
+    const filterDataByValue = () => {
+      switch (wishListValue) {
+        case 'All Courses':
+          return myCourseCardDataFromStore
+        case 'Completed':
+          return myCourseCardDataFromStore.filter(
+            (item) => item.cardDescription === 'Completed!',
+          )
+        case 'Wishlist':
+          return wishListItems
+        case 'Courses':
+          return buyCourseData
+        default:
+          return myCourseCardDataFromStore.filter((item) =>
+            item.cardContent.includes(wishListValue),
+          )
+      }
+    }
+    setFilteredData(filterDataByValue())
+  }, [wishListValue, myCourseCardDataFromStore, wishListItems, buyCourseData])
+
+  const handleExploreCoursesClick = () => navigate('/')
+
+  const handleLikeClick = (item) => dispatch(toggleWishListItem(item))
+
+  const handleImgClick = (item) => {
+    if (wishListValue === 'Courses') {
+      dispatch(
+        updateOfflineCardDetails({
+          price: {
+            newPrice: item.cardNewPrice,
+            oldPrice: item.cardOldPrice,
+          },
+          discount: item.cardDiscount || '20% OFF',
+          details: {
+            sections: item.cardSections || 'No Sections',
+            lectures: item.cardLectures || 'NO Lectures',
+            length: item.cardLength || 'NO length',
+            language: item.cardLanguage || 'English',
+          },
+          id: item.id,
+          courseName: item.cardContent,
+          courseDetails: item.cardDescription,
+          courseImage: item?.cardImg,
+        }),
+      )
+      navigate('/paidOfflineVideo1')
+    }
+  }
 
   return (
     <div className="cardContainer">
@@ -83,7 +104,12 @@ function WishlistPageContainer({ data }) {
                     <FaRegHeart />
                   )}
                 </span>
-                <img src={item?.cardImg} alt="Card Img" className="cardImg" />
+                <img
+                  src={item?.cardImg}
+                  alt="Card Img"
+                  className="cardImg"
+                  onClick={() => handleImgClick(item)}
+                />
               </div>
               <div className="cardContent">
                 <h4>{item.cardContent}</h4>
