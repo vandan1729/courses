@@ -7,6 +7,7 @@ const modalSlice = createSlice({
     signUpVisible: false,
     cartVisible: false,
     opacityValue: false,
+    showSuccess: false,
   },
   reducers: {
     setLoginVisible: (state, action) => {
@@ -21,6 +22,9 @@ const modalSlice = createSlice({
     setOpacityValue: (state, action) => {
       state.opacityValue = action.payload
     },
+    showSuccess: (state, action) => {
+      state.showSuccess = action.payload
+    },
   },
 })
 
@@ -29,5 +33,7 @@ export const {
   setSignUpVisible,
   setCartVisible,
   setOpacityValue,
+  addCardButton,
+  showSuccess,
 } = modalSlice.actions
 export default modalSlice.reducer

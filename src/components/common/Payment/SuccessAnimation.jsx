@@ -1,4 +1,4 @@
-import '../../styling/SuccessAnimation.css'
+import '../../../styling/SuccessAnimation.css'
 
 function SuccessAnimation() {
   return (

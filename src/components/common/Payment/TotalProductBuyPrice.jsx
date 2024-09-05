@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import '../../styling/TotalProductBuyPrice.css'
+import '../../../styling/TotalProductBuyPrice.css'
 
 function TotalProductBuyPrice() {
   const buyProducts = useSelector((state) => state.buyProduct.items)

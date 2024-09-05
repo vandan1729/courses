@@ -11,12 +11,15 @@ import CardRatingComponent from './CardRatingComponent'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
 
 import '/src/styling/CardContainer.css'
+import { toast } from 'react-toastify'
 
 function CardContainer({ header, heading, data }) {
   const cardValue = useSelector((state) => state.card.cardValue)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [likedItems, setLikedItems] = useState({})
+
+  const auth = useSelector((state) => state.auth.isAuthenticated)
 
   // Filter data based on cardValue from Redux store
   const filteredData = data?.filter(
@@ -33,7 +36,11 @@ function CardContainer({ header, heading, data }) {
   )
 
   const handleLikeClick = (item) => {
-    dispatch(toggleWishListItem(item))
+    if (auth) {
+      dispatch(toggleWishListItem(item))
+    } else {
+      toast.error('Please Login!!')
+    }
   }
 
   const handleImgClick = (item) => {
@@ -86,6 +93,7 @@ function CardContainer({ header, heading, data }) {
   }
 
   // Update liked items state when wishlist changes
+  console.log(auth)
   useEffect(() => {
     const updatedLikedItems = {}
     wishListItems.forEach((item) => {

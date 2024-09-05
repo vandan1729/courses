@@ -1,0 +1,145 @@
+.new-payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardHeadingDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 35rem;
+}
+
+.saved-cards-heading {
+    font-size: 2rem;
+    color: #333;
+}
+
+.addCardDiv {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 650;
+}
+
+.card-list {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.cardCloseIcon {
+    cursor: pointer;
+}
+
+.card-item {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    position: relative;
+    background: radial-gradient(circle, white 0%, #d5d5d5 100%);
+    width: 20rem;
+    height: 10rem;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 3px 3px 17px 0px rgba(0, 0, 0, 0.55);
+}
+
+.card-info {
+    margin-left: 1rem;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    cursor: pointer;
+    font-size: 1.2rem;
+
+}
+
+
+
+.card-number {
+    margin-bottom: 0.25rem;
+}
+
+.expiry-date,
+.cvc {
+    margin-bottom: 0.25rem;
+}
+
+.no-cards-message {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.card-details-form {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+
+
+.form-fields {
+    display: flex;
+    gap: 1rem;
+}
+
+.cvc-input {
+    font-family: Arial, sans-serif;
+}
+
+.form-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.update-button,
+.cancel-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.update-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+}

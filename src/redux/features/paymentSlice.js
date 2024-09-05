@@ -1,17 +1,45 @@
-// src/redux/features/paymentSlice.js
 import { createSlice } from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid'
 
 const paymentSlice = createSlice({
   name: 'payment',
   initialState: {
-    cardNumber: '1212 1111 1111 1111',
-    expiryDate: '24/24',
+    cards: [
+      {
+        id: 1,
+        cardNumber: '1234 5678 9012 3456',
+        expiryDate: '12/24',
+        cvc: '123',
+      },
+      {
+        id: 2,
+        cardNumber: '9876 5432 1098 7654',
+        expiryDate: '11/25',
+        cvc: '456',
+      },
+    ], // Sample cards
+    cardNumber: '',
+    expiryDate: '',
     cvc: '',
     cardNumberValid: false,
     expiryDateValid: false,
     cvcValid: false,
   },
   reducers: {
+    addCard(state, action) {
+      const newCard = { id: uuidv4(), ...action.payload }
+      state.cards.push(newCard)
+    },
+    updateCard(state, action) {
+      const { id, cardData } = action.payload
+      const cardIndex = state.cards.findIndex((card) => card.id === id)
+      if (cardIndex !== -1) {
+        state.cards[cardIndex] = { ...state.cards[cardIndex], ...cardData }
+      }
+    },
+    removeCard(state, action) {
+      state.cards = state.cards.filter((card) => card.id !== action.payload.id)
+    },
     setCardNumber(state, action) {
       state.cardNumber = action.payload
     },
@@ -34,7 +62,9 @@ const paymentSlice = createSlice({
 })
 
 export const {
-  setPaymentMethod,
+  addCard,
+  updateCard,
+  removeCard,
   setCardNumber,
   setExpiryDate,
   setCvc,

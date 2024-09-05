@@ -4,9 +4,10 @@
   align-items: center;
   padding: 1.25rem;
   background-color: #f4f4f4;
+  min-height: 21rem;
 }
 
-.myAccountContainer h2 {
+.myAccountContainerH2 {
   margin-top: 1.25rem;
   font-size: 2rem;
   color: #333;
@@ -29,92 +30,4 @@
 
 .sidebarProfile {
   border-bottom: 0.125rem solid #3dcbb1;
-}
-
-.accountFormContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.accountFormContainer form {
-  width: 37.5rem;
-  margin: 1rem;
-}
-
-.accountFormContainer form label {
-  margin: 0.625rem 0 0.3125rem;
-  color: #8f8f8f;
-}
-
-.accountFormContainer form input[type='text'],
-.accountFormContainer form select,
-.accountFormContainer form input[type='email'] {
-  width: 100%;
-  margin-bottom: 0.9375rem;
-  padding: 0.125rem;
-  color: #333;
-  border: none;
-  border-bottom: 0.0625rem solid #ddd;
-  background-color: #f4f4f4;
-  font-size: 1rem;
-}
-
-.accountFormContainer form input[type='text']:focus,
-.accountFormContainer form select:focus,
-.accountFormContainer form input[type='email']:focus {
-  outline: none;
-}
-
-.accountFormContainer form button {
-  padding: 0.625rem 3.75rem;
-  background-color: #3dcbb1;
-  color: #fff;
-  border: none;
-  border-radius: 0.875rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.accountFormContainer form button:hover {
-  background-color: #2b9a8e;
-}
-
-.accountFormPic {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-}
-
-.profileImage {
-  width: 6.25rem;
-  height: 6.25rem;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-  border: 0.125rem solid #ddd;
-  margin-bottom: 1.25rem;
-}
-
-.profileEmoji {
-  font-size: 2.5rem;
-  border: 0.125rem solid #ddd;
-  padding: 0.625rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.cameraEmoji {
-  position: relative;
-  transform: translateY(-160%);
-  left: 5%;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.accountFormContainerBtn {
-  margin: 0.9375rem 0;
-  display: flex;
-  justify-content: center;
 }
