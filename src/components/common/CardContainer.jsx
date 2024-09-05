@@ -93,7 +93,6 @@ function CardContainer({ header, heading, data }) {
   }
 
   // Update liked items state when wishlist changes
-  console.log(auth)
   useEffect(() => {
     const updatedLikedItems = {}
     wishListItems.forEach((item) => {
@@ -125,8 +124,12 @@ function CardContainer({ header, heading, data }) {
                         : 'Add to wishlist'
                     }
                   >
-                    {likedItems[item.id] ? (
-                      <FaHeart color="red" />
+                    {auth ? (
+                      likedItems[item.id] ? (
+                        <FaHeart color="red" />
+                      ) : (
+                        <FaRegHeart />
+                      )
                     ) : (
                       <FaRegHeart />
                     )}
