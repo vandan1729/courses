@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IoIosSearch, IoIosMenu } from 'react-icons/io'
 import { MdShoppingCart } from 'react-icons/md'
@@ -6,16 +5,21 @@ import { FaRegBell } from 'react-icons/fa'
 import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 import { setWishListValue } from '../../redux/features/wishListSlice'
+import { useEffect, useRef, useState } from 'react'
+
 import { toast } from 'react-toastify'
+
 import {
   setOpacityValue,
   setCartVisible,
-  setLoginVisible,
 } from '../../redux/features/modalSlice'
+import { setLoginVisible } from '../../redux/features/modalSlice'
 import { logout } from '../../redux/features/authSlice'
 import { myCourseCardData } from '../../data/MyCourseCardData'
+
 import logo from '/src/assets/logo.png'
 import CartMenu from '../homePage1/CartMenu'
+
 import '../../styling/Navbar2.css'
 import WishlistCounter from '../common/WishlistCounter'
 
@@ -29,12 +33,32 @@ function Navbar2() {
 
   const userData = useSelector((state) => state.user)
   const productData = useSelector((state) => state.buyProduct.items)
+
   const cartDropdownRef = useRef(null)
 
-  const [isCartVisible, setIsCartVisible] = useState(false)
-  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
-  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
-  const [toggle, setToggle] = useState(false)
+  const toggleCartMenu = () => {
+    if (productData.length === 0) {
+      return toast.info('Your cart is empty!')
+    }
+    dispatch(setCartVisible(!isCartVisible))
+  }
+
+  const totalBuyProduct = useSelector((state) => state.buyProduct.items)
+  const isCartVisible = useSelector((state) => state.modal.cartVisible)
+
+  useEffect(() => {
+    if (searchItem.trim()) {
+      setFilterItem(
+        myCourseCardData.filter((data) =>
+          data.cardContent.toLowerCase().includes(searchItem.toLowerCase()),
+        ),
+      )
+    } else {
+      setFilterItem([])
+    }
+  }, [searchItem])
+
+  // Access Redux state
 
   const handleNavigate = () => {
     navigate('/')
@@ -53,35 +77,21 @@ function Navbar2() {
     dispatch(setWishListValue('Wishlist'))
   }
 
-  useEffect(() => {
-    if (searchItem.trim()) {
-      setFilterItem(
-        myCourseCardData.filter((data) =>
-          data.cardContent.toLowerCase().includes(searchItem.toLowerCase()),
-        ),
-      )
-    } else {
-      setFilterItem([])
-    }
-  }, [searchItem])
+  const browse = [
+    'Design',
+    'Programming',
+    'Business & Marketing',
+    'Photo & Video',
+    'Writing',
+  ]
 
-  const toggleCartMenu = () => {
-    if (productData.length === 0) {
-      return toast.info('Your cart is empty!')
-    }
-    setIsCartVisible((prev) => !prev)
+  const [isBrowseOpen, setIsBrowseOpen] = useState(false)
+  const toggleBrowseDropdown = () => {
+    setIsBrowseOpen((prev) => !prev)
   }
 
+  const [isCartDropdownOpen, setIsCartDropdownOpen] = useState(false)
   const toggleCartDropdown = () => setIsCartDropdownOpen((prev) => !prev)
-  const toggleBrowseDropdown = () => setIsBrowseOpen((prev) => !prev)
-  const handleNavbarMenuIconClick = () => {
-    setToggle(!toggle)
-    dispatch(setOpacityValue(true))
-  }
-  const handleNavbarMenuCloseIcon = () => {
-    setToggle(!toggle)
-    dispatch(setOpacityValue(false))
-  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -92,9 +102,21 @@ function Navbar2() {
         setIsCartDropdownOpen(false)
       }
     }
+
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  const [toggle, setToggle] = useState(false)
+  const handleNavbarMenuIconClick = () => {
+    setToggle(!toggle)
+    dispatch(setOpacityValue(true))
+  }
+
+  const handleNavbarMenuCloseIcon = () => {
+    setToggle(!toggle)
+    dispatch(setOpacityValue(false))
+  }
 
   return (
     <div className="navbar2">
@@ -109,6 +131,7 @@ function Navbar2() {
               onClick={handleNavbarMenuIconClick}
             />
           )}
+
           <ul className={toggle ? 'navbarMenuActive' : 'navbarMenuDeactivate'}>
             <li className="navbarMenuActiveLi" onClick={handleMyCourses}>
               My Courses
@@ -162,6 +185,7 @@ function Navbar2() {
             {totalBuyProduct.length}
           </span>
         )}
+
         <FaRegBell className="navbar2CartIcon" />
         <div className="cartDropdownContainer" ref={cartDropdownRef}>
           <div className="cartDropdownProfile">
@@ -171,7 +195,6 @@ function Navbar2() {
                 alt="Profile"
                 className="navbar2ProfileImage"
                 onClick={toggleCartDropdown}
-                // Optionally add a placeholder or spinner here
               />
             ) : (
               <p className="navbar2CartEmojiIcon" onClick={toggleCartDropdown}>

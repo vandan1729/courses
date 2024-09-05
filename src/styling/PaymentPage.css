@@ -30,9 +30,13 @@
 }
 
 .paymentOption {
+    margin-bottom: 0.9rem;
+}
+
+.creditCardOption,
+.upiOption {
     display: flex;
     align-items: center;
-    margin-bottom: 0.9rem;
 }
 
 .paymentRadio {
@@ -52,14 +56,14 @@
 }
 
 .gPayIcon {
-    width: 3rem;
-    height: 2rem;
+    width: 4rem;
+    height: 2.2rem;
     margin-right: 0.2rem;
 }
 
 .payPalIcon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .paymentDetails {

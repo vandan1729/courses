@@ -13,6 +13,9 @@ import '../styling/WishlistPage.css'
 function WishlistPage() {
   const dispatch = useDispatch()
   const wishListValue = useSelector((state) => state.wishList.wishListValue)
+  const payment = useSelector((state) => state.payment)
+
+  console.log(payment)
 
   useEffect(() => {
     dispatch(setAllCourseCardData(myCourseCardData))
