@@ -85,7 +85,7 @@ function SignUpPage() {
   const handleLockIconToggle = () => setIconToggle(!iconToggle)
 
   return (
-    <div className={`SignUpmainDiv ${isVisible ? 'visible' : ''}`}>
+    <div className={`SignUpmainDiv no-select${isVisible ? 'visible' : ''}`}>
       <div className="signUpPageImg">
         <img src={profilePic} alt="Sign Up" />
       </div>

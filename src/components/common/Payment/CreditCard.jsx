@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  setCardNumber,
-  setExpiryDate,
-  setCvc,
   setCardNumberValid,
   setExpiryDateValid,
   setCvcValid,
+  setCardNumber,
+  setExpiryDate,
+  setCvc,
 } from '../../../redux/features/paymentSlice'
 import '../../../styling/PaymentPage.css'
 
@@ -38,19 +38,18 @@ const isExpiryDateValid = (formattedValue, currentYear, currentMonth) => {
   return false
 }
 
-function CreditCard({
-  cardNumber = '',
-  expiryDate = '',
-  cvc = '',
-  setCardNumber,
-  setExpiryDate,
-  setCvc,
-}) {
+function CreditCard({ showCvc }) {
   const dispatch = useDispatch()
 
+  const cardNumber = useSelector((state) => state.payment.cardNumber)
+  const expiryDate = useSelector((state) => state.payment.expiryDate)
+  const cvc = useSelector((state) => state.payment.cvc)
+  // console.log(cvc)
   const cardNumberValid = useSelector((state) => state.payment.cardNumberValid)
   const expiryDateValid = useSelector((state) => state.payment.expiryDateValid)
   const cvcValid = useSelector((state) => state.payment.cvcValid)
+
+  // const [inputCvc, setInputCvc] = useState(cvc)
 
   const currentYear = new Date().getFullYear() % 100
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0')
@@ -58,31 +57,34 @@ function CreditCard({
   const handleCardInput = useCallback(
     (e) => {
       const formattedValue = formatCardNumber(e.target.value)
-      setCardNumber(formattedValue)
-      dispatch(
-        setCardNumberValid(formattedValue.replace(/\s/g, '').length === 16),
-      )
+      dispatch(setCardNumber(formattedValue))
+      const numericCardNumber = formattedValue.replace(/\s/g, '')
+      dispatch(setCardNumberValid(numericCardNumber.length === 16))
     },
-    [dispatch, setCardNumber],
+    [dispatch],
   )
 
   const handleExpiryDate = useCallback(
     (e) => {
       const formattedValue = formatExpiryDate(e.target.value)
       const valid = isExpiryDateValid(formattedValue, currentYear, currentMonth)
-      setExpiryDate(formattedValue)
+      dispatch(setExpiryDate(formattedValue))
       dispatch(setExpiryDateValid(valid))
     },
-    [dispatch, setExpiryDate, currentYear, currentMonth],
+    [dispatch, currentYear, currentMonth],
   )
+
+  // useEffect(() => {
+  //   dispatch(setCvcValid(false))
+  // }, [cardNumber, expiryDate, dispatch])
 
   const handleCvcInput = useCallback(
     (e) => {
       const numericValue = e.target.value.replace(/\D/g, '')
-      setCvc(numericValue)
+      dispatch(setCvc(numericValue))
       dispatch(setCvcValid(numericValue.length === 3))
     },
-    [dispatch, setCvc],
+    [dispatch],
   )
 
   return (
@@ -112,17 +114,19 @@ function CreditCard({
               maxLength={5}
             />
           </label>
-          <label className="label">
-            <span className="title">CVC</span>
-            <input
-              type="password"
-              className={`input-field ${cvcValid ? 'valid' : 'invalid'}`}
-              placeholder="CVC"
-              value={cvc}
-              maxLength={3}
-              onChange={handleCvcInput}
-            />
-          </label>
+          {showCvc && (
+            <label className="label">
+              <span className="title">CVC</span>
+              <input
+                type="password"
+                className={`input-field ${cvcValid ? 'valid' : 'invalid'}`}
+                placeholder="CVC"
+                value={cvc}
+                maxLength={3}
+                onChange={handleCvcInput}
+              />
+            </label>
+          )}
         </div>
       </div>
     </div>

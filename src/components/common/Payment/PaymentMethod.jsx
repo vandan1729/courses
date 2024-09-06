@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
@@ -10,6 +10,9 @@ import {
   setCardNumberValid,
   setExpiryDateValid,
   setCvcValid,
+  setCardNumber,
+  setExpiryDate,
+  setCvc,
 } from '../../../redux/features/paymentSlice'
 import {
   setBuyCourseData,
@@ -32,22 +35,17 @@ function PaymentMethod() {
     upi: false,
   })
   const [selectedCardId, setSelectedCardId] = useState(null)
-  const [isCardInputVisible, setIsCardInputVisible] = useState(true)
+  const [isCardInputVisible, setIsCardInputVisible] = useState(false)
 
   const cards = useSelector((state) => state.payment.cards)
   const cardNumberValid = useSelector((state) => state.payment.cardNumberValid)
   const expiryDateValid = useSelector((state) => state.payment.expiryDateValid)
+  const cardNumber = useSelector((state) => state.payment.cardNumber)
   const cvcValid = useSelector((state) => state.payment.cvcValid)
   const product = useSelector((state) => state.buyProduct.items)
 
   const [timeLeft, setTimeLeft] = useState(120)
   const [timer, setTimer] = useState(null)
-
-  const [selectedCard, setSelectedCard] = useState({
-    cardNumber: '',
-    expiryDate: '',
-    cvc: '',
-  })
 
   useEffect(() => {
     if (paymentMethod.upi) {
@@ -58,10 +56,6 @@ function PaymentMethod() {
     }
     return () => clearInterval(timer)
   }, [paymentMethod.upi])
-
-  useEffect(() => {
-    setIsCardInputVisible(false)
-  }, [])
 
   const startTimer = () => {
     if (timer) clearInterval(timer)
@@ -79,16 +73,25 @@ function PaymentMethod() {
     setTimer(newTimer)
   }
 
+  useEffect(() => {
+    setSelectedCardId(null)
+    console.log(cardNumber)
+  }, [cardNumber])
+
   const handlePayment = () => {
-    if (
-      (cardNumberValid && expiryDateValid && cvcValid) ||
-      paymentMethod.upi ||
-      selectedCardId
-    ) {
+    console.log(cardNumberValid, expiryDateValid, cvcValid)
+    if ((cardNumberValid && expiryDateValid && cvcValid) || paymentMethod.upi) {
       dispatch(setOpacityValue(true))
       dispatch(showSuccess(true))
       dispatch(setBuyCourseData(product))
       dispatch(setWishListValue('Courses'))
+      dispatch(setCardNumberValid(false))
+      dispatch(setExpiryDateValid(false))
+      dispatch(setCvcValid(false))
+
+      dispatch(setCardNumber(''))
+      dispatch(setCvc(''))
+      dispatch(setExpiryDate(''))
 
       setTimeout(() => {
         dispatch(setOpacityValue(false))
@@ -108,11 +111,6 @@ function PaymentMethod() {
     })
     if (method === 'card') {
       setSelectedCardId(null)
-      setSelectedCard({
-        cardNumber: '',
-        expiryDate: '',
-        cvc: '',
-      })
     }
   }
 
@@ -120,11 +118,12 @@ function PaymentMethod() {
     const card = cards.find((card) => card.id === id)
     if (card) {
       setSelectedCardId(id)
-      setSelectedCard({
-        cardNumber: card.cardNumber,
-        expiryDate: card.expiryDate,
-        cvc: card.cvc,
-      })
+      dispatch(setCardNumber(card.cardNumber))
+      dispatch(setExpiryDate(card.expiryDate))
+      dispatch(setCvc(''))
+      dispatch(setCardNumberValid(true))
+      dispatch(setExpiryDateValid(true))
+      dispatch(setCvcValid(false))
       setIsCardInputVisible(true)
     }
   }
@@ -132,18 +131,8 @@ function PaymentMethod() {
   const payWithDifferentCard = () => {
     setIsCardInputVisible(true)
     setSelectedCardId(null)
-    setSelectedCard({
-      cardNumber: '',
-      expiryDate: '',
-      cvc: '',
-    })
-  }
-
-  const handleCardInputChange = (field, value) => {
-    setSelectedCard((prev) => ({ ...prev, [field]: value }))
-    if (selectedCardId !== null) {
-      setSelectedCardId(null)
-    }
+    dispatch(setCardNumber(''))
+    dispatch(setExpiryDate(''))
   }
 
   return (
@@ -193,21 +182,7 @@ function PaymentMethod() {
                 </button>
               )}
             </div>
-            {isCardInputVisible && (
-              <CreditCard
-                cardNumber={selectedCard.cardNumber}
-                expiryDate={selectedCard.expiryDate}
-                cvc={selectedCard.cvc}
-                setCardNumber={(value) =>
-                  handleCardInputChange('cardNumber', value)
-                }
-                setExpiryDate={(value) =>
-                  handleCardInputChange('expiryDate', value)
-                }
-                setCvc={(value) => handleCardInputChange('cvc', value)}
-                showCvc={true} // Show CVC field if needed
-              />
-            )}
+            {isCardInputVisible && <CreditCard showCvc={true} />}
           </>
         )}
       </div>

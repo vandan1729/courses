@@ -30,7 +30,7 @@ function WishlistPage() {
   return (
     <>
       <Layout>
-        <div className="wishlistPageMainDiv">
+        <div className="wishlistPageMainDiv no-select">
           <div className="wishlistPageTitle">
             <h2>My Course</h2>
           </div>

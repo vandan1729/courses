@@ -17,7 +17,7 @@ function CourseBuyPage() {
   return (
     <>
       <Layout>
-        <div className="courseBuyPageDiv">
+        <div className="courseBuyPageDiv no-select">
           <div className="courseBuyPageItems">
             <h3>Course Details</h3>
             <AddTOCartCourse />

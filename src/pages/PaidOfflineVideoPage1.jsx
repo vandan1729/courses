@@ -65,7 +65,7 @@ function PaidOfflineVideoPage1() {
   return (
     <>
       <Layout>
-        <div className="paidOfflineVideo">
+        <div className="paidOfflineVideo no-select">
           <div className="courseDetails">
             <img src={buyCourseData.courseImage} alt="Video" />
           </div>
@@ -154,7 +154,7 @@ function PaidOfflineVideoPage1() {
           </div>
         </div>
 
-        <div className="courseInfo">
+        <div className="courseInfo no-select">
           <div className="courseSummary">
             <h2>{buyCourseData.courseName}</h2>
             <div className="courseThumbnail">

@@ -56,7 +56,7 @@ function LoginPage() {
   }
 
   return (
-    <div className={`mainDiv ${isVisible ? 'visible' : ''}`}>
+    <div className={`mainDiv no-select${isVisible ? 'visible' : ''}`}>
       <div className="loginPageImg">
         <img src={profilePic} alt="Profile" />
       </div>

@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   MdModeEdit,
   MdDelete,
   MdChevronLeft,
   MdChevronRight,
 } from 'react-icons/md'
-
 import { IoMdAdd } from 'react-icons/io'
 import {
   addCard,
   updateCard,
   removeCard,
+  setCardNumber,
+  setExpiryDate,
+  setCvc,
+  setCardNumberValid,
+  setExpiryDateValid,
 } from '../../../redux/features/paymentSlice'
 import '../../../styling/NewPaymentCard.css'
 import CreditCard from './CreditCard'
@@ -21,23 +25,23 @@ function NewPaymentCard() {
   const cards = useSelector((state) => state.payment.cards)
 
   const [editingCardId, setEditingCardId] = useState(null)
-  const [cardNumber, setCardNumber] = useState('')
-  const [expiryDate, setExpiryDate] = useState('')
-  const [cvc, setCvc] = useState('')
   const [isAddingNewCard, setIsAddingNewCard] = useState(false)
   const [visibleStartIndex, setVisibleStartIndex] = useState(0)
+
+  const cardNumber = useSelector((state) => state.payment.cardNumber)
+  const expiryDate = useSelector((state) => state.payment.expiryDate)
 
   useEffect(() => {
     if (editingCardId !== null) {
       const card = cards.find((card) => card.id === editingCardId)
       if (card) {
-        setCardNumber(card.cardNumber)
-        setExpiryDate(card.expiryDate)
+        dispatch(setCardNumber(card.cardNumber))
+        dispatch(setExpiryDate(card.expiryDate))
       }
     } else {
       resetForm()
     }
-  }, [editingCardId, cards])
+  }, [editingCardId, cards, dispatch])
 
   const handleEditClick = (card) => {
     setEditingCardId(card.id)
@@ -72,9 +76,11 @@ function NewPaymentCard() {
 
   const resetForm = () => {
     setEditingCardId(null)
-    setCardNumber('')
-    setExpiryDate('')
-    setCvc('')
+    dispatch(setCardNumber(''))
+    dispatch(setExpiryDate(''))
+    dispatch(setCvc(''))
+    dispatch(setCardNumberValid(false))
+    dispatch(setExpiryDateValid(false))
     setIsAddingNewCard(false)
   }
 
@@ -155,13 +161,7 @@ function NewPaymentCard() {
       ) : (
         <div className="card-details-form">
           <CreditCard
-            cardNumber={cardNumber}
-            expiryDate={expiryDate}
-            cvc={cvc}
-            setCardNumber={setCardNumber}
-            setExpiryDate={setExpiryDate}
-            setCvc={setCvc}
-            showCvc={false}
+            showCvc={false} // Show CVC field if needed
           />
           <div className="form-buttons">
             <button className="update-button" onClick={handleUpdateClick}>

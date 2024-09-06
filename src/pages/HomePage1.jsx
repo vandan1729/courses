@@ -33,6 +33,7 @@ function HomePage1() {
       ) : (
         <Layout>
           <div
+            className="no-select"
             style={{
               opacity: opacityValue ? '0.5' : '1',
               pointerEvents: opacityValue ? 'none' : 'auto',

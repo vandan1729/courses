@@ -31,7 +31,7 @@ function MyAccountPage1() {
   return (
     <>
       <Layout>
-        <div className="myAccountContainer">
+        <div className="myAccountContainer no-select">
           <h2 className="myAccountContainerH2">My Account</h2>
 
           <div className="sidebar">

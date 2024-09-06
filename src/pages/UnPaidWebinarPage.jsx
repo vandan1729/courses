@@ -88,7 +88,7 @@ function UnPaidWebinarPage() {
   return (
     <>
       <Layout>
-        <div className="unPaidWebinarVideo">
+        <div className="unPaidWebinarVideo no-select">
           <div className="unPaidWebinarCourseDetails">
             <img src={courseImage} alt="Video" />
           </div>

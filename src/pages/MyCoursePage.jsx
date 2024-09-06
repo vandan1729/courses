@@ -22,7 +22,7 @@ function MyCoursePage() {
     <>
       <Layout>
         <SliderComponent />
-        <div className="myCoursetTopLayer">
+        <div className="myCoursetTopLayer no-select">
           <div className="myCoursetTopLayerText">
             <p className="myCoursetTopLayerText1">My Course</p>
             <p className="myCoursetTopLayerText2">List of your course</p>

@@ -14,7 +14,10 @@ function PaymentPage() {
   return (
     <>
       <Navbar2 />
-      <div className="paymentPage" style={{ opacity: opacityValue ? 0.5 : 1 }}>
+      <div
+        className="paymentPage no-select"
+        style={{ opacity: opacityValue ? 0.5 : 1 }}
+      >
         <div className="paymentPriceDiv">
           <TotalProductBuyPrice />
         </div>
