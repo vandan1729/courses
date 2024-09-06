@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
@@ -7,10 +7,6 @@ import { FaGooglePay } from 'react-icons/fa6'
 import { BsPaypal } from 'react-icons/bs'
 import QRCodeGenerator from './QRCodeGenerator'
 import {
-  addCard,
-  setCardNumber,
-  setExpiryDate,
-  setCvc,
   setCardNumberValid,
   setExpiryDateValid,
   setCvcValid,
@@ -46,6 +42,12 @@ function PaymentMethod() {
 
   const [timeLeft, setTimeLeft] = useState(120)
   const [timer, setTimer] = useState(null)
+
+  const [selectedCard, setSelectedCard] = useState({
+    cardNumber: '',
+    expiryDate: '',
+    cvc: '',
+  })
 
   useEffect(() => {
     if (paymentMethod.upi) {
@@ -104,27 +106,48 @@ function PaymentMethod() {
       card: method === 'card',
       upi: method === 'upi',
     })
+    if (method === 'card') {
+      setSelectedCardId(null)
+      setSelectedCard({
+        cardNumber: '',
+        expiryDate: '',
+        cvc: '',
+      })
+    }
   }
 
   const handleCardSelection = (id) => {
-    setSelectedCardId(id)
-
-    const selectedCard = cards.find((card) => card.id === id)
-    if (selectedCard) {
-      dispatch(setCardNumber(selectedCard.cardNumber))
-      dispatch(setExpiryDate(selectedCard.expiryDate))
-      dispatch(setCvc(selectedCard.cvc))
+    const card = cards.find((card) => card.id === id)
+    if (card) {
+      setSelectedCardId(id)
+      setSelectedCard({
+        cardNumber: card.cardNumber,
+        expiryDate: card.expiryDate,
+        cvc: card.cvc,
+      })
+      setIsCardInputVisible(true)
     }
   }
 
   const payWithDifferentCard = () => {
-    setIsCardInputVisible(!isCardInputVisible)
+    setIsCardInputVisible(true)
     setSelectedCardId(null)
+    setSelectedCard({
+      cardNumber: '',
+      expiryDate: '',
+      cvc: '',
+    })
+  }
+
+  const handleCardInputChange = (field, value) => {
+    setSelectedCard((prev) => ({ ...prev, [field]: value }))
+    if (selectedCardId !== null) {
+      setSelectedCardId(null)
+    }
   }
 
   return (
     <>
-      {/* Pay with Card Option */}
       <div className="paymentOption">
         <div className="creditCardOption">
           <input
@@ -170,12 +193,25 @@ function PaymentMethod() {
                 </button>
               )}
             </div>
-            {isCardInputVisible && <CreditCard />}
+            {isCardInputVisible && (
+              <CreditCard
+                cardNumber={selectedCard.cardNumber}
+                expiryDate={selectedCard.expiryDate}
+                cvc={selectedCard.cvc}
+                setCardNumber={(value) =>
+                  handleCardInputChange('cardNumber', value)
+                }
+                setExpiryDate={(value) =>
+                  handleCardInputChange('expiryDate', value)
+                }
+                setCvc={(value) => handleCardInputChange('cvc', value)}
+                showCvc={true} // Show CVC field if needed
+              />
+            )}
           </>
         )}
       </div>
 
-      {/* Pay with UPI Option */}
       <div className="paymentOption">
         <div className="upiOption">
           <input
@@ -205,7 +241,7 @@ function PaymentMethod() {
       </div>
 
       <button className="paymentButton" onClick={handlePayment}>
-        Proceed To Pay{' '}
+        Proceed To Pay
       </button>
     </>
   )

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { MdModeEdit, MdDelete } from 'react-icons/md'
+import {
+  MdModeEdit,
+  MdDelete,
+  MdChevronLeft,
+  MdChevronRight,
+} from 'react-icons/md'
+
 import { IoMdAdd } from 'react-icons/io'
 import {
   addCard,
@@ -19,6 +25,7 @@ function NewPaymentCard() {
   const [expiryDate, setExpiryDate] = useState('')
   const [cvc, setCvc] = useState('')
   const [isAddingNewCard, setIsAddingNewCard] = useState(false)
+  const [visibleStartIndex, setVisibleStartIndex] = useState(0)
 
   useEffect(() => {
     if (editingCardId !== null) {
@@ -26,12 +33,10 @@ function NewPaymentCard() {
       if (card) {
         setCardNumber(card.cardNumber)
         setExpiryDate(card.expiryDate)
-        setCvc(card.cvc)
       }
     } else {
       resetForm()
     }
-    // console.log(cards)
   }, [editingCardId, cards])
 
   const handleEditClick = (card) => {
@@ -47,7 +52,6 @@ function NewPaymentCard() {
           cardData: {
             cardNumber,
             expiryDate,
-            cvc,
           },
         }),
       )
@@ -56,7 +60,6 @@ function NewPaymentCard() {
         addCard({
           cardNumber,
           expiryDate,
-          cvc,
         }),
       )
     }
@@ -73,6 +76,19 @@ function NewPaymentCard() {
     setExpiryDate('')
     setCvc('')
     setIsAddingNewCard(false)
+  }
+
+  // Handle scrolling through cards
+  const handleNextClick = () => {
+    if (visibleStartIndex + 1 < cards.length) {
+      setVisibleStartIndex((prevIndex) => prevIndex + 1)
+    }
+  }
+
+  const handlePrevClick = () => {
+    if (visibleStartIndex > 0) {
+      setVisibleStartIndex((prevIndex) => prevIndex - 1)
+    }
   }
 
   return (
@@ -95,30 +111,42 @@ function NewPaymentCard() {
 
           {cards.length > 0 ? (
             <ul className="card-list">
-              {cards.map((card) => (
-                <li key={card.id} className="card-item">
-                  <MdModeEdit
-                    className="edit-icon"
-                    onClick={() => handleEditClick(card)}
-                  />
-                  <MdDelete
-                    className="delete-icon"
-                    onClick={() => handleDeleteClick(card.id)}
-                  />
-                  <div className="card-info">
-                    <div className="card-number">
-                      Card Number:{' '}
-                      {card.cardNumber.slice(0, 4) +
-                        ' **** **** ' +
-                        card.cardNumber.slice(-4)}
+              {cards
+                .slice(visibleStartIndex, visibleStartIndex + 1) // Show only 1 card at a time
+                .map((card) => (
+                  <li key={card.id} className="card-item">
+                    <MdModeEdit
+                      className="edit-icon"
+                      onClick={() => handleEditClick(card)}
+                    />
+                    <MdDelete
+                      className="delete-icon"
+                      onClick={() => handleDeleteClick(card.id)}
+                    />
+                    <div className="card-info">
+                      <div className="card-number">
+                        Card Number:{' '}
+                        {card.cardNumber.slice(0, 4) +
+                          ' **** **** ' +
+                          card.cardNumber.slice(-4)}
+                      </div>
+                      <div className="expiry-date">
+                        Expiry Date: {card.expiryDate}
+                      </div>
                     </div>
-                    <div className="expiry-date">
-                      Expiry Date: {card.expiryDate}
-                    </div>
-                    <div className="cvc">CVC: ***</div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ))}
+              <MdChevronLeft
+                className={`cardLeftIcon ${visibleStartIndex === 0 ? 'activeCardIcon' : ''}`}
+                onClick={handlePrevClick}
+              />
+
+              <MdChevronRight
+                className={`cardRightIcon ${
+                  visibleStartIndex + 1 >= cards.length ? 'activeCardIcon' : ''
+                }`}
+                onClick={handleNextClick}
+              />
             </ul>
           ) : (
             <p className="no-cards-message">"No saved cards"</p>
@@ -133,6 +161,7 @@ function NewPaymentCard() {
             setCardNumber={setCardNumber}
             setExpiryDate={setExpiryDate}
             setCvc={setCvc}
+            showCvc={false}
           />
           <div className="form-buttons">
             <button className="update-button" onClick={handleUpdateClick}>

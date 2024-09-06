@@ -33,7 +33,6 @@ export const {
   setSignUpVisible,
   setCartVisible,
   setOpacityValue,
-  addCardButton,
   showSuccess,
 } = modalSlice.actions
 export default modalSlice.reducer

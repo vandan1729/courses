@@ -61,17 +61,16 @@ function App() {
               <ProtectedRoute element={CourseBuyPage} requiresCart={true} />
             }
           />
-          {/* <Route
+          <Route
             path="/paymentPage"
             element={
               <ProtectedRoute element={PaymentPage} requiresCart={true} />
             }
-          /> */}
-          <Route path="/paymentPage" element={<PaymentPage />} />
+          />
         </Routes>
         <ToastContainer
           position="top-center"
-          autoClose={1500}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

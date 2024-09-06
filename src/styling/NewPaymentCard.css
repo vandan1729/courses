@@ -26,15 +26,43 @@
 }
 
 .card-list {
-    display: flex;
     position: relative;
-    gap: 1rem;
+    width: 20rem;
+    overflow-y: auto;
+    display: flex;
+    gap: 2rem;
     list-style-type: none;
-    padding: 0;
+    padding: 0rem 2rem;
+    scrollbar-width: none;
+    box-shadow: 3px 3px 17px 0px rgba(0, 0, 0, 0.55);
+    border-radius: 20px;
+    margin-top: 1rem;
 }
 
 .cardCloseIcon {
     cursor: pointer;
+}
+
+.cardLeftIcon,
+.cardRightIcon {
+    position: absolute;
+    top: 35%;
+    font-size: 2.5rem;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.cardLeftIcon {
+    left: -1rem;
+}
+
+.cardRightIcon {
+    right: -1rem;
+}
+
+.activeCardIcon {
+    display: none;
 }
 
 .card-item {
@@ -44,11 +72,10 @@
     border: 1px solid #ddd;
     position: relative;
     background: radial-gradient(circle, white 0%, #d5d5d5 100%);
-    width: 20rem;
+    min-width: 20rem;
     height: 10rem;
     border-radius: 20px;
     position: relative;
-    box-shadow: 3px 3px 17px 0px rgba(0, 0, 0, 0.55);
 }
 
 .card-info {

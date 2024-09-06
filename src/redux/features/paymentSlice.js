@@ -9,13 +9,31 @@ const paymentSlice = createSlice({
         id: 1,
         cardNumber: '1234 5678 9012 3456',
         expiryDate: '12/24',
-        cvc: '123',
       },
       {
         id: 2,
         cardNumber: '9876 5432 1098 7654',
         expiryDate: '11/25',
-        cvc: '456',
+      },
+      {
+        id: 1,
+        cardNumber: '1234 5678 9012 3456',
+        expiryDate: '12/24',
+      },
+      {
+        id: 2,
+        cardNumber: '9876 5432 1098 7654',
+        expiryDate: '11/25',
+      },
+      {
+        id: 1,
+        cardNumber: '1234 5678 9012 3456',
+        expiryDate: '12/24',
+      },
+      {
+        id: 2,
+        cardNumber: '9876 5432 1098 7654',
+        expiryDate: '11/25',
       },
     ], // Sample cards
     cardNumber: '',

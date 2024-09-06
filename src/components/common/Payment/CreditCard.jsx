@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setCardNumber,
@@ -39,9 +39,9 @@ const isExpiryDateValid = (formattedValue, currentYear, currentMonth) => {
 }
 
 function CreditCard({
-  cardNumber,
-  expiryDate,
-  cvc,
+  cardNumber = '',
+  expiryDate = '',
+  cvc = '',
   setCardNumber,
   setExpiryDate,
   setCvc,
@@ -55,29 +55,35 @@ function CreditCard({
   const currentYear = new Date().getFullYear() % 100
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0')
 
-  const handleCardInput = (e) => {
-    const formattedValue = formatCardNumber(e.target.value)
-    e.target.value = formattedValue
-    setCardNumber(formattedValue)
-    dispatch(
-      setCardNumberValid(formattedValue.replace(/\s/g, '').length === 16),
-    )
-  }
+  const handleCardInput = useCallback(
+    (e) => {
+      const formattedValue = formatCardNumber(e.target.value)
+      setCardNumber(formattedValue)
+      dispatch(
+        setCardNumberValid(formattedValue.replace(/\s/g, '').length === 16),
+      )
+    },
+    [dispatch, setCardNumber],
+  )
 
-  const handleExpiryDate = (e) => {
-    const formattedValue = formatExpiryDate(e.target.value)
-    e.target.value = formattedValue
-    const valid = isExpiryDateValid(formattedValue, currentYear, currentMonth)
-    setExpiryDate(formattedValue)
-    dispatch(setExpiryDateValid(valid))
-  }
+  const handleExpiryDate = useCallback(
+    (e) => {
+      const formattedValue = formatExpiryDate(e.target.value)
+      const valid = isExpiryDateValid(formattedValue, currentYear, currentMonth)
+      setExpiryDate(formattedValue)
+      dispatch(setExpiryDateValid(valid))
+    },
+    [dispatch, setExpiryDate, currentYear, currentMonth],
+  )
 
-  const handleCvcInput = (e) => {
-    const numericValue = e.target.value.replace(/\D/g, '')
-    e.target.value = numericValue
-    setCvc(numericValue)
-    dispatch(setCvcValid(numericValue.length === 3))
-  }
+  const handleCvcInput = useCallback(
+    (e) => {
+      const numericValue = e.target.value.replace(/\D/g, '')
+      setCvc(numericValue)
+      dispatch(setCvcValid(numericValue.length === 3))
+    },
+    [dispatch, setCvc],
+  )
 
   return (
     <div className="paymentOption">

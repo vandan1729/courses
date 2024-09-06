@@ -5,18 +5,13 @@ import TotalProductBuyPrice from '../components/common/Payment/TotalProductBuyPr
 import { FaAmazonPay } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-import { addCardButton } from '../redux/features/modalSlice'
-import { useDispatch } from 'react-redux'
-
 import '../styling/CourseBuyPage.css'
 
 function CourseBuyPage() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const handleBuyPage = () => {
     navigate('/paymentPage')
-    dispatch(addCardButton(false))
   }
 
   return (

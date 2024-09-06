@@ -78,6 +78,7 @@ function SignUpPage() {
       )
       dispatch(login())
       dispatch(setOpacityValue(false))
+      dispatch(setSignUpVisible(false))
     }
   }
 
