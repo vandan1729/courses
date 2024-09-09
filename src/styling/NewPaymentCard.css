@@ -61,17 +61,20 @@
     right: -1rem;
 }
 
+
+
 .activeCardIcon {
     display: none;
 }
 
 .card-item {
+    color: #ebecee;
     margin: 1.5rem 0;
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
     position: relative;
-    background: radial-gradient(circle, white 0%, #d5d5d5 100%);
+    background-color: #334053;
     min-width: 20rem;
     height: 10rem;
     border-radius: 20px;
@@ -82,10 +85,14 @@
     margin-left: 1rem;
 }
 
+.card-info span {
+    color: #adb3ba;
+}
+
 .edit-icon {
     position: absolute;
     top: 5%;
-    left: 80%;
+    left: 4%;
     font-size: 1.2rem;
     cursor: pointer;
 }
@@ -93,13 +100,18 @@
 .delete-icon {
     position: absolute;
     top: 5%;
-    left: 90%;
+    left: 12%;
     cursor: pointer;
     font-size: 1.2rem;
 
 }
 
-
+.masterCardSvg {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    width: 2.5rem;
+}
 
 .card-number {
     margin-bottom: 0.25rem;

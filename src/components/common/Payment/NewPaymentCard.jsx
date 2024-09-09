@@ -125,6 +125,10 @@ function NewPaymentCard() {
                 .slice(visibleStartIndex, visibleStartIndex + 1) // Show only 1 card at a time
                 .map((card) => (
                   <li key={card.id} className="card-item">
+                    <img
+                      src="./src/assets/mastercard-svgrepo-com.svg"
+                      className="masterCardSvg"
+                    />
                     <MdModeEdit
                       className="edit-icon"
                       onClick={() => handleEditClick(card)}
@@ -135,13 +139,15 @@ function NewPaymentCard() {
                     />
                     <div className="card-info">
                       <div className="card-number">
-                        Card Number:{' '}
+                        <span>Card Number: </span>
+
                         {card.cardNumber.slice(0, 4) +
                           ' **** **** ' +
                           card.cardNumber.slice(-4)}
                       </div>
                       <div className="expiry-date">
-                        Expiry Date: {card.expiryDate}
+                        <span>Expiry Date: </span>
+                        {card.expiryDate}
                       </div>
                     </div>
                   </li>
