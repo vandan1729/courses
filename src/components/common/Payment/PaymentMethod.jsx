@@ -74,9 +74,15 @@ function PaymentMethod() {
   }
 
   useEffect(() => {
-    setSelectedCardId(null)
-    console.log(cardNumber)
-  }, [cardNumber])
+    const cardExists = cards.some((card) => card.cardNumber === cardNumber)
+    const matchingCard = cards.find((card) => card.cardNumber === cardNumber)
+
+    if (!cardExists) {
+      setSelectedCardId(null)
+    } else if (matchingCard) {
+      setSelectedCardId(matchingCard.id)
+    }
+  }, [cardNumber, cards])
 
   const handlePayment = () => {
     console.log(cardNumberValid, expiryDateValid, cvcValid)
@@ -149,8 +155,8 @@ function PaymentMethod() {
           />
           <label htmlFor="card" className="paymentLabel">
             Pay with Card
+            <CiCreditCard1 className="creditCardIcon" />
           </label>
-          <CiCreditCard1 className="creditCardIcon" />
         </div>
         {paymentMethod.card && (
           <>
@@ -199,9 +205,9 @@ function PaymentMethod() {
           />
           <label htmlFor="upi" className="paymentLabel">
             Pay with UPI
+            <FaGooglePay className="gPayIcon" />
+            <BsPaypal className="payPalIcon" />
           </label>
-          <FaGooglePay className="gPayIcon" />
-          <BsPaypal className="payPalIcon" />
         </div>
         {paymentMethod.upi && (
           <div className="paymentDetails upiDetails">

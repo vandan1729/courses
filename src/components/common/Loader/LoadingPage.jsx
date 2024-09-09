@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styling/LoadingPage.css'
+import '../../../styling/LoadingPage.css'
 
 function LoadingPage() {
   return (

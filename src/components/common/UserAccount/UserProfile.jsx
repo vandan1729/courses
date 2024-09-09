@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react'
 import { TbCameraPlus } from 'react-icons/tb'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUserData } from '../../redux/features/userDataSlice'
-import '../../styling/UserProfile.css'
+import { setUserData } from '../../../redux/features/userDataSlice'
+import '../../../styling/UserProfile.css'
 
 function UserProfile() {
   const dispatch = useDispatch()

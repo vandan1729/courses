@@ -8,20 +8,21 @@ import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
 
 import { toast } from 'react-toastify'
-
-import {
-  setOpacityValue,
-  setCartVisible,
-} from '../../redux/features/modalSlice'
-import { setLoginVisible } from '../../redux/features/modalSlice'
-import { logout } from '../../redux/features/authSlice'
-import { myCourseCardData } from '../../data/MyCourseCardData'
-
+import WishlistCounter from '../common/WishlistCounter'
+import PromptDialogBox from '../common/CustomDialogBox/PromptDialogBox'
 import logo from '/src/assets/logo.png'
 import CartMenu from '../homePage1/CartMenu'
 
+import {
+  setLoginVisible,
+  setOpacityValue,
+  setCartVisible,
+  promptDialogBox,
+} from '../../redux/features/modalSlice'
+import { logout } from '../../redux/features/authSlice'
+import { myCourseCardData } from '../../data/MyCourseCardData'
+
 import '../../styling/Navbar2.css'
-import WishlistCounter from '../common/WishlistCounter'
 
 function Navbar2() {
   const dispatch = useDispatch()
@@ -61,10 +62,9 @@ function Navbar2() {
   // Access Redux state
 
   const handleNavigate = () => {
-    navigate('/')
-    dispatch(logout())
+    dispatch(promptDialogBox(true))
     dispatch(setOpacityValue(true))
-    dispatch(setLoginVisible(true))
+    setIsCartDropdownOpen(false)
   }
   const handleMyCourses = () => {
     navigate('/wishlistPage')
@@ -118,6 +118,10 @@ function Navbar2() {
     dispatch(setOpacityValue(false))
   }
 
+  const handleCloseIcon = () => {
+    setSearchItem('')
+  }
+
   return (
     <div className="navbar2">
       <div className="navbar2Logo">
@@ -165,18 +169,20 @@ function Navbar2() {
           value={searchItem}
           onChange={(e) => setSearchItem(e.target.value)}
         />
-        {filterItem.length > 0 && (
+        {searchItem && filterItem.length > 0 ? (
           <div className="navbar2SearchItem">
             {filterItem.map((item) => (
               <div key={item.id}>{item.cardContent}</div>
             ))}
           </div>
-        )}
-        {searchItem && filterItem.length === 0 && (
+        ) : searchItem && filterItem.length === 0 ? (
           <div className="navbar2SearchItem">No results found</div>
-        )}
+        ) : null}
+
         <IoIosSearch className="navbar2SearchIcon" />
+        <IoMdClose className="navbar2CloseIcon" onClick={handleCloseIcon} />
       </div>
+
       <div className="navbar2Menu">
         <span className="navbar2Item">Become Instructor</span>
         <MdShoppingCart className="navbar2CartIcon" onClick={toggleCartMenu} />
@@ -186,7 +192,10 @@ function Navbar2() {
           </span>
         )}
 
-        <FaRegBell className="navbar2CartIcon" />
+        <button className="navbar2BellBtn">
+          <FaRegBell className="bellIcon" />
+        </button>
+
         <div className="cartDropdownContainer" ref={cartDropdownRef}>
           <div className="cartDropdownProfile">
             {userData.userProfile ? (
@@ -229,6 +238,7 @@ function Navbar2() {
         </div>
       </div>
       <CartMenu isVisible={isCartVisible} />
+      <PromptDialogBox />
     </div>
   )
 }

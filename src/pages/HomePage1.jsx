@@ -10,7 +10,7 @@ import { KitaniStudioCardData } from '../data/KitaniStudioCard'
 import { TrendingCourseData } from '../data/TrendingCourse'
 import { PopularInstructorData } from '../data/PopularInstructor'
 
-import LoadingPage from './LoadingPage'
+// import LoadingPage from '../components/common/Loader/LoadingPage'
 import Layout from '../layoutComponent/Layout'
 
 function HomePage1() {
@@ -28,42 +28,42 @@ function HomePage1() {
 
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         <LoadingPage />
-      ) : (
-        <Layout>
-          <div
-            className="no-select"
-            style={{
-              opacity: opacityValue ? '0.5' : '1',
-              pointerEvents: opacityValue ? 'none' : 'auto',
-            }}
-          >
-            <SliderComponent />
-            <Categories />
+      ) : ( */}
+      <Layout>
+        <div
+          className="no-select"
+          style={{
+            opacity: opacityValue ? '0.5' : '1',
+            pointerEvents: opacityValue ? 'none' : 'auto',
+          }}
+        >
+          <SliderComponent />
+          <Categories />
 
-            <CardContainer
-              data={KitaniStudioCardData}
-              header="More from Kitani Studio"
-              heading="We know the best things for You. Top picks for You"
-            />
+          <CardContainer
+            data={KitaniStudioCardData}
+            header="More from Kitani Studio"
+            heading="We know the best things for You. Top picks for You"
+          />
 
-            <CardContainer
-              data={TrendingCourseData}
-              header="Trending Course"
-              heading="We know the best things for You. Top picks for You."
-            />
+          <CardContainer
+            data={TrendingCourseData}
+            header="Trending Course"
+            heading="We know the best things for You. Top picks for You."
+          />
 
-            <InstructorCard
-              header="Popular Instructors"
-              heading="We know the best things for You. Top picks for You."
-              data={PopularInstructorData}
-            />
+          <InstructorCard
+            header="Popular Instructors"
+            heading="We know the best things for You. Top picks for You."
+            data={PopularInstructorData}
+          />
 
-            <SubscribeCard />
-          </div>
-        </Layout>
-      )}
+          <SubscribeCard />
+        </div>
+      </Layout>
+      {/* )} */}
     </>
   )
 }

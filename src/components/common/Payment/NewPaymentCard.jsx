@@ -19,6 +19,7 @@ import {
 } from '../../../redux/features/paymentSlice'
 import '../../../styling/NewPaymentCard.css'
 import CreditCard from './CreditCard'
+import { toast } from 'react-toastify'
 
 function NewPaymentCard() {
   const dispatch = useDispatch()
@@ -59,6 +60,7 @@ function NewPaymentCard() {
           },
         }),
       )
+      toast.success('Card info updated')
     } else {
       dispatch(
         addCard({
@@ -66,12 +68,14 @@ function NewPaymentCard() {
           expiryDate,
         }),
       )
+      toast.success('New card saved')
     }
     resetForm()
   }
 
   const handleDeleteClick = (id) => {
     dispatch(removeCard({ id }))
+    toast.success('Card deleted')
   }
 
   const resetForm = () => {

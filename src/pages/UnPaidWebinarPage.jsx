@@ -18,7 +18,6 @@ import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleWishListItem } from '../redux/features/wishListSlice'
 import { setBuyProduct } from '../redux/features/buyProductSlice'
-import { setCartVisible } from '../redux/features/modalSlice'
 
 import '../styling/UnPaidWebinarPage.css'
 
@@ -44,6 +43,8 @@ function UnPaidWebinarPage() {
   const [isInCart, setIsInCart] = useState(
     buyProductId.some((product) => product.id === id),
   )
+
+  const opacityValue = useSelector((state) => state.modal.opacityValue)
 
   useEffect(() => {
     setIsInCart(buyProductId.some((product) => product.id === id))
@@ -88,7 +89,13 @@ function UnPaidWebinarPage() {
   return (
     <>
       <Layout>
-        <div className="unPaidWebinarVideo no-select">
+        <div
+          className="unPaidWebinarVideo no-select"
+          style={{
+            opacity: opacityValue ? '0.5' : '1',
+            pointerEvents: opacityValue ? 'none' : 'auto',
+          }}
+        >
           <div className="unPaidWebinarCourseDetails">
             <img src={courseImage} alt="Video" />
           </div>

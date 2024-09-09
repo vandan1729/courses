@@ -19,7 +19,7 @@ import { toast } from 'react-toastify'
 import {
   CustomToastPassword,
   CustomToastEmail,
-} from '../components/common/CustomToast'
+} from '../components/common/CustomDialogBox/CustomToast'
 
 function SignUpPage() {
   const dispatch = useDispatch()
@@ -85,7 +85,7 @@ function SignUpPage() {
   const handleLockIconToggle = () => setIconToggle(!iconToggle)
 
   return (
-    <div className={`SignUpmainDiv no-select${isVisible ? 'visible' : ''}`}>
+    <div className={`SignUpmainDiv no-select ${isVisible ? 'visible' : ''}`}>
       <div className="signUpPageImg">
         <img src={profilePic} alt="Sign Up" />
       </div>

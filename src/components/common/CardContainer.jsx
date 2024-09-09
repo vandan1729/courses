@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
@@ -8,12 +8,14 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 
 import CardRatingComponent from './CardRatingComponent'
+import CardLoader from './Loader/CardLoader'
+import { toast } from 'react-toastify'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
 
 import '/src/styling/CardContainer.css'
-import { toast } from 'react-toastify'
 
 function CardContainer({ header, heading, data }) {
+  const [loadingCards, setLoadingCards] = useState([]) // Loading state for each card
   const cardValue = useSelector((state) => state.card.cardValue)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -21,11 +23,13 @@ function CardContainer({ header, heading, data }) {
 
   const auth = useSelector((state) => state.auth.isAuthenticated)
 
-  // Filter data based on cardValue from Redux store
-  const filteredData = data?.filter(
-    (item) =>
-      item.cardCategory === cardValue || cardValue === 'All Recommendation',
-  )
+  // Memoize the filteredData to avoid recalculating it on every render
+  const filteredData = useMemo(() => {
+    return data?.filter(
+      (item) =>
+        item.cardCategory === cardValue || cardValue === 'All Recommendation',
+    )
+  }, [data, cardValue])
 
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const buyCourseData = useSelector((state) => state.wishList.buyCourseData)
@@ -101,6 +105,18 @@ function CardContainer({ header, heading, data }) {
     setLikedItems(updatedLikedItems)
   }, [wishListItems])
 
+  // Set loading to false after 2 seconds for each card
+  useEffect(() => {
+    const loaders = Array(filteredData.length).fill(true)
+    setLoadingCards(loaders)
+
+    const timer = setTimeout(() => {
+      setLoadingCards(Array(filteredData.length).fill(false))
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [filteredData])
+
   return (
     <div className="cardContainer">
       {filteredData && filteredData.length > 0 ? (
@@ -115,63 +131,76 @@ function CardContainer({ header, heading, data }) {
 
               return (
                 <div className="card" key={index}>
-                  <span
-                    className="cardImgIconSpan"
-                    onClick={() => handleLikeClick(item)}
-                    aria-label={
-                      likedItems[item.id]
-                        ? 'Remove from wishlist'
-                        : 'Add to wishlist'
-                    }
-                  >
-                    {auth ? (
-                      likedItems[item.id] ? (
-                        <FaHeart color="red" />
-                      ) : (
-                        <FaRegHeart />
-                      )
-                    ) : (
-                      <FaRegHeart />
-                    )}
-                  </span>
+                  {loadingCards[index] ? (
+                    <CardLoader /> // Show loader while loading is true
+                  ) : (
+                    <>
+                      <span
+                        className="cardImgIconSpan"
+                        onClick={() => handleLikeClick(item)}
+                        aria-label={
+                          likedItems[item.id]
+                            ? 'Remove from wishlist'
+                            : 'Add to wishlist'
+                        }
+                      >
+                        {auth ? (
+                          likedItems[item.id] ? (
+                            <FaHeart color="red" className="heartLiked" />
+                          ) : (
+                            <FaRegHeart className="heartDisLiked" />
+                          )
+                        ) : (
+                          <FaRegHeart />
+                        )}
+                      </span>
 
-                  <img
-                    src={item?.cardImg}
-                    alt="Card Img"
-                    className="cardImg"
-                    onClick={() => handleImgClick(item)}
-                  />
-                  <div className="cardContent">
-                    <h4>{item.cardContent}</h4>
-                    <p className="cardAuthor">
-                      <IoPersonOutline />
-                      <span>{item.cardAuthor}</span>
-                    </p>
-                    <p className="cardDescription">{item.cardDescription}</p>
-                    <div className="cardRatingSpan">
-                      <div className="cardRating">
-                        <CardRatingComponent cardRating={item.cardRating} />
-                      </div>
-                      <p>{item.cardTotalRating}</p>
-                    </div>
-
-                    {!isInFinalFilteredData ? (
-                      <p className="cardNewPrice">
-                        ${item.cardNewPrice}
-                        <span className="cardOldPrice">
-                          ${item.cardOldPrice}
-                        </span>
-                      </p>
-                    ) : (
+                      <img
+                        src={item?.cardImg}
+                        alt="Card Img"
+                        className="cardImg"
+                        onClick={() => handleImgClick(item)}
+                      />
                       <div
-                        className="goTOCourseBtnDiv"
+                        className="cardContent"
                         onClick={() => handleImgClick(item)}
                       >
-                        <button className="goToCourseBtn">Go To Course</button>
-                        <FaArrowRightLong />
+                        <h4>{item.cardContent}</h4>
+                        <p className="cardAuthor">
+                          <IoPersonOutline />
+                          <span>{item.cardAuthor}</span>
+                        </p>
+                        <p className="cardDescription">
+                          {item.cardDescription}
+                        </p>
+                        <div className="cardRatingSpan">
+                          <div className="cardRating">
+                            <CardRatingComponent cardRating={item.cardRating} />
+                          </div>
+                          <p>{item.cardTotalRating}</p>
+                        </div>
+
+                        {!isInFinalFilteredData ? (
+                          <p className="cardNewPrice">
+                            ${item.cardNewPrice}
+                            <span className="cardOldPrice">
+                              ${item.cardOldPrice}
+                            </span>
+                          </p>
+                        ) : (
+                          <div
+                            className="goTOCourseBtnDiv"
+                            onClick={() => handleImgClick(item)}
+                          >
+                            <button className="goToCourseBtn">
+                              Go To Course
+                            </button>
+                            <FaArrowRightLong />
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
+                    </>
+                  )}
                 </div>
               )
             })}

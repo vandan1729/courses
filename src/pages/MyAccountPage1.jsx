@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Layout from '../layoutComponent/Layout'
-import UserProfile from '../components/common/UserProfile'
 import AddnewCard from '../components/common/Payment/NewPaymentCard'
 import '../styling/MyAccountPage1.css'
+import UserProfile from '../components/common/UserAccount/UserProfile'
+import UserAccount from '../components/common/UserAccount/UserAccount'
 
 function MyAccountPage1() {
   const [activeSection, setActiveSection] = useState('profile')
@@ -22,7 +23,8 @@ function MyAccountPage1() {
         return <UserProfile />
       case 'paymentMethods':
         return <AddnewCard />
-      // Add more cases for other sections if needed
+      case 'account':
+        return <UserAccount />
       default:
         return <UserProfile />
     }
