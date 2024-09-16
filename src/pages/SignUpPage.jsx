@@ -10,6 +10,7 @@ import {
   setSignUpVisible,
   setLoginVisible,
   setOpacityValue,
+  setPrimaryLoading,
 } from '../redux/features/modalSlice'
 import { setUserData } from '../redux/features/userDataSlice'
 import { login } from '../redux/features/authSlice'
@@ -20,10 +21,12 @@ import {
   CustomToastPassword,
   CustomToastEmail,
 } from '../components/common/CustomDialogBox/CustomToast'
+import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
 
 function SignUpPage() {
   const dispatch = useDispatch()
   const isVisible = useSelector((state) => state.modal.signUpVisible)
+  const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const [iconToggle, setIconToggle] = useState(false)
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',
@@ -77,6 +80,7 @@ function SignUpPage() {
     }
 
     try {
+      dispatch(setPrimaryLoading(true))
       const response = await userAuth({
         data: {
           email: userEmailID,
@@ -103,7 +107,7 @@ function SignUpPage() {
           }),
         )
         //Set Login
-        dispatch(login())
+        dispatch(login(response.data.access_token))
         //Set Cookie
         document.cookie = `accessToken=${response.data.access_token}; path=/;`
 
@@ -112,8 +116,9 @@ function SignUpPage() {
         dispatch(setSignUpVisible(false))
       }
     } catch (error) {
-      console.error('Error during sign up:', error)
       toast.error('Failed to register. Please try again later.')
+    } finally {
+      dispatch(setPrimaryLoading(false))
     }
   }
 
@@ -198,6 +203,7 @@ function SignUpPage() {
             Login
           </span>
         </span>
+        {primaryLoading ? <PrimaryLoader /> : null}
       </div>
     </div>
   )

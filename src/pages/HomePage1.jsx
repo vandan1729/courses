@@ -34,7 +34,7 @@ function HomePage1() {
       const token = getCookie('accessToken')
 
       if (token) {
-        dispatch(login())
+        dispatch(login(token))
         setIsLoading(false)
       } else {
         dispatch(logout())

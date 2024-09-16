@@ -9,6 +9,7 @@ const modalSlice = createSlice({
     opacityValue: false,
     showSuccess: false,
     promptDialogBox: false,
+    primaryLoading: false,
   },
   reducers: {
     setLoginVisible: (state, action) => {
@@ -29,6 +30,9 @@ const modalSlice = createSlice({
     promptDialogBox: (state, action) => {
       state.promptDialogBox = action.payload
     },
+    setPrimaryLoading: (state, action) => {
+      state.primaryLoading = action.payload
+    },
   },
 })
 
@@ -39,5 +43,6 @@ export const {
   setOpacityValue,
   showSuccess,
   promptDialogBox,
+  setPrimaryLoading,
 } = modalSlice.actions
 export default modalSlice.reducer

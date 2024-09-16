@@ -8,7 +8,7 @@ import axios from 'axios'
 //   },
 // })
 
-export const userAuth = async ({ data, api }) => {
+export const userAuth = async ({ data, api, headers }) => {
   try {
     const response = await axios.post(
       `${import.meta.env.VITE_API_USER_AUTH_URL}/${api}`,
@@ -16,6 +16,7 @@ export const userAuth = async ({ data, api }) => {
       {
         headers: {
           'Content-Type': 'application/json',
+          ...headers,
         },
       },
     )

@@ -10,11 +10,13 @@ import {
   setLoginVisible,
   setOpacityValue,
   setSignUpVisible,
+  setPrimaryLoading,
 } from '../redux/features/modalSlice'
 import { login } from '../redux/features/authSlice'
 import { userAuth } from '../api/Api'
 import '/src/styling/LoginPage.css'
 import { toast } from 'react-toastify'
+import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
 
 function LoginPage() {
   const dispatch = useDispatch()
@@ -22,6 +24,7 @@ function LoginPage() {
   const [iconToggle, setIconToggle] = useState(false)
 
   const isVisible = useSelector((state) => state.modal.loginVisible)
+  const primaryLoading = useSelector((state) => state.modal.primaryLoading)
 
   const handleCloseIconClick = () => {
     dispatch(setLoginVisible(false))
@@ -34,6 +37,7 @@ function LoginPage() {
   }
 
   const handleLogin = async () => {
+    dispatch(setPrimaryLoading(true))
     try {
       const response = await userAuth({
         data: {
@@ -45,8 +49,8 @@ function LoginPage() {
 
       if (response.status === 200) {
         toast.success('Login Successful')
-        console.log(response.data.access_token)
-        dispatch(login())
+        document.cookie = `accessToken=${response.data.access_token}; path=/;`
+        dispatch(login(response.data.access_token))
         dispatch(setLoginVisible(false))
         dispatch(setOpacityValue(false))
       } else {
@@ -57,6 +61,8 @@ function LoginPage() {
     } catch (error) {
       console.error('Error during login:', error)
       toast.error('Login failed. Please try again later.')
+    } finally {
+      dispatch(setPrimaryLoading(false))
     }
   }
 
@@ -117,6 +123,9 @@ function LoginPage() {
             Login
           </button>
         </div>
+
+        {primaryLoading ? <PrimaryLoader /> : null}
+
         <span className="orYouCanSpan">or you can</span>
         <div className="loginPageBtnGroup">
           <button className="loginPageFbBtn">Continue with Facebook</button>

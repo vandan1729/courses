@@ -7,19 +7,44 @@ import {
 import { logout } from '../../../redux/features/authSlice'
 import { IoIosLogOut } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
+import { setPrimaryLoading } from '../../../redux/features/modalSlice'
 
 import '../../../styling/PromptDialogBox.css'
+import { userAuth } from '../../../api/Api'
+import { toast } from 'react-toastify'
+import PrimaryLoader from '../Loader/PrimaryLoader'
 
 function PromptDialogBox() {
   const promtVisible = useSelector((state) => state.modal.promptDialogBox)
+  const accessToken = useSelector((state) => state.auth.accessToken)
+  const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleAcceptBtn = () => {
-    dispatch(setOpacityValue(false))
-    navigate('/')
-    dispatch(logout())
-    dispatch(promptDialogBox(false))
+  const handleAcceptBtn = async () => {
+    dispatch(setPrimaryLoading(true))
+    try {
+      const response = await userAuth({
+        api: 'logout',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+
+      if (response.status === 200) {
+        document.cookie = 'accessToken=; path=/;'
+
+        dispatch(setOpacityValue(false))
+        dispatch(logout())
+        dispatch(promptDialogBox(false))
+        toast.success('Logout Successfully')
+        navigate('/')
+      }
+    } catch (error) {
+      toast.error('Failed to Logout. Please try again later.')
+    } finally {
+      dispatch(setPrimaryLoading(false))
+    }
   }
 
   const handleCancle = () => {
@@ -49,6 +74,7 @@ function PromptDialogBox() {
               Cancel
             </button>
           </div>
+          {primaryLoading ? <PrimaryLoader /> : null}
         </div>
       </div>
     </>
