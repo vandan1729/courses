@@ -1,12 +1,12 @@
 .SignUpmainDiv {
     position: fixed;
-    width: 50rem;
-    height: 32.5rem;
+    width: 60rem;
+    height: 40rem;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 6rem;
+    margin-top: 3rem;
     top: -2%;
     right: 100%;
     transition: right 0.3s ease-in-out;
@@ -15,7 +15,7 @@
 }
 
 .SignUpmainDiv.visible {
-    right: 23%;
+    right: 18%;
 }
 
 .signUpPageCloseIcon {
@@ -32,12 +32,12 @@
 
 .signUpPageImg {
     width: 60%;
-    height: 100%;
+    height: 40rem;
 }
 
 .signUpPageImg img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .signUpPageInputs {
@@ -103,13 +103,13 @@
 }
 
 .emailIcon {
-    top: 15%;
+    top: 50%;
     left: 90%;
     transform: translateY(-50%);
 }
 
 .lockIcon {
-    top: 50%;
+    top: 71%;
     left: 90%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -170,7 +170,7 @@
 
 .signUpPageAppBtnIcon {
     position: absolute;
-    transform: translateY(3.4rem) translateX(2.8rem);
+    transform: translateY(3.4rem) translateX(2.9rem);
     font-size: 1.75rem;
     color: #ffffff;
     border-radius: 3.125rem;

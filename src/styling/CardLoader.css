@@ -34,15 +34,11 @@
 }
 
 .cardPlaceHolder4 {
-    width: 12rem;
+    width: 15rem;
 }
 
 .cardPlaceHolder5 {
-    width: 15rem;
-}
-
-.cardPlaceHolder6 {
-    width: 15rem;
+    width: 12rem;
 }
 
 @keyframes pulse {

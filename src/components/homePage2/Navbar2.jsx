@@ -62,6 +62,7 @@ function Navbar2() {
   // Access Redux state
 
   const handleNavigate = () => {
+    document.cookie = 'accessToken' + '=; path=/;'
     dispatch(promptDialogBox(true))
     dispatch(setOpacityValue(true))
     setIsCartDropdownOpen(false)

@@ -13,7 +13,7 @@ import {
 } from '../redux/features/modalSlice'
 import { setUserData } from '../redux/features/userDataSlice'
 import { login } from '../redux/features/authSlice'
-import '/src/styling/LoginPage.css'
+import { userAuth } from '../api/Api'
 import '/src/styling/SignUpPage.css'
 import { toast } from 'react-toastify'
 import {
@@ -28,6 +28,8 @@ function SignUpPage() {
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',
     userPassword: '',
+    firstName: '',
+    lastName: '',
   })
 
   const handleCloseIconClick = () => {
@@ -48,8 +50,9 @@ function SignUpPage() {
     dispatch(setLoginVisible(true))
   }
 
-  const handleSubmit = () => {
-    const { userEmailID, userPassword } = userSignUp
+  const handleSubmit = async () => {
+    const { userEmailID, userPassword, firstName, lastName } = userSignUp
+
     const passwordCriteria = {
       minLength: userPassword.length < 8,
       lowercase: !/[a-z]/.test(userPassword),
@@ -62,7 +65,7 @@ function SignUpPage() {
     const emailCriteria = {
       empty: userEmailID === '',
       invalidFormat: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmailID),
-      taken: false, // Implement taken check if needed
+      taken: false,
     }
 
     if (Object.values(emailCriteria).some(Boolean)) {
@@ -71,14 +74,46 @@ function SignUpPage() {
     } else if (Object.values(passwordCriteria).some(Boolean)) {
       toast.error(<CustomToastPassword missingCriteria={passwordCriteria} />)
       return
-    } else {
-      toast.success('Registered Successfully')
-      dispatch(
-        setUserData({ userEmail: userEmailID, userPassword: userPassword }),
-      )
-      dispatch(login())
-      dispatch(setOpacityValue(false))
-      dispatch(setSignUpVisible(false))
+    }
+
+    try {
+      const response = await userAuth({
+        data: {
+          email: userEmailID,
+          password: userPassword,
+          username: 'test',
+          first_name: firstName,
+          last_name: lastName,
+          profile_picture: 'a',
+          is_instructor: false,
+          is_admin: false,
+          username: 'test2',
+        },
+        api: 'register',
+      })
+
+      if (response.status === 200) {
+        toast.success('Registered Successfully')
+        dispatch(
+          setUserData({
+            userEmail: userEmailID,
+            userPassword: userPassword,
+            userFirstName: firstName,
+            userLastName: lastName,
+          }),
+        )
+        //Set Login
+        dispatch(login())
+        //Set Cookie
+        document.cookie = `accessToken=${response.data.access_token}; path=/;`
+
+        console.log(response.data.access_token)
+        dispatch(setOpacityValue(false))
+        dispatch(setSignUpVisible(false))
+      }
+    } catch (error) {
+      console.error('Error during sign up:', error)
+      toast.error('Failed to register. Please try again later.')
     }
   }
 
@@ -112,6 +147,22 @@ function SignUpPage() {
         <span className="orYouCanSpan">or you can</span>
         <div className="signUpPageTextInput">
           <input
+            type="text"
+            id="firstName"
+            placeholder="First Name"
+            value={userSignUp.firstName}
+            onChange={handleChange}
+            autoComplete="given-name"
+          />
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last Name"
+            value={userSignUp.lastName}
+            onChange={handleChange}
+            autoComplete="family-name"
+          />
+          <input
             type="email"
             id="userEmailID"
             placeholder="Email Address"
@@ -120,7 +171,6 @@ function SignUpPage() {
             autoComplete="email"
             name="email"
           />
-
           <MdOutlineEmail className="emailIcon" />
           <input
             type={iconToggle ? 'text' : 'password'}

@@ -12,6 +12,7 @@ import {
   setSignUpVisible,
 } from '../redux/features/modalSlice'
 import { login } from '../redux/features/authSlice'
+import { userAuth } from '../api/Api'
 import '/src/styling/LoginPage.css'
 import { toast } from 'react-toastify'
 
@@ -20,9 +21,6 @@ function LoginPage() {
   const [userData, setUserData] = useState({ email: '', password: '' })
   const [iconToggle, setIconToggle] = useState(false)
 
-  // Access user data from the Redux store
-  const userEmail = useSelector((state) => state.user.userEmail)
-  const userPassword = useSelector((state) => state.user.userPassword)
   const isVisible = useSelector((state) => state.modal.loginVisible)
 
   const handleCloseIconClick = () => {
@@ -35,21 +33,35 @@ function LoginPage() {
     dispatch(setSignUpVisible(true))
   }
 
-  const handleLogin = () => {
-    if (userData.email === userEmail && userData.password === userPassword) {
-      setUserData((userData.email = ''), (userData.password = ''))
-      toast.success('Login Successfully')
-      dispatch(setLoginVisible(false))
-      dispatch(setOpacityValue(false))
-      dispatch(login())
-    } else {
-      toast.error('Email or Password does not match')
+  const handleLogin = async () => {
+    try {
+      const response = await userAuth({
+        data: {
+          identifier: userData.email,
+          password: userData.password,
+        },
+        api: 'login',
+      })
+
+      if (response.status === 200) {
+        toast.success('Login Successful')
+        console.log(response.data.access_token)
+        dispatch(login())
+        dispatch(setLoginVisible(false))
+        dispatch(setOpacityValue(false))
+      } else {
+        toast.error(
+          'Login failed. Please check your credentials and try again.',
+        )
+      }
+    } catch (error) {
+      console.error('Error during login:', error)
+      toast.error('Login failed. Please try again later.')
     }
   }
 
   const handleLockIconToggle = () => setIconToggle(!iconToggle)
 
-  // Handle input change for both email and password
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setUserData((prevData) => ({ ...prevData, [name]: value }))
@@ -81,7 +93,7 @@ function LoginPage() {
             onChange={handleInputChange}
             autoComplete="email"
           />
-          <MdOutlineEmail className="emailIcon" />
+          <MdOutlineEmail className="loginemailIcon" />
           <input
             type={iconToggle ? 'text' : 'password'}
             placeholder="Password"
@@ -91,10 +103,13 @@ function LoginPage() {
             autoComplete="current-password"
           />
           {iconToggle ? (
-            <FaRegEye className="lockIcon" onClick={handleLockIconToggle} />
+            <FaRegEye
+              className="loginlockIcon"
+              onClick={handleLockIconToggle}
+            />
           ) : (
             <FaRegEyeSlash
-              className="lockIcon"
+              className="loginlockIcon"
               onClick={handleLockIconToggle}
             />
           )}

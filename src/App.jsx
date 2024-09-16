@@ -11,13 +11,11 @@ import UnPaidWebinarPage from './pages/UnPaidWebinarPage'
 import CourseBuyPage from './pages/CourseBuyPage'
 import ScrollToTop from './components/common/ScrollToTop'
 import ProtectedRoute from './components/common/ProtectedRoute'
-
 import { Provider } from 'react-redux'
 import store from './redux/store/store'
-
+import { login, logout } from './redux/features/authSlice'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
 import './App.css'
 import ErrorPage from './pages/ErrorPage'
 import PaymentPage from './pages/PaymentPage'
