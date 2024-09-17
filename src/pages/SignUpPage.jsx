@@ -1,27 +1,29 @@
 import React, { useState } from 'react'
+import { FaApple, FaFacebookF, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
 import { IoMdClose } from 'react-icons/io'
 import { MdOutlineEmail } from 'react-icons/md'
-import { FaFacebookF, FaApple, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
-import profilePic from '../assets/homePage1/singUpPage/singUpImg.png'
-import logo from '/src/assets/logo.png'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid'
+
+import { userAuth } from '../api/Api'
+import profilePic from '../assets/homePage1/singUpPage/singUpImg.png'
 import {
-  setSignUpVisible,
+  CustomToastEmail,
+  CustomToastPassword,
+} from '../components/common/CustomDialogBox/CustomToast'
+import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
+import { login } from '../redux/features/authSlice'
+import {
   setLoginVisible,
   setOpacityValue,
   setPrimaryLoading,
+  setSignUpVisible,
 } from '../redux/features/modalSlice'
 import { setUserData } from '../redux/features/userDataSlice'
-import { login } from '../redux/features/authSlice'
-import { userAuth } from '../api/Api'
+import logo from '/src/assets/logo.png'
 import '/src/styling/SignUpPage.css'
-import { toast } from 'react-toastify'
-import {
-  CustomToastPassword,
-  CustomToastEmail,
-} from '../components/common/CustomDialogBox/CustomToast'
-import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
 
 function SignUpPage() {
   const dispatch = useDispatch()
@@ -91,7 +93,7 @@ function SignUpPage() {
           profile_picture: 'a',
           is_instructor: false,
           is_admin: false,
-          username: 'test2',
+          username: uuidv4(),
         },
         api: 'register',
       })

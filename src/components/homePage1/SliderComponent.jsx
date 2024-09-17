@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 
+import '../../styling/SliderComponent.css'
 import slider1 from '/src/assets/homePage1/slider/sliderImg1.jpg'
 import slider2 from '/src/assets/homePage1/slider/sliderImg2.jpg'
 import slider3 from '/src/assets/homePage1/slider/sliderImg3.jpg'
-
-import '../../styling/SliderComponent.css'
 
 const SliderComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0)

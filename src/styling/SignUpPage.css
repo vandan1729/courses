@@ -1,228 +1,227 @@
 .SignUpmainDiv {
-    position: fixed;
-    width: 60rem;
-    height: 40rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-top: 3rem;
-    top: -2%;
-    right: 100%;
-    transition: right 0.3s ease-in-out;
-    border-radius: 0.5rem;
-    z-index: 100;
+  position: fixed;
+  width: 60rem;
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 3rem;
+  top: -2%;
+  right: 100%;
+  transition: right 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  z-index: 100;
 }
 
 .SignUpmainDiv.visible {
-    right: 18%;
+  right: 18%;
 }
 
 .signUpPageCloseIcon {
-    position: absolute;
-    font-size: 1.6875rem;
-    top: 1%;
-    left: 95%;
+  position: absolute;
+  font-size: 1.6875rem;
+  top: 1%;
+  left: 95%;
 }
 
 .signUpPageCloseIcon:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .signUpPageImg {
-    width: 60%;
-    height: 40rem;
+  width: 60%;
+  height: 40rem;
 }
 
 .signUpPageImg img {
-    max-width: 100%;
-    height: 100%;
+  max-width: 100%;
+  height: 100%;
 }
 
 .signUpPageInputs {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #c4e2e4;
-    padding: 1.25rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    text-align: center;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4e2e4;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .signUpPageLogo {
-    display: flex;
-    align-items: center;
-    margin: 0.625rem 0 1.25rem;
+  display: flex;
+  align-items: center;
+  margin: 0.625rem 0 1.25rem;
 }
 
 .signUpPageLogo img {
-    height: 2.5rem;
-    margin-right: 0.625rem;
+  height: 2.5rem;
+  margin-right: 0.625rem;
 }
 
 .signUpPageLogo span {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #333;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #333;
 }
 
 .signUpPageText {
-    text-align: start;
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 1.25rem;
+  text-align: start;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.25rem;
 }
 
 .signUpPageTextInput {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .signUpPageTextInput input {
-    background-color: #fafafa;
-    padding: 0.625rem 1.875rem 0.625rem 0.625rem;
-    margin-bottom: 0.625rem;
-    border: 0.0625rem solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+  background-color: #fafafa;
+  padding: 0.625rem 1.875rem 0.625rem 0.625rem;
+  margin-bottom: 0.625rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
 }
 
-
 .signUpPageTextInput input:focus {
-    border: 2px solid #3dcbb1;
+  border: 2px solid #3dcbb1;
 }
 
 .emailIcon,
 .lockIcon {
-    position: absolute;
-    color: #999;
-    font-size: 1.375rem;
+  position: absolute;
+  color: #999;
+  font-size: 1.375rem;
 }
 
 .emailIcon {
-    top: 50%;
-    left: 90%;
-    transform: translateY(-50%);
+  top: 50%;
+  left: 90%;
+  transform: translateY(-50%);
 }
 
 .lockIcon {
-    top: 71%;
-    left: 90%;
-    transform: translateY(-50%);
-    cursor: pointer;
+  top: 71%;
+  left: 90%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .signUpPageLoginBtn {
-    background-color: #3dcbb1;
-    color: #fff;
-    border: none;
-    padding: 0.625rem;
-    border-radius: 0.875rem;
-    cursor: pointer;
-    font-size: 1rem;
+  background-color: #3dcbb1;
+  color: #fff;
+  border: none;
+  padding: 0.625rem;
+  border-radius: 0.875rem;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .orYouCanSpan {
-    margin: 0.75rem 0;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 600;
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
 }
 
 .signUpPageBtnGroup {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .signUpPageBtnGroup button {
-    padding: 0.625rem;
-    margin-bottom: 0.625rem;
-    border: none;
-    font-size: 0.875rem;
-    cursor: pointer;
-    border-radius: 0.875rem;
+  padding: 0.625rem;
+  margin-bottom: 0.625rem;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 0.875rem;
 }
 
 .signUpPageFbBtn {
-    background-color: #4267b2;
-    color: #fff;
-    position: relative;
+  background-color: #4267b2;
+  color: #fff;
+  position: relative;
 }
 
 .signUpPageFbBtnIcon {
-    position: absolute;
-    font-size: 1.25rem;
-    transform: translateY(0.6rem) translateX(3.125rem);
-    background-color: #ddd;
-    color: #4267b2;
-    padding: 0.15625rem 0 0 0.1875rem;
-    border-radius: 0.125rem;
+  position: absolute;
+  font-size: 1.25rem;
+  transform: translateY(0.6rem) translateX(3.125rem);
+  background-color: #ddd;
+  color: #4267b2;
+  padding: 0.15625rem 0 0 0.1875rem;
+  border-radius: 0.125rem;
 }
 
 .signUpPageAppBtn {
-    background-color: #1b1b1b;
-    color: #fff;
-    position: relative;
+  background-color: #1b1b1b;
+  color: #fff;
+  position: relative;
 }
 
 .signUpPageAppBtnIcon {
-    position: absolute;
-    transform: translateY(3.4rem) translateX(2.9rem);
-    font-size: 1.75rem;
-    color: #ffffff;
-    border-radius: 3.125rem;
+  position: absolute;
+  transform: translateY(3.4rem) translateX(2.9rem);
+  font-size: 1.75rem;
+  color: #ffffff;
+  border-radius: 3.125rem;
 }
 
 .signUpPageGoogleBtn {
-    background-color: #f4f4f4;
-    color: #000;
-    position: relative;
+  background-color: #f4f4f4;
+  color: #000;
+  position: relative;
 }
 
 .signUpPageGoogleBtnIcon {
-    position: absolute;
-    transform: translateY(6.6rem) translateX(3.125rem);
-    font-size: 1.5625rem;
-    color: #ddd;
-    border-radius: 3.125rem;
+  position: absolute;
+  transform: translateY(6.6rem) translateX(3.125rem);
+  font-size: 1.5625rem;
+  color: #ddd;
+  border-radius: 3.125rem;
 }
 
 .needAnAccountSpan {
-    display: block;
-    margin-top: 0.3125rem;
-    font-size: 1rem;
-    color: #666;
-    font-weight: 600;
+  display: block;
+  margin-top: 0.3125rem;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
 }
 
 .signUpSpan {
-    color: #3dcbb1;
+  color: #3dcbb1;
 }
 
 @media (max-width: 48rem) {
-    .SignUpmainDiv.visible {
-        width: 43.75rem;
-        height: 32rem;
-        top: -5%;
-        right: 2%;
-    }
+  .SignUpmainDiv.visible {
+    width: 43.75rem;
+    height: 32rem;
+    top: -5%;
+    right: 2%;
+  }
 
-    .signUpPageImg img {
-        height: 32rem;
-    }
+  .signUpPageImg img {
+    height: 32rem;
+  }
 
-    .signUpPageFbBtnIcon {
-        transform: translateY(0.6rem) translateX(1.875rem);
-    }
+  .signUpPageFbBtnIcon {
+    transform: translateY(0.6rem) translateX(1.875rem);
+  }
 
-    .signUpPageAppBtnIcon {
-        transform: translateY(3.4rem) translateX(1.75rem);
-    }
+  .signUpPageAppBtnIcon {
+    transform: translateY(3.4rem) translateX(1.75rem);
+  }
 
-    .signUpPageGoogleBtnIcon {
-        transform: translateY(6.6rem) translateX(1.875rem);
-    }
+  .signUpPageGoogleBtnIcon {
+    transform: translateY(6.6rem) translateX(1.875rem);
+  }
 }

@@ -1,22 +1,19 @@
 import { useState } from 'react'
+import { BsPeople } from 'react-icons/bs'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
+import { MdOutlineRateReview, MdSlowMotionVideo } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 
 import SubscribeCard from '../components/homePage1/SubscribeCard'
 import Layout from '../layoutComponent/Layout'
-
+import '../styling/PaidOfflineVideoPage1.css'
 import img1 from '/src/assets/homePage1/paidOfflineVideo/image1.png'
 import img2 from '/src/assets/homePage1/paidOfflineVideo/image2.png'
-import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 import profile1 from '/src/assets/homePage1/paidOfflineVideo/profile1.png'
 import profile2 from '/src/assets/homePage1/paidOfflineVideo/profile2.png'
 import profile3 from '/src/assets/homePage1/paidOfflineVideo/profile3.png'
 import profile4 from '/src/assets/homePage1/paidOfflineVideo/profile4.png'
-
-import { BsPeople } from 'react-icons/bs'
-import { MdOutlineRateReview, MdSlowMotionVideo } from 'react-icons/md'
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
-
-import '../styling/PaidOfflineVideoPage1.css'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 
 const dropDownCourseLi = [
   'Installing Vue JS',

@@ -152,12 +152,10 @@
 
   .cartMenuProductCloseDeleteIcon {
     font-size: 1.5rem;
-
   }
 
   .cartMenuProductOpenDeleteIcon {
     font-size: 1.8rem;
-
   }
 
   .cartMenuProductCheckoutDiv {
@@ -166,7 +164,6 @@
     justify-content: center;
     gap: 3rem;
   }
-
 }
 
 @media (max-width: 426px) {

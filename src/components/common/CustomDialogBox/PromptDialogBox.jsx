@@ -1,17 +1,16 @@
+import { IoIosLogOut } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
+import { userAuth } from '../../../api/Api'
+import { logout } from '../../../redux/features/authSlice'
 import {
   promptDialogBox,
   setOpacityValue,
 } from '../../../redux/features/modalSlice'
-
-import { logout } from '../../../redux/features/authSlice'
-import { IoIosLogOut } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
 import { setPrimaryLoading } from '../../../redux/features/modalSlice'
-
 import '../../../styling/PromptDialogBox.css'
-import { userAuth } from '../../../api/Api'
-import { toast } from 'react-toastify'
 import PrimaryLoader from '../Loader/PrimaryLoader'
 
 function PromptDialogBox() {

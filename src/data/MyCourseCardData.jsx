@@ -94,11 +94,10 @@ export const myCourseCardData = [
   },
 ]
 
-
 // export const getFilteredData = (wishListValue, wishListItems, allCourseCardData) => {
 //   // Default to an empty array if any parameter is undefined
 //   if (!allCourseCardData) return [];
-  
+
 //   return allCourseCardData.filter((course) => {
 //     // Handle undefined or unexpected wishListValue
 //     if (!wishListValue || !wishListItems) return false;
@@ -114,6 +113,3 @@ export const myCourseCardData = [
 //     }
 //   });
 // };
-
-
-

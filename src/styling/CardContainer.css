@@ -232,7 +232,9 @@
   position: absolute;
   top: 15%;
   left: 75%;
-  transition: transform 0.3s, background-color 0.3s;
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
   border-radius: 50%;
   border: 2px solid #333;
   padding: 0.2rem;
@@ -247,9 +249,7 @@
   border: 2px solid #3dcbb1;
 }
 
-
 @media (max-width: 768px) {
-
   .cardContainer {
     padding: 0.625rem 2.1875rem;
   }
@@ -290,7 +290,6 @@
   .cardOldPrice {
     font-size: 1.2rem;
   }
-
 }
 
 @media (max-width: 480px) {

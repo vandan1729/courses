@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {
-  setWishListValue,
-  setAllCourseCardData,
-} from '../redux/features/wishListSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 import WishlistPageContainer from '../components/common/WishlistPageContainer'
 import { myCourseCardData } from '../data/MyCourseCardData'
 import Layout from '../layoutComponent/Layout'
-
+import {
+  setAllCourseCardData,
+  setWishListValue,
+} from '../redux/features/wishListSlice'
 import '../styling/WishlistPage.css'
 
 function WishlistPage() {

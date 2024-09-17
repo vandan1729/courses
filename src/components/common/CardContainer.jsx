@@ -1,17 +1,16 @@
-import { useState, useEffect, useMemo } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
-import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
-import { IoPersonOutline } from 'react-icons/io5'
+import { useEffect, useMemo, useState } from 'react'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
+import { IoPersonOutline } from 'react-icons/io5'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
+import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
+import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
+import { toggleWishListItem } from '../../redux/features/wishListSlice'
 import CardRatingComponent from './CardRatingComponent'
 import CardLoader from './Loader/CardLoader'
-import { toast } from 'react-toastify'
-import { toggleWishListItem } from '../../redux/features/wishListSlice'
-
 import '/src/styling/CardContainer.css'
 
 function CardContainer({ header, heading, data }) {

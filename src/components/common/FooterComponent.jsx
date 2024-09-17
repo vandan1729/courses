@@ -1,4 +1,5 @@
-import { FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+
 import logo from '/src/assets/logo.png'
 import '/src/styling/FooterComponent.css'
 

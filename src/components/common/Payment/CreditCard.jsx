@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import {
-  setCardNumberValid,
-  setExpiryDateValid,
-  setCvcValid,
   setCardNumber,
-  setExpiryDate,
+  setCardNumberValid,
   setCvc,
+  setCvcValid,
+  setExpiryDate,
+  setExpiryDateValid,
 } from '../../../redux/features/paymentSlice'
 import '../../../styling/PaymentPage.css'
 

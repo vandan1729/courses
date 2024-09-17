@@ -1,10 +1,9 @@
-import Layout from '../layoutComponent/Layout'
-import AddTOCartCourse from '../components/common/AddTOCartCourse'
-import TotalProductBuyPrice from '../components/common/Payment/TotalProductBuyPrice'
-
 import { FaAmazonPay } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
+import AddTOCartCourse from '../components/common/AddTOCartCourse'
+import TotalProductBuyPrice from '../components/common/Payment/TotalProductBuyPrice'
+import Layout from '../layoutComponent/Layout'
 import '../styling/CourseBuyPage.css'
 
 function CourseBuyPage() {

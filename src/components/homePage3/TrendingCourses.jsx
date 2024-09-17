@@ -1,5 +1,6 @@
-import { FaStar, FaRegStarHalfStroke } from 'react-icons/fa6'
+import { FaRegStarHalfStroke, FaStar } from 'react-icons/fa6'
 import { IoPersonOutline } from 'react-icons/io5'
+
 import img1 from '/src/assets/homePage1/trendingCourse/image1.png'
 import img2 from '/src/assets/homePage1/trendingCourse/image2.png'
 import img3 from '/src/assets/homePage1/trendingCourse/image3.png'

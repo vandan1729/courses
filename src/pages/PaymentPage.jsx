@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux'
 
-import Navbar2 from '../components/homePage2/Navbar2'
-import TotalProductBuyPrice from '../components/common/Payment/TotalProductBuyPrice'
 import PaymentMethod from '../components/common/Payment/PaymentMethod'
 import SuccessAnimation from '../components/common/Payment/SuccessAnimation'
-
+import TotalProductBuyPrice from '../components/common/Payment/TotalProductBuyPrice'
+import Navbar2 from '../components/homePage2/Navbar2'
 import '../styling/PaymentPage.css'
 
 function PaymentPage() {

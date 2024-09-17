@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 
 const ProtectedRoute = ({ element: Component, requiresCart = false }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)

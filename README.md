@@ -11,6 +11,7 @@ Created by Ayush Patel
 ### Homepage
 
 The homepage features:
+
 - **Slider**: A dynamic slider showcasing popular courses and announcements.
 - **Navbar**: A navigation bar for easy access to different sections of the website.
 - **Popular Instructors**: A section highlighting popular instructors.
@@ -23,6 +24,7 @@ The homepage features:
 ### Paid Offline Video
 
 On the Paid Offline Video page, users can:
+
 - **View Progress**: See how many chapters they have completed and how many are remaining.
 - **Course Info**: Access detailed information about the course.
 - **Reviews**: Read reviews from other users.
@@ -32,6 +34,7 @@ On the Paid Offline Video page, users can:
 ### Paid Webinar
 
 The Paid Webinar page includes:
+
 - **Live Videos**: Access live video sessions.
 - **Live Chats**: Participate in live chat discussions about the course.
 - **Course Info**: Get information related to the webinar.
@@ -41,6 +44,7 @@ The Paid Webinar page includes:
 ### My Course Page
 
 On the My Course page, users can:
+
 - **View All Courses**: See a list of all their courses.
 - **Wishlist**: Manage courses they have marked as favorites.
 - **Completed Courses**: Check their completed courses.
@@ -51,11 +55,11 @@ On the My Course page, users can:
 ### Login/Signup Pages
 
 The Login and Signup pages allow users to:
+
 - **Login**: Access their account with existing credentials.
 - **Signup**: Create a new account to start using the platform.
 
 ![Login/Signup](/src/assets/readme/LoginPage.png)
-
 
 ### Run the Development Server
 

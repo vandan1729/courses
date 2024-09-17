@@ -15,7 +15,7 @@ export const KitaniStudioCardData = [
     cardRating: 1.5,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 5,
@@ -27,7 +27,7 @@ export const KitaniStudioCardData = [
     cardRating: 4,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 6,
@@ -40,7 +40,7 @@ export const KitaniStudioCardData = [
     cardRating: 3.8,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 7,
@@ -53,6 +53,6 @@ export const KitaniStudioCardData = [
     cardRating: 3.1,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
 ]

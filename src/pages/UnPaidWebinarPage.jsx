@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react'
-import Layout from '../layoutComponent/Layout'
-import SubscribeCard from '../components/homePage1/SubscribeCard'
-
-import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
-import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
-
-import { MdShoppingCart } from 'react-icons/md'
-import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import React, { useEffect, useState } from 'react'
 import { BsPeople } from 'react-icons/bs'
-import { MdOutlineRateReview } from 'react-icons/md'
 import { CiViewList } from 'react-icons/ci'
+import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { FaVolumeHigh } from 'react-icons/fa6'
+import { MdShoppingCart } from 'react-icons/md'
+import { MdOutlineRateReview } from 'react-icons/md'
 import { MdOutlineChromeReaderMode } from 'react-icons/md'
 import { MdLiveTv } from 'react-icons/md'
-import { FaVolumeHigh } from 'react-icons/fa6'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleWishListItem } from '../redux/features/wishListSlice'
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import Layout from '../layoutComponent/Layout'
 import { setBuyProduct } from '../redux/features/buyProductSlice'
-
+import { toggleWishListItem } from '../redux/features/wishListSlice'
 import '../styling/UnPaidWebinarPage.css'
+import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 
 function UnPaidWebinarPage() {
   const {

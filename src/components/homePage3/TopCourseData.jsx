@@ -1,11 +1,12 @@
-import { FaStar, FaRegStarHalfStroke } from 'react-icons/fa6'
+import { FaRegStarHalfStroke, FaStar } from 'react-icons/fa6'
+
+import CardContainer from '../common/CardContainer'
+import Categories3 from './Categories3'
 import img1 from '/src/assets/homePage1/kitaniStudio/image1.png'
 import img2 from '/src/assets/homePage1/kitaniStudio/image2.png'
 import img3 from '/src/assets/homePage1/kitaniStudio/image3.png'
 import img4 from '/src/assets/homePage1/kitaniStudio/image4.png'
 import img5 from '/src/assets/homePage3/discountBanner/image.png'
-import CardContainer from '../common/CardContainer'
-import Categories3 from './Categories3'
 
 function TopCourseData() {
   const topCourseCardData = [

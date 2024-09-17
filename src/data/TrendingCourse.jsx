@@ -19,7 +19,7 @@ export const TrendingCourseData = [
     cardRating: 3,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 21,
@@ -31,7 +31,7 @@ export const TrendingCourseData = [
     cardRating: 5,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 22,
@@ -44,7 +44,7 @@ export const TrendingCourseData = [
     cardRating: 1,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 23,
@@ -57,7 +57,7 @@ export const TrendingCourseData = [
     cardRating: 4,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 24,
@@ -70,7 +70,7 @@ export const TrendingCourseData = [
     cardRating: 3,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 25,
@@ -83,7 +83,7 @@ export const TrendingCourseData = [
     cardRating: 2,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 26,
@@ -96,7 +96,7 @@ export const TrendingCourseData = [
     cardRating: 4,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
   {
     id: 27,
@@ -109,6 +109,6 @@ export const TrendingCourseData = [
     cardRating: 5,
     cardTotalRating: '(12.5k)',
     cardNewPrice: 24.92,
-    cardOldPrice: 32.90,
+    cardOldPrice: 32.9,
   },
 ]

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Layout from '../layoutComponent/Layout'
+
 import AddnewCard from '../components/common/Payment/NewPaymentCard'
-import '../styling/MyAccountPage1.css'
-import UserProfile from '../components/common/UserAccount/UserProfile'
 import UserAccount from '../components/common/UserAccount/UserAccount'
+import UserProfile from '../components/common/UserAccount/UserProfile'
+import Layout from '../layoutComponent/Layout'
+import '../styling/MyAccountPage1.css'
 
 function MyAccountPage1() {
   const [activeSection, setActiveSection] = useState('profile')

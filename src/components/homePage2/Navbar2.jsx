@@ -1,28 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { IoIosSearch, IoIosMenu } from 'react-icons/io'
-import { MdShoppingCart } from 'react-icons/md'
-import { FaRegBell } from 'react-icons/fa'
-import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
-import { setWishListValue } from '../../redux/features/wishListSlice'
 import { useEffect, useRef, useState } from 'react'
-
+import { FaRegBell } from 'react-icons/fa'
+import { IoIosMenu, IoIosSearch } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
+import { MdShoppingCart } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import WishlistCounter from '../common/WishlistCounter'
-import PromptDialogBox from '../common/CustomDialogBox/PromptDialogBox'
-import logo from '/src/assets/logo.png'
-import CartMenu from '../homePage1/CartMenu'
 
+import { myCourseCardData } from '../../data/MyCourseCardData'
+import { logout } from '../../redux/features/authSlice'
 import {
+  promptDialogBox,
+  setCartVisible,
   setLoginVisible,
   setOpacityValue,
-  setCartVisible,
-  promptDialogBox,
 } from '../../redux/features/modalSlice'
-import { logout } from '../../redux/features/authSlice'
-import { myCourseCardData } from '../../data/MyCourseCardData'
-
+import { setWishListValue } from '../../redux/features/wishListSlice'
 import '../../styling/Navbar2.css'
+import PromptDialogBox from '../common/CustomDialogBox/PromptDialogBox'
+import WishlistCounter from '../common/WishlistCounter'
+import CartMenu from '../homePage1/CartMenu'
+import logo from '/src/assets/logo.png'
 
 function Navbar2() {
   const dispatch = useDispatch()

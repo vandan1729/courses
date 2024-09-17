@@ -1,25 +1,26 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  MdModeEdit,
-  MdDelete,
-  MdChevronLeft,
-  MdChevronRight,
-} from 'react-icons/md'
+import React, { useCallback, useEffect, useState } from 'react'
 import { IoMdAdd } from 'react-icons/io'
 import {
+  MdChevronLeft,
+  MdChevronRight,
+  MdDelete,
+  MdModeEdit,
+} from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+
+import {
   addCard,
-  updateCard,
   removeCard,
   setCardNumber,
-  setExpiryDate,
-  setCvc,
   setCardNumberValid,
+  setCvc,
+  setExpiryDate,
   setExpiryDateValid,
+  updateCard,
 } from '../../../redux/features/paymentSlice'
 import '../../../styling/NewPaymentCard.css'
 import CreditCard from './CreditCard'
-import { toast } from 'react-toastify'
 
 function NewPaymentCard() {
   const dispatch = useDispatch()

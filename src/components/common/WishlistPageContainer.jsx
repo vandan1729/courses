@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { IoPersonOutline } from 'react-icons/io5'
+import { useEffect, useState } from 'react'
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
+import { IoPersonOutline } from 'react-icons/io5'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { toggleWishListItem } from '../../redux/features/wishListSlice'
-import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
 
+import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
+import { toggleWishListItem } from '../../redux/features/wishListSlice'
 import '../../styling/CardContainer.css'
 
 function WishlistPageContainer() {

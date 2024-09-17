@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { BsPaypal } from 'react-icons/bs'
 import { CiCreditCard1 } from 'react-icons/ci'
 import { FaGooglePay } from 'react-icons/fa6'
-import { BsPaypal } from 'react-icons/bs'
-import QRCodeGenerator from './QRCodeGenerator'
-import {
-  setCardNumberValid,
-  setExpiryDateValid,
-  setCvcValid,
-  setCardNumber,
-  setExpiryDate,
-  setCvc,
-} from '../../../redux/features/paymentSlice'
-import {
-  setBuyCourseData,
-  setWishListValue,
-} from '../../../redux/features/wishListSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
 import { clearCart } from '../../../redux/features/buyProductSlice'
 import {
   setOpacityValue,
   showSuccess,
 } from '../../../redux/features/modalSlice'
+import {
+  setCardNumber,
+  setCardNumberValid,
+  setCvc,
+  setCvcValid,
+  setExpiryDate,
+  setExpiryDateValid,
+} from '../../../redux/features/paymentSlice'
+import {
+  setBuyCourseData,
+  setWishListValue,
+} from '../../../redux/features/wishListSlice'
 import '../../../styling/PaymentPage.css'
 import CreditCard from './CreditCard'
+import QRCodeGenerator from './QRCodeGenerator'
 
 function PaymentMethod() {
   const dispatch = useDispatch()

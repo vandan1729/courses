@@ -1,14 +1,14 @@
-import Navbar2 from './Navbar2'
-import { KitaniStudioCardData } from '../../data/KitaniStudioCard'
-import { TrendingCourseData } from '../../data/TrendingCourse'
-import { PopularInstructorData } from '../../data/PopularInstructor'
-import SubscribeCard from '../homePage1/SubscribeCard'
-import Categories from '../homePage1/Categories'
 import { CompleteCourseCardData } from '../../data/CourseData'
-import HomeFooter from '../common/FooterComponent'
-import CardContainer from '../common/CardContainer'
-import InstructorCard from '../common/InstructorCard'
+import { KitaniStudioCardData } from '../../data/KitaniStudioCard'
+import { PopularInstructorData } from '../../data/PopularInstructor'
+import { TrendingCourseData } from '../../data/TrendingCourse'
 import Layout from '../../layoutComponent/Layout'
+import CardContainer from '../common/CardContainer'
+import HomeFooter from '../common/FooterComponent'
+import InstructorCard from '../common/InstructorCard'
+import Categories from '../homePage1/Categories'
+import SubscribeCard from '../homePage1/SubscribeCard'
+import Navbar2 from './Navbar2'
 
 function HomePage2() {
   return (

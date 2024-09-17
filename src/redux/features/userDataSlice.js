@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 import profileImg from '/src/assets/profileImg.jpg'
 
 const initialState = {

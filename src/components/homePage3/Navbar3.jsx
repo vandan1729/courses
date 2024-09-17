@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { IoCartOutline } from 'react-icons/io5'
-import { FaRegBell } from 'react-icons/fa'
 import { CgProfile } from 'react-icons/cg'
-import logo from '../../assets/logo.png'
+import { FaRegBell } from 'react-icons/fa'
+import { IoCartOutline } from 'react-icons/io5'
 
+import logo from '../../assets/logo.png'
 import '../../styling/Navbar3.css'
 
 function Navbar3() {

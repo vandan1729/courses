@@ -1,20 +1,18 @@
 import { useState } from 'react'
-import SubscribeCard from '../components/homePage1/SubscribeCard'
-import Layout from '../layoutComponent/Layout'
-
-import img1 from '/src/assets/homePage1/PaidWebinar/image.png'
-import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
-import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
-import pro1 from '/src/assets/homePage1/paidOfflineVideo/profile1.png'
-import pro2 from '/src/assets/homePage1/paidOfflineVideo/profile2.png'
-import pro3 from '/src/assets/homePage1/paidOfflineVideo/profile3.png'
-import pro4 from '/src/assets/homePage1/paidOfflineVideo/profile4.png'
-
 import { BsPeople } from 'react-icons/bs'
 import { MdOutlineRateReview } from 'react-icons/md'
 import { PiNavigationArrowFill } from 'react-icons/pi'
 
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import Layout from '../layoutComponent/Layout'
 import '../styling/PaidWebinarPage.css'
+import img2 from '/src/assets/homePage1/PaidWebinar/image2.jpg'
+import img1 from '/src/assets/homePage1/PaidWebinar/image.png'
+import pro1 from '/src/assets/homePage1/paidOfflineVideo/profile1.png'
+import pro2 from '/src/assets/homePage1/paidOfflineVideo/profile2.png'
+import pro3 from '/src/assets/homePage1/paidOfflineVideo/profile3.png'
+import pro4 from '/src/assets/homePage1/paidOfflineVideo/profile4.png'
+import img3 from '/src/assets/homePage1/paidOfflineVideo/thumbnail.png'
 
 function PaidWebinarPage() {
   const [chat, setChat] = useState([])

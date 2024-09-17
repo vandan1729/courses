@@ -1,17 +1,15 @@
-import { useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-
-import { RiDeleteBin6Line, RiDeleteBin5Line } from 'react-icons/ri'
-import { RxCross1 } from 'react-icons/rx'
+import { useEffect, useRef } from 'react'
 import { BsCartPlus } from 'react-icons/bs'
 import { MdOutlinePayments } from 'react-icons/md'
-
-import AddTOCartCourse from '../common/AddTOCartCourse'
+import { RiDeleteBin5Line, RiDeleteBin6Line } from 'react-icons/ri'
+import { RxCross1 } from 'react-icons/rx'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 import { clearCart } from '../../redux/features/buyProductSlice'
 import { setCartVisible } from '../../redux/features/modalSlice'
-
 import '../../styling/CartMenu.css'
+import AddTOCartCourse from '../common/AddTOCartCourse'
 
 const CartMenu = () => {
   const navigate = useNavigate()

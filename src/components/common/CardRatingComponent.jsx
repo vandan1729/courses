@@ -1,4 +1,4 @@
-import { FaStar, FaRegStarHalfStroke } from 'react-icons/fa6'
+import { FaRegStarHalfStroke, FaStar } from 'react-icons/fa6'
 
 function CardRatingComponent({ cardRating }) {
   const rating = Math.min(cardRating, 5) // Ensure the rating does not exceed 5

@@ -5,7 +5,6 @@ import { IoIosArrowUp } from 'react-icons/io'
 import SliderComponent from '../components/homePage1/SliderComponent'
 import SubscribeCard from '../components/homePage1/SubscribeCard'
 import Layout from '../layoutComponent/Layout'
-
 import '../styling/MyCoursePage.css'
 
 function MyCoursePage() {

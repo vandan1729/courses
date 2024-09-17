@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+
 import { setCardValue } from '../../redux/features/cardSlice'
 import '/src/styling/Categories.css'
 

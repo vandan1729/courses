@@ -1,130 +1,130 @@
 .courseBuyPageDiv {
-    min-height: 54vh;
-    padding: 1.25rem 4.375rem;
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
+  min-height: 54vh;
+  padding: 1.25rem 4.375rem;
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
 }
 
 .courseBuyPageItems {
-    width: 18.75rem;
-    padding-top: 0.625rem;
+  width: 18.75rem;
+  padding-top: 0.625rem;
 }
 
 .courseBuyPageTotalPrice {
-    width: 18.75rem;
-    display: flex;
-    flex-direction: column;
+  width: 18.75rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .courseBuyPageBuyBtn {
-    width: fit-content;
-    min-width: calc(100% - 1rem);
-    text-decoration: none;
-    line-height: 1;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0.625rem 0.625rem 1.25rem rgba(0, 0, 0, 0.08);
-    background-color: #fefefe;
-    color: #121212;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+  width: fit-content;
+  min-width: calc(100% - 1rem);
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0.625rem 0.625rem 1.25rem rgba(0, 0, 0, 0.08);
+  background-color: #fefefe;
+  color: #121212;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .courseBuyPageBuyBtn .button-decor {
-    position: absolute;
-    inset: 0;
-    background-color: #3dcbb1;
-    transform: translateX(-100%);
-    transition: transform 0.3s;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  background-color: #3dcbb1;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+  z-index: 0;
 }
 
 .courseBuyPageBuyBtn .button-content {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
 }
 
 .courseBuyPageBuyBtn .button__icon {
-    width: 4.375rem;
-    height: 2.5rem;
-    font-size: 1.8rem;
-    background-color: #3dcbb1;
-    display: grid;
-    place-items: center;
+  width: 4.375rem;
+  height: 2.5rem;
+  font-size: 1.8rem;
+  background-color: #3dcbb1;
+  display: grid;
+  place-items: center;
 }
 
 .courseBuyPageBuyBtn .button__text {
-    transition: color 0.2s;
-    padding: 0.125rem 1.5rem 0.125rem;
-    padding-left: 0.75rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  transition: color 0.2s;
+  padding: 0.125rem 1.5rem 0.125rem;
+  padding-left: 0.75rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .courseBuyPageBuyBtn:hover .button__text {
-    color: #fff;
+  color: #fff;
 }
 
 .courseBuyPageBuyBtn:hover .button-decor {
-    transform: translate(0);
+  transform: translate(0);
 }
 
 @media (max-width: 768px) {
-    .courseBuyPageDiv {
-        padding: 1rem 2rem;
-        gap: 2rem;
-    }
+  .courseBuyPageDiv {
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
 
-    .courseBuyPageItems,
-    .courseBuyPageTotalPrice {
-        width: 100%;
-    }
+  .courseBuyPageItems,
+  .courseBuyPageTotalPrice {
+    width: 100%;
+  }
 
-    .courseBuyPageBuyBtn {
-        min-width: 100%;
-        font-size: 0.9rem;
-    }
+  .courseBuyPageBuyBtn {
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
 
-    .courseBuyPageBuyBtn .button__icon {
-        width: 3.5rem;
-        height: 2.2rem;
-    }
+  .courseBuyPageBuyBtn .button__icon {
+    width: 3.5rem;
+    height: 2.2rem;
+  }
 
-    .courseBuyPageBuyBtn .button__text {
-        padding: 0.125rem 1rem 0.125rem;
-    }
+  .courseBuyPageBuyBtn .button__text {
+    padding: 0.125rem 1rem 0.125rem;
+  }
 }
 
 /* For screens up to 426px */
 @media (max-width: 426px) {
-    .courseBuyPageDiv {
-        flex-direction: column;
-        padding: 0.75rem 1rem;
-        gap: 1rem;
-    }
+  .courseBuyPageDiv {
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
 
-    .courseBuyPageItems,
-    .courseBuyPageTotalPrice {
-        width: 100%;
-    }
+  .courseBuyPageItems,
+  .courseBuyPageTotalPrice {
+    width: 100%;
+  }
 
-    .courseBuyPageBuyBtn {
-        font-size: 0.8rem;
-    }
+  .courseBuyPageBuyBtn {
+    font-size: 0.8rem;
+  }
 
-    .courseBuyPageBuyBtn .button__icon {
-        width: 3rem;
-        height: 2rem;
-    }
+  .courseBuyPageBuyBtn .button__icon {
+    width: 3rem;
+    height: 2rem;
+  }
 
-    .courseBuyPageBuyBtn .button__text {
-        padding: 0.125rem 0.75rem 0.125rem;
-    }
+  .courseBuyPageBuyBtn .button__text {
+    padding: 0.125rem 0.75rem 0.125rem;
+  }
 }

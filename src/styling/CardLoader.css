@@ -1,52 +1,52 @@
 .cardPlaceholder {
-    display: flex;
-    flex-direction: column;
-    width: 16rem;
-    min-height: 23.2vh;
-    border-radius: 8px;
-    padding: 16px;
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  min-height: 23.2vh;
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .cardPlace1 {
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 7rem;
-    border-radius: 4px;
-    animation: pulse 1.2s ease-in-out infinite alternate;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 7rem;
+  border-radius: 4px;
+  animation: pulse 1.2s ease-in-out infinite alternate;
 }
 
 .cardPlace2 {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .cardPlace2 div {
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 2rem;
-    border-radius: 2px;
-    animation: pulse 1.2s ease-in-out infinite alternate;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 2rem;
+  border-radius: 2px;
+  animation: pulse 1.2s ease-in-out infinite alternate;
 }
 
 .cardPlaceHolder3 {
-    width: 10rem;
+  width: 10rem;
 }
 
 .cardPlaceHolder4 {
-    width: 15rem;
+  width: 15rem;
 }
 
 .cardPlaceHolder5 {
-    width: 12rem;
+  width: 12rem;
 }
 
 @keyframes pulse {
-    from {
-        opacity: 0.8;
-    }
+  from {
+    opacity: 0.8;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }

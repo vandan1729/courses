@@ -14,7 +14,7 @@
 }
 
 .navbar2Logo span {
-  background: linear-gradient(to top, #BDE8CA, #1fb599);
+  background: linear-gradient(to top, #bde8ca, #1fb599);
   background-clip: text;
   color: transparent;
   margin-left: 0.25rem;
@@ -45,7 +45,7 @@ span:hover {
   width: 25rem;
   padding: 0.3125rem 0.625rem;
   font-size: 1rem;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   border: none;
   border-radius: 0.1875rem 0 0 0.1875rem;
   border-right: none;
@@ -71,14 +71,13 @@ span:hover {
 }
 
 /* When the input has text, hide the search icon and show the close icon */
-.navbar2Search input:not(:placeholder-shown)~.navbar2SearchIcon {
+.navbar2Search input:not(:placeholder-shown) ~ .navbar2SearchIcon {
   display: none;
 }
 
-.navbar2Search input:not(:placeholder-shown)~.navbar2CloseIcon {
+.navbar2Search input:not(:placeholder-shown) ~ .navbar2CloseIcon {
   display: block;
 }
-
 
 /* Menu Section */
 .navbar2Menu {
@@ -124,11 +123,10 @@ span:hover {
 .navbar2BellBtn {
   position: relative;
   cursor: pointer;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   border: none;
   background: none;
   margin-top: 0.4rem;
-
 }
 
 .bellIcon {
@@ -136,13 +134,11 @@ span:hover {
   width: 1.5rem;
 }
 
-
 .navbar2BellBtn:hover .bellIcon {
   animation: bellRing 0.9s both;
 }
 
 @keyframes bellRing {
-
   0%,
   100% {
     transform-origin: top;
@@ -283,7 +279,7 @@ span:hover {
   top: 110%;
   padding: 0.5rem;
   z-index: 1;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   font-size: 1.0625rem;
   font-weight: 600;
   opacity: 0.9;
@@ -293,7 +289,7 @@ span:hover {
 }
 
 .navbar2SearchItem:hover {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .navbar2SearchItem div {
@@ -313,7 +309,6 @@ span:hover {
 }
 
 @media (max-width: 768px) {
-
   .dropdown2Toggle {
     display: none;
   }
@@ -366,7 +361,6 @@ span:hover {
     width: 2rem;
     height: 2rem;
   }
-
 }
 
 @media (max-width: 426px) {

@@ -1,6 +1,6 @@
-import '../../styling/WishlistCounter.css'
-
 import { useSelector } from 'react-redux'
+
+import '../../styling/WishlistCounter.css'
 
 function WishlistCounter() {
   const wishListData = useSelector((state) => state.wishList.wishListItems)

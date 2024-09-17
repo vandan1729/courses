@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import SubscribeCard from '../components/homePage1/SubscribeCard'
-import SliderComponent from '../components/homePage1/SliderComponent'
-import Categories from '../components/homePage1/Categories'
-import CardContainer from '../components/common/CardContainer'
-import InstructorCard from '../components/common/InstructorCard'
-
-import { KitaniStudioCardData } from '../data/KitaniStudioCard'
-import { TrendingCourseData } from '../data/TrendingCourse'
-import { PopularInstructorData } from '../data/PopularInstructor'
-import { login, logout } from '../redux/features/authSlice'
-
 import { useDispatch } from 'react-redux'
 
+import CardContainer from '../components/common/CardContainer'
+import InstructorCard from '../components/common/InstructorCard'
 import LoadingPage from '../components/common/Loader/LoadingPage'
+import Categories from '../components/homePage1/Categories'
+import SliderComponent from '../components/homePage1/SliderComponent'
+import SubscribeCard from '../components/homePage1/SubscribeCard'
+import { KitaniStudioCardData } from '../data/KitaniStudioCard'
+import { PopularInstructorData } from '../data/PopularInstructor'
+import { TrendingCourseData } from '../data/TrendingCourse'
 import Layout from '../layoutComponent/Layout'
+import { login, logout } from '../redux/features/authSlice'
 
 function HomePage1() {
   const [isLoading, setIsLoading] = useState(true)

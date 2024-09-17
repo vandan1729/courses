@@ -1,22 +1,23 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { FaApple, FaFacebookF, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { FcGoogle } from 'react-icons/fc'
 import { IoMdClose } from 'react-icons/io'
 import { MdOutlineEmail } from 'react-icons/md'
-import { FaFacebookF, FaApple, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
-import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
-import logo from '/src/assets/logo.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+
+import { userAuth } from '../api/Api'
+import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
+import { login } from '../redux/features/authSlice'
 import {
   setLoginVisible,
   setOpacityValue,
-  setSignUpVisible,
   setPrimaryLoading,
+  setSignUpVisible,
 } from '../redux/features/modalSlice'
-import { login } from '../redux/features/authSlice'
-import { userAuth } from '../api/Api'
+import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
+import logo from '/src/assets/logo.png'
 import '/src/styling/LoginPage.css'
-import { toast } from 'react-toastify'
-import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
 
 function LoginPage() {
   const dispatch = useDispatch()

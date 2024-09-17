@@ -1,12 +1,11 @@
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
-
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { removeProduct } from '../../redux/features/buyProductSlice'
-import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
-import { setCartVisible } from '../../redux/features/modalSlice'
 
+import { removeProduct } from '../../redux/features/buyProductSlice'
+import { setCartVisible } from '../../redux/features/modalSlice'
+import { updateCardDetails } from '../../redux/features/unPaidWebinarSlice'
 import '../../styling/AddTOCartCourse.css'
 
 function AddTOCartCourse() {

@@ -1,24 +1,22 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { IoIosSearch, IoIosMenu } from 'react-icons/io'
+import { IoIosMenu, IoIosSearch } from 'react-icons/io'
 import { IoMdClose } from 'react-icons/io'
 import { MdShoppingCart, MdTimelapse } from 'react-icons/md'
-import {
-  setLoginVisible,
-  setSignUpVisible,
-  setCartVisible,
-  setOpacityValue,
-} from '../../redux/features/modalSlice'
-import { toast } from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-import logo from '/src/assets/logo.png'
-import CartMenu from './CartMenu'
-import LoginPage from '../../pages/LoginPage'
-import SignUpPage from '../../pages/SignUpPage'
+import { toast } from 'react-toastify'
 
 import { myCourseCardData } from '../../data/MyCourseCardData'
-
+import LoginPage from '../../pages/LoginPage'
+import SignUpPage from '../../pages/SignUpPage'
+import {
+  setCartVisible,
+  setLoginVisible,
+  setOpacityValue,
+  setSignUpVisible,
+} from '../../redux/features/modalSlice'
+import CartMenu from './CartMenu'
+import logo from '/src/assets/logo.png'
 import '/src/styling/Navbar1.css'
 
 function Navbar1() {
