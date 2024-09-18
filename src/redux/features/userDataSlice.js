@@ -3,12 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import profileImg from '/src/assets/profileImg.jpg'
 
 const initialState = {
-  userFirstName: 'Ayush',
-  userLastName: 'Patel',
-  userHeadLine: 'A Bold Attempt Is Half Success',
-  userEmail: 'ayush@gmail.com',
+  userFirstName: '',
+  userLastName: '',
+  userHeadLine: '',
+  userEmail: '',
   userProfile: profileImg,
-  userPassword: '123',
+  userPassword: '',
+  notification: '',
 }
 
 const userSlice = createSlice({
@@ -16,10 +17,37 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action) => {
-      return { ...state, ...action.payload }
+      const {
+        userFirstName,
+        userLastName,
+        userEmail,
+        userPassword,
+        userHeadLine,
+        userProfile,
+      } = action.payload
+
+      state.userFirstName = userFirstName ?? state.userFirstName
+      state.userLastName = userLastName ?? state.userLastName
+      state.userEmail = userEmail ?? state.userEmail
+      state.userPassword = userPassword ?? state.userPassword
+      state.userHeadLine = userHeadLine ?? state.userHeadLine
+      state.userProfile = userProfile ?? state.userProfile
+
+      state.notification =
+        !state.userFirstName ||
+        !state.userLastName ||
+        !state.userEmail ||
+        !state.userPassword ||
+        !state.userHeadLine ||
+        !state.userProfile
+          ? 'Please fill out your profile completely.'
+          : ''
+    },
+    clearNotification: (state) => {
+      state.notification = '' // Clear the notification
     },
   },
 })
 
-export const { setUserData } = userSlice.actions
+export const { setUserData, clearNotification } = userSlice.actions
 export default userSlice.reducer

@@ -66,6 +66,10 @@ function PromptDialogBox() {
             navigate('/')
           }
         }
+      } else {
+        clearUserData()
+        toast.success('Logout Successful')
+        navigate('/')
       }
     } finally {
       dispatch(setPrimaryLoading(false))

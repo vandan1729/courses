@@ -5,6 +5,7 @@ import authReducer from '../features/authSlice'
 import buyProductReducer from '../features/buyProductSlice'
 import cardReducer from '../features/cardSlice'
 import modalReducer from '../features/modalSlice'
+import notificationReducer from '../features/notificationSlice'
 import paidOfflineVideo from '../features/paidOfflineVideo'
 import paymentReducer from '../features/paymentSlice'
 import unPaidWebinarReducer from '../features/unPaidWebinarSlice'
@@ -22,6 +23,7 @@ const store = configureStore({
     auth: authReducer,
     paidOfflineVideo: paidOfflineVideo,
     payment: paymentReducer,
+    notification: notificationReducer,
   },
 })
 

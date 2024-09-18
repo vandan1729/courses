@@ -1,0 +1,29 @@
+.customNotification {
+    display: block;
+    width: 19rem;
+    position: absolute;
+    top: 3.3rem;
+    right: 0;
+    background-color: white;
+    border: 0.0625rem solid #ddd;
+    padding: 0.625rem;
+    list-style: none;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.customNotification p {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.customNotification>p:not(:last-child) {
+    border-bottom: 0.125rem solid #eeeeee;
+}
+
+
+.customNotification p:hover {
+    background-color: #f0f0f0;
+}

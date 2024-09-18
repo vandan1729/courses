@@ -71,11 +71,11 @@ span:hover {
 }
 
 /* When the input has text, hide the search icon and show the close icon */
-.navbar2Search input:not(:placeholder-shown) ~ .navbar2SearchIcon {
+.navbar2Search input:not(:placeholder-shown)~.navbar2SearchIcon {
   display: none;
 }
 
-.navbar2Search input:not(:placeholder-shown) ~ .navbar2CloseIcon {
+.navbar2Search input:not(:placeholder-shown)~.navbar2CloseIcon {
   display: block;
 }
 
@@ -123,22 +123,34 @@ span:hover {
 .navbar2BellBtn {
   position: relative;
   cursor: pointer;
-  transition-duration: 0.3s;
   border: none;
   background: none;
   margin-top: 0.4rem;
 }
+
+.notificationIcon {
+  position: absolute;
+  left: 80%;
+  width: 8px;
+  height: 8px;
+  background-color: #1fb599;
+  border-radius: 50%;
+
+}
+
 
 .bellIcon {
   height: 1.5rem;
   width: 1.5rem;
 }
 
-.navbar2BellBtn:hover .bellIcon {
+.navbar2BellBtn.animate .bellIcon {
   animation: bellRing 0.9s both;
 }
 
+
 @keyframes bellRing {
+
   0%,
   100% {
     transform-origin: top;
