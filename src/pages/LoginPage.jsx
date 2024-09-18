@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FaApple, FaFacebookF, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { IoMdClose } from 'react-icons/io'
@@ -6,9 +6,9 @@ import { MdOutlineEmail } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { userAuth } from '../api/Api'
+import { ApiCall } from '../api/api'
 import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
-import { login } from '../redux/features/authSlice'
+import { login, setRefreshToken } from '../redux/features/authSlice'
 import {
   setLoginVisible,
   setOpacityValue,
@@ -19,8 +19,9 @@ import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
 import logo from '/src/assets/logo.png'
 import '/src/styling/LoginPage.css'
 
-function LoginPage() {
+const LoginPage = () => {
   const dispatch = useDispatch()
+  const { userAuth } = ApiCall()
   const [userData, setUserData] = useState({ email: '', password: '' })
   const [iconToggle, setIconToggle] = useState(false)
 
@@ -50,8 +51,15 @@ function LoginPage() {
 
       if (response.status === 200) {
         toast.success('Login Successful')
+
+        // Store tokens in cookies
         document.cookie = `accessToken=${response.data.access_token}; path=/;`
+        document.cookie = `refreshToken=${response.data.refresh_token}; path=/;`
+
+        // Store tokens in Redux
         dispatch(login(response.data.access_token))
+        dispatch(setRefreshToken(response.data.refresh_token))
+
         dispatch(setLoginVisible(false))
         dispatch(setOpacityValue(false))
       } else {
@@ -60,7 +68,6 @@ function LoginPage() {
         )
       }
     } catch (error) {
-      console.error('Error during login:', error)
       toast.error('Login failed. Please try again later.')
     } finally {
       dispatch(setPrimaryLoading(false))
@@ -125,7 +132,7 @@ function LoginPage() {
           </button>
         </div>
 
-        {primaryLoading ? <PrimaryLoader /> : null}
+        {primaryLoading && <PrimaryLoader />}
 
         <span className="orYouCanSpan">or you can</span>
         <div className="loginPageBtnGroup">

@@ -12,7 +12,7 @@ import { KitaniStudioCardData } from '../data/KitaniStudioCard'
 import { PopularInstructorData } from '../data/PopularInstructor'
 import { TrendingCourseData } from '../data/TrendingCourse'
 import Layout from '../layoutComponent/Layout'
-import { login, logout } from '../redux/features/authSlice'
+import { login, logout, setRefreshToken } from '../redux/features/authSlice'
 
 function HomePage1() {
   const [isLoading, setIsLoading] = useState(true)
@@ -20,6 +20,8 @@ function HomePage1() {
   const opacityValue = useSelector((state) => state.modal.opacityValue)
 
   const dispatch = useDispatch()
+
+  //Store accessToken && refreshToken to Redux
 
   useEffect(() => {
     const checkAuthentication = () => {
@@ -29,10 +31,12 @@ function HomePage1() {
         if (parts.length === 2) return parts.pop().split(';').shift()
       }
 
-      const token = getCookie('accessToken')
+      const accessToken = getCookie('accessToken')
+      const refreshToken = getCookie('refreshToken')
 
-      if (token) {
-        dispatch(login(token))
+      if (accessToken) {
+        dispatch(login(accessToken))
+        dispatch(setRefreshToken(refreshToken))
         setIsLoading(false)
       } else {
         dispatch(logout())

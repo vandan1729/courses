@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid'
 
-import { userAuth } from '../api/Api'
+import { ApiCall } from '../api/api'
 import profilePic from '../assets/homePage1/singUpPage/singUpImg.png'
 import {
   CustomToastEmail,
@@ -25,8 +25,9 @@ import { setUserData } from '../redux/features/userDataSlice'
 import logo from '/src/assets/logo.png'
 import '/src/styling/SignUpPage.css'
 
-function SignUpPage() {
+const SignUpPage = () => {
   const dispatch = useDispatch()
+  const { userAuth } = ApiCall()
   const isVisible = useSelector((state) => state.modal.signUpVisible)
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const [iconToggle, setIconToggle] = useState(false)
@@ -55,8 +56,8 @@ function SignUpPage() {
     dispatch(setLoginVisible(true))
   }
 
-  const handleSubmit = async () => {
-    const { userEmailID, userPassword, firstName, lastName } = userSignUp
+  const validateFields = () => {
+    const { userEmailID, userPassword } = userSignUp
 
     const passwordCriteria = {
       minLength: userPassword.length < 8,
@@ -75,11 +76,19 @@ function SignUpPage() {
 
     if (Object.values(emailCriteria).some(Boolean)) {
       toast.error(<CustomToastEmail missingCriteria={emailCriteria} />)
-      return
+      return false
     } else if (Object.values(passwordCriteria).some(Boolean)) {
       toast.error(<CustomToastPassword missingCriteria={passwordCriteria} />)
-      return
+      return false
     }
+
+    return true
+  }
+
+  const handleSubmit = async () => {
+    if (!validateFields()) return
+
+    const { userEmailID, userPassword, firstName, lastName } = userSignUp
 
     try {
       dispatch(setPrimaryLoading(true))
@@ -87,7 +96,6 @@ function SignUpPage() {
         data: {
           email: userEmailID,
           password: userPassword,
-          username: 'test',
           first_name: firstName,
           last_name: lastName,
           profile_picture: 'a',
@@ -108,12 +116,10 @@ function SignUpPage() {
             userLastName: lastName,
           }),
         )
-        //Set Login
         dispatch(login(response.data.access_token))
-        //Set Cookie
         document.cookie = `accessToken=${response.data.access_token}; path=/;`
+        document.cookie = `refreshToken=${response.data.refresh_token}; path=/;`
 
-        console.log(response.data.access_token)
         dispatch(setOpacityValue(false))
         dispatch(setSignUpVisible(false))
       }
@@ -176,7 +182,6 @@ function SignUpPage() {
             value={userSignUp.userEmailID}
             onChange={handleChange}
             autoComplete="email"
-            name="email"
           />
           <MdOutlineEmail className="emailIcon" />
           <input
@@ -205,7 +210,7 @@ function SignUpPage() {
             Login
           </span>
         </span>
-        {primaryLoading ? <PrimaryLoader /> : null}
+        {primaryLoading && <PrimaryLoader />}
       </div>
     </div>
   )

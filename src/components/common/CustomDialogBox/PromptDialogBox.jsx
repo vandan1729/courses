@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-import { userAuth } from '../../../api/Api'
+import { ApiCall } from '../../../api/api'
 import { logout } from '../../../redux/features/authSlice'
 import {
   promptDialogBox,
   setOpacityValue,
+  setPrimaryLoading,
 } from '../../../redux/features/modalSlice'
-import { setPrimaryLoading } from '../../../redux/features/modalSlice'
 import '../../../styling/PromptDialogBox.css'
 import PrimaryLoader from '../Loader/PrimaryLoader'
 
@@ -19,11 +19,20 @@ function PromptDialogBox() {
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { userAuth, refreshAccessToken } = ApiCall()
 
-  const handleAcceptBtn = async () => {
+  const clearUserData = () => {
+    document.cookie = 'accessToken=; path=/;'
+    document.cookie = 'refreshToken=; path=/;'
+    dispatch(logout())
+    dispatch(setOpacityValue(false))
+    dispatch(promptDialogBox(false))
+  }
+
+  const handleLogout = async () => {
     dispatch(setPrimaryLoading(true))
     try {
-      const response = await userAuth({
+      let response = await userAuth({
         api: 'logout',
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -31,52 +40,68 @@ function PromptDialogBox() {
       })
 
       if (response.status === 200) {
-        document.cookie = 'accessToken=; path=/;'
-
-        dispatch(setOpacityValue(false))
-        dispatch(logout())
-        dispatch(promptDialogBox(false))
-        toast.success('Logout Successfully')
+        clearUserData()
+        toast.success('Logout Successful')
         navigate('/')
       }
     } catch (error) {
-      toast.error('Failed to Logout. Please try again later.')
+      if (error.response && error.response.status === 401) {
+        const newAccessToken = await refreshAccessToken()
+        if (newAccessToken) {
+          try {
+            const retryResponse = await userAuth({
+              api: 'logout',
+              headers: {
+                Authorization: `Bearer ${newAccessToken}`,
+              },
+            })
+            if (retryResponse.status === 200) {
+              clearUserData()
+              toast.success('Logout Successful')
+              navigate('/')
+            }
+          } finally {
+            clearUserData()
+            toast.success('Logout Successful')
+            navigate('/')
+          }
+        }
+      }
     } finally {
       dispatch(setPrimaryLoading(false))
     }
   }
 
-  const handleCancle = () => {
+  const handleAcceptBtn = () => {
+    handleLogout()
+  }
+
+  const handleCancel = () => {
     dispatch(promptDialogBox(false))
     dispatch(setOpacityValue(false))
   }
 
   return (
-    <>
-      <div className={`promptDialogCard ${promtVisible ? 'visible' : ''}`}>
-        <div className="promptDialogHeader">
-          <IoIosLogOut className="logoutPromtIcon" />
-          <div className="promptDialogContent">
-            <span className="promptDialogTitle">Logout Account</span>
-            <p className="promptDialogMessage">
-              Are you sure you want to logout from your account?
-            </p>
-          </div>
-          <div className="promptDialogActions">
-            <button
-              className="promptDialogDesactivate"
-              onClick={handleAcceptBtn}
-            >
-              Logout
-            </button>
-            <button className="promptDialogCancel" onClick={handleCancle}>
-              Cancel
-            </button>
-          </div>
-          {primaryLoading ? <PrimaryLoader /> : null}
+    <div className={`promptDialogCard ${promtVisible ? 'visible' : ''}`}>
+      <div className="promptDialogHeader">
+        <IoIosLogOut className="logoutPromtIcon" />
+        <div className="promptDialogContent">
+          <span className="promptDialogTitle">Logout Account</span>
+          <p className="promptDialogMessage">
+            Are you sure you want to logout from your account?
+          </p>
         </div>
+        <div className="promptDialogActions">
+          <button className="promptDialogDesactivate" onClick={handleAcceptBtn}>
+            Logout
+          </button>
+          <button className="promptDialogCancel" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
+        {primaryLoading && <PrimaryLoader />}
       </div>
-    </>
+    </div>
   )
 }
 
