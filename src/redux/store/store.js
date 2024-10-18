@@ -1,6 +1,7 @@
 // src/redux/store/store.js
 import { configureStore } from '@reduxjs/toolkit'
 
+import { apiSlice } from '../../api/apiSlice'
 import authReducer from '../features/authSlice'
 import buyProductReducer from '../features/buyProductSlice'
 import cardReducer from '../features/cardSlice'
@@ -24,7 +25,10 @@ const store = configureStore({
     paidOfflineVideo: paidOfflineVideo,
     payment: paymentReducer,
     notification: notificationReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 })
 
 export default store

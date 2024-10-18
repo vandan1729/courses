@@ -1,9 +1,11 @@
+import Cookies from 'js-cookie'
 import { IoIosLogOut } from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
-import { ApiCall } from '../../../api/api'
+import { useLogOutMutation } from '../../../api/authAPi/authApi'
+import { useRefreshTokenMutation } from '../../../api/refreshTokenAPi/refreshTokenApi'
 import { logout } from '../../../redux/features/authSlice'
 import {
   promptDialogBox,
@@ -15,15 +17,16 @@ import PrimaryLoader from '../Loader/PrimaryLoader'
 
 function PromptDialogBox() {
   const promtVisible = useSelector((state) => state.modal.promptDialogBox)
-  const accessToken = useSelector((state) => state.auth.accessToken)
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { userAuth, refreshAccessToken } = ApiCall()
+  const [logOut] = useLogOutMutation()
+  const [refreshToken] = useRefreshTokenMutation()
 
   const clearUserData = () => {
-    document.cookie = 'accessToken=; path=/;'
-    document.cookie = 'refreshToken=; path=/;'
+    // Using js-cookie to clear cookies
+    Cookies.remove('accessToken', { path: '/' })
+    Cookies.remove('refreshToken', { path: '/' })
     dispatch(logout())
     dispatch(setOpacityValue(false))
     dispatch(promptDialogBox(false))
@@ -32,38 +35,29 @@ function PromptDialogBox() {
   const handleLogout = async () => {
     dispatch(setPrimaryLoading(true))
     try {
-      let response = await userAuth({
-        api: 'logout',
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      })
+      const response = await logOut().unwrap()
 
-      if (response.status === 200) {
+      if (response) {
         clearUserData()
         toast.success('Logout Successful')
         navigate('/')
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        const newAccessToken = await refreshAccessToken()
+        const token = { Authorization: `Bearer ${Cookies.get('refreshToken')}` }
+        const newAccessToken = await refreshToken(token).unwrap()
+
         if (newAccessToken) {
           try {
-            const retryResponse = await userAuth({
-              api: 'logout',
-              headers: {
-                Authorization: `Bearer ${newAccessToken}`,
-              },
-            })
-            if (retryResponse.status === 200) {
+            const retryResponse = await logOut()
+            if (retryResponse) {
               clearUserData()
               toast.success('Logout Successful')
               navigate('/')
             }
-          } finally {
+          } catch (err) {
             clearUserData()
-            toast.success('Logout Successful')
-            navigate('/')
+            toast.error('Logout failed. Please try again.')
           }
         }
       } else {

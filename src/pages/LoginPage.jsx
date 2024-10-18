@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import React, { useState } from 'react'
 import { FaApple, FaFacebookF, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -6,7 +7,7 @@ import { MdOutlineEmail } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
-import { ApiCall } from '../api/api'
+import { useLoginMutation } from '../api/authAPi/authApi'
 import PrimaryLoader from '../components/common/Loader/PrimaryLoader'
 import { login, setRefreshToken } from '../redux/features/authSlice'
 import {
@@ -15,18 +16,27 @@ import {
   setPrimaryLoading,
   setSignUpVisible,
 } from '../redux/features/modalSlice'
+import { setUserData } from '../redux/features/userDataSlice'
+// Correct import
 import profilePic from '/src/assets/homePage1/loginPage/loginPage.png'
 import logo from '/src/assets/logo.png'
 import '/src/styling/LoginPage.css'
 
 const LoginPage = () => {
   const dispatch = useDispatch()
-  const { userAuth } = ApiCall()
-  const [userData, setUserData] = useState({ email: '', password: '' })
   const [iconToggle, setIconToggle] = useState(false)
+  const [loginMutation] = useLoginMutation()
 
   const isVisible = useSelector((state) => state.modal.loginVisible)
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
+  const userData = useSelector((state) => state.user)
+  const [userInput, setUserInput] = useState({
+    userEmail: '',
+    userPassword: '',
+  })
+
+  Cookies.set('accessToken', 'test', { path: '/' })
+  Cookies.set('refreshToken', 'test', { path: '/' })
 
   const handleCloseIconClick = () => {
     dispatch(setLoginVisible(false))
@@ -40,25 +50,26 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     dispatch(setPrimaryLoading(true))
-    try {
-      const response = await userAuth({
-        data: {
-          identifier: userData.email,
-          password: userData.password,
-        },
-        api: 'login',
-      })
 
-      if (response.status === 200) {
+    const data = {
+      identifier: userData.userEmail,
+      password: userData.userPassword,
+    }
+
+    try {
+      const response = await loginMutation(data).unwrap()
+
+      if (response) {
         toast.success('Login Successful')
 
-        // Store tokens in cookies
-        document.cookie = `accessToken=${response.data.access_token}; path=/;`
-        document.cookie = `refreshToken=${response.data.refresh_token}; path=/;`
+        Cookies.set('accessToken', response.access_token, { path: '/' })
+        Cookies.set('refreshToken', response.refresh_token, { path: '/' })
 
-        // Store tokens in Redux
-        dispatch(login(response.data.access_token))
-        dispatch(setRefreshToken(response.data.refresh_token))
+        dispatch(login(response.access_token))
+        dispatch(setRefreshToken(response.refresh_token))
+
+        // Update user data in Redux store
+        dispatch(setUserData(response.user))
 
         dispatch(setLoginVisible(false))
         dispatch(setOpacityValue(false))
@@ -74,11 +85,9 @@ const LoginPage = () => {
     }
   }
 
-  const handleLockIconToggle = () => setIconToggle(!iconToggle)
-
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setUserData((prevData) => ({ ...prevData, [name]: value }))
+    setUserInput({ [name]: value })
   }
 
   return (
@@ -96,14 +105,14 @@ const LoginPage = () => {
           <span>MyCourse.io</span>
         </div>
         <span className="loginPageText">
-          Join us and get more benefits. We promise to keep your data safely.
+          Join us and get more benefits. We promise to keep your data safe.
         </span>
         <div className="loginPageTextInput">
           <input
             type="email"
             placeholder="Email Address"
-            name="email"
-            value={userData.email}
+            name="userEmail"
+            value={userInput.userEmail}
             onChange={handleInputChange}
             autoComplete="email"
           />
@@ -111,20 +120,20 @@ const LoginPage = () => {
           <input
             type={iconToggle ? 'text' : 'password'}
             placeholder="Password"
-            name="password"
-            value={userData.password}
+            name="userPassword"
+            value={userInput.userPassword}
             onChange={handleInputChange}
             autoComplete="current-password"
           />
           {iconToggle ? (
             <FaRegEye
               className="loginlockIcon"
-              onClick={handleLockIconToggle}
+              onClick={() => setIconToggle(false)}
             />
           ) : (
             <FaRegEyeSlash
               className="loginlockIcon"
-              onClick={handleLockIconToggle}
+              onClick={() => setIconToggle(true)}
             />
           )}
           <button className="loginPageLoginBtn" onClick={handleLogin}>

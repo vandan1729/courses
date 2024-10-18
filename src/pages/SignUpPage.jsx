@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import React, { useState } from 'react'
 import { FaApple, FaFacebookF, FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -5,9 +6,10 @@ import { IoMdClose } from 'react-icons/io'
 import { MdOutlineEmail } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+// Importing js-cookie
 import { v4 as uuidv4 } from 'uuid'
 
-import { ApiCall } from '../api/api'
+import { useRegisterUserMutation } from '../api/authAPi/authApi'
 import profilePic from '../assets/homePage1/singUpPage/singUpImg.png'
 import {
   CustomToastEmail,
@@ -27,10 +29,10 @@ import '/src/styling/SignUpPage.css'
 
 const SignUpPage = () => {
   const dispatch = useDispatch()
-  const { userAuth } = ApiCall()
   const isVisible = useSelector((state) => state.modal.signUpVisible)
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
   const [iconToggle, setIconToggle] = useState(false)
+  const [registerUser] = useRegisterUserMutation()
   const [userSignUp, setUserSignUp] = useState({
     userEmailID: '',
     userPassword: '',
@@ -71,7 +73,6 @@ const SignUpPage = () => {
     const emailCriteria = {
       empty: userEmailID === '',
       invalidFormat: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmailID),
-      taken: false,
     }
 
     if (Object.values(emailCriteria).some(Boolean)) {
@@ -90,35 +91,35 @@ const SignUpPage = () => {
 
     const { userEmailID, userPassword, firstName, lastName } = userSignUp
 
+    const data = {
+      email: userEmailID,
+      password: userPassword,
+      first_name: firstName,
+      last_name: lastName,
+      profile_picture: 'a',
+      is_instructor: false,
+      is_admin: false,
+      username: uuidv4(),
+    }
+
     try {
       dispatch(setPrimaryLoading(true))
-      const response = await userAuth({
-        data: {
-          email: userEmailID,
-          password: userPassword,
-          first_name: firstName,
-          last_name: lastName,
-          profile_picture: 'a',
-          is_instructor: false,
-          is_admin: false,
-          username: uuidv4(),
-        },
-        api: 'register',
-      })
+      const response = await registerUser(data).unwrap()
 
-      if (response.status === 200) {
+      if (response) {
         toast.success('Registered Successfully')
         dispatch(
           setUserData({
             userEmail: userEmailID,
-            userPassword: userPassword,
             userFirstName: firstName,
             userLastName: lastName,
           }),
         )
-        dispatch(login(response.data.access_token))
-        document.cookie = `accessToken=${response.data.access_token}; path=/;`
-        document.cookie = `refreshToken=${response.data.refresh_token}; path=/;`
+        dispatch(login(response.access_token))
+
+        // Store tokens in cookies using js-cookie
+        Cookies.set('accessToken', response.access_token, { path: '/' })
+        Cookies.set('refreshToken', response.refresh_token, { path: '/' })
 
         dispatch(setOpacityValue(false))
         dispatch(setSignUpVisible(false))

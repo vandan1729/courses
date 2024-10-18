@@ -18,17 +18,18 @@ const userSlice = createSlice({
   reducers: {
     setUserData: (state, action) => {
       const {
-        userFirstName,
-        userLastName,
-        userEmail,
         userPassword,
         userHeadLine,
+        first_name,
+        last_name,
+        email,
+        profile_picture,
         userProfile,
       } = action.payload
 
-      state.userFirstName = userFirstName ?? state.userFirstName
-      state.userLastName = userLastName ?? state.userLastName
-      state.userEmail = userEmail ?? state.userEmail
+      state.userFirstName = first_name ?? state.userFirstName
+      state.userLastName = last_name ?? state.userLastName
+      state.userEmail = email ?? state.userEmail
       state.userPassword = userPassword ?? state.userPassword
       state.userHeadLine = userHeadLine ?? state.userHeadLine
       state.userProfile = userProfile ?? state.userProfile

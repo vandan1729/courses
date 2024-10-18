@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import { updateOfflineCardDetails } from '../../redux/features/paidOfflineVideo'
 import { toggleWishListItem } from '../../redux/features/wishListSlice'
 import '../../styling/CardContainer.css'
+import { useGetWishlistQuery } from '../../api/wishlist/wishlistApi'
+import { colgroup } from 'framer-motion/client'
 
 function WishlistPageContainer() {
   const dispatch = useDispatch()
@@ -20,6 +22,8 @@ function WishlistPageContainer() {
 
   const [likedItems, setLikedItems] = useState({})
   const [filteredData, setFilteredData] = useState([])
+  const {data} = useGetWishlistQuery()
+  console.log(data)
 
   useEffect(() => {
     const updatedLikedItems = {}

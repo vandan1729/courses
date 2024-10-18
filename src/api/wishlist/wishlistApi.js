@@ -3,11 +3,10 @@ import { apiSlice } from '../apiSlice'
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     
-    registerUser: builder.mutation({
-      query: (user) => ({
-        url: '/user/auth/register',
-        method: 'POST',
-        data: user,
+    getWishlist: builder.query({
+      query: () => ({
+        url: '/user/wishlist/',
+        method: 'GET',
       }),
     }),
     login: builder.mutation({
@@ -26,5 +25,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useRegisterUserMutation, useLoginMutation, useLogOutMutation } =
+export const { useGetWishlistQuery , useLoginMutation, useLogOutMutation } =
   authApiSlice
