@@ -25,18 +25,15 @@ import '/src/styling/LoginPage.css'
 const LoginPage = () => {
   const dispatch = useDispatch()
   const [iconToggle, setIconToggle] = useState(false)
-  const [loginMutation] = useLoginMutation()
+  const [Login] = useLoginMutation()
 
   const isVisible = useSelector((state) => state.modal.loginVisible)
   const primaryLoading = useSelector((state) => state.modal.primaryLoading)
-  const userData = useSelector((state) => state.user)
+  
   const [userInput, setUserInput] = useState({
     userEmail: '',
     userPassword: '',
   })
-
-  Cookies.set('accessToken', 'test', { path: '/' })
-  Cookies.set('refreshToken', 'test', { path: '/' })
 
   const handleCloseIconClick = () => {
     dispatch(setLoginVisible(false))
@@ -49,45 +46,52 @@ const LoginPage = () => {
   }
 
   const handleLogin = async () => {
-    dispatch(setPrimaryLoading(true))
-
-    const data = {
-      identifier: userData.userEmail,
-      password: userData.userPassword,
-    }
-
     try {
-      const response = await loginMutation(data).unwrap()
+      const { userEmail, userPassword } = userInput
 
-      if (response) {
+      const data = {
+        identifier: userEmail, 
+        password: userPassword,
+      }
+
+
+      console.log(data, 'Data')
+      
+      // const response = await Login(data).unwrap()
+      const response = await Login(data)
+      console.log('response: ', response);
+
+      if (response.data) {
+        
         toast.success('Login Successful')
-
-        Cookies.set('accessToken', response.access_token, { path: '/' })
-        Cookies.set('refreshToken', response.refresh_token, { path: '/' })
-
+  
         dispatch(login(response.access_token))
-        dispatch(setRefreshToken(response.refresh_token))
-
-        // Update user data in Redux store
-        dispatch(setUserData(response.user))
-
+  
+        Cookies.set('accessToken', response?.data?.access_token, { path: '/' })
+        Cookies.set('refreshToken', response?.data?.refresh_token, { path: '/' })
+  
         dispatch(setLoginVisible(false))
         dispatch(setOpacityValue(false))
       } else {
-        toast.error(
-          'Login failed. Please check your credentials and try again.',
-        )
+        toast.error('Login failed. Please check your credentials and try again.')
       }
     } catch (error) {
-      toast.error('Login failed. Please try again later.')
+      console.log(error)
+      toast.error('Login failed. Please try again later.' + error)
     } finally {
       dispatch(setPrimaryLoading(false))
     }
   }
+  
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setUserInput({ [name]: value })
+    setUserInput((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+    // console.log(userInput, 'User input state')
   }
 
   return (

@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<HomePage1 />} />
           <Route path="/homePage2" element={<HomePage2 />} />
           <Route path="/homePage3" element={<HomePage3 />} />
-          <Route path="/*" element={<ErrorPage />} />
+          {/* <Route path="/*" element={<ErrorPage />} /> */}
           <Route
             path="/unPaidWebinarPage/:cardContent"
             element={<UnPaidWebinarPage />}

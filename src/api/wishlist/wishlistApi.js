@@ -5,25 +5,19 @@ export const authApiSlice = apiSlice.injectEndpoints({
     
     getWishlist: builder.query({
       query: () => ({
-        url: '/user/wishlist/',
+        url: '/user/wishlist',
         method: 'GET',
       }),
     }),
-    login: builder.mutation({
+    getWishlist: builder.mutation({
       query: (data) => ({
-        url: '/user/auth/login',
+        url: '/user/wishlist',
         method: 'POST',
         data,
-      }),
-    }),
-    logOut: builder.mutation({
-      query: () => ({
-        url: '/user/auth/logout',
-        method: 'POST',
       }),
     }),
   }),
 })
 
-export const { useGetWishlistQuery , useLoginMutation, useLogOutMutation } =
+export const { useGetWishlistQuery , usePostWishlistMutation } =
   authApiSlice

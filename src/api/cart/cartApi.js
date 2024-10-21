@@ -3,18 +3,17 @@ import { apiSlice } from '../apiSlice'
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     
-    registerUser: builder.mutation({
-      query: (user) => ({
-        url: '/user/auth/register',
-        method: 'POST',
-        data: user,
+    getCart: builder.query({
+      query: () => ({
+        url: '/user/cart',
+        method: 'GET',
       }),
     }),
-    login: builder.mutation({
+    postCart: builder.mutation({
       query: (data) => ({
-        url: '/user/auth/login',
+        url: '/user/cart',
         method: 'POST',
-        data: data,
+        data,
       }),
     }),
     logOut: builder.mutation({
@@ -26,5 +25,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useRegisterUserMutation, useLoginMutation, useLogOutMutation } =
+export const { useGetCartQuery , usePostCartMutation, useLogOutMutation } =
   authApiSlice

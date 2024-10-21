@@ -10,6 +10,7 @@ import { MdLiveTv } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
+import { usePostCartMutation } from '../api/cart/cartApi'
 import SubscribeCard from '../components/homePage1/SubscribeCard'
 import Layout from '../layoutComponent/Layout'
 import { setBuyProduct } from '../redux/features/buyProductSlice'
@@ -27,6 +28,7 @@ function UnPaidWebinarPage() {
     courseDetails,
     courseImage,
     id,
+    quantity,
   } = useSelector((state) => state.unPaidWebinar)
   const wishListItems = useSelector((state) => state.wishList.wishListItems)
   const buyProductId = useSelector((state) => state.buyProduct.items)
@@ -40,6 +42,8 @@ function UnPaidWebinarPage() {
   const [isInCart, setIsInCart] = useState(
     buyProductId.some((product) => product.id === id),
   )
+
+  const [postCartMutation] = usePostCartMutation()
 
   const opacityValue = useSelector((state) => state.modal.opacityValue)
 
@@ -64,20 +68,48 @@ function UnPaidWebinarPage() {
     }
   }
 
-  const handleBuyProduct = () => {
+  // const handleBuyProduct = () => {
+  //   if (auth) {
+  //     const productData = {
+  //       id: id,
+  //       cardImg: courseImage,
+  //       cardContent: courseName,
+  //       cardAuthor: courseInstructor || 'Kitani Studio',
+  //       cardDescription:
+  //         courseDetails || 'Default course description goes here...',
+  //       cardPrice: price.newPrice,
+  //       cardDiscountPrice: price.oldPrice,
+  //     }
+  //     dispatch(setBuyProduct(productData))
+  //     toast.success('Product added to cart!')
+  //   } else {
+  //     toast.warn('Please Login To Buy Product')
+  //   }
+  // }
+
+  const handleBuyProduct = async () => {
     if (auth) {
-      const productData = {
-        id: id,
-        cardImg: courseImage,
-        cardContent: courseName,
-        cardAuthor: 'Kitani Studio',
-        cardDescription:
-          courseDetails || 'Default course description goes here...',
-        cardPrice: price.newPrice,
-        cardDiscountPrice: price.oldPrice,
+
+      const CourseData = {
+        quantity: quantity,
+        course_id: id,
       }
-      dispatch(setBuyProduct(productData))
-      toast.success('Product added to cart!')
+      
+      try {
+        const response = await postCartMutation(CourseData)
+        
+        if (response) {
+          toast.success('Product added to cart!')
+          dispatch(setBuyProduct(productData))
+        } else {
+          toast.error('Failed to add product to cart: ', response)
+        }
+      } catch (error) {
+        toast.error('Failed to add product to cart: ', error)
+      } finally {
+        dispatch(setPrimaryLoading(false))
+      }
+      
     } else {
       toast.warn('Please Login To Buy Product')
     }
